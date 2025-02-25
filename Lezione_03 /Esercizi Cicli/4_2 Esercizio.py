@@ -7,18 +7,18 @@ You could print a sentence, such as Any of these animals would make a great pet!
 
 '''
 
-animals =["Dog", "Cat", "Rabbit"] 
+# Creiamo una lista con tre animali da compagnia
+animals = ["Dog", "Cat", "Rabbit"]
 
+# Usiamo un ciclo for per stampare il nome di ogni animale con una frase personalizzata
 for name in animals:
+    print(f"\nQuesto è il nome dell'animale: {name}")
 
-       print(f"\nQuesto è il nome dell'animale: {name}")
+# Stampa di frasi specifiche per ogni animale
+print(f"\n{animals[0]} è un fantastico cane!")
+print(f"\n{animals[1]} è di ottima compagnia!")
+print(f"\n{animals[2]} è così morbido!")
 
-
-    
-print(f"\n{animals[0]} è un fantastico cane !")
-print(f"\n{animals[1]} è di ottima compagnia !")
-print(f"\n{animals[2]} è così morbido ! ")
-
-
-print(f"\n\nGli animali {animals[0]},{animals[1]}, {animals[2]} hanno in comune di essere ANIMALI DA COMPAGNIA !")
-print(f"\n\nGli animali {animals[0]},{animals[1]}, {animals[2]} potrebbero essere degli ottimi cuccioli !")
+# Messaggio finale che evidenzia una caratteristica comune tra gli animali della lista
+print(f"\n\nGli animali {animals[0]}, {animals[1]}, {animals[2]} hanno in comune di essere ANIMALI DA COMPAGNIA!")
+print(f"\n\nGli animali {animals[0]}, {animals[1]}, {animals[2]} potrebbero essere degli ottimi cuccioli!")

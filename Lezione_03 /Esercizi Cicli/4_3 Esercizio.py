@@ -3,10 +3,10 @@
 
 '''
 
-for numero in range(21):
+# Usiamo un ciclo for per contare da 0 a 20
+for numero in range(21):  # range(21) genera numeri da 0 a 20
+    print(f"Contiamo fino a VENTI: {numero}!")
 
-    print(f"Contiamo fino a VENTI:{numero} !")
-
+    # Quando il numero raggiunge 20, stampiamo un messaggio speciale
     if numero == 20:
-
-        print("Siamo giunti al 20 !")
+        print("Siamo giunti al 20!")
