@@ -25,8 +25,8 @@ Gender: Femmina
 # Chiede all'utente di inserire il proprio nome e lo salva nella variabile 'nome'
 nome: str = input("\nBenvenuto, inserisci il tuo NOME: ")
 
-# Chiede all'utente di inserire il proprio sesso ('m' per maschio, 'f' per femmina)
-sesso: str = input('\nInserisci il tuo sesso "m" per maschio e "f" per femmina: ')
+# Chiede all'utente di inserire il proprio sesso ('m' per maschio, 'f' per femmina), funziona anche con l'utilizzo della MAIUSC o MINUSC
+sesso: str = input('\nInserisci il tuo sesso "m" per maschio e "f" per femmina: ').lower()
 
 # Utilizza il costrutto 'match' per verificare il valore inserito nella variabile 'sesso'
 match sesso:
@@ -34,12 +34,12 @@ match sesso:
     # Se l'utente ha inserito 'm', stampa il nome e il genere "Maschio"
     case 'm':
         print(f"\nNome: {nome}")
-        print(f"Gender: Maschio")
+        print(f"\nGender: Maschio\n\n")
 
     # Se l'utente ha inserito 'f', stampa il nome e il genere "Femmina"
     case 'f':
         print(f"\nNome: {nome}")
-        print(f"Gender: Femmina")
+        print(f"\nGender: Femmina\n\n")
 
     # Se l'utente ha inserito un valore diverso da 'm' o 'f', stampa un messaggio di errore
     case _:
