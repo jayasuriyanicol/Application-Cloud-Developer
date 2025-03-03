@@ -64,20 +64,20 @@ Non sono in grado di fornire informazioni sull'habitat aria.
 
 '''
 
-# Messaggio di benvenuto
+#Messaggio per l'inserimento delle variabili ANIMALE e HABITAT dell'animale
 animale = input("\nBenvenuto! Inserisci il nome di un animale: ").lower()
 habitat = input(f"\nInserisci l'habitat in cui vive l'animale {animale}: ").lower()
 
-# Categorie di animali
+#Elenco delle diverse specie di animale presenti, classificate uno per uno
 Mammiferi = {"cane", "gatto", "cavallo", "elefante", "leone", "balena", "delfino"}
 Rettili = {"serpente", "lucertola", "tartaruga", "coccodrillo"}
 Uccelli = {"aquila", "pappagallo", "gufo", "falco", "cigno", "anatra", "gallina", "tacchino"}
 Pesci = {"squalo", "trota", "salmone", "carpa"}
 
-# Categorie di habitat
+#Categorie di HABITAT presentti dichiarate nella consegna
 habitat_possibili = {"acqua", "aria", "terra"}
 
-# Classificazione dell'animale
+#Ciclo IF-ELIF-ELSE per la classificazione e inserimento dell'animale nella variabile ANIMAL_TYPE dove salviamo la categoria dell'animale in questione
 if animale in Mammiferi:
     animal_type = "Mammiferi"
 elif animale in Rettili:
@@ -89,60 +89,61 @@ elif animale in Pesci:
 else:
     animal_type = "Unknown"
 
-# Creazione del dizionario
-creatura = {
-    "nome": animale,
-    "categoria": animal_type,
-    "habitat": habitat
-}
-
-# Verifica input sconosciuti
+#Caso in cui abbiamo l'input SCONOSCIUTO, con relativi messaggi
 if animal_type == "Unknown":
     print(f"Non so dire in quale categoria classificare l'animale {animale}!")
     print(f"Non sono in grado di fornire informazioni sull'habitat {habitat}.")
+   
+#Caso in cui l'HABITAT non corrisponde all'habitat selezionato
 elif habitat not in habitat_possibili:
-    print(f"L'habitat {habitat} non è riconosciuto. Inserisci 'acqua', 'terra' o 'aria'.")
+    print(f"L'habitat {habitat} non è riconosciuto. Inserisci 'ACQUA', 'TERRA' o 'ARIA'.")
+
+#In caso in cui non corrisponde a nessuno di questi criteri SCONOSCIUTI, prosegue con i diversi casi del MATCH, passiamo come varibili: ANIMAL_TYPE e HABITAT
 else:
     match (animal_type, habitat):
 
-        # Mammiferi
+        #Caso MAMMIFERI, con i vari casi dell'HABITAT: terra e acqua
         case ("Mammiferi", "terra") if animale in {"cane", "gatto", "cavallo", "elefante", "leone"}:
-            print(f"{animale.capitalize()} appartiene alla categoria dei {animal_type}!")
-            print(f"L'animale {animale} è uno dei mammiferi che può vivere sulla terra!")
+            print(f"\n{animale.upper()} appartiene alla categoria dei {animal_type}!")
+            print(f"\nL'animale {animale} è uno dei mammiferi che può vivere sulla terra!")
 
         case ("Mammiferi", "acqua") if animale in {"balena", "delfino"}:
-            print(f"{animale.capitalize()} appartiene alla categoria dei {animal_type}!")
-            print(f"L'animale {animale} è uno dei mammiferi che può vivere in acqua!")
+            print(f"\n{animale.upper()} appartiene alla categoria dei {animal_type}!")
+            print(f"\nL'animale {animale} è uno dei mammiferi che può vivere in acqua!")
 
-        # Rettili
+        #Caso RETTILI, con i vari casi dell'HABITAT: terra e acqua
         case ("Rettili", "terra") if animale in {"serpente", "lucertola", "tartaruga", "coccodrillo"}:
-            print(f"{animale.capitalize()} appartiene alla categoria dei {animal_type}!")
-            print(f"L'animale {animale} può vivere sulla terra!")
+            print(f"\n{animale.upper()} appartiene alla categoria dei {animal_type}!")
+            print(f"\nL'animale {animale} può vivere sulla terra!")
 
         case ("Rettili", "acqua") if animale in {"tartaruga", "coccodrillo"}:
-            print(f"{animale.capitalize()} appartiene alla categoria dei {animal_type}!")
-            print(f"L'animale {animale} può vivere in acqua!")
+            print(f"\n{animale.upper()} appartiene alla categoria dei {animal_type}!")
+            print(f"\nL'animale {animale} può vivere in acqua!")
 
-        # Pesci
+        #Caso PESCI, in questo caso rimane l'HABITAT acqua dato che non ci sono pesci che sopravvivano al di fuori di essa
+
+        #In più in questo CASE non andiamo a inserire la condizione if chiedendo se è presente nella LISTA, 
+        #dato che sappiamo per cverto che essi no sopravvivono al di fuori dell'HABITAT ACQUA. 
         case ("Pesci", "acqua"):
-            print(f"{animale.capitalize()} appartiene alla categoria dei {animal_type}!")
-            print(f"L'animale {animale} può vivere in acqua!")
+        
+            print(f"\n{animale.upper()} appartiene alla categoria dei {animal_type}!")
+            print(f"\nL'animale {animale} può vivere in acqua!")
 
-        # Uccelli
+        #Caso UCCELLI, con i vari casi dell'HABITAT: aria, terra e acqua
         case ("Uccelli", "aria") if animale in {"aquila", "falco", "pappagallo"}:
-            print(f"{animale.capitalize()} appartiene alla categoria dei {animal_type}!")
-            print(f"L'animale {animale} può volare in aria!")
+            print(f"\n{animale.upper()} appartiene alla categoria dei {animal_type}!")
+            print(f"\nL'animale {animale} può volare in aria!")
 
         case ("Uccelli", "terra") if animale in {"pappagallo", "gallina", "tacchino"}:
-            print(f"{animale.capitalize()} appartiene alla categoria dei {animal_type}!")
-            print(f"L'animale {animale} può vivere sulla terra!")
+            print(f"\n{animale.upper()} appartiene alla categoria dei {animal_type}!")
+            print(f"\nL'animale {animale} può vivere sulla terra!")
 
         case ("Uccelli", "acqua") if animale in {"cigno", "anatra"}:
-            print(f"{animale.capitalize()} appartiene alla categoria dei {animal_type}!")
-            print(f"L'animale {animale} può vivere in acqua!")
+            print(f"\n{animale.upper()} appartiene alla categoria dei {animal_type}!")
+            print(f"\nL'animale {animale} può vivere in acqua!")
 
-        # Caso errato: animale non vive nell'habitat specificato
+        # Caso ERRORE, quando un ANIMALE presente nelle CATEGORIE non corrisponmde all'HABITAT
         case _:
-            print(f"{animale.capitalize()} appartiene alla categoria dei {animal_type}!")
-            print(f"Non ho mai visto l'animale {animale} vivere nell'habitat {habitat}.")
+            print(f"\n{animale.upper()} appartiene alla categoria dei {animal_type}!")
+            print(f"\nNon ho mai visto l'animale {animale} vivere nell'habitat {habitat}.")
 
