@@ -146,5 +146,3 @@ else:
         case _:
             print(f"\n{animale.upper()} appartiene alla categoria dei {animal_type}!")
             print(f"\nNon ho mai visto l'animale {animale} vivere nell'habitat {habitat}.")
-
-print(habitat)
