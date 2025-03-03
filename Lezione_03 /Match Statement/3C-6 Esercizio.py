@@ -69,22 +69,22 @@ animale = input("\nBenvenuto! Inserisci il nome di un animale: ").lower()
 habitat = input(f"\nInserisci l'habitat in cui vive l'animale {animale}: ").lower()
 
 #Elenco delle diverse specie di animale presenti, classificate uno per uno
-Mammiferi = {"cane", "gatto", "cavallo", "elefante", "leone", "balena", "delfino"}
-Rettili = {"serpente", "lucertola", "tartaruga", "coccodrillo"}
-Uccelli = {"aquila", "pappagallo", "gufo", "falco", "cigno", "anatra", "gallina", "tacchino"}
-Pesci = {"squalo", "trota", "salmone", "carpa"}
+mammiferi = {"cane", "gatto", "cavallo", "elefante", "leone", "balena", "delfino"}
+rettili = {"serpente", "lucertola", "tartaruga", "coccodrillo"}
+uccelli = {"aquila", "pappagallo", "gufo", "falco", "cigno", "anatra", "gallina", "tacchino"}
+pesci = {"squalo", "trota", "salmone", "carpa"}
 
 #Categorie di HABITAT presentti dichiarate nella consegna
 habitat_possibili = {"acqua", "aria", "terra"}
 
 #Ciclo IF-ELIF-ELSE per la classificazione e inserimento dell'animale nella variabile ANIMAL_TYPE dove salviamo la categoria dell'animale in questione
-if animale in Mammiferi:
+if animale in mammiferi:
     animal_type = "Mammiferi"
-elif animale in Rettili:
+elif animale in rettili:
     animal_type = "Rettili"
-elif animale in Uccelli:
+elif animale in uccelli:
     animal_type = "Uccelli"
-elif animale in Pesci:
+elif animale in pesci:
     animal_type = "Pesci"
 else:
     animal_type = "Unknown"
