@@ -12,8 +12,8 @@ Welcome to the **Application Cloud Developer** course! This training program pro
 
 ### ✅ Key Features  
 
-- **Hands-on** practice  
-- *Cloud-oriented* approach  
-- <u>Continuous improvement</u>  
+- **Hands-on** practice mostly coding in **Python**
+- *Software* and *Developer* approach 
+- <u>Cloud-Oriented</u>  
 
 Happy navigation ! ➤ 
