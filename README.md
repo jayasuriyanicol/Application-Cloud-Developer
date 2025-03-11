@@ -14,7 +14,6 @@ Welcome to the **Application Cloud Developer** course! This training program pro
 
 - **Hands-on** practice  
 - *Cloud-oriented* approach  
-- ~~No outdated methods~~  
 - <u>Continuous improvement</u>  
 
 Happy navigation ! ➤ 
