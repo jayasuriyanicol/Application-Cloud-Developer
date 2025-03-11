@@ -2,7 +2,9 @@
 
 # Application Cloud Developer ☁️
 
-Welcome to the **Application Cloud Developer** course! This training program provides *both theoretical knowledge and hands-on experience* in cloud application development.  
+Welcome to the **Application Cloud Developer** course! 
+
+This training program provides *both theoretical knowledge and hands-on experience* in cloud application development.  
 
 ## 🗂 Repository Structure  
 
