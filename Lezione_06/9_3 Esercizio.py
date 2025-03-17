@@ -15,7 +15,7 @@ class User:
       self.age = age
       self.email  = email
       self.location = location
-#Creiamo un metodo chiamto decsrivi l'utente, in cui inseriamo e descriviamo il nome e il cognome dell'utente in questione
+#Creiamo un metodo chiamto descrivi l'utente, in cui inseriamo e descriviamo il nome e il cognome dell'utente in questione con gli altri relativi dati
     def describe_user (self):
        
        print(f"\nIl nome dell'utente è: {self.first_name.upper()} mentre il suo cognome è: {self.last_name.upper()}, l'utente ha un età di: {self.age} anni.\nLa sua EMAIL personale è la seguente: {self.email} e attualmente vive a : {self.location}.")
