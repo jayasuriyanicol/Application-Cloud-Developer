@@ -83,7 +83,7 @@ class Name_Class | NameClass: #La prima lettera per OBBLIGO deve essere maiuscol
  name_variabile_1 : Name_Class = NameClass("input" , "input" , input)
  name_variabile_2 : Name_Class = NameClass("input" , "input" , input)
 
-#Il dato inserito verrà salvato un due differenti istanza nonostante appartenenti alla stessa classe, dato che sono 
+#Il dato inserito verrà salvato un due differenti istanze nonostante appartenenti alla stessa classe, dato che sono 
 allocate in due indirizzi di memoria differenti.
 
  def function (self) -> type #Attraverso questo caso andiamo a scrivere una funzione per la clase
@@ -93,11 +93,110 @@ allocate in due indirizzi di memoria differenti.
  print(parm_1.function()) 
 
 
-self. __name_varibile #Secondo questa sintassi rendiamo privata una variabile, tramite "__" doppio underscore, ma al moento non lòa utilizzeremo
+self. __name_variabile #Secondo questa sintassi rendiamo privata una variabile, tramite "__" doppio underscore, ma al moento non lòa utilizzeremo
+
+
+- AGGIORNAMENTO LEZIONE 24/03/2025:
+
+                           |DIFFERENCE BETWEEN GLOBAL AND LOCAL ATTRIBUTES|
+
+class name_class:
+ #GLOBAL PART  - OBJECT CLASS
+  global_object
+  
+ #Attraverso self, accediamo ad un attributo presente dentro un costruttore oppure dentro una classe. 
+  def _init__ (self, name_attribute):
+     #LOCAL PART - OBJECT ATTRIBUTES 
+      self.name_attribute =  name_attriute
+
+ #Attraverso cls, possiamo accedere all'oggetto globale che si trova al di fuori del costruttore 
+  def getGlobalObject(cls):
+      name = len(global_object)
+      return name
+
+                                       |DECORATOR - DECORATORE|
+            
+#Utilizzo dei METODI STATICI con l'utilizzo del DECORATOR
+ @staticmethod -> Decorator
+ def name_function(lst:list[int] , val: int ) -> list:
+     lst.append(val)
+  
+     
+
+                                               
+                                              | METODO __CALL__ |
+
+  #Attraverso il metodo __call__ permette di nrendere un'istanza di una classe, quindi un oggetto prenderlo e interpretarlo come una funzione.
+  
+  Le principali funziuonalità sono:
+
+   1. PRENDERE OGGETTI COME FUNZIONI
+   2. MIGLIORE LEGGIBILITÀ E FLESSIBILITÀ 
+   3. GENERAZIONE DINAMICA DEGLI OGGETTI
+
+   Vediamo un esempio più pratico: 
+    
+   class coffeeMachine: 
+    def __init__ (self,tipology= "Espresso"):
+        self.tipology = tipology
+      
+    def __call__ (self):
+        return f"We can prepare a coffee {self.tipology}
+    
+    machine = coffeeMachine()
+    print(machine()) -> Questo ci ritornerà il valore indicato che è per l'appunto un caffè ESPRESSO.
+    machine_cappuccino = coffeeMachine("Cappuccino")
+    print(machine_cappuccino()) -> Abbiamo modificato il valore di caffè e lo cambiamo con CAPPUCCINO.
+
+                                        
+                                        
+                                        | METODO __STR__ e __REPR__ |
+
+
+                                  
+ #Attraverso il metodo __str__ e __repr__ sono utilizzati per definire le rappresentazioni in formato stringa di un oggetto. 
+ Il metodo `__str__` fornisce una rappresentazione leggibile e user-friendly dell'oggetto, mentre `__repr__` restituisce una rappresentazione 
+ più dettagliata e tecnica, utile per gli sviluppatori e il debugging.
+
+
+In sintesi, `__str__` è destinato a fornire una descrizione chiara e comprensibile dell'oggetto per l'utente finale, mentre `__repr__` mira a fornire 
+una rappresentazione precisa e informativa dell'oggetto, utile per la diagnostica e il debugging.
+  
+ METODO __STR__ e  __REPR__ :
+
+  __str__ = Metodo INFORMALE -> Dove viene 'printata' la nostra infromazione, in modo INFORMALE, dato GREZZO.
+  _repr__ = Metodo FORMALE -> Dove viene anche richiamata anche una possibile funzione che noi creiamo.
+
+  Sono molto identici, la loro funzione è praticamente identica solo che vengono utilizzati in casi differenti l'uno dall'altro.
+
+
+  Facciamo un esempio PRATICO sull'utilizzo di queste due METODI:
+
+  class MacchinaCaffe:
+    def __init__(self, tipo="Espresso", marca="DeLonghi"):
+        self.tipo = tipo
+        self.marca = marca
+
+    def __str__(self):
+        return f"☕ Macchina del caffè {self.marca}, pronta a fare un {self.tipo}!"
+
+    def __repr__(self):
+        return f"MacchinaCaffe(tipo='{self.tipo}', marca='{self.marca}')"
+
+  macchina = MacchinaCaffe("Cappuccino", "Nespresso")
+
+  print(str(macchina))  # Output Metodo INFORMALE:  Macchina del caffè Nespresso, pronta a fare un Cappuccino!
+
+
+  print(repr(macchina))  # Output Metodo FORMALE: MacchinaCaffe(tipo='Cappuccino', marca='Nespresso')
 
 
 
 
 
 
+     
+
+     
+     
 '''
