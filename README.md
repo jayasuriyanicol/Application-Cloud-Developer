@@ -4,7 +4,8 @@
 
 Welcome to the **Application Cloud Developer** course ! 
 
-This training program provides *both theoretical knowledge and hands-on experience* in cloud application development.  
+This training program provides me *both theoretical knowledge and hands-on experience* in the enviroment of cloud application development.  
+Is based mostly on coding part and creating and organise Software / Database.
 
 ## 🗂 Repository Structure  
 
