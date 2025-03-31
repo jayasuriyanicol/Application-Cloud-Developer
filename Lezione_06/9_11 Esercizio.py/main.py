@@ -9,12 +9,10 @@ le chiamate a funzioni precedenti possiamo vedere come esse funzionino.
 
 from users import User, Admin
 
-# Creazione di un utente normale
 utente_1 = User("Nicol", "Jayasuriya", 20, "jayasuiryanicol28@gmail.com", "Vienna, Austria")
 utente_1.describe_user()
 utente_1.greet_user()
 
-# Creazione di un amministratore con privilegi specifici
 admin_1 = Admin("Nicol", "Jayasuriya", 20, "jayasuiryanicol28@gmail.com", "Vienna, Austria",
                 ["Può creare nuovi utenti", "Può gestire i fondi", "Può eliminare o sospendere utenti"])
 
