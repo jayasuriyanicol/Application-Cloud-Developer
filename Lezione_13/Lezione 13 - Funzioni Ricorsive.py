@@ -182,13 +182,26 @@ Definiamo la nostra funzione e la richiamiamo passando la nostra funzione con un
 
 
 
+                                                  | FIBONACCI SEQUENCE RECURSIVE |
+
+ Vediamo il caso di FIBONBACCI per la comprensione delle formule ricorsive. 
+ Il caso di FIBONACCI, prende il caso concreto della RICORSIONE, data la formula matematica:
 
 
 
+                  F(n) -> F(0) -> return 0
+                  F(n) -> F(1) -> return 1
+                  F(n) -> Fibonacci = F(n-1)+ F(n+2) -> return Fibonacci
 
 
- (ARRIVATI FINO SLIDE 54 )
+Considerando il caso esempio di Fibonacci possiamo prendere il caso di F(6) -> N=6 e questo sarà uguale a 8 dato che seguiamo la formula: Fibonacci = F(n-1) + F(n-2):
 
+Quindi dato un numero n = 6 andiamo a creare due rami che andiamo a decrementare finche non raggiungerà le condizioni basi 1 e 0 sempre decrementando con la formula di:
+Fibonacci = F(n-1) + F(n-2).
+ 
+
+
+              
 
  
  
