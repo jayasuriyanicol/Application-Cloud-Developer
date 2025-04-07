@@ -32,7 +32,7 @@ print("\n\nThe value for 10 sides-die is: ")
 for _ in range(10):
     print("\nThe value is: ",sides_10.roll_die())
 
-    #Svolgiamo la seconda chiamata a funzione richiesta dall'esercizio
+#Svolgiamo la seconda chiamata a funzione richiesta dall'esercizio
 sides_20 = Dice(20)
 
 print("\n\nThe value for 20 sides-die is: ")

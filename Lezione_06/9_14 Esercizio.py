@@ -21,7 +21,7 @@ class LotteryMachine:
     def generationTicket(self):
         self.ticket = random.choices(self.generation, k=4)  
         return self.ticket
-   #Infine, come richiesto dall'esercizio andaimo a stampare il risultato, con una messaggio prestabilito dall'esercizio 
+   #Infine, come richiesto dall'esercizio andiamo a stampare il risultato, con una messaggio prestabilito dall'esercizio 
     def displayTicket(self):
         print("\nIf the values EXACTLY match the winning ticket, you WIN!")
         print("Winning Ticket:", ' '.join(self.ticket))
