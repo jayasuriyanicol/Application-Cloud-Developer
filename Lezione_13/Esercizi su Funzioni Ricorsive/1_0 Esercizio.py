@@ -15,13 +15,16 @@ Utilizzare, poi, la funzione per calcolare:
 
 '''
 
-#Definiamo una funzione ricorsiva che calcola la funzione ricorsiva di un numero, facciamo prima il caso base se e = 0 ogni numero ritorna 1, senno vado a calcolare in modo ricorsivo il numero
+#Definiamo una funzione ricorsiva che calcola la funzione ricorsiva di un numero, facciamo prima il caso base se esponente(e) = 0 ogni numero ritorna 1, 
+#inseriamo acnhe un caso intermedio ovvero se la base(b) = 0 ritorna 0, altrimenti vado a calcolare in modo ricorsivo il numero.
 def recursivePower (b:int,e:int) -> int:
 
     if e == 0:
         return 1
+    elif b== 0:
+        return 0
     else:
-        return b * recursivePower(b, e - 1)
+        return int(b * recursivePower(b, e - 1))
 
 #Richiamia o la funzione come richiesto e calcoliamo la funzione
 print("3⁴ =", recursivePower(3, 4))
