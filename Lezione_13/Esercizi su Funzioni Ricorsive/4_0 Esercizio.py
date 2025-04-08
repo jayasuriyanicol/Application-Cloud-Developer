@@ -24,7 +24,7 @@ def recursiveDigitCounter(n:int)-> int:
     
    #In caso non sia min di 0, andiamo a calcolare il nostro il nostaro risultato con la div in 10 per togliere sempre l'ultima cifra e fare la ricorasione 
     else:
-        ris = n  //10 
+        ris = n  // 10 
     return 1 + recursiveDigitCounter(ris)
 
 #Successivamente andiamo a stampare il nostro numero, mostrando le cifre per ogni numero inserito
