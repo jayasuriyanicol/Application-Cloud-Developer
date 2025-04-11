@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regione Lazio - CONTATTI</title>
+</head>
+<body>
+
+    <center>
+        <img src="RegioneLazio.jpg" width="80%">
+    </center>
+
+    <table align="center" border="1"> 
+        <tr>
+            <td> <a href="homepage.html"> Home Page </a></td> 
+            <td> <a href="ChiSiamo.html"> Chi Siamo </a></td> 
+            <td> <a href="Prodotti.html"> Prodotti </a></td>
+            <td> <a href="Servizi.html"> Servizi </a></td>
+            <td> <a href="Contatti.html"> Contatti </a></td>
+        </tr>
+    </table>
+
+    <br>   
+    <center>
+        <h2>Contattaci</h2>
+        <form action="submit_form.php" method="post">
+            <table>
+                <tr>
+                    <td>Nome:</td>
+                    <td><input type="text" name="nome" required></td>
+                </tr>
+                <tr>
+                    <td>Cognome:</td>
+                    <td><input type="text" name="cognome" required></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td>Messaggio:</td>
+                    <td><textarea name="messaggio" rows="4" cols="30" required></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Invia">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+   
+
+</body>
+</html>
