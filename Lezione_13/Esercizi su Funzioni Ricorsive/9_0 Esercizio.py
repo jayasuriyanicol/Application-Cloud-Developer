@@ -22,7 +22,7 @@ def vowelRemover(s: str) -> str:
     else:
         return s[0] + vowelRemover(s[1:])
 
-#
+
 print(vowelRemover("NICOLA"))  
 
       
