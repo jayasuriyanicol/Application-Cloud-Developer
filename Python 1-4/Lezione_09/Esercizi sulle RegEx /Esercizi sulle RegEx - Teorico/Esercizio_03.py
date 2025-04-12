@@ -23,3 +23,5 @@ Esercizio 3.2: Estendi la RegEx per accettare anche domini con più estensioni, 
 Definiamo: \S+@\S+\S+, OPPURE : ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})*$
 
 '''
+
+
