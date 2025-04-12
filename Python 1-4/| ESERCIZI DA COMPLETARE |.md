@@ -18,4 +18,4 @@ Lezione numero 18:
 Lezione numero 9:
 
 -ARGOMENTO TEORICO: Regex e Lambda 
-- Esercizi Regex + Python e Regex
+- Esercizi Regex + Python dal 4 fino al 9
