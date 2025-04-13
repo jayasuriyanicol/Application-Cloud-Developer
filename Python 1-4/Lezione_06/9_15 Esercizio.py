@@ -19,71 +19,51 @@
     How many attempts it took to win
 '''
 
-'''----------------------------                        ESERICIZIO NUMERO 9_14                       --------------------------------------------------'''
-
-
-
+'''                                                      |ESERICIZIO NUMERO 9_14|                                                                               '''
 
 import random
 import string
 
 class LotteryMachine:
-
-   
     def __init__(self):
         self.generation = [str(num) for num in range(10)] + list(string.ascii_letters[:5])  
         self.ticket = [] 
- 
+
     def generationTicket(self):
         self.ticket = random.choices(self.generation, k=4)  
         return self.ticket
-   
+
     def displayTicket(self):
         print("\nIf the values EXACTLY match the winning ticket, you WIN!")
         print("Winning Ticket:", ' '.join(self.ticket))
 
-''' ------------------------------------                ESERCIZOIO 9_15                     ---------------------------------------------------------------------------------'''
+
+
+    '''                                                 |ESERCIZIO NUMERO 9_15 |                                                                                                  '''
+
 
 #Definiamo una funzione che simula il numero di tentativi di una serie di numeri generata casualmente sia uguale al ticket vincente, mostra in output.
-def simulate_until_win(self, my_ticket):
+    def simulate_until_win(self, my_ticket):
         tentativi = 0
         while True:
             random_ticket = random.choices(self.generation, k=4)
             tentativi += 1
             if random_ticket == my_ticket:
                 return tentativi, random_ticket
-
+            
 #Definiamo la funzione lotteria per cercare di minimilizzare l'avvio del codice alla sola chiamata a funzione
 def lotteria():
-        lottery = LotteryMachine()
-        my_ticket = lottery.generationTicket()
+    lottery = LotteryMachine()
+    my_ticket = lottery.generationTicket()
 
-        print("Your ticket:     ", ' '.join(my_ticket))
+    print("Your ticket:     ", ' '.join(my_ticket))
 
-        attempts, winning_ticket = lottery.simulate_until_win(my_ticket)
+    tentativi, winning_ticket = lottery.simulate_until_win(my_ticket)
 
-        print("Winning ticket:  ", ' '.join(winning_ticket))
-        print("Attempts needed: ", attempts)
-
+    print("Winning ticket:  ", ' '.join(winning_ticket))
+    print("Attempts needed: ", tentativi)
 
 lotteria()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

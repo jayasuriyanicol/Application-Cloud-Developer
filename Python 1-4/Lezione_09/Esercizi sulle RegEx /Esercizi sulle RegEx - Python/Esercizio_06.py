@@ -13,7 +13,7 @@ import re
 
 def check_product_code(code:str) -> str:
 
-    return bool (re.findall(r'PROD-\d{4}-[A-Z]',code))
+    return bool (re.findall(r'(PROD)-(\d{4})-([A-Z]{2})',code))
 
 #Andiamo a testare i vari codici, verificando che essi siano compatibili allo standard
 print(check_product_code ("PROD-9876-ZX"))
