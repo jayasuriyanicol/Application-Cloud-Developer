@@ -8,7 +8,7 @@ Handle potential IOError within the with block for clean resource management.
 
 
 #Nella funzione di LETTURA del file andiamo ad aprilo e abilitare la lettura con 'r' (read), acquisiamo il contenuto salvandolo in una variabile e stampiamo il messaggio di avvenuto successo
-def readfile(filename):
+def readFile(filename):
     try: 
         with open(filename,'r') as file:
             contenuto = file.read()
@@ -21,9 +21,10 @@ def readfile(filename):
 
 
 #Proseguiamo con la funzione che permette la SCRITTURA del file attraverso il medesimo procedimento però in 'w' ovvero scrittura, con relativi messaggi di successo o negativo in caso di insdef writeFile(filename, text):
+def writeFile(filename):
     try:
         with open(filename, 'w') as file:
-            contenuto = file.write(text)
+            contenuto = file.write()
             print("Accesso e abilitazione con scrittura avvenuto con successo !\n", contenuto)
     except IOError as error :
         print(f"Errore nella scrittura del file {error} !")
