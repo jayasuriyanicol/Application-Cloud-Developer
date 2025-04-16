@@ -1,0 +1,166 @@
+
+<!--Esercizio BOOTSTRAP: con implementazione di: HTML - CSS - DOM e BOOTSTRAP-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Esercizio Finale - BOOTSTRAP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .pricing-header {
+        max-width: 800px;
+      }
+
+      .card-deck {
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+        height: 300px;
+    }
+
+      footer {
+        padding: 3rem 0;
+        border-top: 1px solid #dee2e6;
+        margin-top: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Sezione della Barra di Navigazione -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Company name</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+          <ul class="navbar-nav mb-2 mb-lg-0 me-2">
+            <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Enterprise</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+          </ul>
+          <button class="btn btn-outline-primary" type="button">Sign up</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Parte principale della pagina WEB, con le varie informazioni -->
+    <main class="container text-center my-5">
+      <div class="pricing-header mx-auto text-center">
+        <h1 class="display-4 fw-normal">Pricing</h1>
+        <p class="fs-5 text-muted"  >
+            <br>
+          Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.
+        </p>
+      </div>
+      <br>
+   
+
+      <!--Definiamo le varie parti della nostra CAROUSEL, con i vari PIANI-->
+
+      <div class="card-deck my-5">
+        <!-- Primo CAROUSEL con il PIANO FREE-->
+        <div class="card border rounded shadow-sm w-25 h-200">
+          <div class="card-header">
+            <h4 class="my-0 fw-normal">Free</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$0 <large class="text-muted">/ mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>10 users included</li>
+              <li>2 GB of storage</li>
+              <li>Email support</li>
+              <li>Help center access</li>
+            </ul>
+            <button type="button" class="btn btn-outline-primary w-100">Sign up for free</button>
+          </div>
+        </div>
+
+        <!-- Secondo CAROUSEL con il PIANO PRO-->
+        <div class="card border rounded shadow-sm w-25 h-200">
+          <div class="card-header">
+            <h4 class="my-0 fw-normal">Pro</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>20 users included</li>
+              <li>10 GB of storage</li>
+              <li>Priority email support</li>
+              <li>Help center access</li>
+            </ul>
+            <button type="button" class="btn btn-primary w-100">Get started</button>
+          </div>
+        </div>
+
+        <!-- Primo CAROUSEL con il PIANO ENTERPRISE -->
+        <div class="card border rounded shadow-sm w-25 h-200">
+          <div class="card-header">
+            <h4 class="my-0 fw-normal">Enterprise</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>30 users included</li>
+              <li>15 GB of storage</li>
+              <li>Phone and email support</li>
+              <li>Help center access</li>
+            </ul>
+            <button type="button" class="btn btn-primary w-100">Contact us</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!--Facciamo la parte del FOOTER, dove andiamo a inserire le informazioni riguardo INFORMAZIONI -->
+
+    <footer class="container">
+      <div class="row">
+        <div class="col-12 col-md">
+          <img src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg" width="24" height="24" alt="">
+          <small class="d-block mb-3 text-muted">&copy; 2017–2018</small>
+        </div>
+
+        <!--Andiamo a creare delle tabelle nelle quali elenchiamo le varie caratteristiche del sito, elencando ogni elemento uno per uno, con le varie informazioni -->
+
+
+<!--Creiamo la tabella FEATURES dove andiamo a elencare sotto ad esso le varie informazioni inerenti.-->
+<div class="col-6 col-md">
+    <h5>Features</h5>
+    <ul class="list-unstyled text-small">
+      <li><a href="#" class="text-secondary text-decoration-none">Cool stuff</a></li>
+      <li><a href="#" class="text-secondary text-decoration-none">Random feature</a></li>
+      <li><a href="#" class="text-secondary text-decoration-none">Team feature</a></li>
+      <li><a href="#" class="text-secondary text-decoration-none">Stuff for developers</a></li>
+    </ul>
+  </div>
+  
+
+       <!--Creiamo la seconda tabella RESOURCES dove andiamo a elencare sotto ad esso le varie informazioni inerenti.-->
+<div class="col-6 col-md">
+    <h5>Resources</h5>
+    <ul class="list-unstyled text-small">
+      <li><a href="#" class="text-secondary text-decoration-none">Resource</a></li>
+      <li><a href="#" class="text-secondary text-decoration-none">Resource name</a></li>
+      <li><a href="#" class="text-secondary text-decoration-none">Another resource</a></li>
+      <li><a href="#" class="text-secondary text-decoration-none">Final resource</a></li>
+    </ul>
+  </div>
+  <div class="col-6 col-md">
+    <!--Creiamo l'ultima tabella FEATURES dove andiamo a elencare sotto ad esso le varie informazioni inerenti.-->
+    <h5>About</h5>
+    <ul class="list-unstyled text-small">
+      <li><a href="#" class="text-secondary text-decoration-none">Team</a></li>
+      <li><a href="#" class="text-secondary text-decoration-none">Locations</a></li>
+      <li><a href="#" class="text-secondary text-decoration-none">Privacy</a></li>
+      <li><a href="#" class="text-secondary text-decoration-none">Terms</a></li>
+    </ul>
+  </div>
+  
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
