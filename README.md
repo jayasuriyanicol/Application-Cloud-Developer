@@ -19,9 +19,6 @@ It is mainly focused on coding and on the creation and organization of Software 
 - *Software* and *Developer* approach  
 - <u>Cloud-Oriented</u>  
 
-Happy navigation! ➤
-
----
 
 ## 📅 Update Log Format
 
@@ -35,5 +32,8 @@ Where:
 
 Example:  
 
-This helps keep track of all changes in a clear and consistent format.
+`UPDATE - 01_01_2025`
 
+Happy navigation! ➤
+
+---
