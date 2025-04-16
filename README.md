@@ -20,3 +20,20 @@ It is mainly focused on coding and on the creation and organization of Software 
 - <u>Cloud-Oriented</u>  
 
 Happy navigation! ➤
+
+---
+
+## 📅 Update Log Format
+
+Every update to this repository follows the naming convention:
+
+
+Where:  
+- `DD` = Day  
+- `MM` = Month  
+- `YYYY` = Year  
+
+Example:  
+
+This helps keep track of all changes in a clear and consistent format.
+
