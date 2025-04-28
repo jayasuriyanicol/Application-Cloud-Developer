@@ -15,7 +15,7 @@ print(fm.name, fm.last_name, fm.age)
 fm.displayData()
 '''
 #Dal file perosna importa la classe Persona
-from Lezione_08.persona import Persona
+from persona import Persona
 
 fm: Persona = Persona ()
 #richiamo la funzione displayDat della classe Persona per mostrare in output le infromazioni relative all'oggetto fm
