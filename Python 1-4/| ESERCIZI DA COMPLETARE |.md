@@ -15,6 +15,12 @@ Lezione numero 9:
 
 -ARGOMENTO TEORICO: Regex and LAMDA
 
+
+Lezione numero 12:
+
+- Svolgere i due esericizi come ESERCITAZIONE sulle classi
+
+
 Lezione numero 21:
 
 -ARGOMENTO TEORICO : Linux comandi TERMINALE
