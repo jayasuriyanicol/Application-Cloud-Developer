@@ -5,8 +5,6 @@ Lezione numero 5:
 REVISIONARE il ESERCIZIO della lepre e della tartaruga.
 
 
-
-
 Lezione numero 18:
 
 2_0 Esercizio fino 7_0 Esercizio
@@ -15,5 +13,9 @@ Lezione numero 18:
 
 Lezione numero 9:
 
--ARGOMENTO TEORICO: Regex.
+-ARGOMENTO TEORICO: Regex and LAMDA
+
+Lezione numero 21:
+
+-ARGOMENTO TEORICO : Linux comandi TERMINALE
 
