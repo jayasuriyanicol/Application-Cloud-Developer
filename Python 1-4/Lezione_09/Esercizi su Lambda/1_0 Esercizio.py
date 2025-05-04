@@ -11,9 +11,9 @@ quadrato = lambda x: ...
 #Importiamo il metodo Callable, ed andiamo a eseguire il calcolo del quadrato della funzione LAMBDA
 from typing import Callable
 
-#Andiamo a chiamre la funzione quadrato e passare un parametro int -> che ci restituisce un int con la formula x**2
-quadrato:Callable [[int],int] = lambda x: x ** 2
+#Andiamo a chiamare la funzione quadrato e passare un parametro float -> che ci restituisce un float con la formula x**2
+quadrato:Callable [[float],float] = lambda x: x ** 2
 
-#Andiamo a eseguire dei TEST per vedere il corretto funzionamento della funzione LAMBDA
+#Andiamo a eseguire dei TEST per vedere il corretto funzionamento della funzione quadrato 
 print(quadrato(2))
-print(quadrato(4))
+print(quadrato(4.2))
