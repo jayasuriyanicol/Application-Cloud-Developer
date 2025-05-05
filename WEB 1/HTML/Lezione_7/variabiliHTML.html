@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVASCRIPT - Parte Pratica </title>
+    
+    <script>
+     test();
+     console.log(anni); // -> Uscirà il messaggio di UNDEFINED
+
+     // HOISTING : caratteristica JavaScript -> che è un meccanismo automatico che "sposta" le dichiarazione delle variabili nella riga 1 (ovvero all'inizio)
+     // "sposta" le dichiarazioni di variabili alla riga 2 all'inizio
+     // "sposta" le 
+     function test() {
+        console.log("Sto eseguendo la funzione TEST !");
+
+     }
+
+
+
+
+    // DIFFERENZA FRA VAR E LET
+
+
+     // Dichiarazione di variabile FASE 1 (var)
+
+     var anni = 10; // -> Errore della PRIMA FASE, nella parte semantica si potrebbe scrivere la variabile senza l'utilizzo di VAR "anni = 10"
+     var anni = 30;
+
+     // Dichiarazionbe di variabile FASE 2 (let) -> Introdotta nel ES5 / ES6
+     let anni2 = 20;
+     anni2 = 30;
+     let anni4 = 10;
+
+     let test2 =  () => {
+         console.log("Sto eseguendo la funzione test2");
+     }
+
+     // Ricordiamoci sempr seu tutte le parti dei codici di JavaSacript, l'inserimento del ";" non OBBLIGATORIO ma GIUSTO, perchè richiama un'altra funzione.
+     
+
+     // TIPOLOGIE DI VARIABILI: Esistono cinque tipologie di variuabili che sono: STRINGHE - NUEMRI - BOOLEAN - NULL  - UNDEFINED
+     
+     // JS : tipizzazione debole, il tipo può cambiare, come :
+     let x = "ciao" + "a tutti quanti"; // -> concatenazione possibile anche con i numeri.
+     
+
+     // FASE 1 Template Statico -> caso statico che non viene più utilizzato al momento
+     let y = "ciao" + 10 + anni2 + "arrivederci"; 
+
+     // FASE 2 Template String -> caso identico alla formattazzione di Python, utilizziamo il backtick ovvvero l'accento grave con AltGr + ' (del tastierino).
+     let z = ` ciao ${anni4} ${anni2} arrivederci `; // -> Questa maniera scriviamo in maniera più nitida e flessibile e giusta.
+    
+
+
+     </script>
+
+</head>
+<body>
+    
+</body>
+</html>
