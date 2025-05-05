@@ -1,4 +1,7 @@
-'''
+'''                                   | ESERCITAZIONE PER IL CALCOLO DEI FATTORI PRIMI |
+
+
+
 Scrivi una funzione che calcoli i fattori primi di un numero intero positivo n.
 
 Un fattore primo di n è un numero primo che divide esattamente n (cioè senza resto), e la cui moltiplicazione in sequenza restituisce n. 
@@ -28,12 +31,10 @@ print(prime_factors(60))
 	
 
 [2, 2, 3, 5]
-
 '''
 
 
 
-'''
 def prime_factors(n: int) -> list[int]:
     fattori = []
     divisore = 2 
