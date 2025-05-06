@@ -28,49 +28,132 @@ Codice Driver
 
 '''
 
-
+#Creiamo la classe libro, inserendo i vari valori dati dalla consegna inserendo anche il prestito che inizialmente sarà False di base -> ovvero "Il LIBRO è DISPONIBILE"
 
 class Libro:
-
-    def __init__(self,titolo:str, autore:str,statoPrestito: str):
-        
+    def __init__(self, titolo: str, autore: str):
         self.titolo = titolo
         self.autore = autore
-        self.statoPrestito = statoPrestito
+        self.statoPrestito = False  
 
 
+#Successivamente andiamo a creare una classe Biblioteca dove inseriamo le funzioni richieste andando a richiamare la classe precedente ovvero LIBRO in una nuova variabile "libroNuovo" con parametri titolo ed autore
+class Biblioteca:
+    def __init__(self):
 
-class Biblioteca(Libro):
+        self.catalogoBiblioteca = []
 
-    def __init__(self, titolo, autore, statoPrestito):
-        super().__init__(titolo, autore, statoPrestito)
+    def aggiungi_libro(self, titolo: str, autore: str):
 
-        self.catalogoBiblioteca = [] 
+        libroNuovo = Libro(titolo, autore)
+
+        self.catalogoBiblioteca.append(libroNuovo)
+
+        return f"\nSUCCESSO ! Il libro {titolo} è stato aggiunto al catalogo."
     
 
-    def aggiungi_libro(self,libro):
-        
-        self.catalogoBiblioteca.append(libro)
-        
-        return "\nSUCCESSO ! Il libro è stato registrato con successo nel CATALOGO DELLA BIBLIOTECA"
+
+    def presta_libro(self, titolo: str):
+
+        for libro in self.catalogoBiblioteca:
+
+            if libro.titolo == titolo:
+
+                if not libro.statoPrestito:
+
+                    libro.statoPrestito = True
+
+                    return f"PRESTITO EFFETTUATO ! Il libro {titolo} è stato prestato."
+                
+                else:
+
+                    return f"NON DISPONIBILE ! Il libro {titolo} è già stato prestato."
+                
+
+        return f"ERRORE ! Il libro '{titolo}' non è presente nel catalogo."
     
 
-    def presta_libro(self,libro):
-        
-        
-        if self.titolo == libro:
-            if self.statoPrestito == "disponibile".lower():
 
-                return "DISPONIBILE ! il libro è disponibile e può essere PRESTATO"
-            
-            else:
 
-                return "NON DISPONIBILE ! il libro non è disponibile e NON può essere PRESTATO"
-        
+
+    def restituisci_libro(self, titolo: str):
+
+        for libro in self.catalogoBiblioteca:
+
+            if libro.titolo == titolo:
+
+                if libro.statoPrestito:
+
+                    libro.statoPrestito = False
+
+                    return f"RESTITUZIONE EFFETTUATA ! Il libro '{titolo}' è stato restituito."
+                
+                else:
+
+                    return f"ATTENZIONE ! Il libro '{titolo}' non era stato prestato."
+                
+
+        return f"ERRORE ! Il libro '{titolo}' non è presente nel catalogo."
+    
+
+
+    def mostra_libri_disponibili(self):
+
+        disponibili = [libro.titolo for libro in self.catalogoBiblioteca if not libro.statoPrestito]
+
+        if disponibili:
+
+            print("\nLibri disponibili:")
+
+            for titolo in disponibili:
+
+                print("-", titolo)
         else:
+            print("\nATTENZIONE: Nessun libro disponibile.")
 
-            return "ATTENZIONE ! Il libro con il TITOLO fornito non è presente nell'ARCHIVIO"
-        
+
+
+    def mostra_stato_libri(self):
+
+        print("\nStato attuale dei libri:")
+
+        for libro in self.catalogoBiblioteca:
+
+            stato = "Prestato" if libro.statoPrestito else "Disponibile"
+
+
+            print(f"- {libro.titolo} ({stato})")
+
+
+
+
+
+
+
+#Infine andiamo a inserire qualche dato da input per verificare la correttezza del programma, quindi inseriamo i vari dati e andiamo a richiamare le funzioni per vedere il loro corretto funzionamento
+
+mia_biblioteca = Biblioteca()
+
+#Provvedo con aggiungere dei Libri inventati
+print(mia_biblioteca.aggiungi_libro("l GattoPardo", "Mario Verdi"))
+print(mia_biblioteca.aggiungi_libro("Il cane testardo", "Fabrizio Umberti"))
+print(mia_biblioteca.aggiungi_libro("Calma e Pazienza", "Cristiano Coccia"))
+
+#Richiamo la funzione per vedere se i libri inseriti sono stati salvati correttamente
+mia_biblioteca.mostra_libri_disponibili()
+
+#Aggiungo come richiesto dalla consegna due PRESTITI nello stesso anno "2024"
+print(mia_biblioteca.presta_libro("2024"))
+print(mia_biblioteca.presta_libro("2024"))
+
+#Restituisco come richiesto dalla consegna due RESTITUZIONI nello stesso anno "2025"
+print(mia_biblioteca.restituisci_libro("2025"))
+print(mia_biblioteca.restituisci_libro("2025")) 
+
+#Presto l'ultimo libro aggiunbto al catalogoBiblioteca
+print(mia_biblioteca.presta_libro("Calma e Pazienza"))
+
+#Infine, per concludere mostro lo stato di tutti i libri con relativo TITOLO e STATO del PRESTITO (Disponibile o Prestato)
+mia_biblioteca.mostra_stato_libri()
 
     
-      
