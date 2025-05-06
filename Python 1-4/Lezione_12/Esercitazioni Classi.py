@@ -96,20 +96,21 @@ class Biblioteca:
         return f"ERRORE ! Il libro '{titolo}' non è presente nel catalogo."
     
 
-
     def mostra_libri_disponibili(self):
+        disponibili = []
 
-        disponibili = [libro.titolo for libro in self.catalogoBiblioteca if not libro.statoPrestito]
+        for libro in self.catalogoBiblioteca:
+            if not libro.statoPrestito:
+                disponibili.append(libro.titolo)
 
         if disponibili:
-
             print("\nLibri disponibili:")
-
             for titolo in disponibili:
-
                 print("-", titolo)
         else:
-            print("\nATTENZIONE: Nessun libro disponibile.")
+            print("\nATTENZIONE ! Nessun libro disponibile.")
+
+    
 
 
 
@@ -119,7 +120,12 @@ class Biblioteca:
 
         for libro in self.catalogoBiblioteca:
 
-            stato = "Prestato" if libro.statoPrestito else "Disponibile"
+            if libro.statoPrestito:
+                
+                stato = "Prestato"
+                
+            else:
+                stato = "Disponibile"
 
 
             print(f"- {libro.titolo} ({stato})")
