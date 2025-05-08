@@ -1,0 +1,10 @@
+EXERCISE FOR 27/02/2025: 
+
+ Summary of Chapter 4 (Up to Modelling)
+
+As far As I am concerned the text talking about abstraction and modelling, giving to the reader a big help to fundamental concepts in CT. It is divide, firstly in Abstraction, that is essentialy giving the revelant details and information, simplifiying big problems, and don't consedering irrevelant ones. 
+Secondly It helps make more easier problem from the context to the strategy of thinking. On the other hand, we have the Layers of abstraction, that show us a viewing of a problem at different levels, making it easier to understand, such as for example a simnple scheme. As we said and viewed in the previous lesson.
+
+For example, the metro map, which represent routes without so many geograpichal details. While we have to bear in mind that hidden details can sometimes cause problems if they unexpectedly affect how something works.
+
+Finally we can talk about Modelling, that is a type of abstraction to represent real-world staff. This is also linked with static and dynamic models as the name said the static one remains unchanged over time, like a metro map, while the dynamic one shows changes and transitions, such weather predict.
