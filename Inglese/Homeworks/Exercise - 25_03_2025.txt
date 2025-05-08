@@ -1,0 +1,62 @@
+EXERCISE FOR 25/03/2025:
+
+Here are the answers for the exercises in the file "Chapter 6 - exercises.pdf":
+
+### **True/False Questions**  
+1. **False** – Most real-world software solutions are proven correct empirically, not mathematically.  
+2. **False** – An elegant solution maximizes both simplicity and effectiveness, not complexity.  
+3. **False** – Usability testing involves observing users without guiding them step by step.  
+4. **False** – A solution with at least one failing test is incorrect.  
+5. **True** – Big-O notation describes worst-case performance.  
+6. **False** – A correct solution must solve the original problem.  
+7. **False** – Efficiency includes both time and space complexity.  
+8. **False** – Elegance prioritizes simplicity, not complexity.  
+9. **True** – Usability testing involves real users performing tasks.  
+10. **False** – O(N²) is less efficient than O(N).  
+11. **True** – Correctness and efficiency are separate measures.  
+12. **True** – Usability evaluation includes observation and feedback.  
+13. **True** – Trade-offs are necessary in software development.  
+
+---
+
+### **Multiple Choice Questions**  
+1. **A, B, C, D** – All are key measures for evaluating a solution.  
+2. **B** – Big-O describes the running time growth of an algorithm.  
+3. **B** – Flexibility is not a usability component.  
+4. **B** – Testing aims to identify incorrect solutions.  
+5. **C** – O(1) describes constant time complexity.  
+6. **D** – All options negatively impact usability.  
+7. **B** – O(N) describes linear growth (runtime doubles with input size).  
+
+---
+
+### **Matching Exercise**  
+| Concept          | Description                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| Correctness      | Determines if the solution actually solves the intended problem.            |
+| Efficiency       | Evaluates the time and space complexity of the solution.                    |
+| Elegance         | Measures how well the solution balances simplicity and effectiveness.       |
+| Usability        | Assesses how easy and satisfying the solution is for users.                 |
+| Trade-offs       | The balance between different factors, such as speed vs. memory usage.      |
+| Empirical testing| Running a set of tests to check correctness in practice.                    |
+| Big-O Notation   | A way to classify algorithm efficiency based on worst-case performance.     |
+| Usability Testing| Observing how users interact with a system to measure effectiveness.        |
+
+-------------------------------------------------------------------
+
+
+Here’s a concise summary of the **Trade-offs** section from the PDF (pages 10–13):
+
+### **Summary of Trade-offs in Solution Evaluation**  
+1. **Definition**: Trade-offs occur when improving one aspect of a solution (e.g., speed) compromises another (e.g., memory usage).  
+2. **Space-Time Trade-off**:  
+   - **Example**: Image compression reduces storage space (e.g., storing "5B" instead of "BBBBB") but increases processing time during decompression.  
+   - Uncompressed data is faster to render but uses more space.  
+3. **Other Trade-offs**:  
+   - **Cleverness vs. Comprehensibility**: Complex solutions may be harder to understand.  
+   - **Usability vs. Flexibility**: More flexible designs can become less user-friendly.  
+4. **Guidance**: Prioritize optimization based on context (e.g., favor space efficiency for network transmission).  
+
+**Key Takeaway**: Solutions require balancing competing qualities; trade-offs are inevitable, and the optimal choice depends on the problem’s constraints.  
+
+*(This covers content from the "Trade-offs" section up to the exercises on page 14.)*
