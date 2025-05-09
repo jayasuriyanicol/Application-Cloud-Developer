@@ -1,0 +1,14 @@
+{
+    "nome": "Luca Rossi",
+    "eta": 30,
+    "email": "luca.rossi@example.com",
+    "iscrizione_newsletter": true,
+    "interessi": ["musica", "sport", "tecnologia"],
+    "indirizzo": {
+      "via": "Via Roma 123",
+      "citta": "Milano",
+      "CAP": "20100",
+      "paese": "Italia"
+    }
+  }
+  
