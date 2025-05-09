@@ -1,4 +1,4 @@
-{
+{ /*Questo è un PRIMO ESEMPIO DI UN FILE JSON   */
     "nome": "Luca Rossi",
     "eta": 30,
     "email": "luca.rossi@example.com",
