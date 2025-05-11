@@ -16,88 +16,46 @@ with FileManager('example.txt', 'w') as f:
     f.write('Hello, world!')
 '''
 
-
-
+#Creiamo la classe FileManager per andare a scrivere un messaggio sul file 'example.txt'
 class FileManager:
-
-    def __init__(self,nome: str, mode:str ,coding: str)-> None:
-        
+    def __init__(self, nome: str, mode: str, encoding: str = 'utf-8') -> None:
         self.nome = nome
         self.mode = mode
-        self.coding = coding
+        self.encoding = encoding
+        #Inizializziamo il file come "nullo" senza nessun parametro -> None
+        self.file = None  
 
+#Creiamo la funzione che ci permetterà di aprire il file per scriverci, ritornando alla fine il file
     def __enter__(self):
-        
+        self.file = open(self.nome, self.mode, encoding=self.encoding)
+        print("SUCCESSO! La RISORSA è stata acquisita!")
+        return self.file  
 
-        #Messaggio di conferma che il valore è satto acquisito con successo, ritornando anche il valore di SELF.  
-        print("SUCCESSO ! la RISORSA è stata acquisita !")
-
-        return False
-        
-        
-    def __exit__ (self,exc_type: None, exc_value: None, traceback: None):
-
-
-        #Messaggio di conferma per l'utente per far capire che la risoras è stat rilasciata 
-        print("SUCCESSO ! La risorsa è stata RILASCIATA !") 
+#Infine creiamo la funzione per chiudere e uscire dal file, e una gestione nel caso qualcosa non funzioni quindi Exception Values che vengono printate a video
+    def __exit__(self, exc_type, exc_value, traceback):
+        if self.file:
+            self.file.close()
+            print("SUCCESSO! La RISORSA è stata rilasciata!")
 
         if exc_type is not None:
-            print(f"Exception type:{exc_type}") #Valore della eccezione (messaggio) TYPE che è stata lanciata -> Se no NONE  
-            print(f"Exception value : {exc_value}") #Valore della eccezione (messaggio) VALUE che è stata lanciata  -> Se no NONE   
-            print(f"Traceback: {traceback}") #Valore della eccezione (messaggio) TRACEBACK che è stata lanciata -> Se no NONE  
+            print(f"Exception type: {exc_type}")
+            print(f"Exception value: {exc_value}")
+            print(f"Traceback: {traceback}")
         
-        return False
-    
-    
-
-
-with FileManager() as resource:
-    print("Sei all'interno del BLOCCO WITH !")
-
-
-'''------------------------------------------------------------    SPIEGAZIONE DI UN FILE JSON      ---------------------------------------------------------------------------------------------------'''
-
-
-'''----------------------------------------------------------CLASSE EXAMPLE --------------------------------------------------------------------------'''
-class Example:
-
-    def __init__(self,name,versione):
-        self.name= name  
-        self.version = versione 
-
-#Import di un file JSON
-import json
-with open("Lezione_15/config.json", "r") as file:
-    myConfig : dict= json.load(file)
-    print(myConfig["**"] )
-# ** -> Version,Features,ecc.
+       #In caso di caso negativo ritorniamo False
+        return False  
 
 
 
-'''-----------------------------------------ESEMPIO DI SALVATAGGIO DI UN FILE NEL FILE JSON------------------------------------------------'''    
-file  = open("Lezione_15/configNewJson", "w")
-
-db : dict = { "JYSNP..." : {"name": "Nicol", "surname":"Jayasuriya", "age": 20},
-              "JYDNA..." : {"name": "Dilan", "surname":"Jayasuriya", "age": 30},
-              "JYALP..." : {"name": "Anton", "surname":"Jayasuriya", "age": 53}}
+#Come richiesto dall'esericizio andiamo a provare a scrivere un messaggio testando l'effettivo funzionamento
+with FileManager("example.txt", "w") as f:
+    f.write("Ho appena effettuato l'accesso nel FILE!")
 
 
-json.dump(db,file)
+#Mentre se vogliamo testare gl EXCEPTION ERRORS e il Traceback, possiamo utilizzarer il metodo Zero Division 1/0
+with FileManager('example.txt', 'w') as f:
+    f.write("Scrivo prima dell'errore...\n")
+    1 / 0 
+    f.write("Questa riga non verrà mai scritta!")
 
 
-
-
-'''------------------------------------METODO SLAVATAGGIO DI UN FILE JSON ------------------------------'''
-
-
-
-json.dump(myConfig, file) #Utilizzo l'operatore dump per salvare il valore nel file JSON  
-example_1 : Example = Example(myConfig["name"],myConfig["versione"])
-
-jsonData : dict = json.load(file) #Per caricare un dato nel file JSON 
-
-jsonData["features"] = "Ciao"
-
-json.dump[jsonData,file] 
-
-file.close()
