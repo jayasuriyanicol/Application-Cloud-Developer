@@ -21,6 +21,12 @@ Lezione numero 12:
 - Svolgere i due esericizi come ESERCITAZIONE sulle classi
 
 
+
+Lezione numero 15:
+
+- Rivedere parte TEORICA: Context Manager e File JSON
+
+
 Lezione numero 21:
 
 -ARGOMENTO TEORICO : Linux comandi TERMINALE
