@@ -46,8 +46,8 @@ print("-" * 50)
 # ---------- 2. CREAZIONE DI UN NUOVO FILE JSON ----------
 db: dict = {
     "JYSNP...": {"name": "Nicol", "surname": "Jayasuriya", "age": 20},
-    "JYDNA...": {"name": "Dilan", "surname": "Jayasuriya", "age": 30},
-    "JYALP...": {"name": "Anton", "surname": "Jayasuriya", "age": 53}
+    "MBUNT...": {"name": "Nathan", "surname": "Mbuyamba", "age": 21},
+    "BMHIL...": {"name": "Michael", "surname": "Baciarello", "age": 20}
 }
 
 with open("Python 1_4/Lezione_15/File JSON/Esercizi File JSON/configNewJson.json", "w") as file:
