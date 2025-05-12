@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JAVASCRIPT - Parte Pratica </title>
-    
+    <head>
     <script>
      test();
      console.log(anni); // -> Uscirà il messaggio di UNDEFINED
@@ -21,7 +20,6 @@
 
 
     // DIFFERENZA FRA VAR E LET
-
 
      // Dichiarazione di variabile FASE 1 (var)
 
@@ -51,13 +49,69 @@
 
      // FASE 2 Template String -> caso identico alla formattazzione di Python, utilizziamo il backtick ovvvero l'accento grave con AltGr + ' (del tastierino).
      let z = ` ciao ${anni4} ${anni2} arrivederci `; // -> Questa maniera scriviamo in maniera più nitida e flessibile e giusta.
+       
+     //Numeri, dove nella dichiarazione del tipo non c'è 
+     let numeri = 10;
+
+     //Fronted, in HTML che è 100% STRING
+     function test3() {
+        let x = document.getElementById("primonumero").value;
+        x = parseFloat
+        console.log("Valore di x dopo il parse:", x);
+
+        // JavaScript
+
+        console.log(x+"ciao"); // '10ciao', concatenazione in maniera NATURALE
+        console.log(x*2); //c20
+        console.log(x*"2"); // 20...
+        console.log(x * "ciao"); // NaN -> Valore Nullo
+
+        let s = x * "ciao"; //NaN
+        console.log(s);
+        console.log(typeof(s)); // Restituisce la tipologia della variabile s -> number
+
+        // COndizione IF - ELSE con  NaN
+
+        isNaN(x); //Una variabile globale che mi risponde se è un numero tramite un BOOL 
+        
+        //Creiamo una condizione if-else che ci ritorna se è un numero o meno
+        if(isNaN(x)){
+            console.log("È UN NUMERO");
+        }else{
+            console.log("NON È UN NUMERO !");
     
+        }
+
+        // Boolean
+
+        let controllo = true;
+        console.log(false + 1); // Ci ritorna il valore -> 2
 
 
+        // Differenza tra NaN e UNDEFINED: Null è un valore(nome e cognome) mentre e UNDEFINED è un non valore
+
+        let h = null;
+        let i;
+
+        console.log("h è di tipo" + typeof(h)); //Ci ritorna il valore -> object (oggetto)
+        console.log("i è di tipo" + typeof(i)); // Ci ritorna il valore -> Undefined (valore indefinito)
+        
+
+    }
+    
      </script>
+    </head>
 
-</head>
-<body>
-    
-</body>
+    <body> 
+     <h1>VARIABILI</h1>
+
+     <p><br>Inserisci il testo e apri la console, per testare e vedere se il valore è corretto !<br><br><b>Tasto destro -> Analizza -> Console</b></be></p>
+
+     <form action="">
+        <input type="number" id="primonumero">
+        <button onclick="test3()">VAI</button>
+    </form>
+
+    </body>
+
 </html>

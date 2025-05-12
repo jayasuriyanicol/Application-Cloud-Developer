@@ -1,0 +1,44 @@
+<!--Esercizio 1.2 Lato client : creare una pagina html contenente uno script che dichiara una variabile numerica, assegnandole il valore iniziale di 100. Stampare a video il valore della variabile all’interno di un
+paragrafo della pagina. Successivamente cambiare valore alla variabile (valore = 70) e stampare nuovamente all’interno di un paragrafo il nuovo
+valore. Lato server : eseguire l’esercizio sulla console. -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Esercizio 1.2 - JavaScript + HTML</title>
+</head>
+<body>
+
+  <h1>ESERCIZIO 1_2</h1>
+
+  <h3>CONSEGNA:</h3>
+
+  <p>Esercizio 1.2 Lato client : creare una pagina html contenente uno script che dichiara una variabile numerica, assegnandole il valore iniziale di 100. Stampare a video il valore della variabile all’interno di un
+paragrafo della pagina. Successivamente cambiare valore alla variabile (valore = 70) e stampare nuovamente all’interno di un paragrafo il nuovo
+valore. Lato server : eseguire l’esercizio sulla console<b>(AL MOMENTO SU LATO SERVER NON VERRÀ SVOLTO DATO CHE NON È STATO ANCORA AFFRONTATO NodeJS)</b></b><p>
+</body>
+<h2><br>SVOLGIMENTO DELL'ESERCIZIO:</h2>
+
+
+
+  <!--Dopo aver scritto la consegna e che non lavoriamo in lato SERVER possiamo procedere con lo svolgimento dell'esercizio--> 
+  <h3>Valore iniziale e aggiornato della variabile:<br></h3>
+
+  <!--Andiamo a dichiarare i valori dei nostri numeri che in questo caso sono 'valoreIniziale' ed 'valoreAggiornato' che utilizzeremo nello script-->
+  <p id="valoreIniziale"></p>
+  <p id="valoreAggiornato"></p>
+
+  
+
+ <!--Nello script andiamo ad dichiarare tramite let la variabile nuemro che assumerà il valore di 100 (ovvero quello aggiornato) e poi andiamo per ognuno
+     ad dichiararer il valore collegato al valore di textContent con il numero '70' per il 'valoreIniziale', mentre per il 'valoreAggiornato' il valore di '100'-->
+  <script>
+  
+  let numero = 100
+
+   document.getElementById("valoreIniziale").textContent = "Valore Iniziale : " + numero; nuemro= 70;
+   document.getElementById("valoreAggiornato").textContent = "Valore Aggiornato: " + numero;
+  </script>
+</body>
+</html>
