@@ -26,7 +26,7 @@ print(primeDividedNumber(32)) '''
 
 
 '''ESERCIZIO: Creare una funzione BubbleSort che cui ci permetta senza l'utilizzo delle funzioni build-in MAX(), MIN() attraverso l'utilizzo dello SWAPPING
-              che permetta di ottenere data una lista NON ORDINATA la stessa lista ORDINATA e calcolare il tempo necessarioper l'esecuzione dell'algoritmo
+              che permetta di ottenere data una lista NON ORDINATA la stessa lista ORDINATA e calcolare il tempo necessario per l'esecuzione dell'algoritmo
 
 '''
 
@@ -36,11 +36,16 @@ def orderedList(lista: list[int]) -> list[int]:
     ordered: bool = True
     for primoElemento in range(len(lista)):
         for secondoElemento in range(primoElemento + 1, len(lista)):
-            if lista[primoElemento] >= lista[secondoElemento]:
-                ordered = False
+
+            ''' if lista[primoElemento] >= lista[secondoElemento]:
+                ordered = False 
+                
+                if ordered:
+                   return lista '''
                   
             if lista[secondoElemento] < lista[primoElemento]:
                 lista[primoElemento], lista[secondoElemento] = lista[secondoElemento], lista[primoElemento]
+            
     return lista
 
 
@@ -68,7 +73,7 @@ class CalculateTime:
 print("Inizio del programma")
 
 with CalculateTime():
-    risultato = orderedList([3, 2, 1, 6, 4, 9, 5, 0])
+    risultato = orderedList([3,2,1])
     print("Lista ordinata:", risultato)
 
 print("Fine del programma")
