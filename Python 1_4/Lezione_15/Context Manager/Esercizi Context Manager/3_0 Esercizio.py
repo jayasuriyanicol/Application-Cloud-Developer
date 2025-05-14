@@ -45,7 +45,7 @@ def orderedList(lista: list[int]) -> list[int]:
         for secondHalf in range(0, lunghezzaLista - firstHalf - 1):  
             if lista[secondHalf] > lista[secondHalf + 1]:
                 lista[secondHalf], lista[secondHalf + 1] = lista[secondHalf + 1], lista[secondHalf]  
-                #Se avviene almeno uno scambio, cambdaiamo e mettiamo False 
+                #Se avviene almeno uno scambio, cambiamo e mettiamo False 
                 ordered = False  
 
         # Nessuno scambio: la lista è già ordinata (lo verifichiamo solo se succede al primo ciclo)
