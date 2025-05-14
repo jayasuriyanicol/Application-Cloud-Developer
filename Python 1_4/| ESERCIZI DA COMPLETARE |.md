@@ -1,6 +1,6 @@
 | ESERCIZI DA COMPLETARE |
 
-# Lezione numero 5:
+## Lezione numero 5:
 
 REVISIONARE il ESERCIZIO della lepre e della tartaruga.
 
