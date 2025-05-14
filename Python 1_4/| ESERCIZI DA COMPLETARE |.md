@@ -1,37 +1,37 @@
-| ESERCIZI DA COMPLETARE |
+# | ESERCIZI DA COMPLETARE - PYTHON 1_4|
 
-## Lezione numero 5:
+### Lezione numero 5:
 
-REVISIONARE il ESERCIZIO della lepre e della tartaruga.
-
-
-Lezione numero 9:
-
--ARGOMENTO TEORICO: Regex and LAMDA
+REVISIONARE il ESERCIZIO della *lepre e della tartaruga.*
 
 
-Lezione numero 11:
+### Lezione numero 9:
 
-- Svolgere i due esericizi (Cinema e Magazzino) come ESERCITAZIONE sulle classi e ereditarietà
-
-Lezione numero 12:
-
-- Svolgere i due esericizi come ESERCITAZIONE sulle classi
+-ARGOMENTO TEORICO: *Regex and LAMDA*
 
 
-Lezione numero 15:
+### Lezione numero 11:
 
-- Rivedere parte TEORICA: Context Manager e File JSON
+- Svolgere i due esericizi *(Cinema e Magazzino)* come ESERCITAZIONE sulle classi e ereditarietà
+
+### Lezione numero 12:
+
+- Svolgere i due esericizi come *ESERCITAZIONE sulle classi*
 
 
-Lezione numero 18:
+### Lezione numero 15:
+
+- Rivedere parte TEORICA: *Context Manager e File JSON*
+
+
+### Lezione numero 18:
 
 2_0 Esercizio fino 7_0 Esercizio
 
-- ARGOMENTI TEORICI: ASSERT, TRY-EXPECTION, COMPREHENSIONS
+- ARGOMENTI TEORICI: *ASSERT, TRY-EXPECTION, COMPREHENSIONS*
 
 
-Lezione numero 21:
+### Lezione numero 21:
 
--ARGOMENTO TEORICO : Linux comandi TERMINALE
+-ARGOMENTO TEORICO : *Linux comandi TERMINALE*
 
