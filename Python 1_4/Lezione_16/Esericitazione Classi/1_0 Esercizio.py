@@ -50,55 +50,60 @@ print(z)
 5
 '''
 
-# Creiamo la classe contatore
+#Creiamo la classe Contatore per gestire un conteggio che può essere incrementato, decrementato, reimpostato e visualizzato
 class Contatore:
 
+    #Inizializziamo il conteggio a 0 tramite il costruttore
     def __init__(self):
-        # Inizializziamo il conteggio a 0
         self.conteggio = 0
 
+    #Creiamo la funzione per reimpostare il conteggio a 0
     def setZero(self):
-        # Reimpostiamo il conteggio a 0
         self.conteggio = 0
 
+    #Creiamo la funzione per incrementare il conteggio di 1
     def add1(self):
-        # Incrementiamo il conteggio di 1
         self.conteggio += 1
 
+    #Creiamo la funzione per decrementare il conteggio di 1, ma solo se maggiore di 0
     def sub1(self):
-        # Decrementiamo il conteggio di 1 solo se è maggiore di 0
         if self.conteggio > 0:
             self.conteggio -= 1
         else:
-            # Se il conteggio è già 0, stampiamo un messaggio di errore
+            #Se il conteggio è già a 0 stampiamo un messaggio di errore
             print("Non è possibile eseguire la sottrazione")
 
+    #Creiamo la funzione per restituire il valore corrente del conteggio
     def get(self):
-        # Restituiamo il valore corrente del conteggio
         return self.conteggio
 
+    #Creiamo la funzione per stampare il valore attuale del conteggio
     def mostra(self):
-        # Stampiamo il valore corrente del conteggio
         print(f"Conteggio attuale: {self.conteggio}")
 
 
-c = Contatore()  
-c.add1() 
-c.mostra()  
 
 
-c = Contatore()  
-c.sub1()  
-c.mostra()  
 
-c = Contatore() 
+'''Come richiesto dall'esercizio andiamo a testare l'incremento del conteggio '''
+
+c = Contatore()
 c.add1()
-c.add1()
-c.add1()
-c.add1()
-c.sub1()  
-c.add1()
-c.add1()
-z  = c.get()
-print(z)  
-# Output: 5
+c.mostra()
+
+#Testiamo ora la sottrazione da zero, che deve stampare un messaggio di errore
+c2 = Contatore()
+c2.sub1()
+c2.mostra()
+
+#Proviamo infine una serie di operazioni miste e stampiamo il valore finale
+c3 = Contatore()
+c3.add1()
+c3.add1()
+c3.add1()
+c3.add1()
+c3.sub1()
+c3.add1()
+c3.add1()
+z = c3.get()
+print(z)
