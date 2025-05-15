@@ -136,19 +136,19 @@ class RecipeManager:
         else:
           return self.recipes[recipe_name]
 
-    #Creiamo la funzione per cercare ricette che contengono un certo ingrediente
+    #Creiamo la funzione per cercare ricette che contengono un certo ingrediente tramite un dizionario
     def search_recipe_by_ingredient(self, ingredient: str) -> dict | str:
         
-        found = {
-            name: ingredients
-            for name, ingredients in self.recipes.items()
-            if ingredient in ingredients
-        }
+        found:dict = {}
 
-        if not found:
-            return "Nessuna ricetta contiene questo ingrediente."
-        else:
-          return found
+        for name,ingredients in self.recipes.items():
+            
+            if ingredient in ingredients:
+                found[name] = ingredients 
+                
+
+
+
 
 
 
