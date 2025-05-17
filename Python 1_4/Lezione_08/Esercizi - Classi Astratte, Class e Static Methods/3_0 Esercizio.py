@@ -62,55 +62,55 @@ Once your objects are created, simulate some basic library operations:
 
 '''
 
-# Classe BOOK
+#Classe BOOK
 class BookClass():
 
-    # Metodo costruttore con i 3 attributi principali: titolo, autore e codice ISBN
+    #Metodo costruttore con i 3 attributi principali: titolo, autore e codice ISBN
     def __init__(self, title: str, author: str, isbn: int):
         self.title = title
         self.author = author
         self.isbn = isbn
 
-    # Metodo __str__ per mostrare il libro in formato stringa
+    #Metodo __str__ per mostrare il libro in formato stringa
     def __str__(self):
         return f"Title: {self.title}, Author: {self.author}, ISBN: {self.isbn}"
 
-    # Metodo di classe per creare un oggetto Book da una stringa
+    #Metodo di classe per creare un oggetto Book da una stringa
     @classmethod
     def from_string(cls, book_str: str):
         title, author, isbn = book_str.split(", ")
         return cls(title, author, isbn)
 
 
-# Creazione istanza libro da stringa
+#Creazione istanza libro da stringa
 book_str = "La Divina Commedia, D. Alighieri, 999000666"
 divina_commedia = BookClass.from_string(book_str)
 
-# Stampa a video dell’oggetto libro
+#Stampa a video dell’oggetto libro
 print(divina_commedia)
 
 
-# Classe MEMBER
+#Classe MEMBER
 class MemberClass:
 
-    # Costruttore con nome, ID e lista dei libri presi in prestito
+    #Costruttore con nome, ID e lista dei libri presi in prestito
     def __init__(self, name: str, member_id: str):
         self.name = name
         self.member_id = member_id
         self.borrowed_books = []
 
-    # Metodo per prendere in prestito un libro
+    #Metodo per prendere in prestito un libro
     def borrow_book(self, book: str):
         self.borrowed_books.append(book)
 
-    # Metodo per restituire un libro
+    #Metodo per restituire un libro
     def return_book(self, book: str):
         if book in self.borrowed_books:
             self.borrowed_books.remove(book)
         else:
             return f"ATTENZIONE ! il libro {book} inserito non è presente nella LISTA !"
 
-    # Metodo __str__ per mostrare lo stato del membro
+    #Metodo __str__ per mostrare lo stato del membro
     def __str__(self):
         if self.borrowed_books:
             books = ", ".join(self.borrowed_books)
@@ -118,26 +118,26 @@ class MemberClass:
             return "Nessun libro è stato preso in PRESTITO"
         return f"The name of the member is {self.name} his ID is : {self.member_id} have those books booked: {books} !"
 
-    # Metodo di classe per creare un membro da una stringa
+    #Metodo di classe per creare un membro da una stringa
     @classmethod
     def from_string(cls, member_str: str):
         name, member_id = member_str.split(", ")
         return cls(name, member_id)
 
 
-# Classe LIBRARY
+#Classe LIBRARY
 class LibraryClass:
 
-    # Attributo di classe che tiene il totale dei libri
+    #Attributo di classe che tiene il totale dei libri
     total_books = 0
 
-    # Costruttore: inizializza le liste di libri e membri
+    #Costruttore: inizializza le liste di libri e membri
     def __init__(self) -> None:
         self.books = []
         self.members = []
         LibraryClass.total_books += len(self.books)
 
-    # Metodo per aggiungere un libro
+    #Metodo per aggiungere un libro
     def add_book(self, book: str) -> int:
         if book not in self.books:
             self.books.append(book)
@@ -145,7 +145,7 @@ class LibraryClass:
         else:
             return f"ATTENZIONE ! il libro già presente nella LISTA !"
 
-    # Metodo per rimuovere un libro
+    #Metodo per rimuovere un libro
     def remove_book(self, book: str):
         if book in self.books:
             self.books.remove(book)
@@ -153,14 +153,14 @@ class LibraryClass:
         else:
             return f"ATTENZIONE ! il libro da te inserito non è presente nella LISTA"
 
-    # Metodo per registrare un nuovo membro
+    #Metodo per registrare un nuovo membro
     def register_member(self, member: str):
         if member not in self.members:
             self.members.append(member)
         else:
             return f"ATTENZIONE ! il membro già presente nel SISTEMA !"
 
-    # Metodo per prestare un libro a un membro
+    #Metodo per prestare un libro a un membro
     def lend_book(self, book, member):
         if member not in self.members:
             return f"ATTENZIONE ! Non risulta nessun membro -> {member.name}"
@@ -171,7 +171,7 @@ class LibraryClass:
         else:
             return f"ATTENZIONE ! Non risulta nessun libro -> {book}"
 
-    # Metodo __str__ per mostrare lo stato completo della libreria
+    #Metodo __str__ per mostrare lo stato completo della libreria
     def __str__(self):
         result = "LIBRARY INFO:\n"
         result += "\nLibri disponibili:\n"
@@ -182,46 +182,47 @@ class LibraryClass:
             result += str(member) + "\n"
         return result
 
-    # Metodo di classe per stampare le statistiche
+    #Metodo di classe per stampare le statistiche
     @classmethod
     def library_statistics(cls):
         return f"Il numero totale dei libri è {cls.total_books}"
 
 
-# Driver Program
 
-# Creazione libri da stringa
+'''DRIVER PROGRAM - Iniziamo il programma con i dati'''
+
+#Creazione libri da stringa
 book_str1 = "Il Gattopardo, G. Tomasi, 111"
 book_str2 = "1984, G. Orwell, 222"
 book1 = BookClass.from_string(book_str1)
 book2 = BookClass.from_string(book_str2)
 
-# Creazione membri da stringa
+#Creazione membri da stringa
 member_str1 = "Mario Rossi, M001"
 member_str2 = "Laura Bianchi, M002"
 member1 = MemberClass.from_string(member_str1)
 member2 = MemberClass.from_string(member_str2)
 
-# Istanza della classe Library
+#Istanza della classe Library
 library = LibraryClass()
 
-# Registrazione membri
+#Registrazione membri
 library.register_member(member1)
 library.register_member(member2)
 
-# Aggiunta dei libri
+#Aggiunta dei libri
 library.add_book(book1)
 library.add_book(book2)
 
-# Stato iniziale della libreria
+#Stato iniziale della libreria
 print("STATO PRIMA DEL PRESTITO:")
 print(library)
 print(LibraryClass.library_statistics())
 
-# Prestito di un libro
+#Prestito di un libro
 library.lend_book(book1, member1)
 
-# Stato della libreria dopo il prestito
+#Stato della libreria dopo il prestito
 print("\nSTATO DOPO IL PRESTITO:")
 print(library)
 print(LibraryClass.library_statistics())
