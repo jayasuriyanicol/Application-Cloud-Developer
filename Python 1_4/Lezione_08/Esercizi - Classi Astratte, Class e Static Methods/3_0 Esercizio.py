@@ -138,8 +138,94 @@ class MemberClass:
         name,member_id = member_str.split(", ")
 
         return cls(name, member_id)
-         
 
+class Library:
+
+    total_books = 0
+
+
+    def __init__(self)-> None:
+    
+
+        self.books = [] 
+        self.members = [] 
+        Library.total_books += len(self.books) 
+
+
+    
+    def add_book(self,book:str) -> int:
+         
+        if book not in self.books:
+            self.books.append(book)
+            Library.total_books += 1
+        else:
+            return f"ATTENZIONE ! il libro già presente nella LISTA !"
+
+
+    def remove_book(self,book:str):
+
+       if book in self.books:
+        self.books.remove(book)
+        Library.total_books -= 1
+       else:
+           return f"ATTENZIONE ! il libro da te inserito non è presente nella LISTA"
+
+    def register_member(self, member:str):
+        
+        if member not in self.members:
+            self.members.append(member)
+        
+        else: 
+            return f"ATTENZIONE ! il membro già presente nel SISTEMA !"
+    
+    def lend_book(self, book, member):
+
+        if member not in self.members:
+            return f"ATTENZIONE ! Non risulta nessun membro -> {member.name}"
+
+        if book in self.books:
+            self.books.remove(book)
+            member.borrow_book(str(book))  # oppure book.title
+            return f"Il libro '{book}' è stato PRESTATO con SUCCESSO a {member.name}!"
+        else:
+            return f"ATTENZIONE ! Non risulta nessun libro -> {book}"
+
+            
+
+
+    def __str__(self):
+   
+        result = "LIBRARY INFO:\n"
+
+        result += "\nLibri disponibili:\n"
+        for book in self.books:
+            result += str(book) + "\n"
+
+        result += "\nMembri registrati:\n"
+        for member in self.members:
+            result += str(member) + "\n"
+
+        return result
+
+
+    @classmethod 
+    def library_statistics(cls):
+
+        return f"Il numero totale dei libri è {cls.total_books}"
+
+
+
+        
+
+        
+
+
+
+
+        
+
+        
+        
 
 
 
