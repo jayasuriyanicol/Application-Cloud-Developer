@@ -89,3 +89,65 @@ book_str = "La Divina Commedia, D. Alighieri, 999000666"
 divina_commedia = BookClass.from_string(book_str)
 
 print(divina_commedia)
+
+
+
+class MemberClass:
+
+    def __init__(self,name:str, member_id:str, ):
+
+
+        self.name = name
+        self.member_id=member_id
+        self.borrowed_books = [] 
+
+
+
+    def borrow_book(self,book:str):
+
+        self.borrowed_books.append(book)
+
+
+    def return_book(self,book:str):
+
+        if book in self.borrowed_books:
+
+            self.borrowed_books.remove(book)
+
+        else:
+
+            return f"ATTENZIONE ! il libro {book} inserito non è presente nella LISTA !"
+        
+
+    def __str__(self):
+
+        if self.borrowed_books:
+            
+            books = ", ".join(self.borrowed_books)
+        else:
+
+            return "Nessun libro è stato preso in PRESTITO"
+        
+        
+        return f"The name of the member is {self.name} his ID is : {self.member_id} have those books booked: {books} !"
+    
+
+    @classmethod 
+    def from_string(cls,member_str:str):
+
+        name,member_id = member_str.split(", ")
+
+        return cls(name, member_id)
+         
+
+
+
+
+
+
+        
+
+
+
+    
+        
