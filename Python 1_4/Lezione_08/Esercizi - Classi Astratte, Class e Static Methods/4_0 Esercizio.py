@@ -104,3 +104,141 @@ Once these instances are created, follow these steps:
         A breakdown of departments and the courses they offer.
 
 '''
+
+from abc import ABC, abstractmethod
+
+class Person(ABC):
+    def __init__(self, name: str, age: int) -> None:
+        self.name = name
+        self.age = age
+
+    @abstractmethod 
+    def get_role(self):
+        pass
+
+    def __str__(self):
+        return f"NAME:{self.name} AGE:{self.age} RUOLO:{self.get_role()}"
+    
+
+class Student(Person):
+    def __init__(self, name: str, age: int, student_id: str) -> None:
+        super().__init__(name, age)
+        self.student_id = student_id
+        self.courses = []
+
+    def enroll(self, course) -> str:
+        if course not in self.courses:
+            self.courses.append(course)
+            course.add_student(self)
+            return "SUCCESSO! studente registrato con successo !"
+        else:
+            return "ATTENZIONE ! Lo studente è già iscritto a questo corso"
+    
+    def get_role(self):
+        return "STUDENTE"
+    
+    def __str__(self):
+        return super().__str__() + f", ID: {self.student_id}"
+
+
+class Professor(Person):
+    def __init__(self, name: str, age: int, professor_id: str, department) -> None:
+        super().__init__(name, age)
+        self.professor_id = professor_id
+        self.department = department
+        self.courses = []
+
+    def assign_to_course(self, course) -> str:
+        if course not in self.courses:
+            self.courses.append(course)
+            course.set_professor(self)
+            return "SUCCESSO! professore registrato con successo !"
+        else:
+            return "ATTENZIONE ! Il professore è già assegnato a questo corso"
+    
+    def get_role(self):
+        return "PROFESSORE"
+    
+    def __str__(self):
+        return super().__str__() + f", ID: {self.professor_id}"
+
+
+class Course:
+    def __init__(self, course_name: str, course_code: str) -> None:
+        self.course_name = course_name
+        self.course_code = course_code
+        self.students = []
+        self.professor = None
+
+    def add_student(self, student) -> str:
+        if student not in self.students:
+            self.students.append(student)
+            return "SUCCESSO ! Lo studente è stato inserito nel corso"
+        else:
+            return "ATTENZIONE ! Lo studente è già presente nel corso"
+
+    def set_professor(self, professor) -> str:
+        if self.professor is None:
+            self.professor = professor
+            return "SUCCESSO ! il professore è stato inserito nel corso"
+        else:
+            return "ATTENZIONE ! Questo corso ha già un professore assegnato"
+    
+    def __str__(self): 
+        prof_name = self.professor.name if self.professor else "Nessun professore"
+        student_names = ', '.join([s.name for s in self.students]) or "Nessuno studente"
+        return f"COURSE ID: {self.course_code} COURSE NAME: {self.course_name} PROFESSOR NAME: {prof_name} STUDENTS: {student_names}"
+
+
+class Department:
+    def __init__(self, department_name: str) -> None:
+        self.department_name = department_name
+        self.courses = []
+        self.professors = []
+
+    def add_course(self, course) -> str:
+        if course not in self.courses:
+            self.courses.append(course)
+            return "SUCCESSO ! CORSO aggiunto con successo al DIPARTIMENTO"
+        else:
+            return "ATTENZIONE ! Errore: RISULTA già un'altro CORSO nel DIPARTIMENTO"
+
+    def add_professor(self, professor) -> str:
+        if professor not in self.professors:
+            self.professors.append(professor)
+            return "SUCCESSO ! PROFESSORE aggiunto con successo al DIPARTIMENTO"
+        else:
+            return "ATTENZIONE ! Errore: RISULTA già un'altro PROFESSORE nel DIPARTIMENTO"
+
+    def __str__(self) -> str:
+        courses_str = "\n    ".join(str(course) for course in self.courses) or "Nessun corso"
+        return f"Department: {self.department_name}\n  Courses:\n    {courses_str}"
+
+
+class University:
+    def __init__(self, name: str) -> None:
+        self.name = name
+        self.departments = []
+        self.students = []
+
+    def add_department(self, department) -> str:
+        if department not in self.departments:
+            self.departments.append(department)
+            return "SUCCESSO ! DIPARTIMENTO aggiunto con successo all'UNIVERSITÀ"
+        else:
+            return "ATTENZIONE ! Errore: RISULTA già un'altro DIPARTIMENTO nell'UNIVERSITÀ"
+
+    def add_student(self, student) -> str:
+        if student not in self.students:
+            self.students.append(student)
+            return "SUCCESSO ! STUDENTE aggiunto con successo all'UNIVERSITÀ"
+        else:
+            return "ATTENZIONE ! Errore: RISULTA già un'altro STUDENTE nell'UNIVERSITÀ"
+
+    def __str__(self):
+        departments_str = "\n\n".join(str(dept) for dept in self.departments)
+        students_str = "\n".join(str(stud) for stud in self.students)
+        return f"University: {self.name}\n\nDepartments:\n{departments_str}\n\nStudents:\n{students_str}"
+
+
+
