@@ -117,7 +117,7 @@ class Person(ABC):
         pass
 
     def __str__(self):
-        return f"NAME:{self.name} AGE:{self.age} RUOLO:{self.get_role()}"
+        return f"NAME:{self.name} | AGE:{self.age} | RUOLO:{self.get_role()}"
     
 
 class Student(Person):
@@ -187,7 +187,7 @@ class Course:
     def __str__(self): 
         prof_name = self.professor.name if self.professor else "Nessun professore"
         student_names = ', '.join([s.name for s in self.students]) or "Nessuno studente"
-        return f"COURSE ID: {self.course_code} COURSE NAME: {self.course_name} PROFESSOR NAME: {prof_name} STUDENTS: {student_names}"
+        return f"COURSE ID: {self.course_code} | COURSE NAME: {self.course_name} | PROFESSOR NAME: {prof_name} | STUDENTS: {student_names}"
 
 
 class Department:
@@ -212,7 +212,7 @@ class Department:
 
     def __str__(self) -> str:
         courses_str = "\n    ".join(str(course) for course in self.courses) or "Nessun corso"
-        return f"Department: {self.department_name}\n  Courses:\n    {courses_str}"
+        return f"DEPARTMENT: {self.department_name} | COURSE NAME: {courses_str}"
 
 
 class University:
@@ -238,7 +238,8 @@ class University:
     def __str__(self):
         departments_str = "\n\n".join(str(dept) for dept in self.departments)
         students_str = "\n".join(str(stud) for stud in self.students)
-        return f"University: {self.name}\n\nDepartments:\n{departments_str}\n\nStudents:\n{students_str}"
+        return f"UNIVERSITY: {self.name} | DEPARTMENTS: {departments_str} | STUDENTS: {students_str}"
+
 
 
 
