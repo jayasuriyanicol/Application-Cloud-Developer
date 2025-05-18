@@ -211,8 +211,14 @@ class Department:
             return "ATTENZIONE ! Errore: RISULTA già un'altro PROFESSORE nel DIPARTIMENTO"
 
     def __str__(self) -> str:
-        courses_str = "\n    ".join(str(course) for course in self.courses) or "Nessun corso"
-        return f"DEPARTMENT: {self.department_name} | COURSE NAME: {courses_str}"
+
+        courses_str = ""
+        if not self.courses:
+            courses_str = "No courses"
+        else:
+            for course in self.courses:
+                courses_str += "    " + str(course) + "\n"
+        return f"DEPARTMENT: {self.department_name}| COURSE: {courses_str}"
 
 
 class University:
@@ -236,10 +242,66 @@ class University:
             return "ATTENZIONE ! Errore: RISULTA già un'altro STUDENTE nell'UNIVERSITÀ"
 
     def __str__(self):
-        departments_str = "\n\n".join(str(dept) for dept in self.departments)
-        students_str = "\n".join(str(stud) for stud in self.students)
+        
+        departments_str = ""
+        for dept in self.departments:
+            departments_str += str(dept) + "\n\n"
+
+        students_str = ""
+        for stud in self.students:
+            students_str += str(stud) + "\n"
+
         return f"UNIVERSITY: {self.name} | DEPARTMENTS: {departments_str} | STUDENTS: {students_str}"
+    
 
 
 
+if __name__ == "__main__":
+    # 1. Creazione dell'università
+    uni = University("Università degli Studi di Esempio")
 
+    # 2. Creazione dei dipartimenti
+    cs_department = Department("Informatica")
+    lit_department = Department("Lettere")
+
+    # 3. Aggiunta dei dipartimenti all'università
+    print(uni.add_department(cs_department))
+    print(uni.add_department(lit_department))
+
+    # 4. Creazione dei corsi
+    ds_course = Course("Strutture Dati", "CS101")
+    lit_course = Course("Letteratura Medievale", "LIT201")
+
+    # 5. Aggiunta dei corsi ai dipartimenti
+    print(cs_department.add_course(ds_course))
+    print(lit_department.add_course(lit_course))
+
+    # 6. Creazione dei professori
+    prof_mario = Professor("Mario Rossi", 50, "P001", cs_department)
+    prof_gina = Professor("Gina Verdi", 45, "P002", lit_department)
+
+    # 7. Aggiunta dei professori ai dipartimenti
+    print(cs_department.add_professor(prof_mario))
+    print(lit_department.add_professor(prof_gina))
+
+    # 8. Assegnazione professori ai corsi (corretto: solo un argomento)
+    print(ds_course.set_professor(prof_mario))
+    print(lit_course.set_professor(prof_gina))
+
+    # 9. Creazione degli studenti
+    student_anna = Student("Anna Bianchi", 20, "S001")
+    student_luca = Student("Luca Neri", 22, "S002")
+
+    # 10. Aggiunta studenti all'università
+    print(uni.add_student(student_anna))
+    print(uni.add_student(student_luca))
+
+    # 11. Enroll studenti nei corsi (corretto: solo uno)
+    print(student_anna.enroll(ds_course))
+    print(student_luca.enroll(lit_course))
+
+    # 12. Stampa dello stato finale dell’università
+    print("\n" + "="*60)
+    print("STATO ATTUALE DELL'UNIVERSITÀ:")
+    print("="*60)
+    print(uni)
