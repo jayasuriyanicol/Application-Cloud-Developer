@@ -105,71 +105,109 @@ Once these instances are created, follow these steps:
 
 '''
 
+#Importiamo ABC e abstractmethod per definire la classe astratta Person
 from abc import ABC, abstractmethod
 
-class Person(ABC):
-    def __init__(self, name: str, age: int) -> None:
-        self.name = name
-        self.age = age
 
+#Definizione della classe astratta Person con attributi name e age
+class Person(ABC):
+
+    #Metodo costruttore per inizializzare name e age
+    def __init__(self, name: str, age: int) -> None:
+        self.name = name  # Nome della persona
+        self.age = age    # Età della persona
+
+    #Metodo astratto che deve essere implementato nelle sottoclassi
     @abstractmethod 
     def get_role(self):
-        pass
+        pass  #Corpo lasciato vuoto perché astratto
 
+
+   #Metodo per la rappresentazione testuale dell'oggetto
     def __str__(self):
+
+        #Mostra nome, età e ruolo
         return f"NAME:{self.name} | AGE:{self.age} | RUOLO:{self.get_role()}"
     
 
-class Student(Person):
-    def __init__(self, name: str, age: int, student_id: str) -> None:
-        super().__init__(name, age)
-        self.student_id = student_id
-        self.courses = []
 
+#Classe Student che eredita da Person
+class Student(Person):
+
+
+    #Costruttore con attributi aggiuntivi student_id e lista dei corsi
+    def __init__(self, name: str, age: int, student_id: str) -> None:
+        super().__init__(name, age)  #Chiamata al costruttore della superclasse
+        self.student_id = student_id  #ID dello studente
+        self.courses = []             #Lista dei corsi a cui è iscritto
+
+    #Metodo per iscrivere lo studente a un corso
     def enroll(self, course) -> str:
         if course not in self.courses:
-            self.courses.append(course)
-            course.add_student(self)
+            self.courses.append(course)   #Aggiunge il corso alla lista dello studente
+            course.add_student(self)      #Aggiunge lo studente alla lista del corso
             return "SUCCESSO! studente registrato con successo !"
         else:
             return "ATTENZIONE ! Lo studente è già iscritto a questo corso"
+        
     
+    #Implementazione del metodo astratto get_role
     def get_role(self):
         return "STUDENTE"
     
+    
+    #Override del metodo __str__ per aggiungere l'ID studente
     def __str__(self):
         return super().__str__() + f", ID: {self.student_id}"
 
 
-class Professor(Person):
-    def __init__(self, name: str, age: int, professor_id: str, department) -> None:
-        super().__init__(name, age)
-        self.professor_id = professor_id
-        self.department = department
-        self.courses = []
 
+
+#Classe Professor che eredita da Person
+class Professor(Person):
+
+
+    #Costruttore con attributi aggiuntivi professor_id, department e lista corsi
+    def __init__(self, name: str, age: int, professor_id: str, department) -> None:
+        super().__init__(name, age)  # Chiamata al costruttore della superclasse
+        self.professor_id = professor_id  #ID professore
+        self.department = department        #Dipartimento di appartenenza
+        self.courses = []                   #Lista dei corsi assegnati
+
+
+    #Metodo per assegnare il professore a un corso
     def assign_to_course(self, course) -> str:
         if course not in self.courses:
-            self.courses.append(course)
-            course.set_professor(self)
+            self.courses.append(course)   #Aggiunge il corso alla lista del professore
+            course.set_professor(self)    #Imposta il professore nel corso
             return "SUCCESSO! professore registrato con successo !"
         else:
             return "ATTENZIONE ! Il professore è già assegnato a questo corso"
+        
     
+    #Implementazione del metodo astratto get_role
     def get_role(self):
         return "PROFESSORE"
     
+
+    #Override del metodo __str__ per aggiungere l'ID professore
     def __str__(self):
         return super().__str__() + f", ID: {self.professor_id}"
 
 
-class Course:
-    def __init__(self, course_name: str, course_code: str) -> None:
-        self.course_name = course_name
-        self.course_code = course_code
-        self.students = []
-        self.professor = None
 
+
+#Classe Course che rappresenta un corso universitario
+class Course:
+    # Costruttore con nome corso e codice
+    def __init__(self, course_name: str, course_code: str) -> None:
+        self.course_name = course_name   #Nome del corso
+        self.course_code = course_code   #Codice identificativo del corso
+        self.students = []               #Lista degli studenti iscritti
+        self.professor = None            #Professore assegnato al corso (inizialmente None)
+
+
+    #Metodo per aggiungere uno studente al corso
     def add_student(self, student) -> str:
         if student not in self.students:
             self.students.append(student)
@@ -177,6 +215,8 @@ class Course:
         else:
             return "ATTENZIONE ! Lo studente è già presente nel corso"
 
+
+    #Metodo per assegnare un professore al corso
     def set_professor(self, professor) -> str:
         if self.professor is None:
             self.professor = professor
@@ -184,25 +224,39 @@ class Course:
         else:
             return "ATTENZIONE ! Questo corso ha già un professore assegnato"
     
+
+
+    #Metodo di rappresentazione testuale del corso
     def __str__(self): 
         prof_name = self.professor.name if self.professor else "Nessun professore"
         student_names = ', '.join([s.name for s in self.students]) or "Nessuno studente"
         return f"COURSE ID: {self.course_code} | COURSE NAME: {self.course_name} | PROFESSOR NAME: {prof_name} | STUDENTS: {student_names}"
 
 
-class Department:
-    def __init__(self, department_name: str) -> None:
-        self.department_name = department_name
-        self.courses = []
-        self.professors = []
 
+
+#Classe Department che raggruppa corsi e professori
+class Department:
+
+    #Costruttore con nome del dipartimento
+    def __init__(self, department_name: str) -> None:
+        self.department_name = department_name  #Nome del dipartimento
+        self.courses = []                       #Lista corsi del dipartimento
+        self.professors = []                    #Lista professori del dipartimento
+
+
+
+    #Metodo per aggiungere un corso al dipartimento
     def add_course(self, course) -> str:
         if course not in self.courses:
             self.courses.append(course)
             return "SUCCESSO ! CORSO aggiunto con successo al DIPARTIMENTO"
         else:
             return "ATTENZIONE ! Errore: RISULTA già un'altro CORSO nel DIPARTIMENTO"
+        
 
+
+    #Metodo per aggiungere un professore al dipartimento
     def add_professor(self, professor) -> str:
         if professor not in self.professors:
             self.professors.append(professor)
@@ -210,8 +264,10 @@ class Department:
         else:
             return "ATTENZIONE ! Errore: RISULTA già un'altro PROFESSORE nel DIPARTIMENTO"
 
-    def __str__(self) -> str:
 
+
+    #Metodo di rappresentazione testuale del dipartimento e dei suoi corsi
+    def __str__(self) -> str:
         courses_str = ""
         if not self.courses:
             courses_str = "No courses"
@@ -221,28 +277,44 @@ class Department:
         return f"DEPARTMENT: {self.department_name}| COURSE: {courses_str}"
 
 
-class University:
-    def __init__(self, name: str) -> None:
-        self.name = name
-        self.departments = []
-        self.students = []
 
+
+
+#Classe University che contiene dipartimenti e studenti
+class University:
+
+
+    #Costruttore con nome università
+    def __init__(self, name: str) -> None:
+        self.name = name              #Nome università
+        self.departments = []         #Lista dei dipartimenti
+        self.students = []            #Lista degli studenti
+
+
+
+    #Metodo per aggiungere un dipartimento all'università
     def add_department(self, department) -> str:
         if department not in self.departments:
             self.departments.append(department)
             return "SUCCESSO ! DIPARTIMENTO aggiunto con successo all'UNIVERSITÀ"
         else:
-            return "ATTENZIONE ! Errore: RISULTA già un'altro DIPARTIMENTO nell'UNIVERSITÀ"
+            return "ATTENZIONE ! Errore: RISULTA già un'altro DIPARTIMENTO nell'UNIVERSITÀ"ù
+        
 
+
+    #Metodo per aggiungere uno studente all'università
     def add_student(self, student) -> str:
         if student not in self.students:
             self.students.append(student)
             return "SUCCESSO ! STUDENTE aggiunto con successo all'UNIVERSITÀ"
         else:
             return "ATTENZIONE ! Errore: RISULTA già un'altro STUDENTE nell'UNIVERSITÀ"
-
-    def __str__(self):
         
+
+
+    #Metodo di rappresentazione testuale dello stato dell'università
+    def __str__(self):
+
         departments_str = ""
         for dept in self.departments:
             departments_str += str(dept) + "\n\n"
@@ -256,51 +328,56 @@ class University:
 
 
 
-if __name__ == "__main__":
-    # 1. Creazione dell'università
-    uni = University("Università degli Studi di Esempio")
+''' DRIVER PROGRAM: Con creazione e gestione del sistema universitario '''
+    
 
-    # 2. Creazione dei dipartimenti
+
+if __name__ == "__main__":
+    
+    #1. Creazione dell'università
+    uni = University("Università degli Studi di Tor Vergata")
+
+    #2. Creazione dei dipartimenti
     cs_department = Department("Informatica")
     lit_department = Department("Lettere")
 
-    # 3. Aggiunta dei dipartimenti all'università
-    print(uni.add_department(cs_department))
-    print(uni.add_department(lit_department))
+    #3. Aggiunta dei dipartimenti all'università
+    print(uni.add_department(cs_department))   # Aggiunge dipartimento Informatica
+    print(uni.add_department(lit_department))  # Aggiunge dipartimento Lettere
 
-    # 4. Creazione dei corsi
+    #4. Creazione dei corsi
     ds_course = Course("Strutture Dati", "CS101")
     lit_course = Course("Letteratura Medievale", "LIT201")
 
-    # 5. Aggiunta dei corsi ai dipartimenti
-    print(cs_department.add_course(ds_course))
-    print(lit_department.add_course(lit_course))
+    #5. Aggiunta dei corsi ai dipartimenti
+    print(cs_department.add_course(ds_course))    # Aggiunge corso Strutture Dati
+    print(lit_department.add_course(lit_course))  # Aggiunge corso Letteratura Medievale
 
-    # 6. Creazione dei professori
+    #6. Creazione dei professori
     prof_mario = Professor("Mario Rossi", 50, "P001", cs_department)
     prof_gina = Professor("Gina Verdi", 45, "P002", lit_department)
 
-    # 7. Aggiunta dei professori ai dipartimenti
-    print(cs_department.add_professor(prof_mario))
-    print(lit_department.add_professor(prof_gina))
+    #7. Aggiunta dei professori ai dipartimenti
+    print(cs_department.add_professor(prof_mario))  # Aggiunge professore Mario Rossi
+    print(lit_department.add_professor(prof_gina))  # Aggiunge professoressa Gina Verdi
 
-    # 8. Assegnazione professori ai corsi (corretto: solo un argomento)
-    print(ds_course.set_professor(prof_mario))
-    print(lit_course.set_professor(prof_gina))
+    #8. Assegnazione professori ai corsi
+    print(ds_course.set_professor(prof_mario))  # Assegna prof Mario al corso Strutture Dati
+    print(lit_course.set_professor(prof_gina))  # Assegna prof Gina al corso Letteratura Medievale
 
-    # 9. Creazione degli studenti
+    #9. Creazione degli studenti
     student_anna = Student("Anna Bianchi", 20, "S001")
     student_luca = Student("Luca Neri", 22, "S002")
 
-    # 10. Aggiunta studenti all'università
-    print(uni.add_student(student_anna))
-    print(uni.add_student(student_luca))
+    #10. Aggiunta studenti all'università
+    print(uni.add_student(student_anna))  # Aggiunge studente Anna
+    print(uni.add_student(student_luca))  # Aggiunge studente Luca
 
-    # 11. Enroll studenti nei corsi (corretto: solo uno)
-    print(student_anna.enroll(ds_course))
-    print(student_luca.enroll(lit_course))
+    #11. Iscrizione studenti ai corsi
+    print(student_anna.enroll(ds_course))  # Anna si iscrive a Strutture Dati
+    print(student_luca.enroll(lit_course)) # Luca si iscrive a Letteratura Medievale
 
-    # 12. Stampa dello stato finale dell’università
+    #12. Stampa dello stato finale dell’università
     print("\n" + "="*60)
     print("STATO ATTUALE DELL'UNIVERSITÀ:")
     print("="*60)
