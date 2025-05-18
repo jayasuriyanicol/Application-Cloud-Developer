@@ -4,9 +4,6 @@
 
 REVISIONARE il ESERCIZIO della *lepre e della tartaruga.*
 
-### Lezione numero 8:
-
-- Esercizi su *classi astratte, class methods e static methods*
 
 ### Lezione numero 9:
 
