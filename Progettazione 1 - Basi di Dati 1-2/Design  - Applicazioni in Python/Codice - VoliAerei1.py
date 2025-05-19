@@ -194,8 +194,6 @@ if __name__ == "__main__":
 
 
 
-    volo1 = Volo("AZ0001",90)
-
  
 
 
