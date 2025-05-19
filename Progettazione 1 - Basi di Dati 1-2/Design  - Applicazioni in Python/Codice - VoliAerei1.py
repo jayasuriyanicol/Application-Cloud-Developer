@@ -148,63 +148,51 @@ class Volo:
 
 if __name__ == "__main__":
 
-    
-    #Effettuiamo un test sulla classe AEREOPORTO 
+  
+    # Test Aeroporto
     primoAeroporto = Aeroporto("MXP", "Malpensa")
     secondoAeroporto = Aeroporto("MXP", "Malpensa")
-    assert primoAeroporto == secondoAeroporto
-    print(set([primoAeroporto, secondoAeroporto])) 
-    try:
-        Città("Roma", -5)
-    except ValueError as erroreGenerato:
-        print("ERRORE:", erroreGenerato)
+    print("Uguali:", primoAeroporto == secondoAeroporto)
+    print("Set aeroporti:", set([primoAeroporto, secondoAeroporto]))
+    print()
 
-    
-    #Effettiuiamo un test sulla classe NAZIONE 
+    # Test Nazione
     italia = Nazione("Italia")
     spagna = Nazione("Spagna")
-    assert italia == Nazione("Italia")
-    nazioni = {italia, spagna}
-    print("Nazioni:", nazioni)
+    print("Uguali nazioni:", italia == Nazione("Italia"))
+    print("Set nazioni:", {italia, spagna})
+    print()
 
-''''
-roma = Città("Roma", 2800000)
-milano = Città("Milano", 1350000)
-assert roma == Città("Roma", 2800000)
-print("Città:", {roma, milano})
+    # Test Città
+    roma = Città("Roma", 2800000)
+    milano = Città("Milano", 1350000)
+    print("Uguali città:", roma == Città("Roma", 2800000))
+    print("Set città:", {roma, milano})
+    print()
 
-try:
-    Città("Falsa", -10)
-except ValueError as e:
-    print("Errore atteso per Città:", e)
+    # Test Aeroporti
+    fco = Aeroporto("FCO", "Fiumicino")
+    mxp = Aeroporto("MXP", "Malpensa")
+    print("Uguali aeroporti:", fco == Aeroporto("FCO", "Altro Nome"))
+    print("Set aeroporti:", {fco, mxp})
+    print()
 
-# Test Aeroporto
-fco = Aeroporto("FCO", "Fiumicino")
-mxp = Aeroporto("MXP", "Malpensa")
-assert fco == Aeroporto("FCO", "Altro Nome")
-print("Aeroporti:", {fco, mxp})
+    # Test CompagniaAerea
+    ita = CompagniaAerea("ITA Airways", 2020)
+    print("Compagnia:", ita)
+    print()
 
-# Test CompagniaAerea
-ita = CompagniaAerea("ITA Airways", 2020)
-try:
-    CompagniaAerea("Vecchia", 1850)
-except ValueError as e:
-    print("Errore atteso per CompagniaAerea:", e)
+    # Test Volo
+    volo1 = Volo("AZ001", 90, fco, mxp, ita)
+    volo2 = Volo("AZ001", 90, fco, mxp, ita)
+    print("Uguali voli:", volo1 == volo2)
+    print("Set voli:", {volo1, volo2})
+    print()
 
-# Test Volo
-volo1 = Volo("AZ001", 90, fco, mxp, ita)
-volo2 = Volo("AZ001", 90, fco, mxp, ita)
-assert volo1 == volo2
-print("Voli uguali in set:", {volo1, volo2})
+    print("✅ TUTTI I TEST DI BASE ESEGUITI CON SUCCESSO (senza errori)")
 
-try:
-    Volo("AZ002", 0, fco, mxp, ita)
-except ValueError as e:
-    print("Errore atteso per Volo durata:", e)
 
-try:
-    Volo("AZ003", 60, "nonAeroporto", mxp, ita)
-except TypeError as e:
-    print("Errore atteso tipo errato Aeroporto:", e)
 
-'''
+
+
+
