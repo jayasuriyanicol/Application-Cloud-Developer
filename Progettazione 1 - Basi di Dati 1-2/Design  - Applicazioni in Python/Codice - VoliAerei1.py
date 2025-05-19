@@ -149,21 +149,24 @@ class Volo:
 if __name__ == "__main__":
 
   
-    # Test Aeroporto
+    
+    #Effettuiamo un test sulla classe AEROPORTO
     primoAeroporto = Aeroporto("MXP", "Malpensa")
     secondoAeroporto = Aeroporto("MXP", "Malpensa")
     print("Uguali:", primoAeroporto == secondoAeroporto)
     print("Set aeroporti:", set([primoAeroporto, secondoAeroporto]))
     print()
 
-    # Test Nazione
+    
+    #Effettuiamo un test sulla classe CITTÀ
     italia = Nazione("Italia")
     spagna = Nazione("Spagna")
     print("Uguali nazioni:", italia == Nazione("Italia"))
     print("Set nazioni:", {italia, spagna})
     print()
 
-    # Test Città
+    
+    #Effettuiamo un test sulla classe CITTÀ
     roma = Città("Roma", 2800000)
     milano = Città("Milano", 1350000)
     print("Uguali città:", roma == Città("Roma", 2800000))
