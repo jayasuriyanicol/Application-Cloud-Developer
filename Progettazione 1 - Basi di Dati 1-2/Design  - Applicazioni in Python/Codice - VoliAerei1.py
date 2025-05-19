@@ -158,7 +158,7 @@ if __name__ == "__main__":
     print()
 
     
-    #Effettuiamo un test sulla classe CITTÀ
+    #Effettuiamo un test sulla classe NAZIONE
     italia = Nazione("Italia")
     spagna = Nazione("Spagna")
     print("Uguali nazioni:", italia == Nazione("Italia"))
