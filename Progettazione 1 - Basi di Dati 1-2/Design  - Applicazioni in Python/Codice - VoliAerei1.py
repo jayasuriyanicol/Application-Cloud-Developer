@@ -173,28 +173,30 @@ if __name__ == "__main__":
     print("Set città:", {roma, milano})
     print()
 
-    #Effettuiamo un test sulla classe CITTÀ
+    #Effettuiamo un test sulla classe AEROPORTO
     fco = Aeroporto("FCO", "Fiumicino")
     mxp = Aeroporto("MXP", "Malpensa")
     print("Uguali aeroporti:", fco == Aeroporto("FCO", "Altro Nome"))
     print("Set aeroporti:", {fco, mxp})
     print()
 
-    #Effettuiamo un test sulla classe CITTÀ
+    #Effettuiamo un test sulla classe COMPAGNIAAEREA
     ita = CompagniaAerea("ITA Airways", 2020)
     print("Compagnia:", ita)
     print()
 
-    #Effettuiamo un test sulla classe CITTÀ
+    #Effettuiamo un test sulla classe VOLO
     volo1 = Volo("AZ001", 90, fco, mxp, ita)
     volo2 = Volo("AZ001", 90, fco, mxp, ita)
     print("Uguali voli:", volo1 == volo2)
     print("Set voli:", {volo1, volo2})
     print()
 
-    
 
 
+    volo1 = Volo("AZ0001",90)
+
+ 
 
 
 
