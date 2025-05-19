@@ -12,11 +12,7 @@ REVISIONARE il ESERCIZIO della *lepre e della tartaruga.*
 
 ### Lezione numero 11:
 
-- Svolgere i due esericizi *(Cinema e Magazzino)* come ESERCITAZIONE sulle classi e ereditarietà
-
-### Lezione numero 12:
-
-- Svolgere i due esericizi come *ESERCITAZIONE sulle classi*
+- Svolgere i due esercizi *(Cinema e Magazzino)* come ESERCITAZIONE sulle classi e ereditarietà
 
 
 ### Lezione numero 15:
