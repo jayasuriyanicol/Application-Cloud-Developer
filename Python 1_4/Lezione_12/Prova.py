@@ -1,170 +1,90 @@
+
 '''
+Sistema di Gestione Catalogo Film 
+Sviluppa un sistema in Python per la gestione di un catalogo film che permetta di aggiungere, rimuovere e cercare film di un particolare regista. 
+Il sistema dovrebbe consentire anche di visualizzare tutti i registi e i loro film.
 
-Sistema di Gestione Biblioteca
-Si desidera sviluppare un sistema per la gestione di una biblioteca in Python. 
-Il sistema deve permettere di gestire un inventario di libri e le operazioni di prestito e restituzione degli stessi. 
-Gli utenti del sistema devono essere in grado di aggiungere libri al catalogo, prestarli, restituirli e visualizzare quali libri sono disponibili in un dato momento.
- 
-Classi:
-- Libro: Rappresenta un libro con titolo, autore, stato del prestito. Il libro deve essere inizialmente disponibile (non prestato).
-
-- Biblioteca: Gestice tutte le operazioni legate alla gestione di una biblioteca.
+Classe:
+- MovieCatalog: Gestisce tutte le operazioni legate al catalogo dei film.
 
     Metodi della classe:
-    - aggiungi_libro(libro): Aggiunge un nuovo libro al catalogo della biblioteca. Restituisce un messaggio di conferma.
+    - add_movie(director_name, movies): Aggiunge uno o più film a un regista specifico nel catalogo. Se il regista non esiste, viene creato un nuovo record. 
+     Se il regista esiste, la sua lista di film viene aggiornata.
 
-    - presta_libro(titolo): Cerca un libro per titolo e, se disponibile e non già prestato, lo segna come disponibile. Restituisce un messaggio di stato.
+    - remove_movie(director_name, movie_name): Rimuove un film specifico dall'elenco dei film di un regista. Se tutti i film sono rimossi,
+      il regista può essere opzionalmente rimosso dal catalogo.
 
-    - restituisci_libro(titolo): Cerca un libro per titolo e, se trovato e prestato, lo segna come disponibile. Restituisce un messaggio di stato.
+    - list_directors(): Elenca tutti i registi presenti nel catalogo.
 
-    - mostra_libri_disponibili(): Restituisce una lista dei titoli dei libri attualmente disponibili. Se non ci sono libri disponibili, restituisce un messaggio di errore.
+    - get_movies_by_director(director_name): Restituisce tutti i film di un regista specifico.
 
-Codice Driver
+    - search_movies_by_title(title): Trova tutti i film che contengono una certa parola nel titolo. 
+      Restituisce un elenco dei registi e dei rispettivi film che contengono la parola cercata o un messaggio di errore se nessun film contiene la parola cercata nel titolo.
+ 
+Codice driver
 
-    Aggiungi libri alla biblioteca.
-    Presta e restituisci libri, gestendo anche casi limite (già prestato, doppia restituzione, libro inesistente).
-    Mostra i libri disponibili in ogni fase.
-    Visualizza lo stato finale di ogni libro.
+    Crea un’istanza della classe MovieCatalog.
+    Aggiungi nuovi film e registi.
+    Aggiungi film a registi già presenti nel catalogo.
+    Rimuovi film dal catalogo.
+    Elenca i registi presenti nel catalogo.
+    Visualizza film di uno specifico regista.
+    Cerca film per parola chiave nel titolo, gestendo il caso con risultati che senza.
 
 '''
 
 
-class Libro:
+class Film:
 
-    def __init__(self,autore:str,titolo:str)->None:
-
-        self.autore = autore
+    def __init__(self,titolo:str,regista:str):
         self.titolo = titolo
-        self.statoPrestito = False #Ipotizziamo che il libro sia disponibile
-
-
-
-class Biblioteca:
-
-    def __init__(self):
-
-        self.catalogoBiblioteca = []
-
-
-
-    def aggiungi_libro(self,autore,titolo)-> str:
-
-        nuovoLibro = Libro(autore,titolo) 
-        self.catalogoBiblioteca.append(nuovoLibro)
-
-        return f"Il libro {titolo} è stato AGGIUNTO CON SUCCESSO NEL CATALOGO !"
+        self.regista = regista
     
 
-    def presta_libro (self,titolo):
 
-        for libro in self.catalogoBiblioteca:
+class MovieCatalog:
 
-            if libro.titolo == titolo:
+    def __init__(self) -> None:
 
-                if not self.statoPrestito:
+        self.catalogoFilm:dict[str,str] = {}
 
-                 self.statoPrestito = True
 
-                 return f"Il libro {titolo} è stato PRESTATO con SUCCESSO !"
-            
-                else:
 
-                 return f"ATTENZIONE il libro {titolo} RISULTA GIÀ PRESTATO !"
-            
-            else: 
-             return f"ATTENZIONE ! Il libro {titolo} non risulta nel CATALOGO della BIBLIOTECA !"
+    def add_movie(self,directory_name:str, movies:str,titolo:str,regista:str):
+        nuovoFilm = Film(titolo,regista)
+
+
+        if directory_name not in self.catalogoFilm:
+
+            self.catalogoFilm[regista] = []  
+
+            self.catalogoFilm.append(nuovoFilm.titolo)
+
+            return f"SUCCESSO! il regista {regista} è stato salvato con i suoi relativi FILM !"
         
-    def restituisci_libro (self,titolo):
+        else: 
 
-        for libro in self.catalogoBiblioteca :
-
-            if libro.titolo == titolo:
-
-                if self.statoPrestito:
-
-
-                 self.statoPrestito = False
-
-                 return f"Il libro {titolo} è stato RESTITUITO con SUCCESSO !"
-            
-                else:
-
-                 return f"ATTENZIONE il libro {titolo} NON RISULTA PRESTATO !"
-            
-            else: 
-             
-             return f"ATTENZIONE ! Il libro {titolo} non risulta nel CATALOGO della BIBLIOTECA !"
-            
-
-
-    def mostra_stato_libri (self):
-       
-       libriDisponibili = [ ] 
-       for libro in self.catalogoBiblioteca:
-          
-          if not libro.statoPrestito:
-             
-             libriDisponibili.append(libro.titolo)
-
+            return f"ERRORE! Attenzione il regista {regista} non è stato salvato con i suoi FILM !"
         
-       if libriDisponibili:
-        print("Questa è la LISTA dei LIBRI DISPONIBILI:")
-        for libro in libriDisponibili:
-          
-          print( f"- {libro}" )
-       
-       else:
-            print("\nATTENZIONE ! Nessun libro disponibile.")
-
-
-    def stato_libri(self):
-       
-       for libro in self.catalogoBiblioteca:
-          
-          if libro.statoPrestito:
-             
-             stato = "Disponibile"
-          else:
-             
-             stato = "Prestato"
-          print (f"-{libro.titolo} ({stato}) ")
-       
-
-
-
-#Infine andiamo a inserire qualche dato da input per verificare la correttezza del programma, quindi inseriamo i vari dati e andiamo a richiamare le funzioni per vedere il loro corretto funzionamento
-
-mia_biblioteca = Biblioteca()
-
-#Provvedo con aggiungere dei Libri inventati
-print(mia_biblioteca.aggiungi_libro("l GattoPardo", "Mario Verdi"))
-print(mia_biblioteca.aggiungi_libro("Il cane testardo", "Fabrizio Umberti"))
-print(mia_biblioteca.aggiungi_libro("Calma e Pazienza", "Cristiano Coccia"))
-
-#Richiamo la funzione per vedere se i libri inseriti sono stati salvati correttamente
-mia_biblioteca.mostra_stato_libri()
-
-#Aggiungo come richiesto dalla consegna due PRESTITI nello stesso anno "2024"
-print(mia_biblioteca.presta_libro("2024"))
-print(mia_biblioteca.presta_libro("2024"))
-
-#Restituisco come richiesto dalla consegna due RESTITUZIONI nello stesso anno "2025"
-print(mia_biblioteca.restituisci_libro("2025"))
-print(mia_biblioteca.restituisci_libro("2025")) 
-
-#Presto l'ultimo libro aggiunbto al catalogoBiblioteca
-print(mia_biblioteca.presta_libro("Calma e Pazienza"))
-
-#Infine, per concludere mostro lo stato di tutti i libri con relativo TITOLO e STATO del PRESTITO (Disponibile o Prestato)
-mia_biblioteca.mostra_stato_libri()
 
     
+    def remove_film(self,directory_name:str, movie_name:str,regista:str,titolo:str):
 
-          
+        if regista not in self.catalogoFilm:
 
+            self.catalogoFilm[regista] = []
+
+            if movie_name in self.catalogoFilm:
+
+             del self.catalogoFilm(movie_name)
+
+            else: 
+                 f"ATTENZIONE! Non risulta nessun film con il nome {movie_name} !"  
+
+            return f"SUCCESSO! è stato eliminato il film {movie_name}"
         
-          
-          
-              
-       
+    
+    
+
+
 
