@@ -1,7 +1,7 @@
 # 🐳Lezione DOCKER - comandi per utilizzo dei FILE.
 
 
-## 🔧 1. Prepara i file del progetto
+## 1. Prepara i file del progetto
 
 ```bash
 mkdir mio-progetto-docker
@@ -11,7 +11,7 @@ touch python_requirements.txt
 touch app.py
 ```
 
-## 📝 2. Scrivi il contenuto dei file
+## 2. Scrivi il contenuto dei file
 
 ### `python_requirements.txt`
 
@@ -37,25 +37,25 @@ WORKDIR /app
 CMD ["python", "app.py"]
 ```
 
-## 🔨 3. Costruisci l’immagine Docker
+##  3. Costruisci l’immagine Docker
 
 ```bash
 docker build -t esercizio-docker .
 ```
 
-## 📦 4. Verifica che l’immagine sia stata creata
+##  4. Verifica che l’immagine sia stata creata
 
 ```bash
 docker images
 ```
 
-## 🚀 5. Avvia il container
+##  5. Avvia il container
 
 ```bash
 docker run -it esercizio-docker
 ```
 
-## 📋 6. Comandi utili
+##  6. Comandi utili
 
 - **Vedere tutti i container attivi:**
   ```bash
