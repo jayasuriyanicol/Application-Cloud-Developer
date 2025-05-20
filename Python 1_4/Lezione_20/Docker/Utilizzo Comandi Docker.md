@@ -1,4 +1,4 @@
-# 🐳Lezione DOCKER - comandi per manipolazione dei FILE.
+# 🐳 Lezione DOCKER - comandi per manipolazione dei FILE
 
 
 ## 1. Prepara i file del progetto
