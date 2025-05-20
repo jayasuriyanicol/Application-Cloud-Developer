@@ -16,5 +16,5 @@ COPY app.py /app
 #Imposta /app come directory di lavoro; da qui in poi tutti i comandi verranno eseguiti da questa directory
 WORKDIR /app
 
-
+CMD ["python", "app.py"]
 
