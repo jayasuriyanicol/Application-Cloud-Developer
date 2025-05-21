@@ -31,3 +31,7 @@ REVISIONARE il ESERCIZIO della *lepre e della tartaruga.*
 
 -ARGOMENTO TEORICO : *Linux comandi TERMINALE*
 
+### Lezione numero 22:
+
+-ARGOMENTO TEORICO : *Shell Programming* fino alla **slide numero 36**
+
