@@ -53,24 +53,26 @@ class Magazzino:
             if elementoProdotto.nome.lower() == nome.lower():  
                 return f"SUCCESSO ! il prodotto '{nome}' ESISTE nel MAGAZZINO !"
             
-        return f"ATTENZIONE ! il prodotto '{nome}' NON ESISTE nel MAGAZZINO !"  #Se non trovato, restituiamo messaggio di errore
+        return f"ATTENZIONE ! il prodotto '{nome}' NON ESISTE nel MAGAZZINO !"  
 
     
-    #Funzione che verifica se il prodotto è disponibile, ovvero se quantità > 0
+    #Funzione che verifica se il prodotto è disponibile, ovvero se quantità > 0, cicliamo i prodotti per cercare il nome richiesto
     def verifica_disponibilità(self,nome:str)-> str:
 
-        for elementoProdotto in self.magazzino:  #Cicliamo i prodotti per cercare il nome richiesto
+        for elementoProdotto in self.magazzino:  
              
-            if elementoProdotto.nome.lower() == nome.lower():  #Controllo case-insensitive del nome prodotto
-                if elementoProdotto.quantità > 0:  #Se la quantità è maggiore di 0, è disponibile
+            if elementoProdotto.nome.lower() == nome.lower():
+                if elementoProdotto.quantità > 0:  
                     return f"SUCCESSO ! il prodotto '{nome}' è DISPONBILIE nel MAGAZZINO !"
-                else:  #Altrimenti il prodotto è presente ma esaurito
+                else:  
                     return f"ATTENZIONE! Il prodotto '{nome}' NON è DISPONIBILE nel MAGAZZINO!"
 
-        return f"ATTENZIONE ! il prodotto '{nome}' NON è DISPONIBILE nel MAGAZZINO !"  #Se non trovato nel magazzino, restituisce errore
-
+        return f"ATTENZIONE ! il prodotto '{nome}' NON è DISPONIBILE nel MAGAZZINO !"  
     
-#----- TEST CASE -----
+
+
+#TEST CASE (verifica corretto funzionamento del sistema) 
+
 
 #Creazione del magazzino
 magazzino = Magazzino()
@@ -89,7 +91,7 @@ print(f"\n{magazzino.aggiungi_prodotto(prodotto3)}")
 print(f"\n{magazzino.cerca_prodotto('Mouse')}")
 print(f"\n{magazzino.cerca_prodotto('Stampante')}")
 
-#Verifica disponibilità dei prodotti
-print(f"\n{magazzino.verifica_disponibilità('Monitor')}")     #Disponibile
-print(f"\n{magazzino.verifica_disponibilità('Tastiera')}")    #Non disponibile
-print(f"\n{magazzino.verifica_disponibilità('Stampante')}")   #Non esiste
+#Verifica disponibilità dei prodotti, DISPONIBILE , NON DISPONIBILE, NON ESISTE
+print(f"\n{magazzino.verifica_disponibilità('Monitor')}")     
+print(f"\n{magazzino.verifica_disponibilità('Tastiera')}")    
+print(f"\n{magazzino.verifica_disponibilità('Stampante')}")   
