@@ -10,11 +10,6 @@ REVISIONARE il ESERCIZIO della *lepre e della tartaruga.*
 - ARGOMENTO TEORICO: *Regex and LAMDA*
 
 
-### Lezione numero 11:
-
-- Svolgere i due esercizi *(Cinema e Magazzino)* come ESERCITAZIONE sulle classi e ereditarietà
-
-
 ### Lezione numero 15:
 
 - Rivedere parte TEORICA: *Context Manager e File JSON*
