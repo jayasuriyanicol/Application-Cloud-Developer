@@ -11,18 +11,10 @@
 
 ## 🔁 Argomenti da Rivedere
 
-- [ ] Strutture condizionali in JavaScript
-- [ ] Manipolazione del DOM
-- [ ] Classi e oggetti (Progettazione)
-- [ ] UML e diagrammi di classe
+"La specifica degli esercizi da svolgere sono presenti su ogni cartella specifica"
 
 ---
 
-## 📌 Note Generali
-
-- Ricorda di salvare frequentemente i progressi su GitHub.
-- Controlla Classroom per eventuali aggiornamenti o correzioni.
-
-   
+  
 
 
