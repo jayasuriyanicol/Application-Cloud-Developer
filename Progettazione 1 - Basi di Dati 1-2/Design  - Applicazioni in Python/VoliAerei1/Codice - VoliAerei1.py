@@ -77,7 +77,7 @@ class Aeroporto:
 
 
 #Definiamo la classe Città con i seguenti attributi -> nome: str, numeroAbitanti: int
-class Città:
+class Citta:
 
     def __init__(self, nome:str, numeroAbitanti:int)-> None:
 
@@ -221,9 +221,9 @@ if __name__ == "__main__":
 
     
     #Effettuiamo un test sulla classe CITTÀ
-    roma = Città("Roma", 2800000)
-    milano = Città("Milano", 1350000)
-    print("Uguali città:", roma == Città("Roma", 2800000))
+    roma = Citta("Roma", 2800000)
+    milano = Citta("Milano", 1350000)
+    print("Uguali città:", roma == Citta("Roma", 2800000))
     print("Set città:", {roma, milano})
     print()
 
