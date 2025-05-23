@@ -5,7 +5,7 @@
 | Materia        | Esercizio                          | Scadenza            | Note                         |
 |----------------|------------------------------------|----------------------|------------------------------|
 | **Web**        | Esercizi su JavaScript             | *Giovedì 29 Maggio*  | Completare esercizi assegnati |
-| **Progettazione** | VoliAerei1                        | *Lunedì 26 Maggio*   | Rivedere struttura del progetto |
+| **Progettazione** | VoliAerei2                        | *Lunedì 26 Maggio*   | Rivedere struttura del progetto |
 
 ---
 
