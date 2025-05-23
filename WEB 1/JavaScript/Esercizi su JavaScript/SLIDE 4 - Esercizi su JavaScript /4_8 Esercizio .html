@@ -1,0 +1,44 @@
+
+<!--- Esercizio 4.8 Esercizio 4.8 Scrivere un programma che dichiara e valorizzaun array di 10 numeri a proprio piacimento e restituisca in output il totale di quanti numeri pari ci sono e quanti numeri dispari (utilizzare il
+ciclo for).
+Ad es.
+Nell’ array ci sono 3 numeri pari e 7 numeri
+dispari.
+--->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Esercizio 4.8 - Array 10 numeri trova pari</title>
+</head>
+<body>
+    <h1>Esercizio 4.8 - Array 10 numeri trova pari</h1>
+    <script>
+var numeri = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30];
+var pari = 0;
+var dispari = 0;
+
+for (var i = 0; i < numeri.length; i++) {
+    if (numeri[i] % 2 === 0) {
+        pari++;
+    } else {
+        dispari++;
+    }
+}
+
+console.log("Nell’array ci sono " + pari + " numeri pari e " + dispari + " numeri dispari");
+
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

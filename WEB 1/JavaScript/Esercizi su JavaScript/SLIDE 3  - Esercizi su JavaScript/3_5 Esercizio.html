@@ -1,0 +1,48 @@
+<!--Esercizio 3.5 Quale sarà il valore finale delle variabili a, b, c e d dopo l’esecuzione del codice sotto?
+let a = 1, b = 1;
+let c = ++a; // ?
+let d = b++; // ?-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Esercizio 3_5 - Pre/Post incremento</title>
+</head>
+<body>
+
+  <h1>ESERCIZIO 3_5</h1>
+
+  <h3>CONSEGNA:</h3>
+  <p>
+    
+  </p>
+
+  <h2>SVOLGIMENTO:</h2>
+
+  <p id="output"></p>
+
+  <script>
+
+    let a = 1, b = 1;
+    // pre-incremento: a diventa 2, c = 2
+    let c = ++a; 
+    // pre-incremento: a diventa 2, c = 2
+    let d = b++; 
+
+    // Output in console
+    console.log("a =", a);
+    console.log("b =", b);
+    console.log("c =", c);
+    console.log("d =", d);
+
+    // Output nella pagina
+    document.getElementById("output").innerHTML = 
+      "Valori finali delle variabili:<br>" +
+      "a = " + a + "<br>" +
+      "b = " + b + "<br>" +
+      "c = " + c + "<br>" +
+      "d = " + d;
+  </script>
+
+</body>
+</html>

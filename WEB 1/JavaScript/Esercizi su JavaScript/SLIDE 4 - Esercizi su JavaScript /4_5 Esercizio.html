@@ -1,0 +1,29 @@
+<!--- Esercizio 4.5
+Modificare l'esercizio 4 in modo che stampi il doppio dei numeri ottenuti (0,4,...,40) sia con il ciclo for che con il ciclo while;
+--->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Esercizio 4.5 - Doppio dei numeri da 0 a 20 con passo 2</title>
+</head>
+<body>
+    <h1>Esercizio 4.5 - Doppio dei numeri da 0 a 20 con passo 2</h1>
+    <script>
+        // Con il ciclo for
+        console.log("Doppio dei numeri da 0 a 20 con passo 2 - for:");
+        for (var i = 0; i <= 20; i += 2) {
+            console.log(i * 2);
+        }
+
+        // Con il ciclo while
+        console.log("Doppio dei numeri da 0 a 20 con passo 2 - while:");
+        var i = 0;
+        while (i <= 20) {
+            console.log(i * 2);
+            i += 2;
+        }
+    </script>
+</body>
+</html>

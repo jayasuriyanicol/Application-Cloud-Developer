@@ -1,0 +1,53 @@
+<!-- Esercizio 3.3: Scrivi un programma che, dato un numero di secondi, calcoli la quantità di ore, minuti e secondi corrispondenti e poi stampi il risultato.<br>
+    L'output avrà solo numeri interi.  
+    Esempio:<br>
+    Input: 12560<br>
+    Output: 3 ore, 29 minuti e 20 secondi
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Esercizio 3_3 - Secondi in Ore, Minuti e Secondi</title>
+</head>
+<body>
+
+  <h1>ESERCIZIO 3_3</h1>
+
+  <h3>CONSEGNA:</h3>
+
+  <p>
+    Esercizio 3.3: Scrivi un programma che, dato un numero di secondi, calcoli la quantità di ore, minuti e secondi corrispondenti e poi stampi il risultato.<br>
+    L'output avrà solo numeri interi.<br><br>
+    Esempio:<br>
+    Input: 12560<br>
+    Output: 3 ore, 29 minuti e 20 secondi
+  </p>
+
+  <h2><br>SVOLGIMENTO DELL'ESERCIZIO:</h2>
+
+  <p id="outputTempo"></p>
+
+  <script>
+    // Input da utente
+    let numeroSecondi = parseInt(prompt("Inserisci il numero di secondi:"));
+
+    // Calcoli
+    let ore = parseInt(numeroSecondi / 3600); // divisione intera
+    let minuti = parseInt((numeroSecondi % 3600) / 60);
+    let secondi = numeroSecondi % 60;
+
+    // Output in console
+    console.log(ore + " ore, " + minuti + " minuti e " + secondi + " secondi");
+
+    // Output nella pagina
+    document.getElementById("outputTempo").innerHTML =
+      ore + " ore, " + minuti + " minuti e " + secondi + " secondi";
+  </script>
+
+</body>
+</html>
+
+
+
+
