@@ -2,19 +2,18 @@
 
 ## 📅 Scadenze e Esercizi per Materia
 
-| Materia        | Esercizio                          | Scadenza            | Note                         |
+| Materia        | Esercizio                          | Scadenza             | Note                         |
 |----------------|------------------------------------|----------------------|------------------------------|
-| **Web**        | Esercizi su JavaScript             | *Giovedì 29 Maggio*  | Completare esercizi assegnati |
-| **Progettazione** | VoliAerei2                        | *Lunedì 26 Maggio*   | Rivedere struttura del progetto |
+| **ND**         | NULL                               | *NUll*               | NULL                         |
+| **ND**         | NULL                               | *NUll*               | NULL                         |
 
 ---
 
 ## 🔁 Argomenti da Rivedere
 
-"La specifica degli esercizi da svolgere sono presenti su ogni cartella specifica"
+"La specifica degli esercizi da svolgere sono presenti su ogni cartella specifica" se non vi sono esercizi, segue la struttura: 
+| **ND**         | NULL                               | *NUll*               | NULL                         |
 
 ---
-
-  
 
 
