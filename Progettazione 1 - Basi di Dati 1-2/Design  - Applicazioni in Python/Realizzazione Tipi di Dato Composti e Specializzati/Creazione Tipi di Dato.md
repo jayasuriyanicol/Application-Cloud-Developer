@@ -1,9 +1,9 @@
 
-# 📝 README
+# 📝 File Principali Creati per l'utilizzo in fase di Sviluppo in Python
 
 Questo progetto illustra l'uso di **tipi specializzati, validazioni, pattern di design e utility** per la progettazione di software orientato agli oggetti in Python. Le classi definite permettono di rafforzare i controlli a runtime e migliorare la leggibilità e affidabilità del codice.
 
-## 📂 File Principali Creati per l'utilizzo in fase di Sviluppo in Python
+## 📂 Organizzazione File
 
 ---
 
