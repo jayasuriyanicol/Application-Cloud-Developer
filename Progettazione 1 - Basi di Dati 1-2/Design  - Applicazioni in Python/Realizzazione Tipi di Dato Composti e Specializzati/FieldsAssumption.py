@@ -89,5 +89,3 @@ class FieldsAssumption(str):
 
 
 
-
-'''Possiamo vederne una modalità di utilizzo specifica, come ada esempio su una classe chiamata CodiceFiscaleItaliano'''
