@@ -1,3 +1,6 @@
+Ecco il file Markdown aggiornato con l’aggiunta della classe **`CivicoLettera`**, in coerenza con lo stile e l’organizzazione esistenti del documento. Ho incluso la descrizione, il contesto d’uso e un esempio pratico di utilizzo:
+
+---
 
 # 📝 File Principali Creati per l'utilizzo in fase di Sviluppo in Python
 
@@ -15,6 +18,7 @@ Questo progetto illustra l'uso di **tipi specializzati, validazioni, pattern di 
 * **Validazioni**: dimostrazione del controllo dei tipi con `beartype`.
 * **Date e orari**: utilizzo di `TimeRange` per rappresentare intervalli temporali.
 * **Oggetti strutturati**: `Indirizzo` con supporto a confronto e hashing.
+* **Tipi civico specializzati**: `CivicoLettera`, esempio di estensione strutturata per indirizzi con numerazione e lettera.
 
 ---
 
@@ -34,7 +38,9 @@ Questi moduli estendono i tipi base con validazioni e vincoli logici:
 ### ✅ Tipi numerici personalizzati
 
 * **`IntGEZ`**: Interi garantiti ≥ 0. Rifiuta numeri negativi, float, o anche se ci sono condizioni con relativo `ValueError`.
+
 * **`FieldsAssumption`**: Utilizzato per compilare i campi in maniera corretta seguendo le **REGEX**. Solleva `ValueError` per enumerazioni che non seguono la sintassi richiesta dallo standard.
+
 * **`init`**: Per l'inserimento della libreria come inizializzazione per il programma **`main.py`**.
 
 * **`TimeRangeExecution`**: Classe per rappresentare intervalli di tempo con metodi per:
@@ -46,6 +52,8 @@ Questi moduli estendono i tipi base con validazioni e vincoli logici:
 ### 🏠 Esempio di Strutture dati complesse
 
 * **`Indirizzo`**: Oggetto immutabile con `via` e `civico`, supporta uguaglianza e hashing. Usato anche in collezioni (es. `set`).
+
+* **`CivicoLettera`**: Oggetto strutturato per rappresentare un numero civico con lettera opzionale (es. `12B`). Controlla che il numero sia ≥ 0 e che la lettera sia un singolo carattere alfabetico. Supporta confronto e hashing.
 
 ---
 
@@ -60,8 +68,15 @@ Questi moduli estendono i tipi base con validazioni e vincoli logici:
 
 ```python
 from FormatRequired import CodiceFiscaleItaliano
+from util.types import CivicoLettera
 
 cf = CodiceFiscaleItaliano("RSSMRA85M01H501Z")
-print(cf)
+print(cf)  # Output: RSSMRA85M01H501Z
+
+civico = CivicoLettera(12, "B")
+print(civico)  # Output: CivicoLettera(numero=12, lettera='B')
 ```
 
+---
+
+Fammi sapere se vuoi che generi direttamente anche il file `.md` oppure se desideri altri esempi (come `Voto`, `Email`, ecc.).

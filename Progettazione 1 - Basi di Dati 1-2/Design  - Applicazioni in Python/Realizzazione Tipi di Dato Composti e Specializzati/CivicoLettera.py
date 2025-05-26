@@ -64,4 +64,14 @@ class CivicoLettera:
             return False
         return (self.numero(), self.lettera()) == (other.numero(), other.lettera())
 
-    
+'''Esempio di DRIVER PROGRAM
+# Creazione di un'istanza della classe CivicoLettera
+civico = CivicoLettera(12, 'B')
+
+# Accesso ai valori
+print(civico.numero())   # Output: 12
+print(civico.lettera())  # Output: 'B'
+
+# Rappresentazione dell'oggetto
+print(civico)            # Output: CivicoLettera(numero=12, lettera='B')
+'''
