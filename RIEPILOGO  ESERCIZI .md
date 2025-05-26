@@ -20,8 +20,9 @@ se non vi sono esercizi, segue la struttura tabellare:
 
 ***Legenda:***
 
-**ND** -> Valore ancora da definire, **NON DEFINITO**
-**NULL** -> Valore nullo ancora non assegnato, **VALORE NULLO**
+1. **ND** -> Valore ancora da definire, **NON DEFINITO**
+
+2. **NULL** -> Valore nullo ancora non assegnato, **VALORE NULLO**
 
 ---
 
