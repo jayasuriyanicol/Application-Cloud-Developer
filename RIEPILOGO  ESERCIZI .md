@@ -9,7 +9,7 @@
 
 ---
 
-## 🔁 Argomenti da Rivedere
+## 🔁 Argomenti da Rivedere e Specifica Tabellare
 
 "La specifica degli esercizi da svolgere sono presenti su ogni cartella specifica".
 
