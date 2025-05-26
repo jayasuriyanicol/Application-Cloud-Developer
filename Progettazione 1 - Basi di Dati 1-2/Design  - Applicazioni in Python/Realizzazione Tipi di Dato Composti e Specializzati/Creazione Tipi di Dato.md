@@ -1,6 +1,3 @@
-Ecco il file Markdown aggiornato con l’aggiunta della classe **`CivicoLettera`**, in coerenza con lo stile e l’organizzazione esistenti del documento. Ho incluso la descrizione, il contesto d’uso e un esempio pratico di utilizzo:
-
----
 
 # 📝 File Principali Creati per l'utilizzo in fase di Sviluppo in Python
 
@@ -76,7 +73,3 @@ print(cf)  # Output: RSSMRA85M01H501Z
 civico = CivicoLettera(12, "B")
 print(civico)  # Output: CivicoLettera(numero=12, lettera='B')
 ```
-
----
-
-Fammi sapere se vuoi che generi direttamente anche il file `.md` oppure se desideri altri esempi (come `Voto`, `Email`, ecc.).
