@@ -28,5 +28,5 @@ REVISIONARE il ESERCIZIO della *lepre e della tartaruga.*
 
 ### Lezione numero 22:
 
--ARGOMENTO TEORICO : *Shell Programming* fino alla **slide numero 39 (fino al TEST CASE Shell)**
+-ARGOMENTO TEORICO : *Shell Programming* fino alla **slide numero da 39 a 46 (dal TEST CASE Shell fino alla fine delle slide)**, rivedere anche gli e cercare di aggiungerli ed eseguirli sul terminale.
 
