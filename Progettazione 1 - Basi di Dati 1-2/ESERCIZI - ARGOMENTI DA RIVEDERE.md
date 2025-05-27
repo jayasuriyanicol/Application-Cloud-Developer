@@ -6,4 +6,4 @@ Completare l'attività del ***Post con feedback e specifica dell'operazione "pre
 
 ## Lezione numero 7 
 
-Del progetto **Azienda 1** cercare di vedere e completare fino alla secondo metodo il diagramma e relativo sviluppo in **Linguaggio Python**
+Del progetto **Azienda 1** cercare di vedere e completare fino alla secondo metodo il diagramma e relativo sviluppo in **Linguaggio Python** + relative slide teoriche (fino alla fine)
