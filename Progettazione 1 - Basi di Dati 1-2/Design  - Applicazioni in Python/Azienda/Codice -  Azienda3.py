@@ -33,7 +33,7 @@ class Impiegato:
     _stipendioAnnuale : RealGZ
     _dataAfferenza: datetime.date
     _nascita : datetime.date
-    _dipartimento: "Dipartimento"
+    _dipartimento: Dipartimento | None
 
     def nome(self)-> str:
 
@@ -54,6 +54,10 @@ class Impiegato:
 
         return self._nascita
     
+    def dipartimento(self) -> Dipartimento:
+
+        return self._dipartimento
+    
 
     '''Successivamente, procediamo con la creazione dei Metodi GETTER e SETTER'''
     def setNome(self, v:str) -> None:
@@ -70,18 +74,27 @@ class Impiegato:
 
         self._dataAfferenza:str = v
 
+    def setDipartimento(self, v:Dipartimento) -> None:
+        self._dipartimento:str = v
+    
+
+
+    def  unsetDipartimento(self)-> None:
+         self._dipartimento = None
 
     '''NON PROCEDIAMO CON LA DEFINIZIONE DELLA FUNZIONE Nascita 'def setdaatNascita(self,v: ...) <<-- NO, perchè sappiamo che esso è <<immutable>> dalla nascita'''
 
  
    #TO DO : Incompleto ! Manca l'inserimento del link 'afferenza' 
-    def __init__(self, nome:str, cognome:str, stipendioAnnuale:RealGZ, dataNascita: datetime.time, dataAfferenza: datetime.time):
+    def __init__(self, nome:str, cognome:str, stipendioAnnuale:RealGZ, dataNascita: datetime.time, dataAfferenza: datetime.time, dipartimento: Dipartimento):
         
         self.setNome(nome)
         self.setCognome(cognome)
         self.setstipendioAnnuale(stipendioAnnuale)
         self.setdataAfferenza(dataAfferenza)
         self.dataNascita = dataNascita 
+        self.dipartimento = None
+        self.setDipartimento(dipartimento)
     
 
 
