@@ -25,6 +25,43 @@ class RealGZ(RealGEZ):
 '''Adesso, procediamo con la creazione e lo sviluppo delle classi dal DIAGRAMMA RISTRUTTURATO'''
 
 
+class Dipartimento:
+    pass
+
+class afferenza:
+    _impiegato : Impiegato #-> Dato <<immutable>>
+    _dipartimento: Dipartimento 
+    _dataAfferenza: datetime.time 
+    _dataNascita : datetime.time
+
+
+    def impiegato(self) -> Impiegato:
+        return self._impiegato
+    
+    def dipartimento(self) -> Dipartimento:
+
+        return self._dipartimento
+    
+    def dataAfferenza(self)-> datetime.time:
+        return self._dataAfferenza
+    
+
+    def nascita(self) -> datetime.time:
+
+        return self._dataNascita
+    
+    def setdataAfferenza(self, v:datetime.time):
+    
+     '''NON PROCEDIAMO CON LA DEFINIZIONE DELLA FUNZIONE Nascita 'def setdaatNascita(self,v: ...) <<-- NO, perchè sappiamo che esso è <<immutable>> dalla nascita'''
+     pass
+
+    def setdataNascita(self, v:datetime.time):
+
+        return self._dataNascita == v    
+    
+    
+
+
 #Creiamo la classe IMPIEGATO della classe RISTRUTTURATA
 class Impiegato:
 
@@ -33,7 +70,7 @@ class Impiegato:
     _stipendioAnnuale : RealGZ
     _dataAfferenza: datetime.date
     _nascita : datetime.date
-    _dipartimento: Dipartimento | None
+    _dipartimento: Dipartimento
 
     def nome(self)-> str:
 
@@ -96,5 +133,4 @@ class Impiegato:
         self.dipartimento = None
         self.setDipartimento(dipartimento)
     
-
 
