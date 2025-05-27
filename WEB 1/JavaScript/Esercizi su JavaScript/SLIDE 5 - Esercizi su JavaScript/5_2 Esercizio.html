@@ -1,0 +1,57 @@
+<!--Esercizio 5.2 Scrivi un programma con due funzioni, la prima prende in ingresso un intero e verifica se sia compreso nel range da 1 a 7.
+Se è compreso, la funzione restituirà TRUE, se non è compreso restituirà FALSE.
+La seconda funzione:
+- nel caso la prima restituisca TRUE visualizza il giorno della settimana corrispondente, considerando la seguente corrispondenza:
+1 = Lunedì
+...
+7 = Domenica
+- nel caso il giorno non sia compreso nel range, la funzione dovrà restituire un messaggio d'errore simile a questo:
+'Peccato, non posso indovinare il giorno.'
+
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 5.2</title>
+</head>
+<body>
+
+    <script>
+
+        function verificaNumero(numeroInserito){
+
+            return numeroInserito >= 1 && numeroInserito <=7;
+        }
+
+
+        function giornoMostra(numeroInserito){
+
+           const giorniSettimana = ['Lunedi', 'Martedì', 'Mercoledì', ' Giovedì', 'Venerdì', 'Sabato', 'Domenica'] 
+
+
+            if(verificaNumero(numeroInserito)){
+
+                alert ("Il numero della settimana corrispondete a quello che hai inserito è: " + giorniSettimana [numeroInserito - 1])
+            }else{
+
+                alert ("Pecato, non posso indovinare il giorno !")
+            }
+        
+        }
+
+        let numeroInserito = prompt ("Inserisci un numero compreso fra 1 e 7: ")
+        let numeroSettimana = parseInt(numeroInserito)
+        
+        giornoMostra(numeroSettimana)
+
+    </script>
+    
+</body>
+</html>
+
+
