@@ -1,4 +1,4 @@
-from typing import Self
+from typing import Self, Any
 from datetime import *
 
 
@@ -58,6 +58,19 @@ class afferenza:
     def setdataNascita(self, v:datetime.time):
 
         return self._dataNascita == v    
+    
+
+    def __hash__ (self)-> int:
+
+        pass
+
+    def __eq__(self, other : Any)-> bool:
+
+        if not isinstance(other, afferenza):
+            return False
+        else:
+
+            return self.impiegato() == other.impiegato() and self.dipartimento() == other.dipartimento()
     
     
 
