@@ -62,7 +62,7 @@ class afferenza:
 
     def __hash__ (self)-> int:
 
-        pass
+      return hash ( (self.impiegato(), self.dipartimento()) )
 
     def __eq__(self, other : Any)-> bool:
 
