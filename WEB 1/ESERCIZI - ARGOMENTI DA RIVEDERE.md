@@ -15,7 +15,7 @@
 
  ## Lezione numero 7
    
-    Sempre nella cartella *"Javascript"* ultimare la batteria degli esercizi dal numero **5.3** a **5.6**, rivedendo anche la parte terorica sulle funzioni.
+  Sempre nella cartella *"Javascript"* ultimare la batteria degli esercizi dal numero **5.3** a **5.6**, rivedendo anche la parte terorica sulle funzioni.
 
    
    
