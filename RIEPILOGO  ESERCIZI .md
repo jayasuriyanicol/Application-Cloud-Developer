@@ -4,7 +4,7 @@
 
 | Materia        | Esercizio                          | Scadenza             | Note                         |
 |----------------|------------------------------------|----------------------|------------------------------|
-| **ND**         | NULL                               | *NUll*               | NULL                         |
+| **Progettazione**         | Pos                              | *NUll*               | NULL                         |
 | **ND**         | NULL                               | *NUll*               | NULL                         |
 
 ---
