@@ -4,8 +4,8 @@
 
 | Materia        | Esercizio                          | Scadenza             | Note                         |
 |----------------|------------------------------------|----------------------|------------------------------|
-| **WEB 1**      | Ultimare gli esercizi + Argomenti teorici |*Mercoledì 4 Giugno* | Completarli prima l'inizio di WEB 2            |
-| **Progettazione**| Rivedere Slide e ultimare Azienda 3| *Martedì 3 Giugno* | Approfondimenti sul relativo file                       |
+| **Progettazione**| Rivedere Slide e ultimare Azienda 3| *Martedì 3 Giugno* | Approfondimenti sul relativo file |
+| **WEB 1**      | Ultimare gli esercizi + Argomenti teorici |*Mercoledì 4 Giugno* | Completarli prima l'inizio di WEB 2|
 
 ---
 
