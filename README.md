@@ -22,17 +22,20 @@ It is mainly focused on coding and on the creation and organization of Software 
 
 # 📅 Update Log Format
 
-Every update to this repository follows the naming convention:
+Usally the updates to this repository follows the naming convention:
 
 
 Where:  
+
 - `DD` = Day  
 - `MM` = Month  
 - `YYYY` = Year  
+- `Comment` = Comment
 
 Example:  
 
-`UPDATE - 01_01_2025`
+`UPDATE - 01_01_2025 | Add new features` or directly in some moments only **comments** `Add new features`
+
 
 Happy navigation! ➤
 
