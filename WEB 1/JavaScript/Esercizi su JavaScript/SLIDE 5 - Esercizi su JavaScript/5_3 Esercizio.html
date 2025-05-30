@@ -18,6 +18,9 @@ il tato "Controlla". Il programma dice al giocatore se il tentatico fatto √® pi√
 
 </head>
 <body>
+
+     <!--Iniziamo con la parte del inserimento dei dati in HTML, riportando gi√† le relatice funzioni dello script-->
+
      <h1>Gioco: Indovina il numero!</h1>
 
      <input type="number" id="tentativo" placeholder="Inserisci un numero da 0 a 100"> 
@@ -29,10 +32,13 @@ il tato "Controlla". Il programma dice al giocatore se il tentatico fatto √® pi√
      <button onclick="nuovoGioco()">Nuovo Gioco</button>
 
      <script>
-
+        
+        //Iniziamo con la dichiarazione delle variabili come random e tentativi
         let numeroIndovinare = Math.floor (Math.random() * 101);
         let tentativi = 0;
 
+    
+    //Creiamo la funzione controllaNumero() per inizializzare, dare messaggi di errore nel caso di num non int
     function controllaNumero (){
         const input = document.getElementById("tentativo");
         const conteggio = document.getElementById("conteggio");
@@ -48,12 +54,13 @@ il tato "Controlla". Il programma dice al giocatore se il tentatico fatto √® pi√
         return;
 
     }
-
+    
+    //Incrementiamo i tenativi se il numero non vine indovinato, stamopandolo anche a schermo in tempo reale
     tentativi++;
     conteggio.textContent = tentativi;
 
 
-
+    //Verifichiamo sempre attraverso messaggi in tempo reale se il numero inserito √® basso, alto o corretto con una condizione IF-ELIF-ELSE
     if (numeroInserito < numeroIndovinare){
 
 
@@ -66,6 +73,7 @@ il tato "Controlla". Il programma dice al giocatore se il tentatico fatto √® pi√
 
 }
 
+//Procediamo con la stesura dell'ultima funzione nuovoGioco(), nel caso vogliamo che riavviare la partita da zero, azzerando tutti i relativi valori.
 function nuovoGioco(){
     numeroIndovinare = Math.floor(Math.random() * 101);
     tentativi = 0;
