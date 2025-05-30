@@ -20,7 +20,7 @@ il tato "Controlla". Il programma dice al giocatore se il tentatico fatto √® pi√
 <body>
      <h1>Gioco: Indovina il numero!</h1>
 
-     <input type="number" id="tentativo" placeholder="Inserisciun numero da 0 a 100"> 
+     <input type="number" id="tentativo" placeholder="Inserisci un numero da 0 a 100"> 
      <button onclick="controllaNumero()" id="Controlla">Controlla</button>
 
      <h5>Messaggio indicatore: <span id="messaggio"></span></h5> 
@@ -31,7 +31,7 @@ il tato "Controlla". Il programma dice al giocatore se il tentatico fatto √® pi√
      <script>
 
         let numeroIndovinare = Math.floor (Math.random() * 101);
-        let tentivi = 0;
+        let tentativi = 0;
 
     function controllaNumero (){
         const input = document.getElementById("tentativo");
@@ -49,8 +49,8 @@ il tato "Controlla". Il programma dice al giocatore se il tentatico fatto √® pi√
 
     }
 
-    tentivi++;
-    tentativi.textContent = tentativi;
+    tentativi++;
+    conteggio.textContent = tentativi;
 
 
 
@@ -61,23 +61,36 @@ il tato "Controlla". Il programma dice al giocatore se il tentatico fatto √® pi√
     }else if (numeroInserito > numeroIndovinare){
         messaggio.textContent = "Il numero insetito √® TROPPO ALTO !";
     } else{
-        messaggio.textContent = "Il numero inserito √® CORRETTO !! COMPLIMENTI HAI INDOVINATO DOPO" + tentativi +"tenativi";
+        messaggio.textContent = "Il numero inserito √® CORRETTO !! COMPLIMENTI HAI INDOVINATO DOPO " + tentativi + " tentativo/i";
     }
 
 }
 
 function nuovoGioco(){
     numeroIndovinare = Math.floor(Math.random() * 101);
-    tentivi = 0;
-    document.getElementById("tentativo")
-    document.getElementById("conteggio")
-    document.getElementById("messaggio")
+    tentativi = 0;
+    document.getElementById("tentativo").value = "";
+    document.getElementById("conteggio").textContent = 0;
+    document.getElementById("messaggio").textContent = "";
     
 
 
 }
 
-     </script>
+</script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
