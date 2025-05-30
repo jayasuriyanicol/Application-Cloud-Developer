@@ -9,15 +9,53 @@ il tato "Controlla". Il programma dice al giocatore se il tentatico fatto Ã¨ piÃ
 -->
 
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Esercizio 5.3 | Gioco Indovina il numero</title>
+
 </head>
 <body>
-    
-</body>
-</html>
+     <h1>Gioco: Indovina il numero!</h1>
+
+     <input type="number" id="tentativo" placeholder="Inserisciun numero da 0 a 100"> 
+     <button onclick="controllaNumero()" id="Controlla">Controlla</button>
+
+     <h5>Messaggio indicatore: <span id="messaggio"></span></h5> 
+     <h5>Tentativi svolti: <span id="conteggio">0</span></h5>
+
+     <button onclick="nuovoGioco()">Nuovo Gioco</button>
+
+     <script>
+
+        let numeroIndovinare = Math.floor (Math.random() * 101);
+        let tentivi = 0;
+
+    function controllaNumero (){
+        const input = document.getElementById("tentativo");
+        const conteggio = document.getElementById("conteggio");
+        const messaggio = document.getElementById ("messaggio");
+        const numeroUtente = parseInt(input.value);
+
+
+    }
+
+
+
+     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
