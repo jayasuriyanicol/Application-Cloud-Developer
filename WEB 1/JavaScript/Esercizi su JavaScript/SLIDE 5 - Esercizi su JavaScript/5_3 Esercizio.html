@@ -37,25 +37,39 @@ il tato "Controlla". Il programma dice al giocatore se il tentatico fatto è pi�
         const input = document.getElementById("tentativo");
         const conteggio = document.getElementById("conteggio");
         const messaggio = document.getElementById ("messaggio");
-        const numeroUtente = parseInt(input.value);
+        const numeroInserito = parseInt(input.value);
 
+
+    
+
+    if (isNaN(numeroUtente)){
+
+        messaggio.textContent = "ATTENZIONE ! Inserire un numero valido INTERO !";
+        return;
 
     }
 
+    tentivi++;
+    tentativi.textContent = tentativi;
 
+
+
+    if (numeroInserito < numeroIndovinare){
+
+
+        messaggio.textContent = "Il numero inserito è TROPPO BASSO !";
+    }else if (numeroInserito > numeroIndovinare){
+        messaggio.textContent = "Il numero insetito è TROPPO ALTO !";
+    } else{
+        messaggio.textContent = "Il numero inserito è CORRETTO !! COMPLIMENTI HAI INDOVINATO DOPO" + tentativi +"tenativi";
+    }
+
+}
 
      </script>
 
+</body>
+</html>
 
 
-
-
-
-
-
-
-
-
-
-
-
+   
