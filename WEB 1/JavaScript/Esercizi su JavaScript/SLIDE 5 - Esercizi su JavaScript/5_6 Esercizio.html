@@ -35,12 +35,14 @@ bottone calcola che, in base all’opzione scelta chiama una funzione javascript
   <script>
     function calcola() {
 
-    //
+      //Andiamo a dichiarare i nostri valori n1,n2 come -> FLOAT operatore e output
       const n1 = parseFloat(document.getElementById('num1').value);
       const n2 = parseFloat(document.getElementById('num2').value);
       const op = document.getElementById('operazione').value;
       const output = document.getElementById('risultato');
       
+
+      //Nel caso i valori non sono congruii lanciamo "un'eccezzione"
       if (isNaN(n1) || isNaN(n2)) {
         output.textContent = 'Inserisci due numeri validi!';
         return;
@@ -48,6 +50,8 @@ bottone calcola che, in base all’opzione scelta chiama una funzione javascript
 
       let result;
 
+
+      //Infine procediamo con il calcolo effettivo, che tramite la condizione IF-ELIF-ELSE va a calcolare l'operazione richiesta fra i due numeri
       if (op === '+') {
         result = n1 + n2;
       } else if (op === '-') {
@@ -55,13 +59,16 @@ bottone calcola che, in base all’opzione scelta chiama una funzione javascript
       } else if (op === '*') {
         result = n1 * n2;
       } else if (op === '/') {
+
+        //Zero division ERROR
         if (n2 === 0) {
           output.textContent = 'Errore: divisione per zero!';
           return;
         }
         result = n1 / n2;
       }
-
+      
+      //Riportiamo in OUTPUT il risultato oppure relativi messsaggi di errore / eccezzione
       output.textContent = result;
     }
 </script>  
