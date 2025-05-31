@@ -1,16 +1,10 @@
-<!--Esercizio 5.2 Scrivi un programma con due funzioni, la prima prende in ingresso un intero e verifica se sia compreso nel range da 1 a 7.
-Se è compreso, la funzione restituirà TRUE, se non è compreso restituirà FALSE.
-La seconda funzione:
-- nel caso la prima restituisca TRUE visualizza il giorno della settimana corrispondente, considerando la seguente corrispondenza:
-1 = Lunedì
-...
-7 = Domenica
-- nel caso il giorno non sia compreso nel range, la funzione dovrà restituire un messaggio d'errore simile a questo:
-'Peccato, non posso indovinare il giorno.'
-
+<!--Esercizio 5.2:
+Scrivi un programma con due funzioni:
+- La prima prende in ingresso un intero e verifica se è compreso tra 1 e 7. Se sì, restituisce TRUE, altrimenti FALSE.
+- La seconda funzione:
+   - Se il numero è valido, mostra il giorno della settimana corrispondente (1 = Lunedì, ..., 7 = Domenica)
+   - Se non è valido, mostra un messaggio di errore: 'Peccato, non posso indovinare il giorno.'
 -->
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,37 +15,38 @@ La seconda funzione:
 </head>
 <body>
 
-    <script>
+<!-- Inizio script per il controllo del giorno della settimana -->
+<script>
 
-        function verificaNumero(numeroInserito){
+    //Funzione che verifica se il numero inserito è compreso tra 1 e 7
+    function verificaNumero(numeroInserito){
+        return numeroInserito >= 1 && numeroInserito <= 7;
+    }
 
-            return numeroInserito >= 1 && numeroInserito <=7;
+    //Funzione che mostra il giorno della settimana o un messaggio d'errore
+    function giornoMostra(numeroInserito){
+
+        //Array con i giorni della settimana
+        const giorniSettimana = ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato', 'Domenica']; 
+
+        //Controllo se il numero è valido
+        if (verificaNumero(numeroInserito)) {
+            //Mostra il giorno corrispondente (l'array parte da 0, quindi -1)
+            alert("Il giorno della settimana corrispondente al numero inserito è: " + giorniSettimana[numeroInserito - 1]);
+        } else {
+            //Se non valido, mostra errore
+            alert("Peccato, non posso indovinare il giorno!");
         }
+    }
 
+    //Chiediamo all'utente di inserire un numero tra 1 e 7
+    let numeroInserito = prompt("Inserisci un numero compreso fra 1 e 7:");
+    let numeroSettimana = parseInt(numeroInserito); //Convertiamo da stringa a intero
 
-        function giornoMostra(numeroInserito){
+    //Chiamiamo la funzione che mostra il giorno
+    giornoMostra(numeroSettimana);
 
-           const giorniSettimana = ['Lunedi', 'Martedì', 'Mercoledì', ' Giovedì', 'Venerdì', 'Sabato', 'Domenica'] 
-
-
-            if(verificaNumero(numeroInserito)){
-
-                alert ("Il numero della settimana corrispondete a quello che hai inserito è: " + giorniSettimana [numeroInserito - 1])
-            }else{
-
-                alert ("Pecato, non posso indovinare il giorno !")
-            }
-        
-        }
-
-        let numeroInserito = prompt ("Inserisci un numero compreso fra 1 e 7: ")
-        let numeroSettimana = parseInt(numeroInserito)
-        
-        giornoMostra(numeroSettimana)
-
-    </script>
+</script>
     
 </body>
 </html>
-
-
