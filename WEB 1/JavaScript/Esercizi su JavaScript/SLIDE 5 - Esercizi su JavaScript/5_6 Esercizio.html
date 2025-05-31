@@ -23,14 +23,19 @@ bottone calcola che, in base all’opzione scelta chiama una funzione javascript
     <option value="*">*</option>
     <option value="/">/</option>
   </select>
-  
+
   <input type="number" id="num2" placeholder="Numero 2" />
+
   <button onclick="calcola()">Calcola</button>
 
   <p>Risultato: <span id="risultato"></span></p>
 
+
+  <!--Dopo aver inserito tutte le label e la select per l'operatore di operazione procediamo con il calcolo con lo script.-->
   <script>
     function calcola() {
+
+    //
       const n1 = parseFloat(document.getElementById('num1').value);
       const n2 = parseFloat(document.getElementById('num2').value);
       const op = document.getElementById('operazione').value;
