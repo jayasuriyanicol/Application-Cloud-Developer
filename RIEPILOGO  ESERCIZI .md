@@ -4,7 +4,7 @@
 
 | Materia        | Esercizio                          | Scadenza             | Note                         |
 |----------------|------------------------------------|----------------------|------------------------------|
-| **Progettazione**| Rivedere Slide e ultimare Azienda 3| *Martedì 3 Giugno* | Approfondimenti sul relativo file |
+| **Progettazione**| Ultimare le Slide sulla Resp. Doppia | *Martedì 3 Giugno* | Approfondimenti sul relativo file |
 | **Python 1-4**   | Rivedere Argomenti teorici e pratici |*Mercoledì 4 Giugno* | Approfondimenti sul relativo file|
 | **WEB 1**        | Argomenti teorici |*Mercoledì 4 Giugno* | Rivedere il tutto prima dell'inizio di WEB 2|
 
