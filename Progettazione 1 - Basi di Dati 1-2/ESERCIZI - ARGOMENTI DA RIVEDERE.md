@@ -2,4 +2,4 @@
 
 ## Lezione numero 7 
 
-Rivedere le ultime slide TEORICHE sul sulle **Responsabilià doppie** dalla slide numero ***64 alla 67*** .
+Rivedere le ultime slide TEORICHE sul Design  sulle **Responsabilià doppie** dalla slide numero ***64 alla 67*** .
