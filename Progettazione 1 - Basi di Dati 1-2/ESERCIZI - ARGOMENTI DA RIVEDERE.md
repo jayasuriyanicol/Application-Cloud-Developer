@@ -2,4 +2,4 @@
 
 ## Lezione numero 7 
 
-Del progetto **Azienda 1** cercare di vedere e completare fino alla secondo metodo il diagramma e relativo sviluppo in **Linguaggio Python** + relative slide teoriche (fino alla fine)
+Rivedere le ultime slide TEORICHE sulle **Responsabilià doppie** dalla slide numero ***64 alla 67*** .
