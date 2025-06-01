@@ -28,51 +28,6 @@ class RealGZ(RealGEZ):
 class Dipartimento:
     pass
 
-class afferenza:
-    _impiegato : Impiegato #-> Dato <<immutable>>
-    _dipartimento: Dipartimento 
-    _dataAfferenza: datetime.time 
-    _dataNascita : datetime.time
-
-
-    def impiegato(self) -> Impiegato:
-        return self._impiegato
-    
-    def dipartimento(self) -> Dipartimento:
-
-        return self._dipartimento
-    
-    def dataAfferenza(self)-> datetime.time:
-        return self._dataAfferenza
-    
-
-    def nascita(self) -> datetime.time:
-
-        return self._dataNascita
-    
-    def setdataAfferenza(self, v:datetime.time):
-    
-     '''NON PROCEDIAMO CON LA DEFINIZIONE DELLA FUNZIONE Nascita 'def setdaatNascita(self,v: ...) <<-- NO, perchè sappiamo che esso è <<immutable>> dalla nascita'''
-     pass
-
-    def setdataNascita(self, v:datetime.time):
-
-        return self._dataNascita == v    
-    
-
-    def __hash__ (self)-> int:
-
-      return hash ( (self.impiegato(), self.dipartimento()) )
-
-    def __eq__(self, other : Any)-> bool:
-
-        if not isinstance(other, afferenza):
-            return False
-        else:
-
-            return self.impiegato() == other.impiegato() and self.dipartimento() == other.dipartimento()
-    
-    
 
 
 #Creiamo la classe IMPIEGATO della classe RISTRUTTURATA
@@ -145,5 +100,54 @@ class Impiegato:
         self.dataNascita = dataNascita 
         self.dipartimento = None
         self.setDipartimento(dipartimento)
+    
+
+class afferenza:
+    _impiegato : Impiegato #-> Dato <<immutable>>
+    _dipartimento: Dipartimento 
+    _dataAfferenza: datetime.time 
+    _dataNascita : datetime.time
+
+
+    def impiegato(self) -> Impiegato:
+        return self._impiegato
+    
+    def dipartimento(self) -> Dipartimento:
+
+        return self._dipartimento
+    
+    def dataAfferenza(self)-> datetime.time:
+        return self._dataAfferenza
+    
+
+    def nascita(self) -> datetime.time:
+
+        return self._dataNascita
+    
+    def setdataAfferenza(self, v:datetime.time):
+    
+     '''NON PROCEDIAMO CON LA DEFINIZIONE DELLA FUNZIONE Nascita 'def setdaatNascita(self,v: ...) <<-- NO, perchè sappiamo che esso è <<immutable>> dalla nascita'''
+     pass
+    
+    def __init__(self, impiegato: Impiegato, dipartimento:Dipartimento, dataAfferenza: setdataAfferenza) -> None:
+
+      self._impiegato = impiegato
+      self._dipartimento = dipartimento
+      self.setdataAfferenza (dataAfferenza)
+
+
+
+    def __hash__ (self)-> int:
+
+      return hash ( (self.impiegato(), self.dipartimento()) )
+
+    def __eq__(self, other : Any)-> bool:
+
+        if type(self) != type(other):
+            return False
+        else:
+
+            return self.impiegato() == other.impiegato() and self.dipartimento() == other.dipartimento()
+    
     
 
