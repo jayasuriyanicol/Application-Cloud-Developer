@@ -4,7 +4,7 @@
 
 | Materia        | Esercizio                          | Scadenza             | Note                         |
 |----------------|------------------------------------|----------------------|------------------------------|
-| **Progettazione**| Ultimare le Slide sulla Resp. Doppia | *Martedì 3 Giugno* | Approfondimenti sul relativo file |
+| **ND**         | NULL                               | *Null*               | NULL                          |
 | **Python 1-4**   | Rivedere Argomenti teorici e pratici |*Mercoledì 4 Giugno* | Approfondimenti sul relativo file|
 | **WEB 1**        | Argomenti teorici |*Mercoledì 4 Giugno* | Rivedere il tutto prima dell'inizio di WEB 2|
 
