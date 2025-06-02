@@ -16,7 +16,7 @@
 
 se non vi sono esercizi, segue la struttura tabellare:
 
-| **ND**         | NULL                               | *NUll*               | NULL                         |
+| **ND**         | NULL                               | *Null*               | NULL                         |
 
 
 ***Legenda:***
