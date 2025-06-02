@@ -10,11 +10,6 @@ REVISIONARE il ESERCIZIO della *lepre e della tartaruga.*
 - ARGOMENTO TEORICO: *Regex and LAMDA*
 
 
-### Lezione numero 14:
-
-- Rivedere la parte teorica di **Pytest** e rivedere i codici svolti in classe *guidati* presenti su -> ***GitHub oppure VSCode***
-
-
 ### Lezione numero 18:
 
 2_0 Esercizio fino 6_0 Esercizio
