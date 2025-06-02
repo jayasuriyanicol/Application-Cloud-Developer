@@ -6,7 +6,6 @@
 |----------------|------------------------------------|----------------------|------------------------------|
 | **ND**         | NULL                               | *Null*               | NULL                          |
 | **ND**         | NULL                               | *Null*               | NULL                          |
-| **WEB 1**      | Argomenti teorici |*Mercoledì 4 Giugno* | Rivedere il tutto prima dell'inizio di WEB 2|
 
 ---
 
