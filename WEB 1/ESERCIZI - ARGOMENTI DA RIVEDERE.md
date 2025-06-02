@@ -8,4 +8,4 @@
 
    Oltre a ciò vedere anche queste slide TEORICHE: 
 
-   4. Lezione Teorica -> ***Slide 5- slide-5-JavaScript-LeBasi-parte4*** e rivedere gli esercizi e la parte teorica.
+ 
