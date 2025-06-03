@@ -4,7 +4,7 @@
 
 | Materia        | Esercizio                          | Scadenza             | Note                         |
 |----------------|------------------------------------|----------------------|------------------------------|
-| **PROGETTAZIONE** | POssds | *5 Giugno*          | Modificare il file dei vincoli, maggiori informazioni sul relativo file                         |
+| **PROGETTAZIONE** | Specifica delle operazioni di **POPOLARITÀ** e **AFFIDABILITÀ** | *4 Giugno*          | Rivedere il file ODT, maggiori informazioi su relativo file
 | **ND**         | NULL                               | *Null*               | NULL                          |
 
 ---
