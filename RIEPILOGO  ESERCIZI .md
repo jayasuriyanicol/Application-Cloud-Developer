@@ -4,7 +4,7 @@
 
 | Materia        | Esercizio                          | Scadenza             | Note                         |
 |----------------|------------------------------------|----------------------|------------------------------|
-| **ND**         | NULL                               | *Null*               | NULL                          |
+| **PROGETTAZIONE** | Progetto eBuy - Vincoli di classe | *5 Giugno*          | Modificare il file dei vincoli, maggiori informazioni sul relativo file                         |
 | **ND**         | NULL                               | *Null*               | NULL                          |
 
 ---
