@@ -1,3 +1,6 @@
 # |ESERCIZI - ARGOMENTI DA RIVEDERE - Basi di Dati 1-2|
     
-                             "Nessun Aggiornamento al momento disponibile"
+
+### Progetto eBuy
+
+Rivedere i **VINCOLI della CLASSE** del progetto eBuy, corregere il file **ODT** in maniera tale che sia coerente (*classi e attributi*).
