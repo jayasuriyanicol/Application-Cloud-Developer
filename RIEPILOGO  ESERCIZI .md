@@ -4,7 +4,7 @@
 
 | Materia        | Esercizio                          | Scadenza             | Note                         |
 |----------------|------------------------------------|----------------------|------------------------------|
-| **PROGETTAZIONE** | POsds | *5 Giugno*          | Modificare il file dei vincoli, maggiori informazioni sul relativo file                         |
+| **PROGETTAZIONE** | POssds | *5 Giugno*          | Modificare il file dei vincoli, maggiori informazioni sul relativo file                         |
 | **ND**         | NULL                               | *Null*               | NULL                          |
 
 ---
