@@ -3,4 +3,6 @@
 
 ### Progetto eBuy
 
-Rivedere i **VINCOLI della CLASSE** del progetto eBuy, corregere il file **ODT** in maniera tale che sia coerente (*classi e attributi*).
+Rivedere il file da consegnare entro la sera di **MERCOLEDÌ 04 GIUGNO** del progetto eBuy, modificare il relativo file da consegnare sulla speifica delle operazioni di *Popolarità e Affidabilità* in maniera coerente e formale. 
+
+                             Successivamente consegnare il file completo sul -> **Moodle**
