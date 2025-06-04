@@ -9,24 +9,31 @@
     
     //JavaScript : codice in mdoo "sincrono", ovvero come sinonimo anche "proceduale"
     let a = () =>{
-        console.log ("SONO A")
+        console.log ("SONO A: BENVENUTO !");
     }
 
     let b = () => {
-        console.log ("SONO B")
+        console.log ("SONO B");
 
 
         // La funzione "setTimeOut()" è un a funzione del BROWSER e NON di JavaScript.
-        setTimeout();
+        // Deleghiamo al Browser, facendo ritardare il codice
+        setTimeout( () => {
+            console.log("STO RECUPERANDO GLI UTENTI DAL DATABASE");
+
+
+
+
+        }, 5000);
     }
 
 
     let c = () =>{
-        console.log ("SONO C")
+        console.log ("SONO C : CALCOLO IL CODICE FISCALE");
     }
 
     let d = () =>{
-        console.log ("SONO D")
+        console.log ("SONO D : CALCOLO BUSTA PAGA");
     }
 
 
@@ -38,22 +45,23 @@
         d();
 
     }
+
     calcolo ();
 
     // JavaScript è un linguaggio "FURBO", ovvero sfrutta funzioni del browser, si lega strattamente all'ambiente di esecuzione 
 
     // JavaScript è un linguaggi con due ambienti di esecuzione ovvero (JS - Browser) con questo da inizio al processo ASINCRONO
 
-    // Con il termine ASINCRONO intendiamo che quest'ultimo viene eseguito in un'altro ambiente, quindi che non è mia
+    // Con il termine ASINCRONO intendiamo che quest'ultimo viene eseguito in un'altro ambiente, quindi che non è mia e vengono restituite alla fine
  
     
-    // La funzione "setTimeOut()" è un a funzione del BROWSER e NON di JavaScript.
+    // La funzione "setTimeOut()" è un a funzione del BROWSER e NON di JavaScript. Ha la funzione principale di ritardare il codice
 
 
-    console.log("A");
-    console.log("B");
-    
-    
+
+    console.log("FINE");   
+
+    //Esecuzione di calcolo => A - B -C -D - Fine - UTENTI (dopo un tot di secondi)
     </script>
 </head>
 <body>
