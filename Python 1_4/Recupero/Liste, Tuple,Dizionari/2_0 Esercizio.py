@@ -10,9 +10,28 @@ def listaNumeriDizionario(lista: list[int|float]) -> dict[str, list[int|float]]:
 
     for numero in lista:
         
-        if numero >= 0:
-            dizionarioNumeri["Positivi"].append(numero)
+
+         ''' POSSIAMO UTILIZZARE IN EVENIENZA ANCHE QUESTA FORMA:
+        
+            if "Positivi" not in dizionarioNumeri:
+                dizionarioNumer["Positivi"] = []  
+             dizionarioNumeri["Positivi"].append(element) 
+            
         else:
+    
+             if "Negativi" not in dizionarioNumeri:
+                dizionarioNumer["Positivi"] = []  
+             dizionarioNumeri["Positivi"].append(element) 
+        
+    return dizionarioNumeri
+
+    print(listaNumeriDizionario([1, -2, 3, -3, 10]))
+    
+        '''
+        
+         if numero >= 0:
+            dizionarioNumeri["Positivi"].append(numero)
+         else:
             dizionarioNumeri["Negativi"].append(numero)
 
     return dizionarioNumeri
