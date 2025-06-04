@@ -12,12 +12,24 @@
         console.log ("SONO A: BENVENUTO !");
     }
 
-    let b = () => {
+    let b = () => { 
         console.log ("SONO B");
 
+        let x = new Promise( (res,rej) =>{ 
+                    
+            console.log("STO RECUPERANDO GLI UTENTI DAL DATABASE");
 
+        },0);
         // La funzione "setTimeOut()" è un a funzione del BROWSER e NON di JavaScript.
         // Deleghiamo al Browser, facendo ritardare il codice
+
+        
+
+    };
+
+
+
+        
         setTimeout( () => {
             console.log("STO RECUPERANDO GLI UTENTI DAL DATABASE");
 
@@ -25,7 +37,7 @@
 
 
         }, 5000);
-    }
+    
 
 
     let c = () =>{
@@ -40,11 +52,18 @@
     let calcolo = () =>{
 
         a();
-        b();
-        c();
-        d();
+        b().then( (risultato) => {
 
-    }
+            console.log(risultato); //STO RECUPERANDO GLI UTENTI DAL DATABASE
+            c();
+            d();
+
+        }).catch( (errore) => {
+            
+            console.log(errore);
+   
+
+    });
 
     calcolo ();
 
