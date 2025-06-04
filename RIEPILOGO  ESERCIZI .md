@@ -4,8 +4,8 @@
 
 | Materia        | Esercizio                          | Scadenza             | Note                         |
 |----------------|------------------------------------|----------------------|------------------------------|
-| **PROGETTAZIONE** | Specifica delle operazioni di **POPOLARITÀ** e **AFFIDABILITÀ** | *4 Giugno*          | Rivedere il file ODT, maggiori informazioi su relativo file
-| **ND**         | NULL                               | *Null*               | NULL                          |
+| **PROGETTAZIONE** | Specifica delle operazioni di **POPOLARITÀ** e **AFFIDABILITÀ** | *4 Giugno*          | Rivedere il file ODT, maggiori informazioi sul relativo file
+| **WEB 2**         | Esercizi e teoria sulle Promise                               | *9 Giugno*               | Rivedere la Teoria e Esercizi, maggiori informazioni sul relativo file                       |
 
 ---
 
