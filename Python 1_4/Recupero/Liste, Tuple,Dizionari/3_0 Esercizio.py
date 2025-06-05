@@ -5,6 +5,7 @@ con i prezzi aumentati del 10% e arrotondati a due cifre decimali.
 
 '''
 
+#Definiamo la funzione "dizionarioConParametri"
 def dizionarioConParametri (dizionarioProdotti) -> dict[str,int|float]:
 
     dizionarioNuoviProdotti : dict[str, int|float]  = {} 
@@ -20,7 +21,6 @@ def dizionarioConParametri (dizionarioProdotti) -> dict[str,int|float]:
     return dizionarioNuoviProdotti
 
 
-
-
+#Verifichiamo trmte DRIVER PROGRAM che il tutto funzioni correttamente 
 prodotti = {"penna": 10, "zaino": 55, "quaderno": 30}
 print(dizionarioConParametri(prodotti))
