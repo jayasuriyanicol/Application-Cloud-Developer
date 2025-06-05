@@ -5,7 +5,7 @@
 | Materia        | Esercizio                          | Scadenza             | Note                         |
 |----------------|------------------------------------|----------------------|------------------------------|
 | **WEB 2**         | Esercizi e teoria sulle Promise                               | *9 Giugno*               | Rivedere la Teoria e Esercizi, maggiori informazioni sul relativo file                       |
-| **ND**         | NULL                               | *Null*               | 
+| **PYTHON 4**         | Esercizi sulla Lezione di Recupero                               | *10 Giugno*               | Rivedere gli e esercizi sul relativo file
 
 ---
 
