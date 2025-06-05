@@ -5,5 +5,22 @@ con i prezzi aumentati del 10% e arrotondati a due cifre decimali.
 
 '''
 
+def dizionarioConParametri (dizionarioProdotti) -> dict[str,int|float]:
 
-def dizionarioConParametri (dict)
+    dizionarioNuoviProdotti : dict[str, int|float]  = {} 
+
+    for chiave,valore in dizionarioProdotti.items():
+
+        if valore < 50:
+
+            nuovoValore  = round(valore * 1.1, 2)
+
+            dizionarioNuoviProdotti[chiave] = nuovoValore
+
+    return dizionarioNuoviProdotti
+
+
+
+
+prodotti = {"penna": 10, "zaino": 55, "quaderno": 30}
+print(dizionarioConParametri(prodotti))
