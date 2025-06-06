@@ -156,20 +156,57 @@ class VideoRentalStore:
            
            #Possiamo richiamare la funzione rent_movie () -> del cliente e passare come parametro self.movies[movie_id], invece di crearne una nuova  
            self.customers[customer_id].rent_movie(self.movies[movie_id])  
-            
+        else:
+
+            print("Cliente o film non trovato.")
 
             
-        
-
-
 
 
     def return_movie(self,customer_id:str, movie_id:str) -> None:
 
-        pass
+       if customer_id in self.customers and movie_id in self.movies:
+           
+           #Svolge la stessa medesima cosa, solamente che utilizza la funzione return_movie return_movie
+           self.customers[customer_id].return_movie(self.movies[movie_id])  
 
+       else:
+
+             print("Cliente o film non trovato.")
+
+
+            
+        
     def get_rented_movies(self, customer_id:str) -> list[Movie]:
-        pass  
+        
+
+        if customer_id in self.customers:
+
+            return self.customers[customer_id].rented_movies  
+        else:
+            
+
+            #Ritorniamo il messaggio e la lista vuota come specificato dall'esercizio
+            print(f"Cliente non trovato.")
+
+            return [] 
+    
+
+
+    '''FUNZIONE AGGIUNTIVA - ALLENAMENTO FUORI DALLA CONSEGNA'''
+
+    #Crea funzione con return lista tutti i film che sono stati noleggiati fino ad adesso 
+    def returnAllMoviesRented(self) -> list[Movie] :
+
+
+        listaMovies:list[Movie]  = [] 
+
+        for _, cliente in self.customers.items():
+                
+                listaMovies += cliente.rented_movies
+
+        return listaMovies
+
 
 
          
