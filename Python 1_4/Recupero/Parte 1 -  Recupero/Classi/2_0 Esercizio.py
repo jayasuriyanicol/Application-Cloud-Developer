@@ -72,7 +72,8 @@ class  Movie:
          self.is_rented = True
 
         else:
-             print(f"Il film è stato '{self.title} è già noleggiato")
+             print(f"Il film '{self.title}' è già noleggiato.")
+
 
     
     
@@ -206,12 +207,59 @@ class VideoRentalStore:
                 listaMovies += cliente.rented_movies
 
         return listaMovies
-
-
-
-         
-
-
     
 
-    
+
+'''DRIVER PROGRAMM - Per Testare la funzionalità'''
+
+
+if __name__ == "__main__":
+
+    #Creazione del videonoleggio
+    store = VideoRentalStore()
+
+    #Aggiunta di film
+    store.add_movie("M001", "Inception", "Christopher Nolan")
+    store.add_movie("M002", "Interstellar", "Christopher Nolan")
+    store.add_movie("M003", "The Matrix", "Lana Wachowski")
+
+    #Tentativo di aggiungere un film già esistente
+    store.add_movie("M001", "Duplicato", "Qualcun Altro")
+
+    #Registrazione clienti
+    store.register_customer("C001", "Alice")
+    store.register_customer("C002", "Bob")
+
+    #Tentativo di registrare lo stesso cliente
+    store.register_customer("C001", "Alice Duplicato")
+
+    #Noleggio film
+    store.rent_movie("C001", "M001")
+    store.rent_movie("C002", "M001")
+    store.rent_movie("C002", "M002")
+
+    #Lista film noleggiati da Alice
+    print("\nFilm noleggiati da Alice:")
+    for movie in store.get_rented_movies("C001"):
+        print(f"- {movie.title} di {movie.director}")
+
+    #Lista film noleggiati da Bob
+    print("\nFilm noleggiati da Bob:")
+    for movie in store.get_rented_movies("C002"):
+        print(f"- {movie.title} di {movie.director}")
+
+    #Tentativo di restituire un film non noleggiato
+    store.return_movie("C001", "M003")
+
+    #Restituzione di un film correttamente
+    store.return_movie("C002", "M002")
+
+    #Stato aggiornato dopo restituzione
+    print("\nFilm noleggiati da Bob dopo restituzione:")
+    for movie in store.get_rented_movies("C002"):
+        print(f"- {movie.title}")
+
+    #Lista totale di film noleggiati nel sistema
+    print("\nTutti i film attualmente noleggiati:")
+    for movie in store.returnAllMoviesRented():
+        print(f"- {movie.title}")
