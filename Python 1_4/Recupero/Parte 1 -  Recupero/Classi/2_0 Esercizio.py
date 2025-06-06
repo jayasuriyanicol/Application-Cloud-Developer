@@ -119,7 +119,7 @@ class Customer:
 class VideoRentalStore:
 
 
-    def __init__(self, movies: dict[str,Movie], customers: dict[str,Customer]) -> None:
+    def __init__(self, movies: dict[str,Movie] = {}, customers: dict[str,Customer] = {}) -> None:
            
            self.movies = movies
            self.customers = customers
@@ -127,13 +127,28 @@ class VideoRentalStore:
     
     def add_movie(self,movie_id:str,title:str,director:str) -> None:
 
+        if movie_id in self.movies:
+
+            print(f"Il film con ID {movie_id} esiste già")
+
+        else:
+
+            movie: Movie = Movie(movie_id = movie_id, title=title, director=director)
+
+
+    def register_customer(self, customer_id:str, name:str) -> None:
         pass
 
-    def rent_movie(self,customer_id:str, movie_id:str) -> None:
+
+    def rent_movie(self,customer_id:str, movie_id:str) -> None: 
+        pass
+
+    def return_movie(self,customer_id:str, movie_id:str) -> None:
 
         pass
 
-    def rent_movie(self,customer_id)
+    def get_rented_movies(self, customer_id:str) -> list[Movie]:
+        pass  
 
 
          
