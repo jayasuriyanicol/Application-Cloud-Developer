@@ -134,14 +134,35 @@ class VideoRentalStore:
         else:
 
             movie: Movie = Movie(movie_id = movie_id, title=title, director=director)
-
+            
+            self.movies[movie_id] = movie  
 
     def register_customer(self, customer_id:str, name:str) -> None:
-        pass
 
+        if customer_id in self.customers:
+
+            print(f"Il cliente con ID '{customer_id}' è già registrato.")
+
+        else:
+
+            customer: Customer = Customer(customer_id, name) 
+ 
+            self.customers[customer_id] = customer 
+        
 
     def rent_movie(self,customer_id:str, movie_id:str) -> None: 
-        pass
+
+        if customer_id in self.customers and movie_id in self.movies:
+           
+           #Possiamo richiamare la funzione rent_movie () -> del cliente e passare come parametro self.movies[movie_id], invece di crearne una nuova  
+           self.customers[customer_id].rent_movie(self.movies[movie_id])  
+            
+
+            
+        
+
+
+
 
     def return_movie(self,customer_id:str, movie_id:str) -> None:
 
