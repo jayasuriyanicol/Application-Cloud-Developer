@@ -1,5 +1,5 @@
 '''
-Liste, Tuple e Dizionari
+Funzioni, For, While, If, Elif ed Else
 2) Scrivi una funzione che prenda una lista di numeri e ritorni un dizionario che
 classifichi i numeri in liste separate per numeri positivi e negativi.
 '''

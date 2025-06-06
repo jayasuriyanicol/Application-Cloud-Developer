@@ -6,23 +6,25 @@ soddisfatta per procedere con un'azione. L'azione può procedere solo se la cond
 oppure "Azione negata" a seconda delle condizioni che sono soddisfatte.
 '''
 
-
-
 def X():
-    pass
+    #Supponiamo che X sia vera
+    return True
+
 def Y():
-    pass
+    #Supponiamo che Y sia falsa
+    return False
+
 def Z():
-    pass
+    #Supponiamo che Z sia vera
+    return True
 
-if X == True and Y == True or Z == True:
-    print("Azione Permessa")
+def verifica_condizioni():
+    if X() and (Y() or Z()):
+        return "Azione permessa"
+    else:
+        return "Azione negata"
 
-else:
-
-    print("Azione negata")
-
-
-
+#Eseguiamo la funzione, per vedere se la funzione sia corretta o meno
+print(verifica_condizioni())
 
 
