@@ -23,4 +23,4 @@ REVISIONARE il ESERCIZIO della *lepre e della tartaruga.*
 
 ### Lezione "Recupero":
 
-Svolgere gli esercizi restanti, **iniziare dal secondo blocco** dopo *Dict,Liste,Tuple*.
+Svolgere gli esercizi restanti, **iniziare dal secondo blocco** dopo *Classi* + nuovi esercizi presenti nel FILE.

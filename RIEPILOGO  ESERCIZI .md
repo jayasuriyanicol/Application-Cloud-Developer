@@ -6,6 +6,9 @@
 |----------------|------------------------------------|----------------------|------------------------------|
 | **WEB 2**         | Esercizi e teoria sulle Promise                               | *9 Giugno*               | Rivedere la Teoria e Esercizi, maggiori informazioni sul relativo file                       |
 | **PYTHON 4**         | Esercizi sulla Lezione di Recupero                               | *10 Giugno*               | Rivedere gli e esercizi sul relativo file
+| **PROGETTAZIONE**         | Esercizi sulla Operazione e Use Case                              | *24 Giugno*               | Maggiori informazioni sul realtivco file
+
+
 
 ---
 
