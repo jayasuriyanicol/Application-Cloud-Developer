@@ -22,5 +22,7 @@ REVISIONARE il ESERCIZIO della *lepre e della tartaruga.*
 
 
 ### Lezione "Recupero":
+ 
+Commentare e inviare gli esercizi restanti, **iniziare dal secondo blocco** dopo *Classi* + nuovi esercizi presenti nel FILE.
 
-Svolgere gli esercizi restanti, **iniziare dal secondo blocco** dopo *Classi* + nuovi esercizi presenti nel FILE.
+                      Assignment -> "Esercizi di recupero e ripasso - 1"
