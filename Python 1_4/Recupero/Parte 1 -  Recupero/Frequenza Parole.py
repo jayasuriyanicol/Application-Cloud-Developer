@@ -22,3 +22,36 @@ output = count_unique_words(text)
 '''
 
 
+
+from string import punctuation
+
+
+def occorrenzeFrase(testoConvertire:str)-> dict[str,int]:
+
+    dizionarioOccorrenze:dict[str,int] = {}
+
+
+    tokens = testoConvertire.split()
+
+    for token in tokens:
+       
+       elemento = token.lower().strip(punctuation)
+
+       if elemento == '':
+          
+          continue
+
+       if elemento in dizionarioOccorrenze:
+       
+           dizionarioOccorrenze[elemento] += 1 
+
+       else:
+           dizionarioOccorrenze[elemento] = 1  
+
+    return dizionarioOccorrenze
+
+    
+
+text = "Hello, world! Hello... PYTHON? world."
+output = occorrenzeFrase(text)
+print(output)
