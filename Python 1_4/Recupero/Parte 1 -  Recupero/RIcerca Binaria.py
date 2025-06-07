@@ -13,4 +13,26 @@ def ricercaBinaria(listaNumeri:list[int], numeroCercare:int ) -> bool:
 
     while listaParteSinistra <= listaParteDestra:
 
-        listaParteMeta = (listaParteSinistra + listaParteDestra) // 2
+        listaParteMedia = (listaParteSinistra + listaParteDestra) // 2
+
+        if listaNumeri[listaParteMedia] == numeroCercare:
+
+            return True
+        
+        elif listaNumeri[listaParteMedia]  < numeroCercare:
+
+            listaParteSinistra = listaParteMedia + 1
+        
+        else:
+
+            listaParteDestra = listaParteMedia - 1
+    return False
+
+
+'''DRIVER PROGRAMM - VErifichiamo con una condizione TRUE e una False se funzioni '''
+
+
+print(ricercaBinaria([1,2,3,4,5], 5))
+print(ricercaBinaria([1,2,3,4,5], 0))
+            
+        
