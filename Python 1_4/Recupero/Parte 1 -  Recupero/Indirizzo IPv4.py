@@ -36,12 +36,23 @@ def is_valid_ipv4(address: str) -> bool:
     for elemento in partiDistinte:
 
         if not elemento.isdigit():
+            return False
 
+        elementoCoerente = int(elemento)
+
+        if not (0 <= elementoCoerente < 256):
+
+                return False
     
-    
+    return True
 
+ 
 
-            
+print(is_valid_ipv4("192.168.0.1"))
+print(is_valid_ipv4("255.255.255.255"))
+print(is_valid_ipv4("256.100.10.1"))
+print(is_valid_ipv4("192.168.1"))
+print(is_valid_ipv4("192.168.1.a"))
 
 
 
