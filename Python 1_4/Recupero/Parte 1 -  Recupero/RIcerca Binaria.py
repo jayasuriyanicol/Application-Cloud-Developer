@@ -7,9 +7,11 @@ e ritorna True se il numero è all’interno del della lista, altrimenti False.
 
 def ricercaBinaria(listaNumeri:list[int], numeroCercare:int ) -> bool:
 
+    #Indichiamo due parti, sinistra e destra per riuscire a controllare entrambi gli estremi fino a giungere al centro 
     listaParteSinistra = 0
     listaParteDestra = len(listaNumeri) - 1
 
+  
 
     while listaParteSinistra <= listaParteDestra:
 
@@ -29,7 +31,7 @@ def ricercaBinaria(listaNumeri:list[int], numeroCercare:int ) -> bool:
     return False
 
 
-'''DRIVER PROGRAMM - VErifichiamo con una condizione TRUE e una False se funzioni '''
+'''DRIVER PROGRAMM - Verifichiamo con una condizione TRUE e una False se funzioni o meno la funzione di RICERCA BINARIA '''
 
 
 print(ricercaBinaria([1,2,3,4,5], 5))
