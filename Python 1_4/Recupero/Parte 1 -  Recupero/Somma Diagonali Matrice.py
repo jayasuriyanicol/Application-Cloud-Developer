@@ -24,11 +24,30 @@ sum_secondary_diagonal(mat1) # restituisce 3 + 5 + 7 = 15
 
 def sum_primary_diagonal(matrix) -> int:
 
-    for elemento in matrix:
+    lunghezzaMatrice = len(matrix)
+    sommaPrimaDiagonale = 0
 
-        sommaPrimaDiagonale = elemento[0][0] + elemento[1][2] + elemento[2][3]
-
+    for elemento in range(lunghezzaMatrice):
+       sommaPrimaDiagonale += matrix[elemento][elemento] 
     return sommaPrimaDiagonale
 
 
 
+def sum_secondary_diagonal(matrix) -> int:
+
+    lunghezzaMatrice = len(matrix)
+    sommaSecondaDiagonale = 0
+
+    for elemento in range(lunghezzaMatrice):
+        sommaSecondaDiagonale += matrix[elemento][lunghezzaMatrice - 1 - elemento] 
+    
+    return sommaSecondaDiagonale
+
+
+mat1 = [
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9]
+]
+print(sum_primary_diagonal(mat1)) 
+print(sum_secondary_diagonal(mat1)) 
