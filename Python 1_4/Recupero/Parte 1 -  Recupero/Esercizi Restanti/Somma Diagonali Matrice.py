@@ -49,12 +49,14 @@ def sum_secondary_diagonal(matrix) -> int:
     return sommaSecondaDiagonale
 
 
-#DRIVER PROGRAM - Eseguiamo il test sulle due funzioni con una matrice 3x3
+'''DRIVER PROGRAM - Eseguiamo il test sulle due funzioni con una matrice 3x3 '''
+
+
 mat1 = [
 [1, 2, 3],
 [4, 5, 6],
 [7, 8, 9]
 ]
 
-print(sum_primary_diagonal(mat1))     #Output atteso: 1 + 5 + 9 = 15
-print(sum_secondary_diagonal(mat1))   #Output atteso: 3 + 5 + 7 = 15
+print(sum_primary_diagonal(mat1))     
+print(sum_secondary_diagonal(mat1))   
