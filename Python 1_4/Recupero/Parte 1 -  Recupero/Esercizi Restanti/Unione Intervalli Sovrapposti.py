@@ -22,35 +22,47 @@ merge_intervals(intervals) # restituisce [[1, 5]]
 
 '''
 
+#Definiamo una funzione che unisce gli intervalli sovrapposti o adiacenti
+def merge_intervals(intervals: list[list[int]]) -> list[list[int]]:
 
-def merge_intervals(intervals:list[str,str]) ->  list[str,str] | list[None]:
+    #Se la lista è vuota, restituiamo una lista vuota
+    if len(intervals) == 0:
+        return []
 
-   if len(intervals) == 0:
-      
-      return [] 
-   
-   elif len(intervals) == 1:
-      
-      return intervals[0]
-   
+    #Se è presente un solo intervallo, lo restituiamo direttamente all'interno di una lista
+    if len(intervals) == 1:
+        return intervals
 
-   intervals.sort()
+    #Ordiniamo gli intervalli in base al valore iniziale
+    intervals.sort()
 
-   unioneIntervalli = [intervals[0]] 
-   
+    #Inizializziamo la lista con il primo intervallo
+    unioneIntervalli = [intervals[0]]
 
-   for i in range(1, len(intervals)):
+    #Scorriamo gli intervalli a partire dal secondo
+    for i in range(1, len(intervals)):
 
-      valoreCorrente = intervals[i]
-      ultimoValore = unioneIntervalli[-1] 
+        #Intervallo corrente
+        valoreCorrente = intervals[i]
 
-      if valoreCorrente[0]  <= ultimoValore[1]:     
-         if valoreCorrente[1] > ultimoValore[1]:
+        #Ultimo intervallo aggiunto alla lista unita
+        ultimoValore = unioneIntervalli[-1]
 
-            ultimoValore[1] = valoreCorrente[1]
-      else:
-         unioneIntervalli.append(valoreCorrente)
-   return unioneIntervalli
+        #Se l'intervallo corrente si sovrappone o tocca quello precedente
+        if valoreCorrente[0] <= ultimoValore[1]:
+            
+            #Estendiamo il finale dell'intervallo unito, se necessario
+            if valoreCorrente[1] > ultimoValore[1]:
+                ultimoValore[1] = valoreCorrente[1]
+        
+        #Altrimenti, aggiungiamo un nuovo intervallo separato
+        else:
+            unioneIntervalli.append(valoreCorrente)
 
-print(merge_intervals([[1, 3], [2, 6], [8, 10], [15, 18]]))
-print(merge_intervals([[1, 4], [4, 5]]))
+    return unioneIntervalli
+
+
+'''DRIVER PROGRAM - Eseguiamo il test con due esempi di intervalli'''
+
+print(merge_intervals([[1, 3], [2, 6], [8, 10], [15, 18]]))   
+print(merge_intervals([[1, 4], [4, 5]]))           
