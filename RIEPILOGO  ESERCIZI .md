@@ -3,8 +3,11 @@
 ## 📅 Scadenze e Esercizi per Materia
 
 | Materia        | Esercizio                          | Scadenza             | Note                         |
-|----------------|------------------------------------|----------------------|------------------------------|                   
-| **PROGETTAZIONE**         | Esercizi sulla Operazione e Use Case                              | *24 Giugno*               | Maggiori informazioni sul relativo file
+|----------------|------------------------------------|----------------------|------------------------------| 
+
+| **WEB**         | Codice NodeJS - Fix Errors                            | *11 Giugno*               | Maggiori informazioni sul relativo file |
+| **PROG. - DESIGN**         | Link assoc. città - nazione                              | *11 Giugno*               | Cercare di svolgere il codice design assoc. |
+| **PROGETTAZIONE**         | Esercizi sulla Operazione e Use Case                              | *24 Giugno*               | Maggiori informazioni sul relativo file |
 
 
 
