@@ -1,5 +1,6 @@
 '''Infine procediamo con la stesura per le CLASSI CONCETTUALI del DIAGRAMMA RISTRUTTURATO'''
 
+from __future__ import annotations
 from datetime import timedelta
 
 # Importiamo i tipi specializzati: IntValue, IntQuantity, IntData
@@ -35,10 +36,14 @@ class Aeroporto:
 class Volo:
     _codice:str                   #-> <<immutabile>>, noto alla nascita, dove in realtà sarebbe CodiceVolo
     _durataInMinuti: timedelta    #-> <<mutabile>>, noto alla nascita
+    _compagnia : CompagniaAerea   #-> da ass. , volo_comp [1..1],immutabile, noto alla nascita
+     
 
     def __init__(self, codice: str, durataInMinuti: IntValue) -> None:
         self._codice = codice
         self.setDurataInMinuti(durataInMinuti)
+        self._compagnia = CompagniaAerea
+        CompagniaAerea._addVolo(self)
 
     def getCodice(self) -> str:
         return self._codice
@@ -49,6 +54,18 @@ class Volo:
     def setDurataInMinuti(self, minuti: IntQuantity) -> None:
         self._durataInMinuti = timedelta(minutes=minuti)
 
+    #Atraverso l'utilizzo dell'underscore davanti alla dichiarazione della varibile impediamo la creazione di due link UGUALI 
+    def _addVolo(self, volo:Volo) -> None:
+          
+        #Questo quindi è facoltativo con l'utilizzo dell'underscore, dato che andrà a limitarlo in principio, non abbiamo bisogno di una condizione che lo verifichi 
+        '''if volo._compagnia() != self:
+         raise ValueError("IL volo è già nella compagnia")
+        '''
+
+    def _removeVolo(self, volo:Volo) -> None:
+
+        self._voli.remove(volo)
+
 
 ''' CLASSE CompagniaAerea con
  relativi Attributi:
@@ -56,8 +73,10 @@ class Volo:
         - fondazione (immutabile): anno di fondazione > 1900
 '''
 class CompagniaAerea:
-    _nome: str            #-> <<mutabile>>, noto alla nascita
-    _fondazione: IntData  #-> <<immutabile>>, noto alla nascita
+    _nome: str             #-> <<mutabile>>, noto alla nascita
+    _fondazione: IntData   #-> <<immutabile>>, noo alla nascita
+    _cittaDirezione: Citta #-> da aggregazione 'cittaDirezione', noto alla nascita
+    _voli: set[Volo]       #-> da assoc. 'volo_comp'[0..*], certamente non noti alla nascita  
 
     def __init__(self, nome: str, fondazione: IntData) -> None:
         self.setNome(nome)
@@ -80,10 +99,12 @@ class CompagniaAerea:
 class Citta:
     _nome: str                      #-> <<mutabile>>, noto alla nascita
     _numeroDiAbitanti: IntQuantity  #-> <<mutabile>>, noto alla nascita
+    _nazione : Nazione              #-> da assoc. 'citta_naz, nota alla nascita  
 
     def __init__(self, nome: str, numeroAbitanti: IntQuantity) -> None:
         self.setNome(nome)
         self.setNumeroDiAbitanti(numeroAbitanti)
+        self.setNazione (Nazione)
 
     def getNome(self) -> str:
         return self._nome
@@ -97,21 +118,56 @@ class Citta:
     def setNumeroDiAbitanti(self, numero: IntQuantity) -> None:
         self._numeroDiAbitanti = numero
 
+    def setNazione(self, nazione:Nazione) -> None:
+         
+        nazione.addCitta(self)
+        self._nazione = nazione
+    
+
+
 
 ''' CLASSE Nazione con relativi Attributti:
         - nome (mutabile): nome della nazione
 '''
 class Nazione:
-    _nome: str  #-> <<mutabile>>, noto alla nascita
+    _nome: str           #-> <<mutabile>>, noto alla nascita
+    _citta : set[Citta]  #-> da asocc. 'citta_naz'[0 ... *] , possibilmente non noti alla nascita
 
-    def __init__(self, nome: str) -> None:
+    
+    def __init__(self, nome: str, citta: set[Citta] = None ) -> None:
+
         self.setNome(nome)
+        self._citta = set()
+
+        if citta is not None:
+            self._citta.add(citta)
+            for c in citta:
+
+             self._citta.update(citta)
+
 
     def getNome(self) -> str:
         return self._nome
 
     def setNome(self, nome: str) -> None:
         self._nome = nome
+    
+    def _addCitta(self, c:Citta) -> None:
+        
+        try:
+           c.nazione().removeCitta(c)   #-> Tolgo la città dalla sua vecchia nazione
+
+        except AttributeError:
+
+            pass
+        
+            self._citta.add(c)         #-> Aggiungo la città alla mia  
+  
+       
+
+    def removeCitta (self, citta:Citta) -> None:
+
+        self._citta.remove(citta)
 
 
 '''Effettuiamo un DRIVE PROGRAM per verificare il funzionamento'''
