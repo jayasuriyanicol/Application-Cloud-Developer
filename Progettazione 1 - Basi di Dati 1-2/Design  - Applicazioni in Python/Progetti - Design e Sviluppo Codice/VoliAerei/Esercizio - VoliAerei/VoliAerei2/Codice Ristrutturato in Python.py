@@ -11,7 +11,7 @@ from DichiarazioneTipiDiDato import *
         - nome (mutabile): nome dell’aeroporto
 '''
 class Aeroporto:
-    _codice: str      #-> <<immutabile>>, noto alla nascita
+    _codice:str       #-> <<immutabile>>, noto alla nascita, dove in realtà sarebbe CodiceIATA
     _nome: str        #->  <<mutabile>>, noto alla nascita
 
     def __init__(self, codice: str, nome: str) -> None:
@@ -33,7 +33,7 @@ class Aeroporto:
         - durataInMinuti (mutabile): durata del volo espressa in minuti
 '''
 class Volo:
-    _codice: str                  #-> <<immutabile>>, noto alla nascita
+    _codice:str                   #-> <<immutabile>>, noto alla nascita, dove in realtà sarebbe CodiceVolo
     _durataInMinuti: timedelta    #-> <<mutabile>>, noto alla nascita
 
     def __init__(self, codice: str, durataInMinuti: IntValue) -> None:
@@ -50,12 +50,13 @@ class Volo:
         self._durataInMinuti = timedelta(minutes=minuti)
 
 
-''' CLASSE CompagniaAerea con relativi Attributi:
+''' CLASSE CompagniaAerea con
+ relativi Attributi:
         - nome (mutabile): nome della compagnia
         - fondazione (immutabile): anno di fondazione > 1900
 '''
 class CompagniaAerea:
-    _nome: str         #-> <<mutabile>>, noto alla nascita
+    _nome: str            #-> <<mutabile>>, noto alla nascita
     _fondazione: IntData  #-> <<immutabile>>, noto alla nascita
 
     def __init__(self, nome: str, fondazione: IntData) -> None:
