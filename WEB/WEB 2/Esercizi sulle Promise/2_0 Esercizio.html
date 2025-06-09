@@ -26,8 +26,23 @@
 
 
     <script>
+        
+    function job(data) {
+      return new Promise((resolve, reject) => {
+            if (isNaN(data)) {
+                  reject("errore");
+                } else if (data % 2 !== 0) {
+                setTimeout(() => resolve("dispari"), 1000);
+                } else {
+                setTimeout(() => resolve("pari"), 2000);
+                }
+         });
+    }
 
-
+//Verifichiamo la concretezza della nostra soluzione, verificando per ogni caso la funzione: 1. ERRORE, 2. 1sec => DISPARI, 3. 2sec =>PARI
+job("ciao").catch(console.log);    
+job(3).then(console.log);           
+job(4).then(console.log);           
 
 
     </script>
