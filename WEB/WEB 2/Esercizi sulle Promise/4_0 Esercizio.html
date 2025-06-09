@@ -34,9 +34,42 @@
     • Ora nella funzione job dobbiamo gestire le chiamate alla funzione a «cascata» della sequenza richiesta dall’esercizio
    
     -->
-    
+
+
  <script>
 
+  function callback1() {
+    console.log("Sono nella callback1");
+    }
+
+  function callback2() {
+   console.log("Sono nella callback2");
+   }
+
+  function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+   }
+ 
+    
+  // La funzione job esegue una sequenza asincrona in cui, dopo 2 secondi, viene chiamata la callback1, seguita da tre chiamate alla callback2, ciascuna con un intervallo di 1 secondo l'una dall'altra.
+  function job() {
+  delay(2000) 
+    .then(() => {
+      callback1()
+      return delay(1000);
+    })
+    .then(() => {
+      callback2(); 
+      return delay(1000);
+    })
+    .then(() => {
+      callback2(); 
+      return delay(1000);
+    })
+    .then(() => {
+      callback2(); 
+    });  
+  }
 
 
 
