@@ -15,7 +15,21 @@ Il lavoro della funzione deve restituire un oggetto Promise(). La promise deve r
     
 -->
 
+<script>
 
+function job() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("ciao mondo");
+    }, 2000);
+  });
+}
+
+//Eseguiamo la Promise per vedere se dopo 2 secondi stampi effettivamente -> "ciao mondo"
+job().then(result => console.log(result)); 
+
+
+</script>
     
 </body>
 </html>
