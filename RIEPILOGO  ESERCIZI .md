@@ -7,13 +7,13 @@
 
 | **WEB**         | Codice NodeJS - Fix Errors                            | *11 Giugno*               | Maggiori informazioni sul relativo file 
 | **PROG. - DESIGN**         | Link assoc. città - nazione                              | *11 Giugno*               | Cercare di svolgere il codice design assoc. 
-| **PROGETTAZIONE**         | Esercizi sulla Operazione e Use Case                              | *24 Giugno*               | Maggiori informazioni sul relativo file |
+| **PROGETTAZIONE**         | Esercizi sulla Operazione e Use Case                              | *24 Giugno*               | Maggiori informazioni sul relativo file 
 
 
 
 ---
 
-## 🔁 Argomenti da Rivedere e Specifica Tabellare
+## 🔁 Argomenti da Rivedere e Specifica Tabellares
 
 "La specifica degli esercizi da svolgere sono presenti su ogni cartella specifica".
 
