@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+    .big{
+        border:1px #000 solid; 
+    }
+</style>
+</head>
+
+<body>
+
+
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+
+        const elementRoot = document.querySelector("#root");
+        const root= ReactDOM.createRoot(elementRoot);
+
+        const h1=React.createElement("h1",{
+            style:{
+
+                color: "red"},
+                className:"big",
+                onClick:(e)=>{console.log(e)
+                    
+                }
+            } ,"Questo è il primo tag H1 con React" );
+
+            root.render(h1);
+    </script>
+    
+</body>
+</html>
