@@ -4,7 +4,7 @@
 
 | Materia        | Esercizio                          | Scadenza             | Note                         |
 |----------------|------------------------------------|----------------------|------------------------------|                   
-| **PROGETTAZIONE**         | Esercizi sulla Operazione e Use Case                              | *24 Giugno*               | Maggiori informazioni sul realtivo file
+| **PROGETTAZIONE**         | Esercizi sulla Operazione e Use Case                              | *24 Giugno*               | Maggiori informazioni sul relativo file
 
 
 
