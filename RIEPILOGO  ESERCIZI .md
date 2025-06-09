@@ -3,9 +3,8 @@
 ## 📅 Scadenze e Esercizi per Materia
 
 | Materia        | Esercizio                          | Scadenza             | Note                         |
-|----------------|------------------------------------|----------------------|------------------------------|
-| **WEB 2**         | Esercizi e teoria sulle Promise                               | *9 Giugno*               | Rivedere la Teoria e Esercizi, maggiori informazioni sul relativo file                       |
-| **PROGETTAZIONE**         | Esercizi sulla Operazione e Use Case                              | *24 Giugno*               | Maggiori informazioni sul realtivco file
+|----------------|------------------------------------|----------------------|------------------------------|                   
+| **PROGETTAZIONE**         | Esercizi sulla Operazione e Use Case                              | *24 Giugno*               | Maggiori informazioni sul realtivo file
 
 
 
