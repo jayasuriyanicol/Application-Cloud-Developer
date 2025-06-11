@@ -12,15 +12,17 @@ from __future__ import annotations
 
 class Studente:
 
-    _nome:str       #-> <<mutable>>, noto alla nascita  
-    _modulo: Modulo #-> da assoc. Studente - Modulo [0..*] <<immutable>> possibilmente non noto alla nascita  
-    _esame: esame   #-> assoc. di classe, dell'assoc. Studente - Modulo [0..*] <<immutable>> sicuramente non noto alla nascita 
-    _esami : dict[Modulo, int] 
+    _nome:str           #-> <<mutable>>, noto alla nascita  
+    _modulo: Modulo     #-> da assoc. Studente - Modulo [0..*] <<immutable>> possibilmente non noto alla nascita  
+    # _esame: esame       #-> assoc. di classe, dell'assoc. Studente - Modulo [0..*] <<immutable>> sicuramente non noto alla nascita 
+    _esami : set[esame] #-> da assoc. 'esame'[ 0..*], certamnete non noto alla nasicta      
 
     def __init__(self,nome:str)-> None:
 
         self._nome = nome
+        self._esami = set()
         self.setNome(nome)
+        
 
 
     def setNome(self,nome)-> None:
@@ -41,11 +43,12 @@ class Studente:
 
     def addEsame(self, modulo:Modulo, voto:int) -> None:
 
-        if modulo in self._esami:
+
+       #Mi assicuro che lo studente self non abbia mai superato il modulo 'modulo' 
 
             raise RuntimeError(f"Lo studente {self.nome()}"
                                f"ha già superato un esame di {modulo._codice()}")
-        self._esami[modulo] = voto
+
 
     def removeEsame (self, modulo: Modulo) -> None:
 
@@ -94,12 +97,16 @@ class Modulo:
 
 class esame:
 
+   # Gli ogggeti di questa classe rappresentano link dell'associazione 'esame' 
+
     _voto:int            #-> <<immutable>>  noto alla nascita
     _studente: Studente  #-> da assoc. Modulo - Studente [0..*] (compreso come assoc. di classe), <<immutable>>  possibilmente non noto alla nascita
-
-    def __init__(self, voto:int)-> None:
+    _modulo : Modulo     #-> da assoc. Studente - Modulo [0..*] (compreso come assoc. di classe), <<immutable>>  possibilmente non noto alla nascita   
+    def __init__(self, voto:int, studente: Studente, modulo: Modulo)-> None:
         
         self._voto = voto
+        self._studente = studente
+        self._modulo = modulo
         self.setVoto(voto)
         Studente._setVoto(self)
 
