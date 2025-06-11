@@ -9,7 +9,7 @@ Modulo -> valore attributo (codice:str)
 '''
 
 from __future__ import annotations
-
+f
 class Studente:
 
     _nome:str           #-> <<mutable>>, noto alla nascita  
@@ -46,8 +46,14 @@ class Studente:
 
        #Mi assicuro che lo studente self non abbia mai superato il modulo 'modulo' 
 
-            raise RuntimeError(f"Lo studente {self.nome()}"
+       newEsame : esame = esame(studente=self, modulo=modulo, voto=voto)
+
+       if newEsame in self._esami:
+         raise RuntimeError(f"Lo studente {self.nome()}"
                                f"ha già superato un esame di {modulo._codice()}")
+       
+
+       self._esami.add(newEsame)
 
 
     def removeEsame (self, modulo: Modulo) -> None:
@@ -163,4 +169,18 @@ class esame:
         esamiAlice = alice.esami()
 
         print(f"{alice.nome()}")
+
+   
+    def __hash__(self )-> int:
+
+        return hash((self._studente(), self._modulo()))
+    
+    def __eq__(self,other: any) -> bool:
+
+        if type(self) !=type(other) \
+           or hash(self) != hash(other):
+            
+
+            return self._studente() == other.studente () \
+                  and self.modulo() == other.modulo ()        
 
