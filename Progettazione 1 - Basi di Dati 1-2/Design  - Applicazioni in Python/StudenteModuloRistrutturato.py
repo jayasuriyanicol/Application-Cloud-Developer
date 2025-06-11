@@ -56,11 +56,12 @@ class Studente:
 
         '''Invochiamo l'operazione che permette di ottenere la media_voti di uno studente'''
 
-        if len(self._esami) == 0:
+        ''' if len(self._esami) == 0:
 
             raise RuntimeError(f"Lo studente {self.nome()} non ha superato alcun esame finora !")
         
         return sum(self._esami.values()) / len(self._esami)
+        '''
 
         sommaVoti:float = 0 
         contatoreVoti:int = 0
