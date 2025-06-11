@@ -62,7 +62,7 @@ class Studente:
 
     
     
-    def removeEsame(self, modulo: Modulo) -> None:
+    def removeEsame(self, modulo: Modulo) -> None: 
 
         for esame in self.esami():
 
@@ -72,6 +72,20 @@ class Studente:
                 return
             
             raise ValueError(f"Imposibile rimuovere l'esame del modulo {modulo.codice()} perchè {self.nome()} non l'ha sostenuto")
+
+     
+    def esame(self, modulo: Modulo) -> esame:
+
+       #TO DO: implementare in mod mefficiente
+       pass
+
+    def esame(self, modulo: Modulo) -> esame:
+        # TODO implementare in modo efficiente
+        pass
+
+    def media_voti(self) -> float:
+        # TODO implementare
+        pass
 
 
 
