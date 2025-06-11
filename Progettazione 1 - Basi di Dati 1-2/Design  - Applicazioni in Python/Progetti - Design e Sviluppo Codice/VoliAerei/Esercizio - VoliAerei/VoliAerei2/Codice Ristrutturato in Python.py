@@ -99,7 +99,7 @@ class CompagniaAerea:
 class Citta:
     _nome: str                      #-> <<mutabile>>, noto alla nascita
     _numeroDiAbitanti: IntQuantity  #-> <<mutabile>>, noto alla nascita
-    _nazione : Nazione              #-> da assoc. 'citta_naz, nota alla nascita  
+    _nazione : Nazione              #-> da assoc. 'citta_naz', nota alla nascita  
 
     def __init__(self, nome: str, numeroAbitanti: IntQuantity) -> None:
         self.setNome(nome)
