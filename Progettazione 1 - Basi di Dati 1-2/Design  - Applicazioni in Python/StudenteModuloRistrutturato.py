@@ -15,7 +15,7 @@ class Studente:
     _nome:str       #-> <<mutable>>, noto alla nascita  
     _modulo: Modulo #-> da assoc. Studente - Modulo [0..*] <<immutable>> possibilmente non noto alla nascita  
     _esame: esame   #-> assoc. di classe, dell'assoc. Studente - Modulo [0..*] <<immutable>> sicuramente non noto alla nascita 
-
+    _esami : dict[Modulo, int] 
 
     def __init__(self,nome:str)-> None:
 
@@ -26,14 +26,41 @@ class Studente:
     def setNome(self,nome)-> None:
 
         self._nome = nome
+
+    def addStudente(self)-> None:
+
+        pass
     
     def getNome(self) -> str:
 
         return self._nome  
-   
-    def media_voti() -> float:
+    
+    def esami(self) -> frozenset[tuple[Modulo, int]]:
+
+        return frozenset(self._esami.items())
+
+    def addEsame(self, modulo:Modulo, voto:int) -> None:
+
+        if modulo in self._esami:
+
+            raise RuntimeError(f"Lo studente {self.nome()}"
+                               f"ha già superato un esame di {modulo._codice()}")
+        self._esami[modulo] = voto
+
+    def removeEsame (self, modulo: Modulo) -> None:
+
+        del self._esami[modulo]  
+
+
+    def media_voti(self) -> float:
 
         '''Invochiamo l'operazione che permette di ottenere la media_voti di uno studente'''
+
+        if len(self._esami) == 0:
+
+            raise RuntimeError(f"Lo studente {self.nome()} non ha superato alcun esame finora !")
+        
+        return sum(self._esami.values()) / len(self._esami)
 
         sommaVoti:float = 0 
         contatoreVoti:int = 0
@@ -92,3 +119,40 @@ class esame:
         if esame()._studente != self:
 
             raise RuntimeError("ATTENZIONE! Non possono esistere due link della stesssa tipologia !")
+        
+
+    
+
+        if __name__ ==  "__main__":
+
+         
+         alice: Studente = Studente("Alice")
+         cristiano: Studente = Studente("Cristiano")
+
+
+         progr1: Modulo = Modulo("Prog. 1")
+         python1_4 : Modulo = Modulo ("Python 1-4")
+         
+
+
+         alice.addEsame(Mmdulo=progr1, voto = 28)
+         alice.addEsame(modulo=python1_4, voto=29)
+
+
+         alice.removeEsame(progr1)
+
+
+
+         try:
+             
+             alice.addEsame(modulo=python1_4, voto = 31)
+
+         except RuntimeError:
+             print(f"ATTENZIONE! {alice.nome()} ha già superato il modulo")
+
+        
+
+        esamiAlice = alice.esami()
+
+        print(f"{alice.nome()}")
+
