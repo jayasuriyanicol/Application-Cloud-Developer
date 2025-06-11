@@ -56,9 +56,23 @@ class Studente:
        self._esami.add(newEsame)
 
 
-    def removeEsame (self, modulo: Modulo) -> None:
+    def removeLinkEsame (self, esame: esame) -> None:
 
-        del self._esami[modulo]  
+        self._esami.remove(esame)
+
+    
+    
+    def removeEsame(self, modulo: Modulo) -> None:
+
+        for esame in self.esami():
+
+            if esame.modulo() == modulo:
+
+                self.removeLinkEsame(esame)
+                return
+            
+            raise ValueError(f"Imposibile rimuovere l'esame del modulo {modulo.codice()} perchè {self.nome()} non l'ha sostenuto")
+
 
 
     def media_voti(self) -> float:
@@ -135,7 +149,22 @@ class esame:
             raise RuntimeError("ATTENZIONE! Non possono esistere due link della stesssa tipologia !")
         
 
+        def __hash__(self )-> int:
+
+            return hash((self._studente(), self._modulo()))
     
+    def __eq__(self,other: any) -> bool:
+
+        if type(self) !=type(other) \
+           or hash(self) != hash(other):
+            
+
+            return self._studente() == other.studente () \
+                  and self.modulo() == other.modulo ()        
+
+    def __repr__(self):
+
+        return f"Esame {self._studente().nome}            "  
 
         if __name__ ==  "__main__":
 
@@ -171,16 +200,3 @@ class esame:
         print(f"{alice.nome()}")
 
    
-    def __hash__(self )-> int:
-
-        return hash((self._studente(), self._modulo()))
-    
-    def __eq__(self,other: any) -> bool:
-
-        if type(self) !=type(other) \
-           or hash(self) != hash(other):
-            
-
-            return self._studente() == other.studente () \
-                  and self.modulo() == other.modulo ()        
-
