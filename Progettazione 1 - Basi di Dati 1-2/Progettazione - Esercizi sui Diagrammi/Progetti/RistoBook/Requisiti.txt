@@ -1,0 +1,48 @@
+Raffinamento dei requisiti
+
+
+1. Raffinamento sui Clienti:
+
+    1.1 Nome -> valore stringa
+    1.2 Email -> valore stringa
+    1.3 Prenotazione (vedi requ. Prenotazione)
+
+
+
+2. Raffinamento sui Ristoranti:
+
+    2.1 Nome -> valore stringa
+    2.2 Partita IVA -> valore alfanumerico secondo standard
+    2.3 Indirizzo Città -> valore stringa secondo standard
+    2.4. Città -> valore stringa 
+
+
+
+3. Raffinamento sulle Prenotazioni:
+
+    3.1 DataPrenotazione => valore DataOra secondo standard
+    3.2 NumeroCommensali => valore Intero > 0
+    3.3 StatoPrenotazione => valore enumerativo  StatoPrenotazione = {conferemate, pendente, non utilizzata}  
+    3.4 Cliente (vedi requ. Cliente)
+    3.5 Ristorante (vedi requ. Ristorante)
+
+
+
+
+4. Raffinamento dei ResponsabileRistorante:
+
+    4.1 RistorantiAssociati =>  valore stringa (vedi requ. Ristorante)
+    4.2 ChiusuraPrenotazione => valore stringa 
+    
+
+
+5. Raffinamento sulle Promozioni:
+
+    5.1 PercentualeScontoPromozione =>valore numerico secondo standard
+
+    5.2 Durata => che può assumere i seguenti valori:
+    5.2.1 DurataOre : valore alfanumerico secondo standard
+    5.2.2 DurataGiorni : valore alfanumerico secondo standard
+
+    5.3 NumeroCopertoMassimo => valore intero numerico positivo (int>0) che può essere di max 10 posti (0 > NumeroCopertoMassimo < 10)
+
