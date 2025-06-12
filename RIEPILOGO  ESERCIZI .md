@@ -4,8 +4,8 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **WEB**             | Codice NodeJS - Fix Errors                | *11 Giugno*  | Maggiori informazioni sul relativo file     |
-| **PROG. - DESIGN**  | Link assoc. città - nazione               | *11 Giugno*  | Cercare di svolgere il codice design assoc. |
+| **WEB**             | In aggiornamento               | *In aggiornamento*  | ND   |
+| **PROG. - DESIGN**  | Link assoc. città - nazione e partecipa               | *16 Giugno*  | Cercare di svolgere il codice design assoc. |
 | **PROGETTAZIONE**   | Esercizi sulla Operazione e Use Case      | *24 Giugno*  | Maggiori informazioni sul relativo file     |
 
 
@@ -26,6 +26,8 @@ se non vi sono esercizi, segue la struttura tabellare:
 1. **ND** -> Valore ancora da definire, **NON DEFINITO**
 
 2. **NULL** -> Valore nullo ancora non assegnato, **VALORE NULLO**
+
+3. ***In aggiornamento*** -> azioni e informazioni disponibili a breve (meno di 24 ore), **INFORMAZIONI A BREVE**
 
 ---
 
