@@ -2,7 +2,7 @@
         
 ## Lezione NodeJS e React
 
-Rivedere i codicei su **NodeJS** per verificare che funzioni
+Rivedere i codicei su **NodeJS**e **REACTJS** per verificare che funzioni.
 
 ## Lezione WEB - 2
 
