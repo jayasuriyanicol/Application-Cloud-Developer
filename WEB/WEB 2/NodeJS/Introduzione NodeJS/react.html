@@ -19,23 +19,29 @@
     <div id="root"></div>
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-
-    <script>
-
-        const elementRoot = document.querySelector("#root");
-        const root= ReactDOM.createRoot(elementRoot);
-
-        const h1=React.createElement("h1",{
+<script>
+        const elementRoot=document.querySelector("#root");
+        const root=ReactDOM.createRoot(elementRoot);
+        const e=React.createElement;
+        const h1=e("h1",{
+            key:"h1",
             style:{
+                color:"red"
+            },
+            className:"big",
+            onClick:function(el){
+                
+                console.log(el)
+            }
+        }," Questo è il mio primo tag H1 con react");
+const ul=e("ul",{key:"ul"},[
+            e("li",{key:"1"},"Php"),
+            e("li",{key:"2"},"Js"),
+            e("li",{key:"3"},"Python")
+        ])
 
-                color: "red"},
-                className:"big",
-                onClick:(e)=>{console.log(e)
-                    
-                }
-            } ,"Questo è il primo tag H1 con React" );
-
-            root.render(h1);
+        const main=e("main",{},[h1,ul])
+        root.render(main);
     </script>
     
 </body>
