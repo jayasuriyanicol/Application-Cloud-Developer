@@ -9,12 +9,12 @@ Modulo -> valore attributo (codice:str)
 '''
 
 from __future__ import annotations
-f
+
 class Studente:
 
     _nome:str           #-> <<mutable>>, noto alla nascita  
     _modulo: Modulo     #-> da assoc. Studente - Modulo [0..*] <<immutable>> possibilmente non noto alla nascita  
-    # _esame: esame       #-> assoc. di classe, dell'assoc. Studente - Modulo [0..*] <<immutable>> sicuramente non noto alla nascita 
+    # _esame: esame     #-> assoc. di classe, dell'assoc. Studente - Modulo [0..*] <<immutable>> sicuramente non noto alla nascita 
     _esami : set[esame] #-> da assoc. 'esame'[ 0..*], certamnete non noto alla nasicta      
 
     def __init__(self,nome:str)-> None:
