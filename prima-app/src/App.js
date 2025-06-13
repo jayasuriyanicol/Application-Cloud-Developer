@@ -6,7 +6,14 @@ import Clock from './Clock';
 function getDate(date){
   return date.toLocaleDateString()+" "+date.toLocaleTimeString()
 }
-let nome="Nicol"
+let nome="Nicol";
+
+const saluta=(e) => {
+
+  console.log(e)
+
+
+}
 function App() {
   return (
     <div className="App">
@@ -32,7 +39,7 @@ function App() {
      <Clock timezone= "0" country="Italia"></Clock>
      <Clock timezone= "-6" country="USA"></Clock>
      <Clock timezone= "7" country="Japan"></Clock>
-
+     <button className='btn btn -primary' onClick={(e)=>saluta(e)}>Salutami</button>
     </div>
   );
 }
