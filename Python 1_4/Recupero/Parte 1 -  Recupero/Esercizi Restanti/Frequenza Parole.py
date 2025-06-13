@@ -30,6 +30,42 @@ def occorrenzeFrase(testoConvertire:str)-> dict[str,int]:
 
     dizionarioOccorrenze:dict[str,int] = {}
 
+
+    '''In alternativa possiamo utilizzare una lista per separare in token le parole:
+       
+       tokenList:list[str] = text.split(" ") 
+       
+       for elementoToken in tokens:
+       
+           tokenPulito:str = token.strip(puntaction)
+
+           if tokenPulito in dizionarioOccorrenze:
+              
+              dizionarioOccorrenze[tokenPulito] += 1
+           else:
+
+              dizionarioOccorrenze[tokenPulito] = 1
+
+        return dizionarioOccorrenze  
+
+
+       Per la soluzione di questo esercizio va bene, ma per una soluzione definitiva non andrebbe bene per diversi motivi:
+       
+       1. APOSTROFI => questo potrebbe limitare dato che non considera le parole apostrofate
+
+
+       Soluzione:
+
+
+       parolaPulita:str = ""
+       
+       for carattere.isalpha() or catttere.isdigit():
+           
+           parolaPulita += carattere
+    
+    
+    '''
+
     #Splittiamo il testo in piccole parti -> "token" per verificare che ogni parola correttamente 
     tokens = testoConvertire.split()
 
