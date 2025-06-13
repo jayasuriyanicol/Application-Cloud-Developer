@@ -21,6 +21,29 @@ sum_secondary_diagonal(mat1) # restituisce 3 + 5 + 7 = 15
 
 '''
 
+
+'''
+In alternativa come soluzione possiamo giungere a quest'altro codice:
+
+Soluzione:
+
+def diag(m: list[list[int]]) -> int:
+     
+    sommaPrimaDiagonale:int = 0
+    sommaSecondaDiagonale:int = 0
+     
+    for elemento in range (len(m)):
+    
+    sommaPrimaDiagonale += m[i][i]  
+    sommaSecondaDiagonale += m[i][len(m) - 1 - i] 
+
+    
+
+
+
+
+'''
+
 #Definiamo una funzione che calcola la somma degli elementi sulla diagonale principale (dall'alto a sinistra al basso a destra)
 def sum_primary_diagonal(matrix) -> int:
 
