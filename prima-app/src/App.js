@@ -1,27 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
-import Componente1 from './Componente1';
+import Componente1 from './Componente1'
+import Clock from './Clock';
 
 function getDate(date){
   return date.toLocaleDateString()+" "+date.toLocaleTimeString()
 }
+let nome="Nicol"
 function App() {
-  let nome="Nicol"
   return (
     <div className="App">
-      <Componente1></Componente1>
-      <h1> Prima App React</h1>
+      
+      <Componente1 nome="Nicol" cognome="Jayasuriya" eta="21"></Componente1>
+      <Componente1 nome="Nathan" cognome="Mbuyamba" eta="21"></Componente1>
+      <Componente1 nome="Michael" cognome="Baciarello" eta="21"></Componente1>
+
+      <h1> Prima App React {nome}</h1>
       <h2>
 
        {
-
           new Date().toLocaleDateString()+" "+ new Date().toLocaleTimeString()
+
        }
 
 
       </h2> 
+
+
      {/*Possiamo iterarlo più volte*/}
-      <h2>{getDate(new Date())}</h2>
+
+     <Clock timezone= "0" country="Italia"></Clock>
+     <Clock timezone= "-6" country="USA"></Clock>
+     <Clock timezone= "7" country="Japan"></Clock>
+
     </div>
   );
 }
