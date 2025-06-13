@@ -31,37 +31,62 @@ def occorrenzeFrase(testoConvertire:str)-> dict[str,int]:
     dizionarioOccorrenze:dict[str,int] = {}
 
 
-    '''In alternativa possiamo utilizzare una lista per separare in token le parole:
+'''In alternativa possiamo utilizzare una lista per separare in token le parole:
        
-       tokenList:list[str] = text.split(" ") 
+    tokenList:list[str] = text.split(" ") 
        
        for elementoToken in tokens:
        
-           tokenPulito:str = token.strip(puntaction)
+        tokenPulito:str = token.strip(puntaction)
 
-           if tokenPulito in dizionarioOccorrenze:
+        if tokenPulito in dizionarioOccorrenze:
               
-              dizionarioOccorrenze[tokenPulito] += 1
-           else:
+            dizionarioOccorrenze[tokenPulito] += 1
+        else:
 
-              dizionarioOccorrenze[tokenPulito] = 1
+            dizionarioOccorrenze[tokenPulito] = 1
 
         return dizionarioOccorrenze  
 
 
-       Per la soluzione di questo esercizio va bene, ma per una soluzione definitiva non andrebbe bene per diversi motivi:
+    Per la soluzione di questo esercizio va bene, ma per una soluzione definitiva non andrebbe bene per diversi motivi:
        
-       1. APOSTROFI => questo potrebbe limitare dato che non considera le parole apostrofate
+    1. APOSTROFI => questo potrebbe limitare dato che non considera le parole apostrofate
 
 
-       Soluzione:
+    Soluzione:
+      
+def occorrenzeFrase(testoConvertire:str)-> dict[str,int]:
 
+    dizionarioOccorrenze:dict[str,int] = {}
 
-       parolaPulita:str = ""
+    tokenList:list[str] = text.split(" ") 
+
+    parolaPulita:str = ""
        
-       for carattere.isalpha() or catttere.isdigit():
+    for carattere in testoConvertire:
+       
+        if carattere.isalpha() or catttere.isdigit():
            
-           parolaPulita += carattere
+            parolaPulita += carattere
+    tokenList: list[str] = parolaPulita.split(" ")
+
+        
+    for elementoToken in tokens:
+       
+
+           if tokenPulito in dizionarioOccorrenze:
+              
+              dizionarioOccorrenze[tokenPulito] += 1
+
+           else:
+
+              dizionarioOccorrenze[tokenPulito] = 1
+
+    return dizionarioOccorrenze  
+
+        
+         
     
     
     '''
