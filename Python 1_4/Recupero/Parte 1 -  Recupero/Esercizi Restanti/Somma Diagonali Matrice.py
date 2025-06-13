@@ -37,6 +37,33 @@ def diag(m: list[list[int]]) -> int:
     sommaPrimaDiagonale += m[i][i]  
     sommaSecondaDiagonale += m[i][len(m) - 1 - i] 
 
+
+"192.168.1.1"
+def check(ip:str)-> bool:
+
+    ip: list[str]  = ip.split(".")
+
+    if len(ip) != 4:
+       return False
+    
+    for componente in ip:
+       
+        if not component.isdigit() or (0 <= int (componente) <=255) : 
+            
+           return False
+        
+    return True
+
+    
+
+
+        
+
+        
+        
+     
+        
+        
     
 
 
