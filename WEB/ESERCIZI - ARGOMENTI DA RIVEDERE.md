@@ -2,7 +2,7 @@
         
 ## Lezione NodeJS e React
 
-Rivedere i codici e completarli su **NodeJS**e **REACTJS** per verificare che funzionino. Vedere i due pacchi di slide sulla **Introduzione su JS** e **01-Introduzione a React** + Esercizio numero 1 da completare.
+Ristrutturare il codice con i relativi errori su **APP1** e **Componente1**.
 
 ## Lezione WEB - 2
 
