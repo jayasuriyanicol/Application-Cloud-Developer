@@ -21,15 +21,6 @@ output = count_unique_words(text)
 
 '''
 
-#Importiamo dalla strind la funzione punctuation per eliminare relativi (?,.:,ecc.)
-from string import punctuation
-
-
-#Definiamo una funzione che calcola le occorrenzze (parole) che si ripetono in una determinata frase passata per input -> "testoConvertire"
-def occorrenzeFrase(testoConvertire:str)-> dict[str,int]:
-
-    dizionarioOccorrenze:dict[str,int] = {}
-
 
 '''In alternativa possiamo utilizzare una lista per separare in token le parole:
        
@@ -90,6 +81,16 @@ def occorrenzeFrase(testoConvertire:str)-> dict[str,int]:
     
     
     '''
+
+#Importiamo dalla strind la funzione punctuation per eliminare relativi (?,.:,ecc.)
+from string import punctuation
+
+
+#Definiamo una funzione che calcola le occorrenzze (parole) che si ripetono in una determinata frase passata per input -> "testoConvertire"
+def occorrenzeFrase(testoConvertire:str)-> dict[str,int]:
+
+    dizionarioOccorrenze:dict[str,int] = {}
+
 
     #Splittiamo il testo in piccole parti -> "token" per verificare che ogni parola correttamente 
     tokens = testoConvertire.split()
