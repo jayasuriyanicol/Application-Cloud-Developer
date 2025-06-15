@@ -1,12 +1,7 @@
-{/*
+/* 2- Scrivere un componente Tabellina che stampi la tabellina di un numero, compreso
+tra 1 e 10 a vostro piacimento. */ 
 
-2- Scrivere un componente Tabellina che stampi la tabellina di un numero, compreso
-tra 1 e 10 a vostro piacimento.
-
-*/ }
-
-{/*Per verificare il corretto funzionamento del programma copiarlo e incollarlo sul file 'App.js' e avviare l'ambiente React.JS */}
-
+/*Per verificare il corretto funzionamento del programma copiarlo e incollarlo sul file 'App.js' e avviare l'ambiente React.JS */
 
 
 import React from "react";

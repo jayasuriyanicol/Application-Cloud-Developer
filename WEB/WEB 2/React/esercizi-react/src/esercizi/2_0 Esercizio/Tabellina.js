@@ -1,9 +1,7 @@
 import React from "react"
-{
- /*2- Scrivere un componente Tabellina che stampi la tabellina di un numero, compreso
-tra 1 e 10 a vostro piacimento.*/
 
- }
+ /*2- Scrivere un componente Tabellina che stampi la tabellina di un numero, compreso tra 1 e 10 a vostro piacimento.*/
+ 
 
 
  function Tabellina ({numeroTabellina = 5}){
@@ -18,7 +16,7 @@ tra 1 e 10 a vostro piacimento.*/
 
             <li key={i} className="list-group-item">
                
-              {/*In questa maniera andaimo a creare una tabella con la sintassi: numero x numeroIterazione = numeroTabellina */}
+             {/*In questa maniera andaimo a creare una tabella con la sintassi: numero x numeroIterazione = numeroTabellina */}
                {numeroTabellina} x {i} = {numeroTabellina * i}
             </li>
         );
