@@ -23,7 +23,7 @@ function App() {
       <Componente1 nome="Nathan" cognome="Mbuyamba" eta="21" />
       <Componente1 nome="Michael" cognome="Baciarello" eta="21" />
 
-      <h1>Prima App React, benvenuto {nome}!</h1>
+      <h1>Prima App React Benvenuto {nome} !<br></br></h1>
 
       <h2>{getDate(now)}</h2>
 
@@ -42,4 +42,5 @@ function App() {
 }
 
 export default App;
+
 
