@@ -1,25 +1,28 @@
 import React, { useState, useEffect } from 'react';
 
-function Clock() {
-  const [time, setTime] = useState(new Date());
+function Clock({ timezone, country }) {
+  const [oraLocale, setOraLocale] = useState(getTime());
 
-  useEffect(() => {
-    const timerID = setInterval(() => tick(), 1000);
-
-    return () => {
-      clearInterval(timerID);
-    };
-  }, []);
-
-  function tick() {
-    setTime(new Date());
+  function getTime() {
+    const now = new Date();
+    // Calcolo ora locale secondo il timezone passato
+    const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+    const localTime = new Date(utc + 3600000 * timezone);
+    return localTime.toLocaleTimeString();
   }
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setOraLocale(getTime());
+    }, 1000);
+
+    return () => clearInterval(timer); // Pulizia del timer
+  }, []);
+
   return (
-    <div>
-      <h2>Orologio in tempo reale</h2>
-      <p>Ora: {time.toLocaleTimeString()}</p>
-      <p>Data: {time.toLocaleDateString()}</p>
+    <div className="mt-3">
+      <h4>Orario in {country}:</h4>
+      <p>{oraLocale}</p>
     </div>
   );
 }
