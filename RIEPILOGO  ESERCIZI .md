@@ -4,7 +4,6 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **WEB**             | Aggiustare il codice                      | *NULL*  |  Maggiori informazioni sul relativo file  |
 | **PROG. - DESIGN**  | Link assoc. città - nazione e partecipa               | *16 Giugno*  | Cercare di svolgere il codice design assoc. |
 | **PROGETTAZIONE**   | Esercizi sulla Operazione e Use Case      | *24 Giugno*  | Maggiori informazioni sul relativo file     |
 
