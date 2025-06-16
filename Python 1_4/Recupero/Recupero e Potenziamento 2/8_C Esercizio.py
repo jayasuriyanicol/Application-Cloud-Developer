@@ -18,3 +18,11 @@ Suggerimento: Leggere bene la traccia dell'intero esercizio per capire come impl
 Inserire in modo adeguato le seguenti frazioni nella lista l.
    
 '''
+
+
+def semplifica(listaFrazioni:list[int|float / int|float]) -> list:[int|float / int|float]: #type: ignore 
+
+
+pass
+
+   
