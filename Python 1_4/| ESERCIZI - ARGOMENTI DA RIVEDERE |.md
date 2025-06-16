@@ -19,3 +19,9 @@ REVISIONARE il ESERCIZIO della *lepre e della tartaruga.*
 ### Lezione numero 22:
 
 -ARGOMENTO TEORICO : *Shell Programming* fino alla **slide numero da 39 a 46 (dal TEST CASE Shell fino alla fine delle slide)**, rivedere anche gli esercizi presenti e cercare di aggiungerli ed eseguirli sul terminale.
+
+
+### Lezione Recupero:
+
+
+- Svolgere gli esercizi **Recupero e Potenziamento 2** dall'esercizio numero **8_C** al **8_E**, in più rivedere gli esercizi del primo -> **Recupero e Potenziamento 1** (commentare e risolvere eventuali errori in fase di debug)
