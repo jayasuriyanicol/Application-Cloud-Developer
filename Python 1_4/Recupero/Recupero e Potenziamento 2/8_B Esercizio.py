@@ -27,14 +27,17 @@ e che tenga conto dei casi x > y e x < y per evitare di replicare righe di codic
 
 def mcd(x:int, y:int) -> int:
 
-   #Vado alla ricerca del valore assoluto (massimo) così da ottenerli  
+    #Vado alla ricerca del valore assoluto (massimo) così da ottenerli  
     x= abs(x)
     y= abs(y)
 
-    
+    #Troviamo il valore minimo fra i valori di x e y  
     valoreMinimo= min(x,y)
-
+   
+    #Per ogni valore fra il 'ValoreMinimo' trovato da 0 a -1 (ovvero l'ultimo valore)
     for valore in range(valoreMinimo, 0, -1):
+
+        #Nel caso in cui il valore è divisibile in entrambi e da resto zero stampo il valore, sennò riporto 1 
         if x % valore == 0 and y % valore == 0:
 
             return valore
@@ -42,7 +45,10 @@ def mcd(x:int, y:int) -> int:
 
 
 
-print(mcd(12, 18))  
+'''DRIVER PROGRAM - cerchiamo di provare a verificare che una o più opzioni diano risulato corretto'''
+
+print(mcd(12, 18)) 
 print(mcd(5, 7))   
+print(mcd(6,12)) 
 print(mcd(0, 10))   
-print(mcd(0, 0))    
+    
