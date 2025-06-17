@@ -5,7 +5,7 @@ tra 1 e 10 a vostro piacimento. */
 
 
 import React from "react";
-import Tabellina from "./esercizi/2_0 Eserczio/Tabellina";
+import Tabellina from "./esercizi/Esercizi ReactJS - Slide 02/2_0 Esercizio/Tabellina";
 
 function App (){
 
