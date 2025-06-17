@@ -1,6 +1,6 @@
 
 import React from "react";
-import StampaNumeri from './esercizi/3_0 Esercizio/ stampaNumeri'
+import StampaNumeri from './esercizi/Esercizi ReactJS - Slide 02/3_0 Esercizio/stampaNumeri'
 
 /*3- Scrivere un componente Stampanumeri che stampa i numeri da 0 a 10 ; */
 
