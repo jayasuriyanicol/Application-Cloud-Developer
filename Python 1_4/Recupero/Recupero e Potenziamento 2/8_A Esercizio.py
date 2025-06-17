@@ -79,7 +79,7 @@ class Frazione:
 '''DRIVER PROGRAMM - Per verificare le funzionalità'''
 
 PrimaFrazione = Frazione(10, 4)
-SecondaFrazione = Frazione (20.9, "Cristiano")
+SecondaFrazione = Frazione ("Coccia", "Cristiano")
 
 print(PrimaFrazione)              
 print(PrimaFrazione.value())      
