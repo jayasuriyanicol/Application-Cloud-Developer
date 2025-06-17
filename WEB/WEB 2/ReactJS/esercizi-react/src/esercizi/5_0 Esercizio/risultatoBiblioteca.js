@@ -1,5 +1,5 @@
 import React from "react";
-import Biblioteca from "./esercizi/5_0 Esercizio/Biblioteca";
+import Biblioteca from "./esercizi/5_0E sercizio/Biblioteca";
 
 function App() {
   return (
