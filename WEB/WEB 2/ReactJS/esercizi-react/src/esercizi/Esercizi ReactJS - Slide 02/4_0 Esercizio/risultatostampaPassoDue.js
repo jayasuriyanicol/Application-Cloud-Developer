@@ -1,6 +1,6 @@
 
 import React from "react";
-import StampaPassoDue from './esercizi/4_0 Esercizio/stampaPassoDue'
+import StampaPassoDue from './esercizi/Esercizi ReactJS - Slide 02/4_0 Esercizio/stampaPassoDue'
 
 /*4- Scrivere un programma che conta da 0 a 20 con passo 2 e stampa i numeri ottenuti (0,2,...,20) ;*/
 
