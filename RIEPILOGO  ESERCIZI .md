@@ -4,8 +4,9 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **PYTHON 4**        | Esercizi su Recupero Sezione               | *18 Giugno*  | Maggiori informazioni sul relativo file     |
-| **PROG. - DESIGN**  | Link assoc. città - nazione e partecipa    | *18 Giugno*  | Cercare di svolgere il codice design assoc. |
+| **PYTHON 4**        | Esercizi su Recupero Sezione               | *18 Giugno*  | Maggiori informazioni sul relativo file     | 
+| **PYTHON 4**          | Consegna Esercitazione             | *19 Giugno*  | NULL     |
+| **PROG. - DESIGN**  | Link assoc. città - nazione e partecipa    | *19 Giugno*  | Cercare di svolgere il codice design assoc. |
 | **PROGETTAZIONE**   | Esercizi sulla Operazione e Use Case      | *24 Giugno*  | Maggiori informazioni sul relativo file     |
 
 
