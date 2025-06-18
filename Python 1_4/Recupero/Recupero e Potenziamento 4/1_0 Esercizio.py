@@ -80,8 +80,8 @@ def DNAcomposition(s1: str, s2: str) -> list[str] and int:  # type: ignore
     return listaSovrapposizioneStringhe, contatoreSovrapposizione
 
 def main():
-    s1 = #type:ignore
-    s2 = #type:ignore 
+    s1 = 
+    s2 = 
 
     lista, conteggio = DNAcomposition(s1, s2)
 
