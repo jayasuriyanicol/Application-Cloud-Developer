@@ -56,35 +56,40 @@ La massima lunghezza è 8
 from __future__ import annotations
 import re
 
-def DNAcomposition(s1:str, s2:str) -> list[str] and int:#type: ignore 
+
+def isDNA(sequenza:str)-> bool:
+
+    sequenzaAnalisi:str = bool (re.fullmatch(r"[ACGT]+", sequenza))
+
+
+
+def DNAcomposition(s1:str, s2:str) -> tuple[list[str], int] :#type: ignore 
 
     listaSovrapposizioneStringhe:list[str] = []  
     contatoreSovrapposizione:int = 0
 
-    isDNA(s1) and (s2)
 
-    if isDNA != True and True:
+
+    if not isDNA(s1) or not isDNA(s2):
         print("FALSE")
+        return [],0 
     else:
         
-        for elemento1  in range (len(s1)):
+        for elemento1  in  (s1):
 
-         for elemento2 in range (len(s2)):
+         for elemento2 in  (s2):
 
             if elemento1 == elemento2:
 
-                listaSovrapposizioneStringhe.append(elemento1)
-                contatoreSovrapposizione += 1
-            else:
-               pass
+                if contatoreSovrapposizione > 6:
 
+                   print("ATTENZIONE! supera i 6 caratteri di sovrapposizione") 
 
-def isDNA(sequenza:str)-> bool:
+                else:              
 
-    sequenzaAnalisi:str =  re.fullmatch("[ACGT]+", sequenza)
+                 listaSovrapposizioneStringhe.append(elemento1)
+                 contatoreSovrapposizione += 1
+        return listaSovrapposizioneStringhe, contatoreSovrapposizione
+        
 
-
-    if sequenzaAnalisi:
-        return True
-    return False
 
