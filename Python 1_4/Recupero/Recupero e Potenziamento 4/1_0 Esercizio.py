@@ -53,40 +53,43 @@ La massima lunghezza è 8
 
 
 '''
+
 import re
 
-def isDNA(sequenza: str) -> bool:
-    sequenzaAnalisi = re.fullmatch("[ACGT]+", sequenza)
-    if sequenzaAnalisi:
+def isDNA(sequenza:str) -> bool:
+    
+    sequenzaAnalizzata:str = re.fullmatch(r"[ACGT]+",sequenza)
+
+    if sequenzaAnalizzata:
         return True
     return False
+    
+s1= ("TTACGAGTACGCTAGT")
+s2= ("ACGCTAGTCCGA")
 
-def DNAcomposition(s1: str, s2: str) -> list[str] and int:  # type: ignore
-    listaSovrapposizioneStringhe: list[str] = []  
-    contatoreSovrapposizione: int = 0
 
-    if not isDNA(s1) or not isDNA(s2):
-        print("FALSE")
-    else:
-        for elementos1 in range(len(s1)):
-            for elementos2 in range(len(s2)):
-                if s1[elementos1] == s2[elementos2]:
-                    if contatoreSovrapposizione > 6:
-                        print("ATTENZIONE! supera i 6 caratteri di sovrapposizione")
-                    else:
-                        listaSovrapposizioneStringhe.append(s1[elementos1])
-                        contatoreSovrapposizione += 1
-                    break  
-    return listaSovrapposizioneStringhe, contatoreSovrapposizione
+if not isDNA(s1) or not isDNA(s2):
+    print("Errore: le sequenze devono contenere solo i caratteri A, C, G, T e devono contere tutti CARATTERI MAIUSCOLI")
+else:
+    max_overlap = 0
 
-def main():
-    s1 = 
-    s2 = 
+    # Prova tutte le possibili sovrapposizioni
+    i = 1
+    while i <= len(s1) and i <= len(s2):
+        if s1[-i:] == s2[:i]:
+            max_overlap = i
+        i += 1
 
-    lista, conteggio = DNAcomposition(s1, s2)
+    # Stampa le stringhe sovrapposte
+    print("\nStringhe sovrapposte:")
+    print(s1)
+    print(" " * (len(s1) - max_overlap) + s2)
 
-    print("Caratteri sovrapposti:", lista)
-    print("Numero di sovrapposizioni:", conteggio)
+    # Stampa la lunghezza della sovrapposizione
+    print("\nLa massima lunghezza di sovrapposizione è", max_overlap)
 
-if __name__ == "__main__":
-    main()
+
+
+ 
+
+
