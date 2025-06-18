@@ -24,4 +24,5 @@ REVISIONARE il ESERCIZIO della *lepre e della tartaruga.*
 ### Lezione Recupero:
 
 
-- Svolgere gli esercizi **Recupero e Potenziamento 2** dall'esercizio numero **8_C** al **8_E**, in più rivedere gli esercizi del primo -> **Recupero e Potenziamento 1** (commentare e risolvere eventuali errori in fase di debug)
+- Svolgere gli esercizi **Recupero e Potenziamento 2** dall'esercizio numero **8_D** al **8_E**, in più rivedere gli esercizi del primo -> **Recupero e Potenziamento 1** (commentare e risolvere eventuali errori in fase di debug).
+Inoltre svolgere anche ulteriori esercizi **Recupero e Potenziamento 4** -> *Esercizio numero 2*.
