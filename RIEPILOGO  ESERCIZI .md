@@ -4,9 +4,10 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **PYTHON 4**        | Esercizi su Recupero Sezione               | *24 Giugno*  | Maggiori informazioni sul relativo file     | 
-| **PROG. - DESIGN**  | Link assoc. città - nazione e partecipa    | *19 Giugno*  | Cercare di svolgere il codice design assoc. |
+| **PROG. - DESIGN**  | Link assoc. città - nazione e partecipa    | *23 Giugno*  | Cercare di svolgere il codice design assoc. |
+| **PYTHON 4**        | Esercizi su Recupero Sezione               | *24 -30 Giugno*  | Maggiori informazioni sul relativo file     | 
 | **PROGETTAZIONE**   | Esercizi sulla Operazione e Use Case      | *24 Giugno*  | Maggiori informazioni sul relativo file     |
+| **WEB 2**           | Esercizi e parte Teorica                  | *30 Giugno*  | Svolgere l'esercizio sulle slide.           | 
 
 
 
