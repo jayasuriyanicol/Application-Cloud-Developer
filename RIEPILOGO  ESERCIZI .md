@@ -5,7 +5,7 @@
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
 | **PROG. - DESIGN**  | Link assoc. città - nazione e partecipa    | *23 Giugno*  | Cercare di svolgere il codice design assoc. |
-| **PYTHON 4**        | Esercizi su Recupero Sezione               | *24 -30 Giugno*  | Maggiori informazioni sul relativo file     | 
+| **PYTHON 4**        | Esercizi su Recupero Sezione               | *24 -30 Giugno*  | Maggiori informazioni sul relativo file  | 
 | **WEB 2**           | Esercizi e parte Teorica                  | *30 Giugno*  | Svolgere l'esercizio sulle slide.           | 
 
 
