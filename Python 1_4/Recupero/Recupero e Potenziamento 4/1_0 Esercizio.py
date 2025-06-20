@@ -71,22 +71,29 @@ s2= ("ACGCTAGTCCGA")
 if not isDNA(s1) or not isDNA(s2):
     print("Errore: le sequenze devono contenere solo i caratteri A, C, G, T e devono contere tutti CARATTERI MAIUSCOLI")
 else:
-    max_overlap = 0
+    massimaLunghezzaSovrapprosizione = 0
 
-    # Prova tutte le possibili sovrapposizioni
-    i = 1
-    while i <= len(s1) and i <= len(s2):
-        if s1[-i:] == s2[:i]:
-            max_overlap = i
-        i += 1
+    #Partendo dal primo carattere, andiamo a vedere tutte le possibili combinazioni 
+    posizioneCarattere = 1
 
-    # Stampa le stringhe sovrapposte
+    #Finchè la posizione del carattere è minore in entrambe le stringe, andiamo ad vedere se il carattere coincide con quello dell'altra stringa
+    while posizioneCarattere <= len(s1) and posizioneCarattere <= len(s2):
+
+        #Per la prima stringa, andiamo a scorrere i caratteri verso destra e se questa è uguale alla seconda stringa andiamo a scorrere i caratteri verso sinistra 
+        if s1[-posizioneCarattere:] == s2[:posizioneCarattere]:
+
+            #Se la posizioneCarattere ovvero il carattere in questione è uguale ad entrambe è uguale andiamo a copiare il carattere e sommare di +1 
+            massimaLunghezzaSovrapprosizione = posizioneCarattere
+        posizioneCarattere += 1
+
+    #Andiamo a stampare le stringhe come richieste s1 e successivamente la lunghezza di s1 e la stringa s2
     print("\nStringhe sovrapposte:")
     print(s1)
-    print(" " * (len(s1) - max_overlap) + s2)
+    print(" " * (len(s1) - massimaLunghezzaSovrapprosizione) + s2)
 
-    # Stampa la lunghezza della sovrapposizione
-    print("\nLa massima lunghezza di sovrapposizione è", max_overlap)
+
+    #Infine andiamo a stampare il numero masismo di sovrapposizioni
+    print("\nLa massima lunghezza di sovrapposizione è", massimaLunghezzaSovrapprosizione)
 
 
 
