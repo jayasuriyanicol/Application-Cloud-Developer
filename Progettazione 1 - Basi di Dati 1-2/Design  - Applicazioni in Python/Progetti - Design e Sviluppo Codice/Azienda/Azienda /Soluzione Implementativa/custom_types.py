@@ -1,3 +1,5 @@
+'''CUSTOM TYPES PART'''
+
 from typing import Self, Any
 import re
 
