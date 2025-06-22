@@ -16,7 +16,15 @@ import { useState } from "react"
 
 function contatore = () => { 
     
+    const [contare, setCContatore] = useState = 0
     
+    return (
+
+        <div> 
+
+        
+        </div>
+    )
 
 
 
