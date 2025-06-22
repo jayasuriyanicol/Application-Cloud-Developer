@@ -2,12 +2,8 @@
 
 ## Esercizio + Spiegazione Hook e Use State
 
-Rivedere la parte Teorica dei Hook e svolgere l'esercizio sulle slide.
+Rivedere la parte Teorica dei Hook, non appena verrà pubblicato nel ***Materiale didattico***.
 
 
-
-
-## Lezione WEB - 2
-
-Rivedere la parte teorica sulle *Promise* e gli esercizi svolti + file interno zippato **CLOUDcorsohtml.zip**.<br>.
-
+        
+         "Materiale Didattico -> Web-2 -> Hook Teoria"
