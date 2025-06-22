@@ -4,7 +4,7 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **WEB 2**           | Esercizi e parte Teorica                  | *30 Giugno*  | Svolgere l'esercizio sulle slide.           | 
+| **WEB 2**           | Teoria Hook ReactJS              | *30 Giugno*  | Vedere parte teorica.           | 
 
 
 
