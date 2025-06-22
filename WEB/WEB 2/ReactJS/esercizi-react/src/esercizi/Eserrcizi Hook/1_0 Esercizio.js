@@ -14,23 +14,16 @@ import { useState } from "react"
 
 
 
-function contatore = () => { 
+function Contatore = () => { 
     
     const [contare, setContatore] = useState = 0
     
     return (
 
         <div> 
-        <button onClick={() => setContatore(contare + 1)}
-
-        
+        <button onClick={() => setContatore(contare + 1)}>Aumento Contatore</button>
+        <button onClick={ () => setContatore (contare -1 )}> Diminuire Contatore</button>
+        <p>Il contatore al momento è pari ad: <b>{contare}</b></p>
         </div>
-    )
-
-
-
-
-
-
-
+    );
 };
