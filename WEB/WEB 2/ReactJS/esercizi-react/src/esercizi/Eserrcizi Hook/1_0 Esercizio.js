@@ -16,11 +16,12 @@ import { useState } from "react"
 
 function contatore = () => { 
     
-    const [contare, setCContatore] = useState = 0
+    const [contare, setContatore] = useState = 0
     
     return (
 
         <div> 
+        <button onClick={() => setContatore(contare + 1)}
 
         
         </div>
