@@ -37,6 +37,7 @@ class  Impiegato:
      pass
 
 class Progetto:
+     pass
      
 
        
