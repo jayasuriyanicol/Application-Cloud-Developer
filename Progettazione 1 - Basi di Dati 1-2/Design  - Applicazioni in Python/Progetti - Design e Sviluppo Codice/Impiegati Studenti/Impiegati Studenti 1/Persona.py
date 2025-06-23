@@ -36,6 +36,9 @@ class PosizioneMilitare(Persona):
 class  Impiegato: 
      pass
 
+class Progetto:
+     
+
        
              
 
