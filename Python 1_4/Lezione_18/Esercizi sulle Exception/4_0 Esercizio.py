@@ -6,3 +6,23 @@ it must be instantiated from a string.
 
 '''
 
+import re
+
+
+class ManagesDatabase:
+
+
+    def __init__(self,date:str) -> None:
+        
+        #The date follow the sequence => gg => giorno, mm => mese e aa => anno
+        self.date = date
+
+    def addingNewDate(self,dateInsertion:str) -> None:
+
+
+        dateValide:str = ""
+
+        dateValide = "^[0-9]{1,2}\\/[0-9]{1,2}\\/[0-9]{4}$"
+
+        re.match()
+
