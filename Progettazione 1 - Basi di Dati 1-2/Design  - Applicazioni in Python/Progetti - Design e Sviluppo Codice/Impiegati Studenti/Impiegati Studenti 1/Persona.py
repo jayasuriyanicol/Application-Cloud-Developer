@@ -33,7 +33,10 @@ class PosizioneMilitare(Persona):
              super().__init__(nome, cognome, data_nascita, is_donna, is_uomo, maternita)
 
 
-class  Impiegato            
+class  Impiegato: 
+     pass
+
+       
              
 
 
