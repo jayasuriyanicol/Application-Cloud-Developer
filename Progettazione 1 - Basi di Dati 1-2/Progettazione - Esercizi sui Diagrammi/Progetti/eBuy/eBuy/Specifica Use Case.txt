@@ -42,6 +42,7 @@ precondizioni:
 
 
 postcondizioni:
+
      - viene creato l'oggetto a:Asta dove:
         - a.prezzo_bid = prezzo_bid
         - a.scadenza = scadenza
@@ -58,6 +59,7 @@ precondizioni:
 
 
 postcondizioni: 
+
       - viene creato l'oggetto c:CompraloSubito dove:
         
         -c.prezzo : prezzo
