@@ -86,10 +86,121 @@ postcondizioni:
              - per ogni m in mp:
                   - si crea il link (mp,cs): met_post
 
-        
+pubblicazione_compralo_subito( descrizione: Stringa, prezzo: Reale > 0, anni_garanzia: Intero >=0, condizioni: Condizioni[0..1], categoria: Categoria [1..*], mp: MetodoDiPagamento[1..*]  ] ): CompraloSubito 
+
+
+precondizioni:
+    
+    - Se condizioni non è valorizzato allora anni_garanzia >= 2.
+
+postcondizioni: 
+
+      - viene creato l'oggetto cs:CompraloSubito:
+         
+            - cs.descrizione = descrizione
+            - cs.prezzo : prezzo
+            - cs.anni_garanzia = anni_garanzia
+
+       - Se condizioni è valorizzato:
+
+            - si crea cs:Usato
+            - cs.condizioni = condizioni
+
+       - Altrimenti (condizioni non è valorizzato):
+
+             - si crea cs:Nuovo
+             - si crea il link (v,cs): pubblica dove v è un oggetto della classe VenditoreProf
+               associato all'attore che invoca l'operazione.
+             - per ogni c in categoria:
+                  - si crea il link (c,cs): cat_post
+             - per ogni m in mp:
+                  - si crea il link (mp,cs): met_pos
 
 
 
-pubblica_asta() 
+pubblicazione_asta ( descrizione: Stringa, prezzo: Reale > 0, anni_garanzia: Intero >=0, prezzo_bid: Reale > 0, condizioni: Condizioni[0..1], categoria: Categoria [1..*], mp: MetodoDiPagamento[1..*]  ] ): CompraloSubito 
+
+
+precondizioni:
+    
+    - Se condizioni non è valorizzato allora anni_garanzia >= 2.
+
+postcondizioni: 
+
+      - viene creato l'oggetto a: Asta:
+         
+            - a.descrizione = descrizione
+            - a.prezzo = prezzo
+            - a.anni_garanzia = anni_garanzia
+
+       - Se condizioni è valorizzato:
+
+            - si crea a:Usato
+            - a.condizioni = condizioni
+            
+       - Altrimenti (condizioni non è valorizzato):
+
+             - si crea a:Nuovo
+             - si crea il link (v,a): pubblica dove v è un oggetto della classe VenditoreProf
+               associato all'attore che invoca l'operazione.
+             - per ogni c in categoria:
+                  - si crea il link (c,a): cat_post
+             - per ogni m in mp:
+                  - si crea il link (mp,a): met_post
+
+
+
+privato_bid(Asta): bid:
+
+pre-condizioni:
+
+   - sia B l'insieme dei tutti i bid e A asta, non deve esistere un'altro bid b' con b.istante = b'.stessoIstante dove b' rappresenta un'altro bid  e stessoIstante = adesso sia uguale a b.istante tale che è coinvolto in un link (b',asta) : asta_bid 
+
+
+post-condizioni:
+
+    viene cereto  e restituito l'oggetto b: Bid:
+
+      -b.istante = adesso
+
+      si crea il link (b,ut): bid_ut dove ut è un oggetto della classe ut:Privato associato all'attore che invoca l'operazione.
+      si crea il link (a,b):asta_bid
+
+
+
+privato_bid_cs(CompraloSubito): cs_ut 
+
+pre-condizioni:
+
+     Nessuna Pre - Condizione
+
+post -condizioni:
+
+
+
+viene e restituito (ut,cs):cs_ut dove ut è un oggetto della classe ut:Privato associato all'attore che invoca l'operazione.
+
+
+
+privato_feedback_cs(po: PostOgetto,voto:Intero[0..5], commento: Stringa[0..1]) : pos: PostConFeedback
+
+
+pre-condizioni:
+
+     - se po:Asta :
+       
+       se po.vincitore() ritorna ut:utente che deve essere associato all'attore che invoca l'operazione.
+
+ Altrimenti po:CompraloSubito:
+
+       - Deve esitere un (u,cs):cs_ut dove u:Privato che deve essere associato all'attore che invoca l'operazione
+
+
+post-condizioni:
+
+    post diventa PostConFeedback, dove gli attributi rimangono invariati e si aggiungono:
+      
+
+
 
 
