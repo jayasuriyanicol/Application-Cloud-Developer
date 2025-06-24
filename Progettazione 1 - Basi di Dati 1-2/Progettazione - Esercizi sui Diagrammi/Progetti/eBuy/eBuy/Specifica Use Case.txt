@@ -22,11 +22,44 @@ postcondizioni:
 registra_privato(username: Stringa): Privato 
 
 precondizioni:
-    - non eisiste u:Utente  con u.username = username
+    - non eisiste u:Utente con u.username = username
 
 postcondizioni:
   - viene creato e restituito l'oggetto p:Privato dove:
 
       -p.username = username
       -p.registrazione = adesso
-      
+
+
+CREAZIONE ASTA:
+
+pubblicazione_asta(prezzo_bid: Reale >0, scadenza: DataOra (opzionale)):
+
+precondizioni:
+
+     - deve esistere il p:PostOgetto afficnhèm esista la pubblicazione di un PostOggetot in modalità Asta.
+
+
+
+postcondizioni:
+     - viene creato l'oggetto a:Asta dove:
+        - a.prezzo_bid = prezzo_bid
+        - a.scadenza = scadenza
+
+
+
+CREAZIONE CompraloSubito:
+
+pubblicazione_compralo_subito(prezzo: Reale > 0):
+
+precondizioni:
+    
+    - deve esistere un p:POstOggetto affinchè esista la publlicazione di un PostOggetto in modalità CompraloSubito
+
+
+postcondizioni: 
+      - viene creato l'oggetto c:CompraloSubito dove:
+        
+        -c.prezzo : prezzo
+
+
