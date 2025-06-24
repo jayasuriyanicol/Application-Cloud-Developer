@@ -1,3 +1,10 @@
+SPECIFICA DELLO USE CASE:
+
+
+
+STRUMENTO REGISTRAZIONE:
+
+
 registra_venditore_prof(username: Stringa, vetrina: URL): registra_venditore_prof
 
 precondizioni:
