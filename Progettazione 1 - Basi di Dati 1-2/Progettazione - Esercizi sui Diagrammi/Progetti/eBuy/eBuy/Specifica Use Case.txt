@@ -1,0 +1,25 @@
+registra_venditore_prof(username: Stringa, vetrina: URL): registra_venditore_prof
+
+precondizioni:
+    - non eisiste u:Utente  con u.username = username
+
+postcondizioni:
+  - viene creato e restituito l'oggetto v:VenditoreProf dove:
+
+      -v.username = username
+      -v.registrazione = adesso
+      -v.vetrina = vetrina
+      
+
+
+registra_privato(username: Stringa): Privato 
+
+precondizioni:
+    - non eisiste u:Utente  con u.username = username
+
+postcondizioni:
+  - viene creato e restituito l'oggetto p:Privato dove:
+
+      -p.username = username
+      -p.registrazione = adesso
+      
