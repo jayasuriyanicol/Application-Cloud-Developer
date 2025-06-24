@@ -82,7 +82,9 @@ postcondizioni:
              - si crea il link (v,cs): pubblica dove v è un oggetto della classe VenditoreProf
                associato all'attore che invoca l'operazione.
              - per ogni c in categoria:
-                  - si crea il link
+                  - si crea il link (c,cs): cat_post
+             - per ogni m in mp:
+             
         
 
 
