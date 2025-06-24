@@ -199,8 +199,12 @@ pre-condizioni:
 post-condizioni:
 
     post diventa PostConFeedback, dove gli attributi rimangono invariati e si aggiungono:
-      
+        
+         pos.voto = voto
+         pos.commento = commento
+         pos.istante = adesso
 
 
+         
 
 
