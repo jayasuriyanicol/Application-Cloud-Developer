@@ -31,13 +31,18 @@ postcondizioni:
       -p.registrazione = adesso
 
 
+
+STRUMENTO VENDITORI:
+
+
+
 CREAZIONE ASTA:
 
 pubblicazione_asta(prezzo_bid: Reale >0, scadenza: DataOra (opzionale)):
 
 precondizioni:
 
-     - deve esistere il p:PostOgetto afficnhè esista la pubblicazione di un PostOggetot in modalità Asta.
+     - deve esistere il p:PostOgetto affinchè esista la pubblicazione di un PostOggetot in modalità Asta.
 
 
 
@@ -51,17 +56,37 @@ postcondizioni:
 
 CREAZIONE CompraloSubito:
 
-pubblicazione_compralo_subito(prezzo: Reale > 0):
+pubblicazione_compralo_subito( descrizione: Stringa, prezzo: Reale > 0, anni_garanzia: Intero >=0, condizioni: Condizioni[0..1], categoria: Categoria [1..*], mp: MetodoDiPagamento[1..*]  ] ): CompraloSubito 
+
 
 precondizioni:
     
-    - deve esistere un p:POstOggetto affinchè esista la publlicazione di un PostOggetto in modalità CompraloSubito
-
+    - Se condizioni non è valorizzato allora anni_garanzia >= 2.
 
 postcondizioni: 
 
-      - viene creato l'oggetto c:CompraloSubito dove:
+      - viene creato l'oggetto cs:CompraloSubito:
+         
+            - cs.descrizione = descrizione
+            - cs.prezzo : prezzo
+            - cs.anni_garanzia = anni_garanzia
+
+       - Se condizioni è valorizzato:
+
+            - si crea cs:Usato
+            - cs.condizioni = condizioni
+
+       - Altrimenti (condizioni non è valorizzato):
+
+             - si crea cs:Nuovo
+             - si crea il link (v,cs): pubblica dove v è un oggetto della classe VenditoreProf
+               associato all'attore che invoca l'operazione.
+             - per ogni c in categoria:
+                  - si crea il link
         
-        -c.prezzo : prezzo
+
+
+
+pubblica_asta() 
 
 
