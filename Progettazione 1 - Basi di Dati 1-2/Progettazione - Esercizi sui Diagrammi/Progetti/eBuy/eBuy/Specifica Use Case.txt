@@ -84,7 +84,8 @@ postcondizioni:
              - per ogni c in categoria:
                   - si crea il link (c,cs): cat_post
              - per ogni m in mp:
-             
+                  - si crea il link (mp,cs)
+
         
 
 
