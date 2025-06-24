@@ -37,7 +37,7 @@ pubblicazione_asta(prezzo_bid: Reale >0, scadenza: DataOra (opzionale)):
 
 precondizioni:
 
-     - deve esistere il p:PostOgetto afficnhèm esista la pubblicazione di un PostOggetot in modalità Asta.
+     - deve esistere il p:PostOgetto afficnhè esista la pubblicazione di un PostOggetot in modalità Asta.
 
 
 
