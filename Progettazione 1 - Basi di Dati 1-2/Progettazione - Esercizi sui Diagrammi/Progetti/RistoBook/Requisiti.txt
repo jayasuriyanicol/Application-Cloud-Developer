@@ -46,3 +46,92 @@ Raffinamento dei requisiti
 
     5.3 NumeroCopertoMassimo => valore intero numerico positivo (int>0) che può essere di max 10 posti (0 > NumeroCopertoMassimo < 10)
 
+
+
+----------------------------------------------------------------
+
+
+1. Requisiti sui Clienti:
+    1.1. Nome
+    1.2. Indirizzo e-mail
+    1.3. Prenotazioni eseguite (v. req. 4)
+
+2. Requisiti sui Ristoranti:
+    2.1. Nome
+    2.2. Partita IVA (una stringa numerica)
+    2.3. Indirizzo
+    2.4. La città di appartenenza (v. req. 6)
+    2.5. l’insieme di tipologie di cucina offerte (v. req. 7)
+    2.6. ristoratore che se ne occupa (solo uno) (v. req. 3)
+    2.7. Data e Ora dopo la quale le prenotazioni sono possibili
+    2.8. Data e Ora dopo la quale le prenotazioni non sono più possibili
+
+3. Requisiti sui Ristoratori:
+    3.1. Nome
+    3.2. Ristoranti in possesso (anche nessuno) (v. req. 2)
+
+4. Requisiti sulle Prenotazioni:
+    4.1. Giorno
+    4.2. Ora
+    4.3. Numero Commensali
+    4.4. Stato Prenotazione {Pendente, Rifiutata, Confermata, Completata, Non Utilizzata, Annullata} 
+        4.4.1. Pendente
+            4.4.1.1. Istante creazione
+        4.4.2 Rifiutata
+            4.4.2.1. Istante di rifiuto
+        4.4.3. Confermata
+            4.4.3.1. Istante di confermare
+        4.4.4. Annulata
+            4.4.4.1. Istante di annullamento
+        4.4.5. Completata
+            4.4.5.1 Istante di completamento
+    4.5. La promozione da cui è composta (anche nessuna) (v. req. 5)
+    4.6. Il ristorante a cui si riferisce (v. req. 3)
+
+5. Requisiti sulle Promozioni:
+    5.1. L’insieme delle fasce promozionali (v. req. 5.6)
+    5.2. Massimo coperti al giorno
+    5.3. I periodi di validità (anche più di uno, ma almeno uno) (v. req. 8)
+    5.4. Il ristorante a cui si riferisce (v. req. 2)
+    5.5. Utilizzo della promozione (calcolabile) (il numero medio di clienti al giorno che ha utilizzato quella promozione in una prenotazione.)
+    5.6. Una promozione è composta da una o più fasce promozionali, ciascuna delle quali definisce:
+        5.6.1. Giorni della settimana in cui è valida (es. Lunedì–Venerdì)
+        5.6.2. ora di inizio
+        5.6.3. ora di fine
+        5.6.4. Percentuale di sconto (reale tra 0 e 1)
+        5.6.5. Periodi di validità della fascia (v. req. 8)
+
+6. Requisiti sulle Città:
+    6.1. Nome della città
+
+7. Requisiti sulle Tipologie di Cucina:
+    7.1. Nome
+
+8. Requisiti sui Periodi:
+    8.1. Data di inizio
+    8.2. Data di fine
+    8.3. Ora di inizio
+    8.4. Ora di fine
+
+999. Use case
+    999.0. Utente non registrato
+    999.1. Il cliente
+    999.2. Lo Staff di un ristorante
+    999.3. Il ristoratore
+    999.A. L'utente non registrato deve esser in grado di registrarti come ristoratore, come cliente o come staff
+    999.B. Il ristoratore deve esser in grado di registrare i suoi Ristoranti
+    999.C. Il ristoratore deve esser in grado di aggiungere uno o più membri staff ai suoi ristoranti
+    999.D. Lo Staff deve poter cambiare l'insieme di tipologie di cucina del ristorante
+    999.E. Lo Staff deve poter confermare o rifiutare le prenotazioni
+    999.F. Lo Staff deve poter creare e modificare le promozioni
+    999.G. La possibilità per il cliente di fare prenotazioni presso un ristorante
+    999.H. I clienti devono essere in grado anche di annullare le loro promozioni
+    999.I. La possibilità per il cliente di aggiungere una o più promozioni alla sua prenotazione
+    999.J. Il ristoratore o lo staff deve essere in grado di cambiare lo stato di accettazione delle prenotazioni (v. req. 2.7. e 2.8.)
+    999.K. I ristoratori devono poter calcolare le statistiche di utilizzo delle loro promozioni
+    999.L. Data una città x, un insieme di tipologie di cucina C, un tasso di sconto minimo
+    s ed una data d, i clienti devono poter trovare quali sono i ristoranti nella città x
+    che offrono almeno una delle tipologie di cucina in C e prevedono promozioni con
+    sconti di tasso almeno s nella data d ancora utilizzabili per il numero di coperti
+    che sono interessati a prenotare.
+    999.M. Utilizzo della promozione (calcolabile) (il numero medio di clienti al giorno che ha utilizzato quella promozione in una prenotazione.)
