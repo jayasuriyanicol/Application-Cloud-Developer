@@ -4,8 +4,11 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **DESIGN - PROG.**           | Svolgere Impiegati Studenti             | *25 Giugno*  | Svolgere Esercizio.           | 
-| **WEB 2**           | Teoria Hook ReactJS              | *30 Giugno*  | Vedere parte teorica.           | 
+| **PROGETTAZIONE**           | Null             | *ND*  | *In Aggiornamento*          | 
+| **DESIGN - PROG.**           | Svolgere Impiegati Studenti          | *25 Giugno*  | Svolgere Esercizio.           | 
+| **WEB 2**           | Teoria Hook ReactJS              | *30 Giugno*  | Vedere parte teorica.        | 
+| **DESIGN - PROG.**           | Use Case ed Operazioni          | *5 Luglio*  | Aggiornare Esercizio.           | 
+
 
 
 
