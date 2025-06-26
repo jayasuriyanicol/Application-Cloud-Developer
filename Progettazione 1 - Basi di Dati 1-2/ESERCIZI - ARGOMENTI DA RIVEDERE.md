@@ -7,5 +7,4 @@ Analizzare e sistemare il file **SuddivisioneRequisiti** in maniera tale da otte
 
 ## Impiegati Studenti - DESIGN Porgettazione
 
-Svolgere il design del codice di **Impiegati Studenti** e successivamente => svolgere anche la ristrutturazione del programma.
-
+Svolgere il design del codice di **Impiegati Studenti** e successivamente => svolgere anche la ristrutturazione del programma, in più rivedere le slide sulla generalizzazione fino alla slide numero .
