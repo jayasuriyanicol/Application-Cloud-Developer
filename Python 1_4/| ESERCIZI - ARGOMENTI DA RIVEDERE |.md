@@ -16,3 +16,8 @@ REVISIONARE il ESERCIZIO della *lepre e della tartaruga.*
 
 - ARGOMENTI TEORICI: *ASSERT, TRY-EXPECTION, COMPREHENSIONS*
 
+
+## Lezione Recupero:
+
+Svolgere gli esercizi rimanenti nella cartella **Recupero e Potenziamento 5** => **Esercizio numero 1**
+
