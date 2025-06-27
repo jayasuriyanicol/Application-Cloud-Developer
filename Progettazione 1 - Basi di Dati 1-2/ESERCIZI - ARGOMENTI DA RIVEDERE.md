@@ -5,7 +5,7 @@
 Analizzare e sistemare il file **SuddivisioneRequisiti** in maniera tale da ottenere un raffinamento equo secondo i requisiti del progetto
 
 
-## Impiegati Studenti - DESIGN Porgettazione
+## Impiegati Studenti - DESIGN Progettazione
 
 Svolgere il design del codice di **Impiegati Studenti** e successivamente => svolgere anche la ristrutturazione del programma, in più rivedere le slide sulla generalizzazione.
 
