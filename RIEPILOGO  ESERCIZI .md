@@ -4,8 +4,8 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **PROGETTAZIONE**           | Rivdere parte Teorica Basi di Dati             | *30 Giugno*  | Maggiori informazioni sul relativo file          |            | 
-| **DESIGN - PROG.**           | Use Case ed Operazioni - Svolgere Impiegati Student          | *5 Luglio*  | Aggiornare Esercizio e svolgere Impiegati Studenti           | 
+| **PROGETTAZIONE**           | Rivedere parte Teorica Basi di Dati             | *30 Giugno*  | Maggiori informazioni sul relativo file          |            | 
+| **PYTHON.**           | Esercizi R&P - Matrici        |  *03 Luglio* | Svolgere gli esercizi mancanti |
 
 
 
