@@ -11,6 +11,7 @@ Utilizzando bootstrap per rendere gradevole il nostro componente (a nostro piaci
 import React from "react"
 import { useState } from "react"
 
+/*Non ho importato bootstrap tramite import, dato che ho provveduto ad installarlo  da terminale attraverso il comando -> npm install bootstrap*/
 
 
 const Contatore = () => { 
