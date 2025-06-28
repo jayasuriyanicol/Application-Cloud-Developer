@@ -4,8 +4,7 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **PROGETTAZIONE**           | Rivdere parte Teorica Basi di Dati             | *30 Giugno*  | Maggiori informazioni sul relativo file          |          
-| **WEB 2**           | Teoria Hook ReactJS              | *30 Giugno*  | Vedere parte teorica.        | 
+| **PROGETTAZIONE**           | Rivdere parte Teorica Basi di Dati             | *30 Giugno*  | Maggiori informazioni sul relativo file          |            | 
 | **DESIGN - PROG.**           | Use Case ed Operazioni - Svolgere Impiegati Student          | *5 Luglio*  | Aggiornare Esercizio e svolgere Impiegati Studenti           | 
 
 
