@@ -140,3 +140,4 @@ class Genere(StrEnum):
 if __name__ == "__main__":
 
     tel1: Telefono = Telefono("ciao")
+    
