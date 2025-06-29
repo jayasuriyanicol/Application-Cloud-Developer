@@ -134,3 +134,9 @@ class Indirizzo:
 class Genere(StrEnum):
     uomo = auto()
     donna = auto()
+
+
+
+if __name__ == "__main__":
+
+    tel1: Telefono = Telefono("ciao")
