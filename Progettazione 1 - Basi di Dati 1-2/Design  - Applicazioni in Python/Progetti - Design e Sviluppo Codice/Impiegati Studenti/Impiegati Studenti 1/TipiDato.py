@@ -1,7 +1,8 @@
 from typing import Self,Any
 from datetime import date
+from typing import Any
+from enum import *
 import re
-
 
 
 
@@ -127,3 +128,5 @@ class Indirizzo:
                 hash(self) != hash(other):
             return False
         return (self.via(), self.civico(), self.cap()) == (other.via(), other.civico(), other.cap())
+
+
