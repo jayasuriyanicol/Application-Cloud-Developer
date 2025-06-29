@@ -4,7 +4,6 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **PROGETTAZIONE**           | Rivedere parte Teorica Basi di Dati             | *30 Giugno*  | Maggiori informazioni sul relativo file          |            | 
 | **PYTHON.**           | Esercizi R&P - Matrici        |  *03 Luglio* | Svolgere gli esercizi mancanti |
 
 
