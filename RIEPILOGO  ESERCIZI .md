@@ -4,7 +4,7 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **PYTHON.**           | Esercizi R&P - Matrici        |  *03 Luglio* | Svolgere gli esercizi mancanti |
+| **ND**         | NULL                               | *Null*               | NULL                         |
 
 
 
@@ -17,7 +17,7 @@
 
 se non vi sono esercizi, segue la struttura tabellare:
 
-| **ND**         | NULL                               | *Null*               | NULL                         |
+
 
 
 ***Legenda:***
