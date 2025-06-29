@@ -1,56 +1,35 @@
 '''
-DESIGN del progetto Impiegati Studenti già svolto in precednza in fase di design
+DESIGN del progetto Impiegati Studenti già svolto in precedenza in fase di design
 
 '''
-from TipiDato import *
+
+
+from __future__ import annotations
+from datetime import date
+
+
+
 
 class Persona:
+    _nome: str
+    _cognome: str
+    _cf: CodiceFiscale # {id}
+    _nascita: date # <<immutable>>
+    _is_uomo: bool  # da fusione
+    _is_donna: bool # da fusione
+    _maternita: IntGEZ | None # [0..1] da fusione con Donna
+    _posizione_militare: PosizioneMilitare | None # [0..1] da fusione con Uomo e aggregazione di pos_uomo
 
-    __nome:str
-    __cf : CodiceFiscale #type: ignore
-    __data_nascita: Data 
-    __is_donna: bool
-    __is_uomo: bool
-    __maternita: IntGEZ 
-    __stipendio: RealGEZ 
+    def __init__(self, *, nome: str, cognome: str, cf: CodiceFiscale, nascita: date,
+                 maternita: IntGEZ|None = None,
+                 posizione_militare: PosizioneMilitare | None=None) -> None:
+        self.set_nome(nome)
+        self.set_cognome(cognome)
+        self.set_cf(cf)
+        self._nascita = nascita
 
+        self._is_donna = False
+        self._is_uomo = False
+        self._maternita = maternita
+        self._posizione_militare = posizione_militare
 
-
-
-    def __init__(self, nome:str, cognome:str, data_nascita:Data,is_donna:bool, is_uomo:bool, maternita:IntGEZ ) -> None: 
-
-        self.__nome = nome  
-        self.__cognome = cognome
-        self.__data_nascita = data_nascita
-        self.__is_donna = is_donna
-        self.__is_uomo = is_uomo
-        self.__maternita = maternita
-
-
-class PosizioneMilitare(Persona):
-
-     def __init__(self, nome, cognome, data_nascita, is_donna, is_uomo, maternita):
-             super().__init__(nome, cognome, data_nascita, is_donna, is_uomo, maternita)
-
-
-class  Impiegato: 
-     pass
-
-class Progetto:
-     pass
-     
-
-       
-             
-
-
-
-    
-
-
-        
-
-    
-
-    
-           
