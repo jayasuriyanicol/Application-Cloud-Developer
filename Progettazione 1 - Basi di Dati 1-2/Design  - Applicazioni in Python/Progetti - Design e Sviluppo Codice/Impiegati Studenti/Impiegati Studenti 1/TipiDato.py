@@ -130,3 +130,7 @@ class Indirizzo:
         return (self.via(), self.civico(), self.cap()) == (other.via(), other.civico(), other.cap())
 
 
+
+class Genere(StrEnum):
+    uomo = auto()
+    donna = auto()
