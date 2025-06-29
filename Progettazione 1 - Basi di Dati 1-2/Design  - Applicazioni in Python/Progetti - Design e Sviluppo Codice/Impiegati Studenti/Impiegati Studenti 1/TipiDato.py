@@ -74,3 +74,17 @@ class CodiceFiscale(str):
         if not s.isalnum():
             raise ValueError("Il Codice Fiscale deve contenere solo caratteri alfanumerici.")
         return super().__new__(cls, s)
+
+class Telefono(str):
+    def __new__(cls, t: str | Self) -> Self:
+        if re.fullmatch(r"^\d{10}$", t):
+            return super().__new__(cls, t)
+        raise ValueError(f"'{t}' non è un numero di telefono italiano valido")
+
+
+class CAP(str):
+    def __new__(cls, v: str | Self) -> Self:
+        if re.fullmatch(r"^\d{5}$", v):
+            return super().__new__(cls, v)
+        raise ValueError(f"'{v}' non è un CAP italiano valido!")
+
