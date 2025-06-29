@@ -20,7 +20,7 @@ def caricoMax(matrice:list[list[int]]) -> tuple[int|str, int|str]:
 
        for indiceColonna in range (dimensioneMatrice):
 
-         caricoMatrice = calcolaCarico(matrice,indiceRiga, indiceColonna)
+         caricoMatrice = calcolaCarico(matrice,indiceRiga, indiceColonna)#type: ignore 
 
          if massimoCarico is None or  caricoMatrice > massimoCarico:
               
@@ -28,8 +28,8 @@ def caricoMax(matrice:list[list[int]]) -> tuple[int|str, int|str]:
           
                posizioneMassimoCarico = (indiceRiga,indiceColonna)
         
-    print(f"Il massimo carico della Matrice è la seguente:{massimoCarico}")
-    print(f"La posizione del carico massimo è la seguente:{posizioneMassimoCarico}")
-       
+    print(f"Il massimo carico della Matrice è la seguente: {massimoCarico}")
+    print(f"La posizione del carico massimo è la seguente :{posizioneMassimoCarico}")
+        
 
 
