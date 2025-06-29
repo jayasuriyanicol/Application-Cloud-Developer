@@ -1,0 +1,3 @@
+Da: alice@example.com, A: bob@example.com
+Titolo: Incontro
+Messaggio: Ciao Bob, possiamo incontrarci domani?
