@@ -6,6 +6,7 @@ DESIGN del progetto Impiegati Studenti già svolto in precedenza in fase di desi
 
 from __future__ import annotations
 from datetime import date
+from TipiDato import *
 
 
 
