@@ -4,7 +4,7 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **BASI DI DATI**    | RIvedere l'ntroduzione al modello concettuale - Basi di dati  | *02 Luglio*               | NULL                      |
+| **BASI DI DATI**    | RIvedere l'ntroduzione al modello concettuale - Basi di dati  | *02 Luglio*   |  Maggiori informazioni sul relativo file            |
 | **WEB**         | Vedere la parte teorica e svolgere eventuali esercizi  | *ND*               | NULL                      |
 
 
