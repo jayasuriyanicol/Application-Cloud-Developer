@@ -4,7 +4,7 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **ND**         | NULL                               | *Null*               | NULL                      |
+| **WEB**         | Vedere la parte teorica e svolgere eventuali esercizi  | *ND*               | NULL                      |
 
 
 
@@ -16,6 +16,8 @@
 "La specifica degli esercizi da svolgere sono presenti su ogni cartella specifica".
 
 se non vi sono esercizi, segue la struttura tabellare:
+
+| **ND**         | NULL                               | *Null*               | NULL                      |
 
 
 
