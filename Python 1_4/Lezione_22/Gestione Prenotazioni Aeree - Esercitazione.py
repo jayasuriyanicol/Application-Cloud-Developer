@@ -175,8 +175,8 @@ class VoloCommerciale(Volo):
                        self.prenotazioni += postiPrenotare
                        
                        
-                       print(f"SUCCESSO! Sono stati prenotati {postiPrenotare} posti in classe ECONOMICA per il volo {codiceVolo} !" )
-                    print( f"ATTENZIONE ! Non vi sono {postiPrenotare} posti disponibili in ECONOMICA per il volo {codiceVolo}.\nPOSTI DISPONIBILI = {postiDisponibili}")
+                       print(f"SUCCESSO! Sono stati prenotati {postiPrenotare} posti in classe ECONOMICA per il volo {self.codiceVolo} !" )
+                    print( f"ATTENZIONE ! Non vi sono {postiPrenotare} posti disponibili in ECONOMICA per il volo {self.codiceVolo}.\nPOSTI DISPONIBILI = {postiDisponibili}")
                   
                     
                         
@@ -191,8 +191,8 @@ class VoloCommerciale(Volo):
                        self.prenotazioni += postiPrenotare
                        
                        
-                       print(f"SUCCESSO! Sono stati prenotati {postiPrenotare} posti in classe BUSINESS per il volo {codiceVolo} !" )
-                    print( f"ATTENZIONE ! Non vi sono {postiPrenotare} posti disponibili in BUSINESS per il volo {codiceVolo}.\nPOSTI DISPONIBILI = {postiDisponibili}")
+                       print(f"SUCCESSO! Sono stati prenotati {postiPrenotare} posti in classe BUSINESS per il volo {self.codiceVolo} !" )
+                    print( f"ATTENZIONE ! Non vi sono {postiPrenotare} posti disponibili in BUSINESS per il volo {self.codiceVolo}.\nPOSTI DISPONIBILI = {postiDisponibili}")
                   
                    
                 case "prima":
@@ -204,8 +204,8 @@ class VoloCommerciale(Volo):
                        self.prenotazioni += postiPrenotare
                        
                        
-                       print(f"SUCCESSO! Sono stati prenotati {postiPrenotare} posti in PRIMA classe per il volo {codiceVolo} !" )
-                    print( f"ATTENZIONE ! Non vi sono {postiPrenotare} posti disponibili in PRIMA classe per il volo {codiceVolo}.\nPOSTI DISPONIBILI = {postiDisponibili}")
+                       print(f"SUCCESSO! Sono stati prenotati {postiPrenotare} posti in PRIMA classe per il volo {self.codiceVolo} !" )
+                    print( f"ATTENZIONE ! Non vi sono {postiPrenotare} posti disponibili in PRIMA classe per il volo {self.codiceVolo}.\nPOSTI DISPONIBILI = {postiDisponibili}")
                   
                 case _:
                    
@@ -267,12 +267,10 @@ class CompagniaAerea:
 
         for voloFlotta in self.flotta:
 
-            guadagno_totale += voloFlotta.prenotazioni_economica * self.prezzo_standard
-            guadagno_totale += voloFlotta.prenotazioni_business * self.prezzo_standard * 2
-            guadagno_totale += voloFlotta.prenotazioni_prima * self.prezzo_standard * 3
+            guadagnoTotale += voloFlotta.prenotazioni_economica * self.prezzo_standard
+            guadagnoTotale += voloFlotta.prenotazioni_business * self.prezzo_standard * 2
+            guadagnoTotale += voloFlotta.prenotazioni_prima * self.prezzo_standard * 3
         
-        return round(guadagno_totale, 2)
+        return round(guadagnoTotale, 2)
       
            
-           
-       
