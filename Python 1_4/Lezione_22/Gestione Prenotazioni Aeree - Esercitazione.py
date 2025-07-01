@@ -183,7 +183,7 @@ class VoloCommerciale(Volo):
            print("PRENOTAZIONI BUSINESS: " ,prenotazioni_business)
            
 
-           prenotazioni_economica = posti_economica
+           prenotazioni_economica = posti_prima
            print("PRENOTAZIONI PRIMA: " ,prenotazioni_prima)
 
            
@@ -202,7 +202,7 @@ class VoloCommerciale(Volo):
 
 class VoloCharter(Volo):
 
-    def __init__(self, codiceVolo:str, capacitaMassimaPosti:int,costoVolo:float):
+    def __init__(self, codiceVolo:str, capacitaMassimaPosti:int,costoVolo:float) -> None:
         super().__init__(codiceVolo, capacitaMassimaPosti)
 
         self.codiceVolo = codiceVolo
@@ -220,3 +220,80 @@ class VoloCharter(Volo):
     def posti_disponibili(self) -> str:
 
         return f"I posti disponibli sull'aereo è pari ad {self.postiDisponibili} posti"
+
+
+
+
+class CompagniaAerea(Volo):
+    
+    
+    def __init__(self,codiceVolo:str, capacitaMassimaPosti:int,nomeCompagnia:str, prezzoStandard:float) -> None:
+
+        super().__init__(codiceVolo, capacitaMassimaPosti)
+
+        self.nomeCompagnia = nomeCompagnia
+        self.prezzoStandard = prezzoStandard
+        self.codiceVolo = codiceVolo
+        self.capacitaMassimaPosti = capacitaMassimaPosti
+
+        self.flotta:list[str] = []   
+    
+
+    def aggiungi_volo(self,volo_commerciale) -> None:
+
+        if volo_commerciale not in self.flotta:
+
+
+           self.flotta.append(volo_commerciale)
+        else:
+
+            return f"ATTENZIONE! È gia presente un volo commerciale {volo_commerciale} nella nostra flotta"
+    
+
+    def rimuovi_volo(self, volo_commerciale) -> None:
+
+
+        if volo_commerciale in self.flotta:
+
+
+            self.flotta.remove(volo_commerciale)
+        else:
+
+            return f"ATTENZIONE! Non è presente un volo commerciale {volo_commerciale} nella nostra flotta"
+    
+
+    def mostra_flotta(self):
+
+        for aereoFlotta in self.flotta:
+
+            print(f"Volo: {aereoFlotta} - Codice Volo {self.codiceVolo} ")
+    
+
+    def guadagno(self):
+
+
+        totaleGuadagno:float = 0
+
+
+
+        totaleEconomy:float = (self.prenotazioni_economica * self.prezzoStandard)
+        totaleBusiness:float = (self.prenotazioni_business * (self.prezzoStandard*2))
+        totaleFirst:float = (self.prenotazioni_prima * (self.prezzoStandard*3))
+
+
+        totaleGuadagno = totaleEconomy + totaleBusiness + totaleFirst
+        return totaleGuadagno:.2f
+
+            
+
+
+        
+
+
+
+        
+
+    
+    
+
+        
