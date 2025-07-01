@@ -274,6 +274,9 @@ class CompagniaAerea:
         return round(guadagnoTotale, 2)
       
 
+
+
+
 '''DRIVER PROGRAMM - Per testare le funzionalità del codice'''
 
 
@@ -296,3 +299,24 @@ primoVolo.prenota_posto(10, "prima")
 print(primoVolo.posti_disponibili())
 
 primoVolo.prenota_posto(1, "economica")  
+
+#Testiamo la classe del VOLO CHARTER
+
+voloCharter = VoloCharter("ITA Airways", 200, 3500)
+
+print(f"Il TOTALE dei posti disponibili sul volo charter {voloCharter.codiceVolo} è pari ad : {voloCharter.posti_disponibili()} posti disponibili")
+voloCharter.prenota_posto()
+voloCharter.prenota_posto()
+
+#Testiamo la classe della COMPAGNIA AEREA
+
+secondoVolo = VoloCommerciale("Singapore Airlines", 98)
+secondoVolo.prenota_posto(98, "economica")
+
+
+ultimoVolo = CompagniaAerea("SIngapore Airlines", 60)
+ultimoVolo.aggiungi_volo(secondoVolo)
+ultimoVolo.aggiungi_volo(secondoVolo)
+
+ultimoVolo.mostra_flotta()
+print(f"\nDalla vendita dei biglietti aerei, la compagnia aerea Singapore Airlines ha guadagnato {ultimoVolo.guadagno()} euro")
