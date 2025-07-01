@@ -202,5 +202,17 @@ class VoloCommerciale(Volo):
 
 class VoloCharter(Volo):
 
-    def __init__(self, codiceVolo:str, capacitaMassimaPosti:int):
+    def __init__(self, codiceVolo:str, capacitaMassimaPosti:int,costoVolo:float):
         super().__init__(codiceVolo, capacitaMassimaPosti)
+
+        self.codiceVolo = codiceVolo
+        self.capacitaMassimaPosti = capacitaMassimaPosti
+        self.costoVolo = costoVolo
+
+    def prenota_posto(self)-> str:
+
+        if self.postiDisponibili == self.capacitaMassimaPosti:
+
+            return f"SUCCESSO! Il volo charter numero {self.codiceVolo} è stato prenotato correttamente al costo di {self.costoVolo} euro"
+        
+        return f"ERRORE ! Il volo charter risulta già prenotato"
