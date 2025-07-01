@@ -128,17 +128,21 @@ class VoloCommerciale(Volo):
        self.posti_business:int = int(((capacitaMassimaPosti * 20) / 100 ))
        self.posti_prima:int = int((capacitaMassimaPosti * 10) / 100) 
 
-       prenotazioni_economica:int = 0
-       prenotazioni_business:int = 0
-       prenotazioni_prima:int = 0
+       self.prenotazioni_economica:int = 0
+       self.prenotazioni_business:int = 0
+       self.prenotazioni_prima:int = 0
        
-
-
 
 
        def prenota_posto(postiPrenotare:int,classe_servizio:str) -> str:
            
            classeServizio:str = classe_servizio.lower()
+           postiTotaliDisponibili = self.posti_disponibili()
+
+           if postiTotaliDisponibili["posti disponibili"] == 0:
+
+               print(f"ATTENZIONE ! Il volo {self.codiceVolo} è al completo!") 
+               
 
            match(classe_servizio):
                
@@ -196,104 +200,4 @@ class VoloCommerciale(Volo):
           riepilogoPostiDisponibili:dict[str,int] = {"posti disponibili" : postiDisponibili ,"classe economica" : self.posti_economica ,"classe business" : self.posti_business , "prima classe" : self.posti_prima }
         
 
-          return riepilogoPostiDisponibili
-       
-
-
-class VoloCharter(Volo):
-
-    def __init__(self, codiceVolo:str, capacitaMassimaPosti:int,costoVolo:float) -> None:
-        super().__init__(codiceVolo, capacitaMassimaPosti)
-
-        self.codiceVolo = codiceVolo
-        self.capacitaMassimaPosti = capacitaMassimaPosti
-        self.costoVolo = costoVolo
-
-    def prenota_posto(self)-> str:
-
-        if self.postiDisponibili == self.capacitaMassimaPosti:
-
-            return f"SUCCESSO! Il volo charter numero {self.codiceVolo} è stato prenotato correttamente al costo di {self.costoVolo} euro"
-        
-        return f"ERRORE ! Il volo charter risulta già prenotato"
-   
-    def posti_disponibili(self) -> str:
-
-        return f"I posti disponibli sull'aereo è pari ad {self.postiDisponibili} posti"
-
-
-
-
-class CompagniaAerea(Volo):
-    
-    
-    def __init__(self,codiceVolo:str, capacitaMassimaPosti:int,nomeCompagnia:str, prezzoStandard:float) -> None:
-
-        super().__init__(codiceVolo, capacitaMassimaPosti)
-
-        self.nomeCompagnia = nomeCompagnia
-        self.prezzoStandard = prezzoStandard
-        self.codiceVolo = codiceVolo
-        self.capacitaMassimaPosti = capacitaMassimaPosti
-
-        self.flotta:list[str] = []   
-    
-
-    def aggiungi_volo(self,volo_commerciale) -> None:
-
-        if volo_commerciale not in self.flotta:
-
-
-           self.flotta.append(volo_commerciale)
-        else:
-
-            return f"ATTENZIONE! È gia presente un volo commerciale {volo_commerciale} nella nostra flotta"
-    
-
-    def rimuovi_volo(self, volo_commerciale) -> None:
-
-
-        if volo_commerciale in self.flotta:
-
-
-            self.flotta.remove(volo_commerciale)
-        else:
-
-            return f"ATTENZIONE! Non è presente un volo commerciale {volo_commerciale} nella nostra flotta"
-    
-
-    def mostra_flotta(self):
-
-        for aereoFlotta in self.flotta:
-
-            print(f"Volo: {aereoFlotta} - Codice Volo {self.codiceVolo} ")
-    
-
-    def guadagno(self):
-
-
-        totaleGuadagno:float = 0
-
-
-
-        totaleEconomy:float = (self.prenotazioni_economica * self.prezzoStandard)
-        totaleBusiness:float = (self.prenotazioni_business * (self.prezzoStandard*2))
-        totaleFirst:float = (self.prenotazioni_prima * (self.prezzoStandard*3))
-
-
-        totaleGuadagno = totaleEconomy + totaleBusiness + totaleFirst
-        return totaleGuadagno:.2f
-
-            
-
-
-        
-
-
-
-        
-
-    
-    
-
-        
+          return riepilogoPos
