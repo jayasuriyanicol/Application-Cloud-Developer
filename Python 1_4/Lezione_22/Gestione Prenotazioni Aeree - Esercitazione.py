@@ -282,5 +282,17 @@ primoVolo = VoloCommerciale("Qatar Airways", 139)
 print(f"Posti disponibili sul volo commerciale {primoVolo.codiceVolo}:")
 print(primoVolo.posti_disponibili())
 
+#Successivamente possiamo procedere con la prenotazione per i vari settori, sperimentanbdo eventuali errori per esempio nella prima classe
+primoVolo.prenota_posto(70, "economica")
+print(primoVolo.posti_disponibili())
 
+primoVolo.prenota_posto(20, "business")
+print(primoVolo.posti_disponibili())
 
+primoVolo.prenota_posto(70, "prima")  
+print(primoVolo.posti_disponibili())
+
+primoVolo.prenota_posto(10, "prima")  
+print(primoVolo.posti_disponibili())
+
+primoVolo.prenota_posto(1, "economica")  
