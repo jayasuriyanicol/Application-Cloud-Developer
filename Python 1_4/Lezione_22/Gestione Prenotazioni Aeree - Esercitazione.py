@@ -216,3 +216,7 @@ class VoloCharter(Volo):
             return f"SUCCESSO! Il volo charter numero {self.codiceVolo} è stato prenotato correttamente al costo di {self.costoVolo} euro"
         
         return f"ERRORE ! Il volo charter risulta già prenotato"
+   
+    def posti_disponibili(self) -> str:
+
+        return f"I posti disponibli sull'aereo è pari ad {self.postiDisponibili} posti"
