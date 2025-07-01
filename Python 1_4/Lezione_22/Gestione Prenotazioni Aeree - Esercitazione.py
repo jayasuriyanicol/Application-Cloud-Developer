@@ -273,4 +273,14 @@ class CompagniaAerea:
         
         return round(guadagnoTotale, 2)
       
-           
+
+'''DRIVER PROGRAMM - Per testare le funzionalità del codice'''
+
+
+#Creiamo un primo volo e testiamo le funzionalità dei posti disponibili
+primoVolo = VoloCommerciale("Qatar Airways", 139)
+print(f"Posti disponibili sul volo commerciale {primoVolo.codiceVolo}:")
+print(primoVolo.posti_disponibili())
+
+
+
