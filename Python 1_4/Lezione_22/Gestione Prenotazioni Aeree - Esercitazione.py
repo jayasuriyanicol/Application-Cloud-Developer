@@ -97,7 +97,7 @@ class Volo(ABC):
 
         self.codiceVolo = codiceVolo
         self.capacitaMassimaPosti = capacitaMassimaPosti
-        prenotazioni:int = 0
+        self.prenotazioni:int = 0
 
 @abstractmethod
 def prenota_posto(self,postiPrenotati:int = 0):
@@ -121,7 +121,7 @@ def posti_disponibili(self):
 
 class VoloCommerciale(Volo):
 
-   def __init__(self, codiceVolo:str, capacitaMassimaPosti:int) -> None:
+    def __init__(self, codiceVolo:str, capacitaMassimaPosti:int) -> None:
        super().__init__(codiceVolo, capacitaMassimaPosti)
       
        self.posti_economica:int = int((capacitaMassimaPosti * 70) / 100)
@@ -132,9 +132,27 @@ class VoloCommerciale(Volo):
        self.prenotazioni_business:int = 0
        self.prenotazioni_prima:int = 0
        
+    def posti_disponibili(self) -> dict[str,int]:
+          
+          
+          postiDisponibili:int = self.capacitaMassimaPosti - self.prenotazioni
+          Economyclass:int = self.posti_economica - self.prenotazioni_economica
+          Businessclass:int = self.posti_business - self.prenotazioni_business
+          FirstClass:int = self.posti_prima - self.prenotazioni_prima
 
 
-       def prenota_posto(postiPrenotare:int,classe_servizio:str) -> str:
+          riepilogoPostiDisponibili:dict[str,int] = { 
+
+              "posti disponibili" : postiDisponibili,
+              "classe economica" : Economyclass,
+              "classe business" : Businessclass,
+              "prima classe" : FirstClass 
+           }
+          
+          return riepilogoPostiDisponibili
+
+
+    def prenota_posto(self,postiPrenotare:int,classe_servizio:str) -> str:
            
            classeServizio:str = classe_servizio.lower()
            postiTotaliDisponibili = self.posti_disponibili()
@@ -142,62 +160,58 @@ class VoloCommerciale(Volo):
            if postiTotaliDisponibili["posti disponibili"] == 0:
 
                print(f"ATTENZIONE ! Il volo {self.codiceVolo} è al completo!") 
-               
+
 
            match(classe_servizio):
                
 
                 case "economica":
-                   
-                   if posti_economica:
+
+                    postiDisponibili:int = postiTotaliDisponibili["classe economica"] 
+                  
+                    if postiPrenotare <= postiDisponibili:
                        
-                       posti_economica -= postiPrenotare
-                       capacitaMassimaPosti -= posti_economica
-                       return f"SUCCESSO! Sono stati prenotati {postiPrenotare} posti in classe ECONOMICA !"
-                   return "ATTENZIONE ! Non vi sono posti disponibili in ECONOMICA.\nPOSTI DISPONIBILI = 0"
+                       self.prenotazioni_economica += postiPrenotare
+                       self.prenotazioni += postiPrenotare
+                       
+                       
+                       print(f"SUCCESSO! Sono stati prenotati {postiPrenotare} posti in classe ECONOMICA per il volo {codiceVolo} !" )
+                    print( f"ATTENZIONE ! Non vi sono {postiPrenotare} posti disponibili in ECONOMICA per il volo {codiceVolo}.\nPOSTI DISPONIBILI = {postiDisponibili}")
+                  
                     
                         
                
                 case "business":
-                   if posti_business:
+
+                    postiDisponibili:int = postiTotaliDisponibili["classe business"] 
+                  
+                    if postiPrenotare <= postiDisponibili:
                        
-                       posti_business -= postiPrenotare
-                       capacitaMassimaPosti -= posti_business
-                       return f"SUCCESSO! Sono stati prenotati {postiPrenotare} posti in classe BUSINESS !"
-                   return "ATTENZIONE ! Non vi sono posti disponibili in BUSINESS.\nPOSTI DISPONIBILI = 0"
+                       self.prenotazioni_economica += postiPrenotare
+                       self.prenotazioni += postiPrenotare
                        
+                       
+                       print(f"SUCCESSO! Sono stati prenotati {postiPrenotare} posti in classe BUSINESS per il volo {codiceVolo} !" )
+                    print( f"ATTENZIONE ! Non vi sono {postiPrenotare} posti disponibili in BUSINESS per il volo {codiceVolo}.\nPOSTI DISPONIBILI = {postiDisponibili}")
+                  
                    
                 case "prima":
-                   if posti_prima:
+                    postiDisponibili:int = postiTotaliDisponibili["prima classe"] 
+                  
+                    if postiPrenotare <= postiDisponibili:
                        
-                       posti_prima -= postiPrenotare
-                       capacitaMassimaPosti -= posti_prima
-                       return f"SUCCESSO! Sono stati prenotati {postiPrenotare} posti in classe PRIMA !"
-                   return "ATTENZIONE ! Non vi sono posti disponibili in PRIMA.\nPOSTI DISPONIBILI = 0"
-               
+                       self.prenotazioni_economica += postiPrenotare
+                       self.prenotazioni += postiPrenotare
+                       
+                       
+                       print(f"SUCCESSO! Sono stati prenotati {postiPrenotare} posti in PRIMA classe per il volo {codiceVolo} !" )
+                    print( f"ATTENZIONE ! Non vi sono {postiPrenotare} posti disponibili in PRIMA classe per il volo {codiceVolo}.\nPOSTI DISPONIBILI = {postiDisponibili}")
+                  
                 case _:
                    
                    return f"ATTENZIONE ! Non è possibile procedre con la prenotazione per {classeServizio} dato che inesistente !"
         
            
-           prenotazioni_economica = posti_economica
-           print("PRENOTAZIONI ECONOMICA: " ,prenotazioni_economica)
-           
-           prenotazioni_business = posti_business
-           print("PRENOTAZIONI BUSINESS: " ,prenotazioni_business)
-           
-
-           prenotazioni_economica = posti_prima
-           print("PRENOTAZIONI PRIMA: " ,prenotazioni_prima)
-
            
            
        
-       def posti_disponibili(self) -> dict[str,int]:
-          
-          postiDisponibili:int = self.capacitaMassimaPosti - self.prenotazioni
-           
-          riepilogoPostiDisponibili:dict[str,int] = {"posti disponibili" : postiDisponibili ,"classe economica" : self.posti_economica ,"classe business" : self.posti_business , "prima classe" : self.posti_prima }
-        
-
-          return riepilogoPos
