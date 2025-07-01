@@ -211,7 +211,68 @@ class VoloCommerciale(Volo):
                    
                    return f"ATTENZIONE ! Non è possibile procedre con la prenotazione per {classeServizio} dato che inesistente !"
         
-           
+    
+class VoloCharter(Volo):
+
+    def __init__(self, codiceVolo: str, capacitaMassimaPosti: int, costoVolo: float):
+        super().__init__(codiceVolo, capacitaMassimaPosti)
+        self.costoVolo = costoVolo
+
+
+    def prenota_posto(self):
+
+        if self.prenotazioni == 0:
+
+            self.prenotazioni = self.capacitaMassimaPosti
+
+            print(f"SUCCESSO ! Il Volo charter {self.codiceVolo} è stato prenotato correttamente per la modica cifra di {self.costoVolo} EURO.")
+        else:
+            print(f"ERRORE PRENOTAZIONE ! Il volo charter {self.codiceVolo} risulta già prenotato.")
+
+    def posti_disponibili(self):
+
+        return "Posti dipsonibili per il volo charter: ", self.capacitaMassimaPosti - self.prenotazioni
+
+
+class CompagniaAerea:
+
+    def __init__(self, nome: str, prezzo_standard: float):
+
+        self.nome = nome
+        self.prezzo_standard = prezzo_standard
+        self.flotta:list[str]  = []
+
+    def aggiungi_volo(self, volo_commerciale: VoloCommerciale):
+
+        self.flotta.append(volo_commerciale)
+
+    def rimuovi_volo(self, volo_commerciale: VoloCommerciale):
+
+        if volo_commerciale in self.flotta:
+
+            self.flotta.remove(volo_commerciale)
+        else:
+            print(f"ATTENZIONE ! Non risulta nessun volo commerciale nella nostra flotta a nome {volo_commerciale}")
+
+    def mostra_flotta(self):
+
+        print(f"Di seguito, la flotta della compagnia aerea {self.nome}:")
+
+        for veivolo in self.flotta:
+            print(f"volo commerciale {veivolo.codiceVolo}")
+
+    def guadagno(self):
+
+        guadagnoTotale:float = 0
+
+        for voloFlotta in self.flotta:
+
+            guadagno_totale += voloFlotta.prenotazioni_economica * self.prezzo_standard
+            guadagno_totale += voloFlotta.prenotazioni_business * self.prezzo_standard * 2
+            guadagno_totale += voloFlotta.prenotazioni_prima * self.prezzo_standard * 3
+        
+        return round(guadagno_totale, 2)
+      
            
            
        
