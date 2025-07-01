@@ -193,15 +193,8 @@ class VoloCommerciale(Volo):
           
           postiDisponibili:int = self.capacitaMassimaPosti - self.prenotazioni
            
-          riepilogoPostiDisponibili:dict[str,int] = {"posti disponibili" : 0 ,"classe economica" :0 ,"classe business" : 0 , "prima classe" : 0 }
+          riepilogoPostiDisponibili:dict[str,int] = {"posti disponibili" : postiDisponibili ,"classe economica" : self.posti_economica ,"classe business" : self.posti_business , "prima classe" : self.posti_prima }
         
-
-          for chiave,valore in riepilogoPostiDisponibili:
-              
-              riepilogoPostiDisponibili["posti disponibili"] = self.capacitaMassimaPosti
-              riepilogoPostiDisponibili["classe economica"] = self.posti_economica
-              riepilogoPostiDisponibili["classe business"] = self.posti_business
-              riepilogoPostiDisponibili["prima classe"] = self.posti_prima
 
           return riepilogoPostiDisponibili
        
