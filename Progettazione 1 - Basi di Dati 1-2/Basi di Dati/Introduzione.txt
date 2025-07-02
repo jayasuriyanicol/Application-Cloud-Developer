@@ -1,4 +1,47 @@
 |UTILIZZO PostGres sulla piattaforma Docker |
 
 
-Per poter utilizzare PostGres 
+Per poter utilizzare PostGres nell'ambiente di Docker, dobbiamo seguire dei step semplici.
+
+
+
+A. AVVIAMENTO PostGres su Docker
+
+Per avvire l'ambiente PostGres s Docker avremo bisogno di aprire il terminale e da li procedere con l'inserimento di questo comando:
+
+                           docker exec -it its_postgresql bash
+
+
+Ovverro eseguiremo dentro l'ambiente di docker in modalità "it" ovvero italiano utilizzando bash in its_postgresql
+
+
+
+B. AVVIMANENTO effettivo ambiente PostGres
+
+Successivamente potremmo entrare nell'ambiente PostGres all'intenro di 814b559bf92c:/# 
+
+andremo a scrivere -> psql -U postgres 
+
+
+
+C. Utilizzo PostGres con linguaggio SQL:
+
+
+Saremo entrati dentro l'ambiente di POstGRes e poremmo finalmete connetterci ad un database precedentemente creato oppure procedere con la creazione di uno nuovo.
+
+
+postgres=# \c esami
+You are now connected to database "esami" as user "postgres".
+esami=# 
+esami=# 
+
+
+
+
+Vediamo alcuni comandi utili per l'utilizzo: 
+
+\c -> connessione a un determinato database "\c nomeDB"
+\d  -> mosta una vista approfondita della classe "\d nomeClasse"
+\! -> esce dalla modalità postgres e permette dopo con clear di cancellare il terminale.
+
+
