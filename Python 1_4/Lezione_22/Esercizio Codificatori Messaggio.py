@@ -45,15 +45,18 @@ Test del Cifratore a Combinazione:
 - Stampa del testo decodificato: Il testo decodificato viene stampato.
 
 '''
-
+#Andiamo a richiamare e importare per la risoluzione dell'esercizio
 from abc import ABC, abstractmethod 
 from string import ascii_lowercase, ascii_uppercase
 
+
+'''In questo caso le prime due classi ASTRATTE saranno "passate", dato che verranno richiamati i loro metodi'''
+
 class CodificatoreMessaggio(ABC):
   
- @abstractmethod
- def codifica(self,testoInChiaro:str) -> str:
-   pass
+  @abstractmethod
+  def codifica(self,testoInChiaro:str) -> str:
+    pass
  
 
 class DecodificatoreMessaggio(ABC):
@@ -63,11 +66,16 @@ class DecodificatoreMessaggio(ABC):
     pass
   
 
+#Partiamo con il metodo di cifratura che è quello del CIFRARIO DI CESARE ed andiamo a richiamare le due classi ASTRATTE
 class CifratoreAScorrimento(CodificatoreMessaggio, DecodificatoreMessaggio):
+  
+  '''
+     Data la chiave in INPUT procediamo con la stesura del codice passando e definendo la chiave che servirà per la cifratura e decifratura
+     nel metodo COSTRUTTORE.
+  '''
  
   def __init__(self, chiave:int)-> None:
-   
-   self.chiave = chiave
+    self.chiave = chiave
 
 
   def codifica(self,testoInChiaro:str) -> str:
@@ -76,19 +84,19 @@ class CifratoreAScorrimento(CodificatoreMessaggio, DecodificatoreMessaggio):
 
     for lettera in testoInChiaro:
 
-        if lettera in ascii_lowercase:
+      if lettera in ascii_lowercase:
 
-            indiceMinuscole = (ascii_lowercase.index(lettera) + self.chiave) % 26
-            risultatoCriptato.append(ascii_lowercase[indiceMinuscole])
+        indiceMinuscole = (ascii_lowercase.index(lettera) + self.chiave) % 26
+        risultatoCriptato.append(ascii_lowercase[indiceMinuscole])
 
         
-        elif lettera in ascii_uppercase:
-            indiceMaiuscole = (ascii_uppercase.index(lettera) + self.chiave) % 26
-            risultatoCriptato.append(ascii_uppercase[indiceMaiuscole])
+      elif lettera in ascii_uppercase:
+        indiceMaiuscole = (ascii_uppercase.index(lettera) + self.chiave) % 26
+        risultatoCriptato.append(ascii_uppercase[indiceMaiuscole])
 
 
-        else:
-            risultatoCriptato.append(lettera)
+      else:
+        risultatoCriptato.append(lettera)
     
 
     return ''.join(risultatoCriptato)
@@ -101,23 +109,23 @@ class CifratoreAScorrimento(CodificatoreMessaggio, DecodificatoreMessaggio):
 
     for lettera in testoCodificato:
 
-        if lettera in ascii_lowercase:
+      if lettera in ascii_lowercase:
 
-            decriptaMinuscole = (ascii_lowercase.index(lettera) - self.chiave ) % 26
-            risultatoDecriptato.append(ascii_lowercase[decriptaMinuscole] )
+        decriptaMinuscole = (ascii_lowercase.index(lettera) - self.chiave ) % 26
+        risultatoDecriptato.append(ascii_lowercase[decriptaMinuscole] )
 
-        elif lettera in ascii_uppercase:
-            decriptaMaiuscole = (ascii_uppercase.index(lettera) - self.chiave) % 26
-            risultatoDecriptato.append(ascii_uppercase[decriptaMaiuscole] )
+      elif lettera in ascii_uppercase:
+        decriptaMaiuscole = (ascii_uppercase.index(lettera) - self.chiave) % 26
+        risultatoDecriptato.append(ascii_uppercase[decriptaMaiuscole] )
 
-        else:
-            risultatoDecriptato.append(lettera)
+      else:
+        risultatoDecriptato.append(lettera)
 
 
     return ''.join(risultatoDecriptato)
 
 
-
+  #Come richiesto anche dall'esercizio andiamo a svolgere la lettura e scrittura in un file di testo (txt) per entrambi i cifratori.
   def leggiFile(self, nomeFile:str) -> str:
 
     with open(nomeFile, 'r', encoding="utf-8") as f:
@@ -128,109 +136,118 @@ class CifratoreAScorrimento(CodificatoreMessaggio, DecodificatoreMessaggio):
       f.write(testoScrivere)
 
 
-
+#Definiamo il CIFRATORE A COMBINAZIONE che è ben diverso dal CIFRARIO DI CESARE infatti, quest'ultimo va combinare uno ad uno gli elementi presenti nel testoInChiaro per n volte, quanto lungo il testo da codificare e decodificare.
 class CifratoreACombinazione(CodificatoreMessaggio, DecodificatoreMessaggio):
    
+
+  '''Andiamo a definire un attributo n che ci servirà per iterare tutto lungo il testoInChiaro. Dividiamo in COMBINAZIONE E DECODIFICA COMBINAZIONE'''
   def __init__(self,n:int) -> None:
     self.n = n
 
-  def __combinazione(self,testoInChiaro:str) -> str:
-    lunghezza = len(testoInChiaro)
-    lunghezzaMeta = lunghezza // 2 if lunghezza % 2 == 0 else lunghezza // 2 + 1
-
-    testoPrimaMeta = testoInChiaro[:lunghezzaMeta]
-    testoSecondaMeta = testoInChiaro[lunghezzaMeta:]
-
-    risultato = ""
-
-    for conteggio in range(len(testoInChiaro)):
-
-        if conteggio % 2 == 0 and testoPrimaMeta:
-            risultato += testoPrimaMeta[0]
-            testoPrimaMeta = testoPrimaMeta[1:]
-
-        elif conteggio % 2 != 0 and testoSecondaMeta:
-            risultato += testoSecondaMeta[0]
-            testoSecondaMeta = testoSecondaMeta[1:]
-
-    return risultato
-
-  def __decodifica_combinazione(self, testo:str) -> str:
-
-      primaMeta = [''] * lunghezzaMeta
-      secondaMeta = [''] * (lunghezza - lunghezzaMeta)
-      indicePrima = 0
-      indiceSeconda = 0
-
-
-
-      for _ in range(self.n):
-      
-        lunghezza = len(testo)
-        
-      if lunghezza % 2 == 0:
-         
-        lunghezzaMeta = lunghezza // 2 
-     
-      else:
-        lunghezzaMeta = lunghezza // 2 + 1
-
-   
-      
-      for i in range(len(testo)):
-          if i % 2 == 0:
-              primaMeta[indicePrima] = testo[i]
-              indicePrima += 1
-          else:
-              secondaMeta[indiceSeconda] = testo[i]
-              indiceSeconda += 1
-
-      testo = ''.join(primaMeta + secondaMeta)
-      return testo
-
-
-
+  '''Infine andiamo a richiamare le classi ASTRATTE ad inizio del codice '''
   def codifica(self, testoInChiaro: str) -> str:
 
     for _ in range(self.n):
-      
       testoInChiaro = self.__combinazione(testoInChiaro)
 
     return testoInChiaro
 
   def decodifica(self, testoCodificato: str) -> str:
 
-    return self.__decodifica_combinazione(testoCodificato)
+    for _ in range(self.n):
 
+      lunghezza:int = len(testoCodificato)
+
+      if lunghezza % 2 == 0:
+        lunghezzaMeta:int = lunghezza // 2
+      else:
+        lunghezzaMeta:int = lunghezza // 2 + 1
+
+      #Inizializziamo le due metà da ricostruire
+      primaMeta:list[str] = [''] * lunghezzaMeta
+      secondaMeta:list[str] = [''] * (lunghezza - lunghezzaMeta)
+
+      indicePrima:int = 0
+      indiceSeconda:int = 0
+
+      #Ricostruiamo primaMeta e secondaMeta in base all'alternanza
+      for i in range(len(testoCodificato)):
+        if i % 2 == 0:
+          primaMeta[indicePrima] = testoCodificato[i]
+          indicePrima += 1
+        else:
+          secondaMeta[indiceSeconda] = testoCodificato[i]
+          indiceSeconda += 1
+
+      #Ricostruiamo il messaggio originale unendo le due metà
+      testoCodificato = ''.join(primaMeta + secondaMeta)
+
+    return testoCodificato
+  
+  
+  #Nella combinazione andiamo a verificare se la len del testoInChiaro sia PARI o DISPARI al fine di cifrare bene il messaggio in situazioni di disparità che non siano pari 
+  def __combinazione(self,testoInChiaro:str) -> str:
+    lunghezza = len(testoInChiaro)
+
+    if lunghezza % 2 == 0 :
+      lunghezzaMeta = lunghezza // 2 
+    
+    #Infatti per i numeri DISPARI andiamo ad aggiungere un +1 per ottenere nella PRIMA PARTE del testoInChiaro una lettera|numero|ecc. in più rispetto alla SECONDA PARTE 
+    else:
+      lunghezzaMeta = lunghezza // 2 + 1
+       
+    '''Quindi dividiamo il testo in due parti come anticipato precedentemente'''
+    testoPrimaMeta = testoInChiaro[:lunghezzaMeta]
+    testoSecondaMeta = testoInChiaro[lunghezzaMeta:]
+
+    risultatoMessaggioCombinato = ""
+
+    for conteggio in range(len(testoInChiaro)):
+
+      if conteggio % 2 == 0 and testoPrimaMeta:
+        risultatoMessaggioCombinato += testoPrimaMeta[0]
+        testoPrimaMeta = testoPrimaMeta[1:]
+
+      elif conteggio % 2 != 0 and testoSecondaMeta:
+        risultatoMessaggioCombinato += testoSecondaMeta[0]
+        testoSecondaMeta = testoSecondaMeta[1:]
+
+    return risultatoMessaggioCombinato
+
+
+  #Come richiesto anche dall'esercizio andiamo a svolgere la lettura e scrittura in un file di testo (txt) per entrambi i cifratori.
   def leggiFile(self, nomeFile:str) -> str:
 
     with open(nomeFile , 'r', encoding="utf-8") as f:
-      
       return f.read()
       
   def scriviFile(self, nomeFile:str, testoScrivere:str) -> None:
 
     with open(nomeFile, 'w', encoding="utf-8") as f:
-      
       f.write(testoScrivere)
 
 
 
+
+
+'''DRIVER PROGRAM - Per testare le funzionalità dell'esercizio'''
+
+
 if __name__ == "__main__":
    
-    print("\n--- TEST CIFRATORE A SCORRIMENTO ---")
-    cifrario = CifratoreAScorrimento(3)
-    testo = "Ciao, sono Cristiano Coccia!"
-    cifrato = cifrario.codifica(testo)
-    print("Testo Cifrato:", cifrato)
-    decifrato = cifrario.decodifica(cifrato)
-    print("Testo Decifrato:", decifrato)
+  print("\n--- TEST CIFRATORE A SCORRIMENTO ---\n")
+  cifrario = CifratoreAScorrimento(3)
+  testo = "Ciao, sono Cristiano Coccia!"
+  cifrato = cifrario.codifica(testo)
+  print("Testo Cifrato:", cifrato)
+  decifrato = cifrario.decodifica(cifrato)
+  print("Testo Decifrato:", decifrato)
 
     
-    print("\n--- TEST CIFRATORE A COMBINAZIONE ---")
-    combinatore = CifratoreACombinazione(3)
-    testoComb = "abcdefghi"
-    cifratoComb = combinatore.codifica(testoComb)
-    print("Testo Cifrato:", cifratoComb)
-    decifratoComb = combinatore.decodifica(cifratoComb)
-    print("Testo Decifrato:", decifratoComb)
+  print("\n--- TEST CIFRATORE A COMBINAZIONE ---\n")
+  combinatore =  CifratoreACombinazione(3)
+  testo2 = "abcdefghi"
+  cifrato2 = combinatore.codifica(testo2)
+  print("Testo Cifrato:", cifrato2)
+  decifrato2 = combinatore.decodifica(cifrato2)
+  print("Testo Decifrato:", decifrato2)
