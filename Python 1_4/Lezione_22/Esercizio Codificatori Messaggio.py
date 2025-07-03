@@ -46,9 +46,8 @@ Test del Cifratore a Combinazione:
 
 '''
 
-from abc import ABC,abstractmethod 
+from abc import ABC, abstractmethod 
 from string import ascii_lowercase, ascii_uppercase
-
 
 class CodificatoreMessaggio(ABC):
   
@@ -61,7 +60,6 @@ class DecodificatoreMessaggio(ABC):
 
   @abstractmethod
   def decodifica(self,testoCodificato:str) -> str:
-
     pass
   
 
@@ -72,197 +70,167 @@ class CifratoreAScorrimento(CodificatoreMessaggio, DecodificatoreMessaggio):
    self.chiave = chiave
 
 
-def codifica(self,testoInChiaro:str) -> str:
+  def codifica(self,testoInChiaro:str) -> str:
 
     risultatoCriptato: list[str] = []
 
-
     for lettera in testoInChiaro:
-
 
         if lettera in ascii_lowercase:
 
             indiceMinuscole = (ascii_lowercase.index(lettera) + self.chiave) % 26
             risultatoCriptato.append(ascii_lowercase[indiceMinuscole])
+
         
-
         elif lettera in ascii_uppercase:
-
-
             indiceMaiuscole = (ascii_uppercase.index(lettera) + self.chiave) % 26
             risultatoCriptato.append(ascii_uppercase[indiceMaiuscole])
-        
-        else:
 
+
+        else:
             risultatoCriptato.append(lettera)
     
+
     return ''.join(risultatoCriptato)
+  
 
 
-def decodifica(self,testoCodificato:str) -> str:
+  def decodifica(self,testoCodificato:str) -> str:
 
     risultatoDecriptato: list[str]  = []
 
-
     for lettera in testoCodificato:
-
 
         if lettera in ascii_lowercase:
 
             decriptaMinuscole = (ascii_lowercase.index(lettera) - self.chiave ) % 26
             risultatoDecriptato.append(ascii_lowercase[decriptaMinuscole] )
-        
-        elif lettera in ascii_uppercase:
 
+        elif lettera in ascii_uppercase:
             decriptaMaiuscole = (ascii_uppercase.index(lettera) - self.chiave) % 26
             risultatoDecriptato.append(ascii_uppercase[decriptaMaiuscole] )
 
         else:
-
             risultatoDecriptato.append(lettera)
+
 
     return ''.join(risultatoDecriptato)
 
-def leggiFile(self, nomeFile:str) -> str:
-   
-   with open(nomeFile, 'r', encoding="utf-8") as f:
+
+
+  def leggiFile(self, nomeFile:str) -> str:
+
+    with open(nomeFile, 'r', encoding="utf-8") as f:
       return f.read()
 
-def scriviFile(self, nomeFile:str, testoScrivere:str) -> None:
-   
-   with open(nomeFile, 'w', encoding="utf-8") as f:
+  def scriviFile(self, nomeFile:str, testoScrivere:str) -> None:
+    with open(nomeFile, 'w', encoding="utf-8") as f:
       f.write(testoScrivere)
+
+
+
+class CifratoreACombinazione(CodificatoreMessaggio, DecodificatoreMessaggio):
    
+  def __init__(self,n:int) -> None:
+    self.n = n
+
+  def __combinazione(self,testoInChiaro:str) -> str:
+    lunghezza = len(testoInChiaro)
+    lunghezzaMeta = lunghezza // 2 if lunghezza % 2 == 0 else lunghezza // 2 + 1
+
+    testoPrimaMeta = testoInChiaro[:lunghezzaMeta]
+    testoSecondaMeta = testoInChiaro[lunghezzaMeta:]
+
+    risultato = ""
+
+    for conteggio in range(len(testoInChiaro)):
+
+        if conteggio % 2 == 0 and testoPrimaMeta:
+            risultato += testoPrimaMeta[0]
+            testoPrimaMeta = testoPrimaMeta[1:]
+
+        elif conteggio % 2 != 0 and testoSecondaMeta:
+            risultato += testoSecondaMeta[0]
+            testoSecondaMeta = testoSecondaMeta[1:]
+
+    return risultato
+
+  def __decodifica_combinazione(self, testo:str) -> str:
+
+      primaMeta = [''] * lunghezzaMeta
+      secondaMeta = [''] * (lunghezza - lunghezzaMeta)
+      indicePrima = 0
+      indiceSeconda = 0
 
 
 
-
-'''DRIVER PROGRAMM - Per verificare le funzionalità del programma 
-
-messaggioCriptareDecriptare = "Ciao, sono Cristiano Coccia !"
-chiave = 2
-
-messaggioCriptato = caesar_cypher_encrypt(messaggioCriptareDecriptare, chiave)
-print("MESSAGGIO CRIPTATO: ", messaggioCriptato)  
-
-messaggioDecriptato = caesar_cypher_decrypt(messaggioCriptato, chiave)
-print("MESSAGGIO DECRIPTATO: ", messaggioDecriptato)  
+      for _ in range(self.n):
+      
+        lunghezza = len(testo)
+        
+      if lunghezza % 2 == 0:
+         
+        lunghezzaMeta = lunghezza // 2 
+     
+      else:
+        lunghezzaMeta = lunghezza // 2 + 1
 
    
-'''
- 
+      
+      for i in range(len(testo)):
+          if i % 2 == 0:
+              primaMeta[indicePrima] = testo[i]
+              indicePrima += 1
+          else:
+              secondaMeta[indiceSeconda] = testo[i]
+              indiceSeconda += 1
 
-class CifratoreACombinazione(CodificatoreMessaggio,DecodificatoreMessaggio):
+      testo = ''.join(primaMeta + secondaMeta)
+      return testo
+
+
+
+  def codifica(self, testoInChiaro: str) -> str:
+
+    for _ in range(self.n):
+      
+      testoInChiaro = self.__combinazione(testoInChiaro)
+
+    return testoInChiaro
+
+  def decodifica(self, testoCodificato: str) -> str:
+
+    return self.__decodifica_combinazione(testoCodificato)
+
+  def leggiFile(self, nomeFile:str) -> str:
+
+    with open(nomeFile , 'r', encoding="utf-8") as f:
+      
+      return f.read()
+      
+  def scriviFile(self, nomeFile:str, testoScrivere:str) -> None:
+
+    with open(nomeFile, 'w', encoding="utf-8") as f:
+      
+      f.write(testoScrivere)
+
+
+
+if __name__ == "__main__":
    
-   def __init__(self,n:int) ->  None:
-       self.n =  n
+    print("\n--- TEST CIFRATORE A SCORRIMENTO ---")
+    cifrario = CifratoreAScorrimento(3)
+    testo = "Ciao, sono Cristiano Coccia!"
+    cifrato = cifrario.codifica(testo)
+    print("Testo Cifrato:", cifrato)
+    decifrato = cifrario.decodifica(cifrato)
+    print("Testo Decifrato:", decifrato)
 
-   def __combinazione(self,testoInChiaro:str) -> str:
-       
-         
-       MessaggioFinaleCombinato:str  = ""
-       lunghezzaMessaggioMeta:int = (len(testoInChiaro) +1 ) // 2 
-       testoPrimaMeta = testoInChiaro [:lunghezzaMessaggioMeta] 
-       testoSecondaMeta = testoInChiaro [lunghezzaMessaggioMeta:] 
-
-
-       if lunghezzaMessaggioMeta % 2 == 0 :
-        
-          
-          for elementoPrimaParte in range(0,lunghezzaMessaggioMeta) in testoInChiaro:
-             
-             messaggioPrimaMeta:str
-             
-             messaggioPrimaMeta += elementoPrimaParte
-
-          for elementoSecondaParte in range(lunghezzaMessaggioMeta, testoInChiaro[:]  ):
-          
-             messaggioSecondaMeta:str
-
-             messaggioSecondaMeta += elementoSecondaParte
-
-          for primoElemento in messaggioPrimaMeta:
-               
-            for secondoElemento in messaggioSecondaMeta:
-                  
-                MessaggioFinaleCombinato += primoElemento,secondoElemento
-        
-       else:
-          
-          lunghezzaMessaggioMeta:int = len(testoInChiaro) // 2
-
-          
-        
-          for elementoPrimaParte in range(0,lunghezzaMessaggioMeta+1) in testoInChiaro:
-             
-             messaggioPrimaMeta:str
-             
-             messaggioPrimaMeta += elementoPrimaParte
-
-             for elementoSecondaParte in range(lunghezzaMessaggioMeta+1, testoInChiaro[:]  ):
-          
-                messaggioSecondaMeta:str
-
-                messaggioSecondaMeta += elementoSecondaParte
-
-                for primoElemento in messaggioPrimaMeta:
-               
-                    for secondoElemento in messaggioSecondaMeta:
-                    
-                         MessaggioFinaleCombinato += primoElemento,secondoElemento
-
-
-           
-       
-                  
-   def decodifica(self,testoCodificato:str) -> str:
-
-        super().decodifica()
-
-        testoDecodificato:str 
-        self.MessaggioFinaleCombinato = testoCodificato
-
-        if len(testoCodificato) % 2 == 0 :
-           
-           for elementoPrimaParte in range (0,len(testoCodificato),1):
-
-               
-
-             for elementoSecondaParte in range (1,len(testoCodificato),1):
-                 
-                primaParte += elementoPrimaParte
-                secondaParte += elementoSecondaParte
-          
-         
-             
-           testoDecodificato = primaParte + secondaParte
-                
-           return testoCodificato
-        
-        else:
-           
-            for elementoPrimaParte in range (0,len(testoCodificato),1):
-
-               
-
-             for elementoSecondaParte in range (1,len(testoCodificato),1):
-                 
-                primaParte += elementoPrimaParte
-                secondaParte += elementoSecondaParte
-          
-         
-             
-            testoDecodificato = primaParte + secondaParte
-                
-            return testoDecodificato
     
-   def leggiFile(self, nomeFile:str) -> str:
-      
-      with open(nomeFile , 'r', encoding="utf-8") as f:
-         return f.read()
-      
-   def scriviFile(self, nomeFile:str, testoScrivere:str) -> None:
-      
-      with open(nomeFile, 'w', encoding="utf-8") as f:
-         
-         f.write(testoScrivere)
+    print("\n--- TEST CIFRATORE A COMBINAZIONE ---")
+    combinatore = CifratoreACombinazione(3)
+    testoComb = "abcdefghi"
+    cifratoComb = combinatore.codifica(testoComb)
+    print("Testo Cifrato:", cifratoComb)
+    decifratoComb = combinatore.decodifica(cifratoComb)
+    print("Testo Decifrato:", decifratoComb)
