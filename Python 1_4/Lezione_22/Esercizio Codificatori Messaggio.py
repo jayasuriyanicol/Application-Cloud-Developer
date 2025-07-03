@@ -50,17 +50,17 @@ from abc import ABC,abstractmethod
 from string import ascii_lowercase, ascii_uppercase
 
 
-class CodificatoreMessaggio:
+class CodificatoreMessaggio(ABC):
   
  @abstractmethod
- def codifica(testoInChiaro:str) -> str:
+ def codifica(self,testoInChiaro:str) -> str:
    pass
  
 
-class DecodificatoreMessaggio:
+class DecodificatoreMessaggio(ABC):
 
   @abstractmethod
-  def decodifica(testoCodificato:str) -> str:
+  def decodifica(self,testoCodificato:str) -> str:
 
     pass
   
@@ -72,7 +72,7 @@ class CifratoreAScorrimento(CodificatoreMessaggio, DecodificatoreMessaggio):
    self.chiave = chiave
 
 
-def codifica(self,testoInChiaro:str,chiave:str) -> str:
+def codifica(self,testoInChiaro:str) -> str:
 
     risultatoCriptato: list[str] = []
 
@@ -99,12 +99,12 @@ def codifica(self,testoInChiaro:str,chiave:str) -> str:
     return ''.join(risultatoCriptato)
 
 
-def decodifica(self,testoCodificato:str,chiave:str) -> str:
+def decodifica(self,testoCodificato:str) -> str:
 
     risultatoDecriptato: list[str]  = []
 
 
-    for lettera in self.testoDecodificato:
+    for lettera in testoCodificato:
 
 
         if lettera in ascii_lowercase:
@@ -123,6 +123,16 @@ def decodifica(self,testoCodificato:str,chiave:str) -> str:
 
     return ''.join(risultatoDecriptato)
 
+def leggiFile(self, nomeFile:str) -> str:
+   
+   with open(nomeFile, 'r', encoding="utf-8") as f:
+      return f.read()
+
+def scriviFile(self, nomeFile:str, testoScrivere:str) -> None:
+   
+   with open(nomeFile, 'w', encoding="utf-8") as f:
+      f.write(testoScrivere)
+   
 
 
 
@@ -145,15 +155,15 @@ print("MESSAGGIO DECRIPTATO: ", messaggioDecriptato)
 class CifratoreACombinazione(CodificatoreMessaggio,DecodificatoreMessaggio):
    
    def __init__(self,n:int) ->  None:
-       
        self.n =  n
 
-   def codifica(self,testoInChiaro:str) -> str:
-       super().codifica()
-
-       MessaggioFinaleCombinato:str 
-
-       lunghezzaMessaggioMeta:int = len(testoInChiaro) // 2
+   def __combinazione(self,testoInChiaro:str) -> str:
+       
+         
+       MessaggioFinaleCombinato:str  = ""
+       lunghezzaMessaggioMeta:int = (len(testoInChiaro) +1 ) // 2 
+       testoPrimaMeta = testoInChiaro [:lunghezzaMessaggioMeta] 
+       testoSecondaMeta = testoInChiaro [lunghezzaMessaggioMeta:] 
 
 
        if lunghezzaMessaggioMeta % 2 == 0 :
@@ -245,19 +255,14 @@ class CifratoreACombinazione(CodificatoreMessaggio,DecodificatoreMessaggio):
             testoDecodificato = primaParte + secondaParte
                 
             return testoDecodificato
-           
-
-
-
     
-
-             
-               
-
-
-       
-
-    
-
-       
-     
+   def leggiFile(self, nomeFile:str) -> str:
+      
+      with open(nomeFile , 'r', encoding="utf-8") as f:
+         return f.read()
+      
+   def scriviFile(self, nomeFile:str, testoScrivere:str) -> None:
+      
+      with open(nomeFile, 'w', encoding="utf-8") as f:
+         
+         f.write(testoScrivere)
