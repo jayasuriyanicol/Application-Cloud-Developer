@@ -4,8 +4,8 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **BASI DI DATI**    | Rivedere l'ntroduzione al modello concettuale - Basi di dati  | *04 Luglio*   |  Maggiori informazioni sul relativo file            |
-| **PYTHON 4**    |  Svolgere l'esercizio numero 1 rimasto sui vettori. | *07 Luglio*   |  Cartella => Recupero =>  **Recupero e Potenziamento 7**            |
+| **BASI DI DATI**    | Rivedere slide e completare il DB  | *07 Luglio*   |  Maggiori informazioni sul relativo file            |
+| **PYTHON 4**    |  Svolgere l'esercizio numero 1 rimasto sui vettori. | *08 Luglio*   |  Cartella => Recupero =>  **Recupero e Potenziamento 7**            |
 | **WEB**         | Vedere la parte teorica e svolgere eventuali esercizi  | *ND*               | NULL                      |
 
 
