@@ -1,16 +1,41 @@
+CREATE DATABASE esami;
+\c esami
+
+CREATE DOMAIN posint as INTEGER
+   CHECK ( value > 0);
+
+
+CREATE DOMAIN posintNotNull as posint
+  CHECK (value is NOT NULL)
+
+
+CREATE DOMAIN stingNotNull as posint
+  CHECK (value is NOT NULL)
+
+
+CREATE TYPE Indirizzo as (
+
+
+    via stingNotNull
+    cap CHAR (5),
+    civico posintNotNull
+);
+
 CREATE TABLE Docente (
     mat INTEGER PRIMARY KEY,
     cognome VARCHAR (100) NOT NULL,
     nome VARCHAR (100) NOT NULL,  
     email VARCHAR (50) NOT NULL
+    indirizzo Indirizzo NOT NULL
 );
 
 
 CREATE TABLE Corso (
 
-    codice INTEGER PRIMARY KEY, -- Possiamo inseirlo accanto ad ogni variabile per indicare se un determinato attributo è PRIMARY KEY 
+    codice INTEGER PRIMARY KEY, -- Possiamo inserirlo accanto ad ogni variabile per indicare se un determinato attributo è PRIMARY KEY 
     nome  VARCHAR(100) NOT NULL,
-    aula VARCHAR (2) NOT NULL
+    aula CHAR (2) NOT NULL,
+    crediti posint NOT NULL
 
 );
 
