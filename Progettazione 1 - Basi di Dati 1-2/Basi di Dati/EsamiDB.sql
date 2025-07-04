@@ -21,6 +21,9 @@ CREATE TYPE Indirizzo as (
     civico posintNotNull
 );
 
+CREATE SEQUENCE docenteMatSeq;
+
+
 CREATE TABLE Docente (
     mat INTEGER PRIMARY KEY,
     cognome VARCHAR (100) NOT NULL,
