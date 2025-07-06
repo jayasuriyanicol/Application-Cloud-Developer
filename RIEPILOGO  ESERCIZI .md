@@ -4,7 +4,6 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **BASI DI DATI**    | Completare il DB Esami | *07 Luglio*   |  Maggiori informazioni sul relativo file            |
 | **PYTHON 4**    |  Svolgere l'esercizio numero 1 rimasto sui vettori. | *08 Luglio*   |  Cartella => Recupero =>  **Recupero e Potenziamento 7**            |
 | **WEB**         | Vedere la parte teorica e svolgere eventuali esercizi  | *ND*               | NULL                      |
 
