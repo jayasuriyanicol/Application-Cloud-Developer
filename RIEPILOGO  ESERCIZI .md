@@ -3,8 +3,7 @@
 ## 📅 Scadenze e Esercizi per Materia
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
-|---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **PYTHON 4**    |  Svolgere l'esercizio numero 1 rimasto sui vettori. | *08 Luglio*   |  Cartella => Recupero =>  **Recupero e Potenziamento 7**            |
+|---------------------|-------------------------------------------|--------------|---------------------------------------------|     
 | **WEB**         | Vedere la parte teorica e svolgere eventuali esercizi  | *ND*               | NULL                      |
 
 
