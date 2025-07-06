@@ -1,3 +1,8 @@
+
+-- Creazione del file di BACKUP - DumpEsami.sql dove andiamo a memorizzare i vechci e i nuovi dati alterati rispetto ai precedenti
+
+
+
 --
 -- PostgreSQL database dump
 --
