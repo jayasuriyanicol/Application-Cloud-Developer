@@ -45,30 +45,72 @@ e stampi i risultati invocando la funzione printResult(). Infine, si dimostri ch
 
 '''
 
-def baricentro(v:list[int])-> int|None:
+def baricentro(v: list[int]) -> int | None:
 
-    PrimaLista:list[int] = []
-    SecondaLista:list[int] = []   
+    for elemento in range(len(v)):
 
+        PrimaLista = v[0: elemento + 1]
+        SecondaLista = v[elemento + 1:]
 
+        sommaPrimaLista = sum(PrimaLista)
+        sommaSecondaLista = sum(SecondaLista)
 
+        if sommaPrimaLista == sommaSecondaLista:
 
-    lunghezzaMediaLista:int = len(v) // 2
-
-    for elementoPrimaLista in range (0,lunghezzaMediaLista) in v:
-
-
-            PrimaLista.append(elementoPrimaLista)
+            return elemento
         
-    for elementoSecondaLista in range (lunghezzaMediaLista, len(v)) in v:
+    return None
 
 
-            SecondaLista.append(elementoSecondaLista)
+def printResult(v: list[int], funzione) -> None:
 
+    indiceListaCorretta = funzione(v)
 
+    if indiceListaCorretta is not None:
+
+        print(f"Esiste il baricentro del vettore {v} ed è dato dall'indice i= {indiceListaCorretta} !")
     
+    else:
+
+        print(f"Il baricentro del vettore {v} non esiste !")
 
 
+
+
+def baricentroOttimizzato(v: list[int]) -> int | None:
+
+    sommaTotaleElementiLista = 0
+
+    for i in range(len(v)):
+
+        sommaTotaleElementiLista += v[i]
+
+    sommaTotaleElementiListaSinistra = 0
+
+    for i in range(len(v)):
+
+        sommaDestra = sommaTotaleElementiLista - sommaTotaleElementiListaSinistra - v[i]
+
+        if sommaTotaleElementiListaSinistra == sommaDestra:
+
+            return i
         
-           
-            
+        sommaTotaleElementiListaSinistra += v[i]
+
+    return None
+
+
+
+
+if __name__ == "__main__":
+    
+    v1 = [1, 2, 3, 2, 5, 2, 1]
+    v2 = [2, 0, -1, 4, 6, 3, -1]
+
+    print("\mTEST - Usando baricentro:")
+    printResult(v1, baricentro)
+    printResult(v2, baricentro)
+
+    print("\nTEST - Usando baricentroOttimizzato:")
+    printResult(v1, baricentroOttimizzato)
+    printResult(v2, baricentroOttimizzato)
