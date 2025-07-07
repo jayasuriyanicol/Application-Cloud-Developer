@@ -55,4 +55,17 @@ ALTER TABLE Docente alter column mat SET DEFAULT nextval("docenteMatSeq") --Attr
 
 
 
+CREATE TABLE Persona (
+    
+nome VARCHAR (100) NOT NULL,
+cognome VARCHAR (100) NOT NULL,
+posizione Strutturato
+stipendio Denaro 
+
+
+
+
+)
+
+
 

@@ -47,9 +47,18 @@ CREATE TABLE Progetto (
     budget Denaro NOT NULL,
 
     PRIMARY KEY (id)
+    FOREIGN KEY  
 
 );
 
 
+CREATE TABLE WP (
+
+    progetto PosInteger NOT NULL,
+    id PosInteger NOT NULL,
+    nome StringaM NOT NULL,
+    inizio DATE NOT NULL,
+    fine DATE NOT NULL,
+);
 
 
