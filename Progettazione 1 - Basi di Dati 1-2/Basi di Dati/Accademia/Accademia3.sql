@@ -1,4 +1,6 @@
--- CREAZIONE DEL DataBase ACCADEMIA 3+
+-- CREAZIONE DEL DataBase ACCADEMIA 3
+CREATE DATABASE accademia3;
+\c accademia3
 
 --CREAZIONE DELL'INSIEME DEI Domini:
 
@@ -34,7 +36,7 @@ CREATE TABLE Persona (
     posizione Strutturato NOT NULL,
     stipendio Denaro NOT NULL,
 
-    PRIMARY KEY (id),
+    PRIMARY KEY (id)
 
 );
 
@@ -82,7 +84,7 @@ CREATE TABLE AttivitaProgetto (
     tipo LavoroProgetto NOT NULL,
     oreDurata NumeroOre NOT NULL,
     
-    PRIMARY KEY id,
+    PRIMARY KEY (id),
     FOREIGN KEY persona REFERENCES Persona(id),
     FOREIGN KEY (progetto,wp) REFERENCES WP(progetto,id)
 );
@@ -99,7 +101,7 @@ CREATE TABLE AttivitaNonProgettuale (
     giorno DATE NOT NULL,
     oreDurata NumeroOre NOT NULL,  
 
-    PRIMARY KEY id,  
+    PRIMARY KEY (id),  
     FOREIGN KEY persona REFERENCES Persona(id),
     
 );
@@ -113,7 +115,7 @@ CREATE TABLE Assenza (
     giorno DATE NOT NULL,
     oreDurata NumeroOre NOT NULL,  
 
-    PRIMARY KEY id,  
+    PRIMARY KEY (id),  
     FOREIGN KEY persona REFERENCES Persona(id),
     UNIQUE (persona,giorno)
 );
