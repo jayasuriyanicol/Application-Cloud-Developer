@@ -34,7 +34,8 @@ CREATE TABLE Persona (
     posizione Strutturato NOT NULL,
     stipendio Denaro NOT NULL,
 
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+
 );
 
 
@@ -45,11 +46,15 @@ CREATE TABLE Progetto (
     inizio DATE NOT NULL,
     fine DATE NOT NULL,
     budget Denaro NOT NULL,
+    
 
-    PRIMARY KEY (id)
-    FOREIGN KEY  
+    PRIMARY KEY (id),
+    CHECK (inizio < fine),
+    UNIQUE(nome)
+
 
 );
+
 
 
 CREATE TABLE WP (
@@ -59,6 +64,10 @@ CREATE TABLE WP (
     nome StringaM NOT NULL,
     inizio DATE NOT NULL,
     fine DATE NOT NULL,
+    
+    CHECK (inizio < fine),
+    FOREIGN KEY progetto REFERENCES Progetto(id),
+    UNIQUE(progetto,nome)
 );
 
 
@@ -82,6 +91,7 @@ CREATE TABLE AttivitaProgetto (
 
 
 CREATE TABLE AttivitaNonProgettuale (
+
     id PosInteger NOT NULL,
     persona PosInteger NOT NULL,
     tipo LavoroNonProgettuale NOT NULL,
@@ -90,10 +100,23 @@ CREATE TABLE AttivitaNonProgettuale (
     oreDurata NumeroOre NOT NULL,  
 
     PRIMARY KEY id,  
-    FOREIGN KEY persona REFERENCES Persona(id)
+    FOREIGN KEY persona REFERENCES Persona(id),
+    
 );
 
 
+CREATE TABLE Assenza (
+
+    id PosInteger NOT NULL,
+    persona PosInteger NOT NULL,
+    tipo CausaAssenza NOT NULL,
+    giorno DATE NOT NULL,
+    oreDurata NumeroOre NOT NULL,  
+
+    PRIMARY KEY id,  
+    FOREIGN KEY persona REFERENCES Persona(id),
+    UNIQUE (persona,giorno)
+);
 
 
 
