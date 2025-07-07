@@ -24,12 +24,32 @@ CREATE DOMAIN Denaro as REAL
 
 
 -- CREAZIONE DELLE TABELLE 
+
+
 CREATE TABLE Persona (
     
-nome PosInteger NOT NULL,
-cognome StringaM  NOT NULL,
-posizione Strutturato NOT NULL,
-stipendio Denaro NOT NULL,
+    id PosInteger NOT NULL,
+    nome StringaM NOT NULL,
+    cognome StringaM  NOT NULL,
+    posizione Strutturato NOT NULL,
+    stipendio Denaro NOT NULL,
 
-PRIMARY KEY (nome)
-)
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE Progetto (
+
+    id PosInteger NOT NULL,
+    nome StringaM NOT NULL,
+    inizio DATE NOT NULL,
+    fine DATE NOT NULL,
+    budget Denaro NOT NULL,
+
+    PRIMARY KEY (id)
+
+);
+
+
+
+
