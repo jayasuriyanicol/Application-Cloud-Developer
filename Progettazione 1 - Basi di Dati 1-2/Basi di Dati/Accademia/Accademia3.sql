@@ -10,17 +10,20 @@ CREATE TYPE LavoroNonProgettuale as ENUM ('Didattica','Ricerca','Missione','Inco
 
 CREATE TYPE CausaAssenza as ENUM ('Chiusura Universitaria', 'Maternita', 'Malattia');
 
-CREATE DOMAIN PosInteger as INTEGER:
+CREATE DOMAIN PosInteger as INTEGER
    CHECK (value > 0);
 
 CREATE DOMAIN StringaM as VARCHAR(100);
 
-CREATE DOMAIN NumeroOre as INTEGER:
+CREATE DOMAIN NumeroOre as INTEGER
     CHECK (0 => value <= 8);
 
+CREATE DOMAIN Denaro as REAL
+    CHECK (value >= 0);
 
 
 
+-- CREAZIONE DELLE TABELLE 
 CREATE TABLE Persona (
     
 nome VARCHAR (100) NOT NULL,
