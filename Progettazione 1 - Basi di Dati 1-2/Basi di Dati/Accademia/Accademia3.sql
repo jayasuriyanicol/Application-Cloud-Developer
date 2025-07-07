@@ -87,10 +87,15 @@ CREATE TABLE AttivitaNonProgettuale (
     tipo LavoroNonProgettuale NOT NULL,
     wp PosInteger NOT NULL,
     giorno DATE NOT NULL,
-    oreDurata NumeroOre NOT NULL,
-    
+    oreDurata NumeroOre NOT NULL,  
+
+    PRIMARY KEY id,  
     FOREIGN KEY persona REFERENCES Persona(id)
 );
+
+
+
+
 
 
 
