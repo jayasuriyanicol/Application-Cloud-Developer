@@ -73,7 +73,8 @@ CREATE TABLE AttivitaProgetto (
     tipo LavoroProgetto NOT NULL,
     oreDurata NumeroOre NOT NULL,
     
-    FOREIGN KEY persona REFERENCES Persona(id)
+    PRIMARY KEY id,
+    FOREIGN KEY persona REFERENCES Persona(id),
     FOREIGN KEY (progetto,wp) REFERENCES WP(progetto,id)
 );
 
