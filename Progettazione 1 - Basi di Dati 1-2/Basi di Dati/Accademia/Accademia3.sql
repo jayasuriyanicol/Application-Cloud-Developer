@@ -62,3 +62,35 @@ CREATE TABLE WP (
 );
 
 
+
+
+CREATE TABLE AttivitaProgetto (
+    id PosInteger NOT NULL,
+    persona PosInteger NOT NULL,
+    progetto PosInteger NOT NULL,
+    wp PosInteger NOT NULL,
+    giorno DATE NOT NULL,
+    tipo LavoroProgetto NOT NULL,
+    oreDurata NumeroOre NOT NULL,
+    
+    FOREIGN KEY persona REFERENCES Persona(id)
+    FOREIGN KEY (progetto,wp) REFERENCES WP(progetto,id)
+);
+
+
+
+
+CREATE TABLE AttivitaNonProgettuale (
+    id PosInteger NOT NULL,
+    persona PosInteger NOT NULL,
+    tipo LavoroNonProgettuale NOT NULL,
+    wp PosInteger NOT NULL,
+    giorno DATE NOT NULL,
+    oreDurata NumeroOre NOT NULL,
+    
+    FOREIGN KEY persona REFERENCES Persona(id)
+);
+
+
+
+
