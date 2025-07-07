@@ -26,8 +26,10 @@ CREATE DOMAIN Denaro as REAL
 -- CREAZIONE DELLE TABELLE 
 CREATE TABLE Persona (
     
-nome VARCHAR (100) NOT NULL,
-cognome VARCHAR (100) NOT NULL,
-posizione Strutturato
-stipendio Denaro 
+nome PosInteger NOT NULL,
+cognome StringaM  NOT NULL,
+posizione Strutturato NOT NULL,
+stipendio Denaro NOT NULL,
+
+PRIMARY KEY (nome)
 )
