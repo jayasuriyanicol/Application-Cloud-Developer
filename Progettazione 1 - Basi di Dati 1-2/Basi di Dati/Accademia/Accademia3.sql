@@ -100,7 +100,7 @@ CREATE TABLE Assenza (
 );
 
 
--- POPOLAMENTO delle tabbelle precedentemente create
+-- POPOLAMENTO delle tabelle precedentemente create
 
 INSERT INTO persona VALUES (1,'Nicol','Jayasuriya','Professore Associato', 3100.45);
 
@@ -115,4 +115,10 @@ INSERT INTO wp VALUES (1,1,'Reenbac Train System', '20-05-2025', '29-11-2030');
 SET Datestyle = 'ISO, DMY';
 
 INSERT INTO AttivitaProgetto VALUES (1,1,1,1,'19-05-2024', 'Ricerca e Sviluppo', 8 );
+
+SET Datestyle = 'ISO, DMY';
+
+INSERT INTO AttivitaNonProgettuale VALUES (1,1,'Ricerca',1,'18-05-2024', 5);
+
+
 
