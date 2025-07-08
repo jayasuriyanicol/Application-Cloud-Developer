@@ -100,20 +100,19 @@ CREATE TABLE Assenza (
 );
 
 
+-- POPOLAMENTO delle tabbelle precedentemente create
+
 INSERT INTO persona VALUES (1,'Nicol','Jayasuriya','Professore Associato', 3100.45);
+
 SET Datestyle = 'ISO, DMY'; -- Utilizziamo questa notazione solo per l'inserimento semplificato europeo, ma verrà visualizzato come formato nella tabelle risultante come inglese/americano
+
 INSERT INTO progetto VALUES (1, 'ReenbacRailways',  '22-05-2025', '24-11-2030', 3000000.00);
+
 SET Datestyle = 'ISO, DMY';
+
 INSERT INTO wp VALUES (1,1,'Reenbac Train System', '20-05-2025', '29-11-2030');
 
-REATE TABLE WP (
-    progetto PosInteger NOT NULL,
-    id PosInteger NOT NULL,
-    nome StringaM NOT NULL,
-    inizio DATE NOT NULL,
-    fine DATE NOT NULL,
-    PRIMARY KEY (progetto, id),
-    CHECK (inizio < fine),
-    FOREIGN KEY (progetto) REFERENCES Progetto(id),
-    UNIQUE (progetto, nome)
-);
+SET Datestyle = 'ISO, DMY';
+
+INSERT INTO AttivitaProgetto VALUES (1,1,1,1,'19-05-2024', 'Ricerca e Sviluppo', 8 );
+
