@@ -120,5 +120,6 @@ SET Datestyle = 'ISO, DMY';
 
 INSERT INTO AttivitaNonProgettuale VALUES (1,1,'Ricerca',1,'18-05-2024', 5);
 
+SET Datestyle = 'ISO, DMY';
 
-
+INSERT INTO Assenza VALUES (1,1,'Malattia','19-05-2024', 8);
