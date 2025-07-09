@@ -103,8 +103,8 @@ CREATE TABLE Assenza (
 -- POPOLAMENTO delle tabelle precedentemente create
 
 INSERT INTO persona VALUES (1,'Nicol','Jayasuriya','Professore Associato', 3100.45);
-INSERT INTO persona VALUES (1,'Cristiano','Coccia','Ricercatore', 1000.45);
-INSERT INTO persona VALUES (1,'Michael','Giorgi','Professore Ordinario', 1550.45);
+INSERT INTO persona VALUES (2,'Cristiano','Coccia','Ricercatore', 1000.45);
+INSERT INTO persona VALUES (3,'Michael','Giorgi','Professore Ordinario', 1550.45);
 
 SET Datestyle = 'ISO, DMY'; -- Utilizziamo questa notazione solo per l'inserimento semplificato europeo, ma verrà visualizzato come formato nella tabelle risultante come inglese/americano
 
