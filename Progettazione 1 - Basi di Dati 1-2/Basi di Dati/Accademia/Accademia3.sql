@@ -111,10 +111,13 @@ SET Datestyle = 'ISO, DMY'; -- Utilizziamo questa notazione solo per l'inserimen
 INSERT INTO progetto VALUES (1, 'ReenbacRailways',  '22-05-2025', '24-11-2030', 3000000.00);
 INSERT INTO progetto VALUES (2, 'ProjectFarm',  '28-08-2025', '29-11-2030', 50000.00);
 INSERT INTO progetto VALUES (3, 'AlphaPharma',  '07-11-2025', '09-04-2040', 100000.00);
+
+
 SET Datestyle = 'ISO, DMY';
 
 INSERT INTO wp VALUES (1,1,'Reenbac Train System', '20-05-2025', '29-11-2030');
-
+INSERT INTO wp VALUES (2,2,'Assert Notation System', '29-11-2025', '09-09-2027');
+INSERT INTO wp VALUES (3,3,'Pubblication Journalism Association', '11-02-2023', '09-09-2027');
 SET Datestyle = 'ISO, DMY';
 
 INSERT INTO AttivitaProgetto VALUES (1,1,1,1,'19-05-2024', 'Ricerca e Sviluppo', 8 );
