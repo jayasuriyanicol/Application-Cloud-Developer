@@ -1,6 +1,8 @@
 '''IMPLEMENTAZIONE eBuy in Linguaggio Python'''
 
 from TipiDato import *
+
 class PostOggetto:
 
-    def __init__(self,*, descizione:str, prezzo:RealGEZ, anniGaranzia: IntGEZ, 
+    def __init__(self,*, descizione:str, prezzo:RealGEZ, anniGaranzia: IntGEZ):
+        pass
