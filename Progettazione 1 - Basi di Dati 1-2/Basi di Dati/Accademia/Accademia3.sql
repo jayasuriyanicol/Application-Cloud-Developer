@@ -103,11 +103,14 @@ CREATE TABLE Assenza (
 -- POPOLAMENTO delle tabelle precedentemente create
 
 INSERT INTO persona VALUES (1,'Nicol','Jayasuriya','Professore Associato', 3100.45);
+INSERT INTO persona VALUES (1,'Cristiano','Coccia','Ricercatore', 1000.45);
+INSERT INTO persona VALUES (1,'Michael','Giorgi','Professore Ordinario', 1550.45);
 
 SET Datestyle = 'ISO, DMY'; -- Utilizziamo questa notazione solo per l'inserimento semplificato europeo, ma verrà visualizzato come formato nella tabelle risultante come inglese/americano
 
 INSERT INTO progetto VALUES (1, 'ReenbacRailways',  '22-05-2025', '24-11-2030', 3000000.00);
-
+INSERT INTO progetto VALUES (2, 'ProjectFarm',  '28-08-2025', '29-11-2030', 50000.00);
+INSERT INTO progetto VALUES (3, 'AlphaPharma',  '07-11-2025', '09-04-2040', 100000.00);
 SET Datestyle = 'ISO, DMY';
 
 INSERT INTO wp VALUES (1,1,'Reenbac Train System', '20-05-2025', '29-11-2030');
