@@ -3,27 +3,11 @@ import React, { useState } from "react";
 
 const Form = () => {
   
-  /*const [nome,setNome] = useState ("Nicol") // Inserimento nelle parentesi già da la parte compilatra dei form
-  const[cognome, setCognome]= useState ("Jayasuriya") */
-
-
-  const[persona, setPersona] = useState({
-      noem: "",
-      cognome: ""
-  }); 
+  const [nome,setNome] = useState ("Nicol");
+  const[cognome, setCognome]= useState ("Jayasuriya") 
   const gestioneDati=(eventoDato)=>{
     eventoDato.preventDefault();
     if (nome && cognome){
-      setPersone(
-        ...persona,
-       {
-
-        /*
-        nome, // sarebbe come "nome": nome
-        cognome*/
-        ...persona
-       }
-      )
       setNome("");
       setCognome("");
     }else{
@@ -33,11 +17,6 @@ const Form = () => {
   }
 };
 
-const handler=(eventoDato)=>{
-   const{name,value} = eventoDato.target
-   setPersona({ ...persona,[name]:value})
-
-}
 
   return (
 
@@ -56,11 +35,7 @@ const handler=(eventoDato)=>{
         </div>
       </form>
     </div>
-   {
-    persone.map((p,index) =>{
-      return (<h3 key={index}>{p.nome}{p.cognome} </h3>)
-    })
-
+  )
 
 }
 
