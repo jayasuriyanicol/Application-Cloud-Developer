@@ -1,42 +1,73 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import Componente1 from './Componente1';
+import Clock from './Clock';
+
+function getDate(date) {
+
+  return date.toLocaleDateString() + " " + date.toLocaleTimeString();
+}
+
+let nome = "Nicol";
+
+function App() {
+
+  const [messaggio, setMessaggio] = useState("");
+  const now = new Date();
+  const saluta = () => {
 
 
-const Form = () => {
-  
-  const [nome,setNome] = useState ("Nicol");
-  const[cognome, setCognome]= useState ("Jayasuriya") 
-  const gestioneDati=(eventoDato)=>{
-    eventoDato.preventDefault();
-    if (nome && cognome){
-      setNome("");
-      setCognome("");
-    }else{
-      alert("Compila tutti i campi !")
+    setMessaggio("Ciao " + nome + "!");
 
-    
-  }
-};
+  };
 
 
-  return (
+return (
 
-<div className="container border py-3" onSubmit={gestioneDati}>
-      <form className="row g-3">
-        <div className="col-md-6">
-          <label htmlFor="inputNome" className="form-label">Nome</label>
-          <input type="text" value={nome} onChange={(eventoDato) =>{setNome(eventoDato.target.value)}}className="form-control" id="inputNome" />
+    <div className="App container text-center mt-5">
+
+
+      <Componente1 nome="Nicol" cognome="Jayasuriya" eta="21" />
+
+
+      <Componente1 nome="Nathan" cognome="Mbuyamba" eta="21" />
+
+
+      <Componente1 nome="Michael" cognome="Baciarello" eta="21" />
+
+
+      <h1>Prima App React Benvenuto {nome} !<br></br></h1>
+
+
+      <h2>{getDate(now)}</h2>
+
+      <Clock timezone="0" country="Italia" />
+
+
+      <Clock timezone="-6" country="USA" />
+
+
+      <Clock timezone="7" country="Japan" />
+
+
+      <button className="btn btn-primary mt-3" onClick={saluta}>
+
+
+        Salutami
+
+
+      </button>
+
+      {/* Messaggio dinamico */}
+
+
+      {messaggio && <p className="mt-3">{messaggio}</p>}
         </div>
-<div className="col-md-6">
-          <label htmlFor="inputCognome" className="form-label">Cognome</label>
-          <input type="text" value={cognome} onChange={(eventoDato) =>{setCognome(eventoDato.target.value)}} className="form-control" id="inputCognome" />
-        </div>
-        <div className="col-12">
-          <button type="submit" className="btn btn-primary">Invia</button>
-        </div>
-      </form>
-    </div>
-  )
+
+
+  );
+
 
 }
 
-export default Form
+
+export default App;
