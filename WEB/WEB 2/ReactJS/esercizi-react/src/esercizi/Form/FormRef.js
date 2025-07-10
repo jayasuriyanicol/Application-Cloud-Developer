@@ -1,68 +1,73 @@
-//Programma utilizzanto lo useRef (stesso programma)
-
-import React, { useRef,useState } from "react";
-
+import React, { useState, useRef } from "react";
 
 const FormUseRef = () => {
+  const nomeRef = useRef(null);
+  const cognomeRef = useRef(null);
 
-  const nomeRef=useRef(null);
-  const cognomeRef=useRef(null);
+  const [persone, setPersone] = useState([])
+  const gestioneDati = (e) => {
+    e.preventDefault();
+    console.log(nomeRef.current)
+    const nome = nomeRef.current.value;
+    const cognome = cognomeRef.current.value
+    if (nome && cognome) {
+      setPersone([
+        ...persone,
+        {
+          nome,
+          cognome
+        }
+      ])
 
-  /*const [nome,setNome] = useState ("Nicol") // Inserimento nelle parentesi già da la parte compilatra dei form
-  const[cognome, setCognome]= useState ("Jayasuriya") */
+    } else {
+      alert("Compila tutti i campi");
+    }
+  };
 
-
-  const gestioneDati=(eventoDato)=>{
-    eventoDato.preventDefault();
-    if (nome && cognome){
-      setPersone(
-        ...persona,
-       {
-
-        /*
-        nome, // sarebbe come "nome": nome
-        cognome*/
-        ...persona
-       }
-      )
-      setNome("");
-      setCognome("");
-    }else{
-      alert("Compila tutti i campi !")
-
-    
-  }
-};
-
-const handler=(eventoDato)=>{
-   const{name,value} = eventoDato.target
-   setPersona({ ...persona,[name]:value})
-
-}
 
   return (
-
-<div className="container border py-3" onSubmit={gestioneDati}>
+    <div className="container border py-3" onSubmit={gestioneDati}>
       <form className="row g-3">
         <div className="col-md-6">
-          <label htmlFor="inputNome" className="form-label">Nome</label>
-          <input type="text" value={nome} onChange={(eventoDato) =>{setNome(eventoDato.target.value)}}className="form-control" id="inputNome" />
+          <label htmlFor="inputNome" className="form-label">
+            Nome
+          </label>
+          <input
+            type="text"
+            ref={nomeRef}
+            className="form-control"
+            id="inputNome"
+            name="nome"
+          />
         </div>
-<div className="col-md-6">
-          <label htmlFor="inputCognome" className="form-label">Cognome</label>
-          <input type="text" value={cognome} onChange={(eventoDato) =>{setCognome(eventoDato.target.value)}} className="form-control" id="inputCognome" />
+        <div className="col-md-6">
+          <label htmlFor="inputCognome" className="form-label">
+            Cognome
+          </label>
+          <input
+            type="text"
+            ref={cognomeRef}
+
+            className="form-control"
+            id="inputCognome"
+            name="cognome"
+          />
         </div>
         <div className="col-12">
-          <button type="submit" className="btn btn-primary">Invia</button>
+          <button type="submit" className="btn btn-primary">
+            Invia
+          </button>
         </div>
       </form>
+      <div>
+        {
+          persone.map((p, index) => {
+            return (<h3 key={index}>{p.nome} {p.cognome}</h3>)
+          })
+        }
+      </div>
     </div>
-   {
-    persone.map((p,index) =>{
-      return (<h3 key={index}>{p.nome}{p.cognome} </h3>)
-    })
+  );
+};
 
-
-}
-
-export default FormUseRef
+export default FormUseRef;
