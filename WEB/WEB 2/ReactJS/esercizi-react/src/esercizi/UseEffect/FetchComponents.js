@@ -4,7 +4,8 @@ const url="https://jsonplaceholder.typicode.com/photos";
 const FetchComponents = () => {
 
     const[photos,setPhotos] = useState([]);
-    const getData=Asynvc () =>{
+    
+    const getData= async function () {
 
         const photos= await fetch(url).then(ris=>ris.json())
         setPhotos(getData)
@@ -39,4 +40,4 @@ const FetchComponents = () => {
 </ul>
 </>
 
-export default FetchComponents
+export default FetchComponents;
