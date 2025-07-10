@@ -118,10 +118,12 @@ SET Datestyle = 'ISO, DMY';
 INSERT INTO wp VALUES (1,1,'Reenbac Train System', '20-05-2025', '29-11-2030');
 INSERT INTO wp VALUES (2,2,'Assert Notation System', '29-11-2025', '09-09-2027');
 INSERT INTO wp VALUES (3,3,'Pubblication Journalism Association', '11-02-2023', '09-09-2027');
-SET Datestyle = 'ISO, DMY';
+
+
 
 INSERT INTO AttivitaProgetto VALUES (1,1,1,1,'19-05-2024', 'Ricerca e Sviluppo', 8 );
-
+INSERT INTO AttivitaProgetto VALUES (2,2,2,2,'19-05-2024', 'Ricerca e Sviluppo', 8 );
+INSERT INTO AttivitaProgetto VALUES (3,3,3,3,'19-06-2025', 'Ricerca e Sviluppo', 8 );
 SET Datestyle = 'ISO, DMY';
 
 INSERT INTO AttivitaNonProgettuale VALUES (1,1,'Ricerca',1,'18-05-2024', 5);
