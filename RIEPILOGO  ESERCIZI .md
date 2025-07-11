@@ -4,7 +4,7 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **BASI DATI**         | Svolgere esercizio QUERY  | *11 Luglio*               | Query sull'esericizio Accademia4                     |    
+| **BASI DATI**         | Svolgere esercizio QUERY + Impl. codice  | *11 Luglio*               | Query sull'esericizio Accademia4  + Screenshot Impl.                  |    
 | **WEB**         | Vedere codice e teoria + esercizio CRUD  | *15 Luglio*               | Maggiori informazioni sul relativo file                      |
 | **PROG. DESIGN - PYTHON**         | Svolgere Implementazione eBuy  | *16 Luglio*               | Svolgere solo le classi specificate sul relativo file                      | 
 
