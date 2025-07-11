@@ -131,3 +131,16 @@ INSERT INTO AttivitaNonProgettuale VALUES (1,1,'Ricerca',1,'18-05-2024', 5);
 SET Datestyle = 'ISO, DMY';
 
 INSERT INTO Assenza VALUES (1,1,'Malattia','19-05-2024', 8);
+INSERT INTO Assenza VALUES (2,2,'Malattia','22-08-2024', 8);
+INSERT INTO Assenza VALUES (3,3,'Malattia','03-01-2023', 8);
+
+
+INSERT INTO AttivitaNonProgettuale VALUES (1,1,'Malattia',1,'19-05-2024', 8);
+INSERT INTO AttivitaNonProgettuale VALUES (2,2,'Didattica',2,'24-04-2024', 8);
+INSERT INTO AttivitaNonProgettuale VALUES (3,3,'Missione',3,'03-01-2023', 8);
+
+
+INSERT INTO attivitaprogetto VALUES (1,1,1,1,'19-05-2024','Ricerca e Sviluppo', 8);
+INSERT INTO attivitaprogetto VALUES (2,2,2,2,'13-04-2025','Dimostrazione', 6);
+INSERT INTO attivitaprogetto VALUES (3,3,3,3,'19-09-2024','Management', 4);
+
