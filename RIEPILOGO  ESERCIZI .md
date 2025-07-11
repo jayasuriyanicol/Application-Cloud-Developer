@@ -3,9 +3,11 @@
 ## 📅 Scadenze e Esercizi per Materia
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
-|---------------------|-------------------------------------------|--------------|---------------------------------------------|    
+|---------------------|-------------------------------------------|--------------|---------------------------------------------|
+| **BASI DATI**         | Svolgere esercizio QUERY  | *11 Luglio*               | Query sull'esericizio Accademia4                     |    
+| **WEB**         | Vedere codice e teoria + esercizio CRUD  | *15 Luglio*               | Maggiori informazioni sul relativo file                      |
 | **PROG. DESIGN - PYTHON**         | Svolgere Implementazione eBuy  | *16 Luglio*               | Svolgere solo le classi specificate sul relativo file                      | 
-| **WEB**         | Vedere la parte teorica e svolgere eventuali esercizi  | *ND*               | NULL                      |
+
 
 
 
