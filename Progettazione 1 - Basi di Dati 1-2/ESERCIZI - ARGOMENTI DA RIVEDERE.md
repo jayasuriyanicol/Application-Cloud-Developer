@@ -9,4 +9,4 @@ Svolgere l'esercizio sulle **QUERY** di **ACCADEMIA4** disponibili sul file di *
                 Moodle -> Materiale Didattico -> E.BD.1–2.SQL.2 - Interrogazioni su singola tabella, Accademia 4.pdf (Sotto "Cielo 2.slq") 
 
 
-Inoltre creare un nuovo file per l'inserimento dei dati nel DB, già popolato. Per l'inserimento automatico e quindi popolamento del Db
+Inoltre creare un nuovo file Pythom per l'inserimento dei dati nel DB, già popolato. Così da poter riutilizzare in altri esercizi prossimi.
