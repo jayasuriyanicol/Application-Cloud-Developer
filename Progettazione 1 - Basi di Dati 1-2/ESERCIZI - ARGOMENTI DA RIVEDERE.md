@@ -10,3 +10,6 @@ Svolgere l'esercizio sulle **QUERY** di **ACCADEMIA4** disponibili sul file di *
 
 
 Inoltre creare un nuovo file Pythom per l'inserimento dei dati nel DB, già popolato. Così da poter riutilizzare in altri esercizi prossimi.
+
+
+               Nella cartella Screenshot -> fPrima e seconda parte del codice implementativo per il popolamento delle tabelle del DB
