@@ -160,3 +160,82 @@ INSERT INTO Assenza VALUES
 
 
 
+-- QUERY
+
+
+-- 1. Quali sono i cognomi distinti di tutti gli strutturati
+
+SELECT distinct cognome
+FROM persona;
+
+
+-- 2. Quali sono i Ricercatori (con nome e cognome) ?
+
+SELECT nome, cognome
+FROM persona
+WHERE posizione = 'Ricercatore';
+
+
+
+-- 3. Quali sono i Professori Associati il cui cognome comincia con la lettera 'V' ?
+
+SELECT nome,cognome
+FROM persona
+WHERE posizione = 'Professore Associato' AND cognome LIKE 'V%';
+
+
+-- 4. Quali sono i Porfessori (sia Associati che Ordinari) il cui cognome comincia con la lettera 'V?
+
+SELECT nome,cognome
+FROM persona
+WHERE posizione ='Professore Associato' AND posizione= 'Professore Ordinario' AND cognome LIKE 'V%';
+
+
+-- 5. Quali sonon i Progetti già terminati alla data odierna?
+
+SELECT id, nome, inizio, fine, budget
+FROM progetto
+WHERE fine < CURRENT_DATE;
+
+
+-- 6. Quali sono i nomi di tutti i Progetti ordinati in ordine crescente di data di inizio?
+
+SELECT nome
+FROM Progetto
+ORDER BY inizio ASC;
+
+
+-- 7. Quali sono i nomi dei WP ordinati in ordine crescente (per nome)?
+
+SELECT nome 
+FROM WP
+ORDER BY nome ASC; -- OPPURE si può utilizaare la forma senza ASC dato che viene ordinata già in ordine crescente tramite l'ORDER BY
+
+
+
+-- 8. Quali sono (distinte) le cause di assenza di tutti gli strutturati?
+
+SELECT distinct id, persona, tipo, giorno
+FROM Assenza;
+
+
+-- 9. Quali sono (distinte) le tipologie di attività di progetto di tutti gli strutturati?
+
+
+SELECT distinct tipo
+FROM AttivitaProgetto ap, Persona p
+WHERE ap.persona = p.id;
+
+
+-- oppure possiamo seguire una forma più complessa, senza utilizzare il WHERE ma bensì JOIN:
+
+SELECT distinct ap.tipo
+FROM AttivitaProgetto ap JOIN Persona p ON ap.persona = p.id:
+
+
+-- 10. Quali sono i giorni distinti nei quali del personale ha effettuato attività non progettuali di tipo 'Didattica' ? Dare il risultato in ordine crescente
+
+SELECT distinct p.id, p.nome,p.cognome, anp.giorno
+FROM AttivitaNonProgettuale anp, Persona p
+WHERE anp.persona = p.id AND anp.tipo = 'Didattica'
+ORDER BY anp.giorno;
