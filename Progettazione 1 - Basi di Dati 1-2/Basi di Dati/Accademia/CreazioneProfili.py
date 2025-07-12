@@ -74,7 +74,33 @@ def progettoRandomico (N:int) -> set[int]:
 
             print(risultato[:-2]+";" )
             return progetti
+
+def wpRandomico(N:int, progetti: dict[int, dict[str,Any]]) -> dict[int, list[dict[str,Any]]]:
+    
+    risultato = 'INSERT INTO public.WP(PROGETTO, ID, NOME, INIZIO, FINE) VALUES \n'
+    wpPerProgetto = dict()
+
+    for progettoId, dati in progetti.items():
         
-
-
+            wpPerProgetto[progettoId] = []
             
+            for elemento in range(N):
+                
+                wpId = elemento + 1
+                
+                nome = f"WP{wpId}_{progettoId}"
+                inizio = dati['INIZIO'] + timedelta(giorni=random.randint(0, 60))
+                fine = inizio + timedelta(giorni=random.randint(30, 300))
+
+                risultato += f"({progettoId},{wpId},\'{nome}',\'{inizio.isoformat()}',\'{fine.isoformat()}'),\n"
+
+                wpPerProgetto[progettoId].append({
+                    'ID': wpId,
+                    'NOME': nome,
+                    'INIZIO': inizio,
+                    'FINE': fine
+                })
+
+    print(risultato[:-2] + ';')
+    return wpPerProgetto
+
