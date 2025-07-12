@@ -1,5 +1,5 @@
 -- CREAZIONE DEL DATABASE ACCADEMIA 3
-CREATE DATABASE accademia3;
+CREATE DATABASE accademia4;
 \c accademia4
 
 -- CREAZIONE DEI TIPI ENUM E DOMINI
@@ -99,3 +99,14 @@ CREATE TABLE Assenza (
     UNIQUE (persona, giorno)
 );
 
+INSERT INTO Persona VALUES
+(0, 'Anna', 'Bianchi', 'Ricercatore', 30000),
+(1, 'Mario', 'Rossi', 'Ricercatore', 32000),
+(2, 'Barbara', 'Burso', 'Ricercatore', 31000),
+(3, 'Gino', 'Spada', 'Ricercatore', 30500),
+(7, 'Andrea', 'Verona', 'Professore Associato', 45000),
+(12, 'Dario', 'Basile', 'Ricercatore', 33000),
+(15, 'Leonardo', 'Vitali', 'Professore Ordinario', 50000),
+(16, 'Paolo', 'Valentini', 'Professore Associato', 47000),
+(18, 'Giulia', 'Costa', 'Ricercatore', 31500),
+(20, 'Carla', 'Martinelli', 'Ricercatore', 30000);
