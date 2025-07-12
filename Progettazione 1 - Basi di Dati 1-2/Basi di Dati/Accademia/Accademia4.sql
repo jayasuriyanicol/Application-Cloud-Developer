@@ -110,3 +110,12 @@ INSERT INTO Persona VALUES
 (16, 'Paolo', 'Valentini', 'Professore Associato', 47000),
 (18, 'Giulia', 'Costa', 'Ricercatore', 31500),
 (20, 'Carla', 'Martinelli', 'Ricercatore', 30000);
+
+
+INSERT INTO Progetto VALUES
+(0, 'Artemide', '2000-01-01', '2002-12-31', 255000),
+(1, 'Pegasus', '2012-01-01', '2014-12-31', 330000),
+(2, 'WineSharing', '1999-01-01', '2003-12-31', 998000),
+(3, 'Simap', '2010-02-01', '2014-03-17', 158000),
+(4, 'DropDiscovery', '2010-09-13', '2013-01-20', 99000);
+
