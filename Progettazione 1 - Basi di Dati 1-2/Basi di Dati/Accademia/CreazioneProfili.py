@@ -94,12 +94,11 @@ def wpRandomico(N:int, progetti: dict[int, dict[str,Any]]) -> dict[int, list[dic
 
                 risultato += f"({progettoId},{wpId},\'{nome}',\'{inizio.isoformat()}',\'{fine.isoformat()}'),\n"
 
-                wpPerProgetto[progettoId].append({
-                    'ID': wpId,
-                    'NOME': nome,
-                    'INIZIO': inizio,
-                    'FINE': fine
-                })
+                wpPerProgetto[progettoId]= { 'ID': wpId,
+                                            'NOME': nome,
+                                            'INIZIO': inizio,
+                                            'FINE': fine
+                                        }
 
     print(risultato[:-2] + ';')
     return wpPerProgetto
