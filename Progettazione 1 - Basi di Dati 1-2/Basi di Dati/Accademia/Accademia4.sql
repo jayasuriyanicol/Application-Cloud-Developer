@@ -144,3 +144,11 @@ INSERT INTO AttivitaNonProgettuale VALUES
 (2, 2, 'Didattica', 0, '2012-04-18', 3),
 (3, 3, 'Didattica', 0, '2014-04-01', 4),
 (4, 0, 'Didattica', 0, '2014-04-03', 5);
+
+
+
+INSERT INTO Assenza VALUES
+(0, 0, 'Maternita', '2012-02-01', 4),
+(1, 1, 'Malattia', '2013-03-01', 6),
+(2, 2, 'Chiusura Universitaria', '2014-08-15', 8);
+
