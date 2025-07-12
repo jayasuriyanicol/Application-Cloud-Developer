@@ -136,3 +136,11 @@ INSERT INTO AttivitaProgetto VALUES
 (1, 1, 2, 2, '2001-04-01', 'Management', 4),
 (2, 2, 2, 2, '2001-05-01', 'Dimostrazione', 3),
 (3, 3, 2, 2, '2001-06-01', 'Altro', 2);
+
+
+INSERT INTO AttivitaNonProgettuale VALUES
+(0, 0, 'Didattica', 0, '2011-03-15', 6),
+(1, 1, 'Didattica', 0, '2011-05-07', 4),
+(2, 2, 'Didattica', 0, '2012-04-18', 3),
+(3, 3, 'Didattica', 0, '2014-04-01', 4),
+(4, 0, 'Didattica', 0, '2014-04-03', 5);
