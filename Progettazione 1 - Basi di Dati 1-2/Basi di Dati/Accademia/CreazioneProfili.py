@@ -41,3 +41,40 @@ def PersoneRandomiche (N:int) -> set[int]:
         print(risultato[:-2]+";" )
         return risultato
     
+
+def progettoRandomico (N:int) -> set[int]:
+
+      risultato = 'INSERT INTO public.Progetto(ID, NOME, COGNOME, POSIZIONE, STIPENDIO) VALUES \n'
+      
+    
+
+      idProgetti = sample(range(10000000), k=N)
+      nomiProgetti = sample(range(10000000), k=N)
+        
+      progetti: dict[int,dict[str, Any]] = {}  
+
+      for elemento in range(N):
+            idProgetto = idProgetti[elemento]
+            nome = nomiProgetti[elemento] 
+
+            inizioSettimaneFa:int = random.randint(52+1,52*10)
+            inizio = date.today() - timedelta(settimane=inizioSettimaneFa) 
+
+            finettimaneFa:int = random.randint(52, inizioSettimaneFa-1)
+            fine = date.today() - timedelta(settimane=inizioSettimaneFa) 
+            
+            budget = random.randint(10,5000) * 1000
+
+            risultato += f"{idProgetto},\'{nome},\'\'{inizio.isoformat()},\'{fine.isoformat()}\',{budget},\n" 
+            progetti[idProgetto] = { 'ID': idProgetto,
+                                    'NOME' : nome,
+                                    'INIZIO': inizio,
+                                    'FINE' : fine
+                                }
+
+            print(risultato[:-2]+";" )
+            return progetti
+        
+
+
+            
