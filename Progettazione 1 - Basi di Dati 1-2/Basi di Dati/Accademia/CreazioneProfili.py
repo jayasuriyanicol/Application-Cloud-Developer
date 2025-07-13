@@ -157,3 +157,33 @@ def attivitaNonProgettualiRandomiche(N:int, persone: list[int]) -> dict[int, lis
 
     print(risultato[:-2] + ';')
 
+
+
+'''FUNZIONE GENERAZIONE ASSENZE RANDOMICHE'''
+
+def assenzeRandomiche(N:int, persone: list[int]) -> dict[int, list[dict[str,Any]]]:
+    
+    risultato = 'INSERT INTO public.ASSENZA(ID, PERSONA, TIPO, GIORNO, OREDURATA) VALUES \n'
+    
+    giorniOccupati = set()
+
+    for elemento in range(N):
+        idAssenza = elemento + 1
+        persona = random.choice(persone)
+        giorno = date.today() - timedelta(giorni=random.randint(0, 365*5))
+        
+        while (persona, giorno) in giorniOccupati:
+            
+            giorno = date.today() - timedelta(giorni=random.randint(0, 365*5))
+        giorniOccupati.add((persona, giorno))
+        
+        tipo = random.choice(['Chiusura Universitaria', 'Maternita', 'Malattia'])
+        ore = random.randint(1, 8)
+
+        risultato += f"({idAssenza},{persona},'{tipo}','{giorno.isoformat()}',{ore}),\n"
+
+    print(risultato[:-2] + ';')
+
+    
+
+        
