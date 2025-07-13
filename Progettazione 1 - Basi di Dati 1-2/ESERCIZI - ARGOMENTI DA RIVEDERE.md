@@ -1,9 +1,18 @@
 # |ESERCIZI - ARGOMENTI DA RIVEDERE - Basi di Dati 1-2|
 
+## Implementazione codice Python eBuy:
 
-## Accaddemia4 
-
-Inoltre creare un nuovo file Pythom per l'inserimento dei dati nel DB, già popolato. Così da poter riutilizzare in altri esercizi prossimi.
+Svolgere *l'implementazione in codice Python* del **Progetto eBuy** esclusivamente delle funzioni:
 
 
-               Nella cartella Screenshot -> fPrima e seconda parte del codice implementativo per il popolamento delle tabelle del DB
+
+                       - Utente
+                       - UtentePrivato
+                       - Bid
+                       - Asta
+                       - Asta_BId
+                       - Bid_Ut
+
+
+
+Quindi partendo dal **diagramma delle classi ristrutturato**, implementare in Python le seguenti classi con i relativi **tipi di dato e link**.
