@@ -9,7 +9,6 @@
 
 
 
-
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellares
