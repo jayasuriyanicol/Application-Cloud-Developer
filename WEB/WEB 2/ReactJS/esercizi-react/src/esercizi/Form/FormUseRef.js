@@ -47,7 +47,6 @@ const FormUseRef = () => {
           <input
             type="text"
             ref={cognomeRef}
-
             className="form-control"
             id="inputCognome"
             name="cognome"
