@@ -32,21 +32,27 @@ const UserForm = () => {
       ]);
 
       // Successivo ad invio continuo nell'azzerare i campi inseriti precedentemente
+
       idRef.current.value = "";
       nomeRef.current.value = "";
       cognomeRef.current.value = "";
       emailRef.current.value = "";
       numeroRef.current.value = "";
     } else {
+
       //Nel caso in cui uno o più campi non sono compilati correttamente
       alert("Compila tutti i campi");
+
     }
   };
 
   return (
     <div className="container border py-3">
       <form className="row g-3" onSubmit={gestioneDati}>
+
         <div className="col-md-6">
+
+
           <label htmlFor="inputId" className="form-label">
             ID
           </label>
@@ -58,6 +64,7 @@ const UserForm = () => {
             name="id"
           />
         </div>
+
 
         <div className="col-md-6">
           <label htmlFor="inputNome" className="form-label">
@@ -71,6 +78,7 @@ const UserForm = () => {
             name="nome"
           />
         </div>
+
 
         <div className="col-md-6">
           <label htmlFor="inputCognome" className="form-label">
@@ -98,6 +106,7 @@ const UserForm = () => {
           />
         </div>
 
+
         <div className="col-md-6">
           <label htmlFor="inputNumero" className="form-label">
             Numero
@@ -111,6 +120,7 @@ const UserForm = () => {
           />
         </div>
 
+
         <div className="col-12">
           <button type="submit" className="btn btn-primary">
             Invia
@@ -118,15 +128,19 @@ const UserForm = () => {
         </div>
       </form>
 
+
       <div className="mt-4">
         {persone.map((p, index) => (
           <h3 key={index}>
             {p.id} {p.nome} {p.cognome} {p.email} {p.numero}
           </h3>
         ))}
+
       </div>
+
     </div>
   );
 };
+
 
 export default UserForm;
