@@ -1,10 +1,13 @@
-'''GENERAZIONE CASUALE DEI PROFILI - SECONDO IL FORMATO SCELTO '''
+'''GENERAZIONE CASUALE DEI PROFILI - SECONDO IL FORMATO SCELTO PostgreSQL '''
 
 
 import random
 from random import sample
 from datetime import date, timedelta
 from typing import Any
+
+
+'''FUNZIONE GENERAZIONE PERSONE RANDOMICHE'''
 
 
 def PersoneRandomiche (N:int) -> set[int]:
@@ -42,6 +45,9 @@ def PersoneRandomiche (N:int) -> set[int]:
         return risultato
     
 
+
+'''FUNZIONE GENERAZIONE PROGETTI RANDOMICI'''
+
 def progettoRandomico (N:int) -> set[int]:
 
       risultato = 'INSERT INTO public.Progetto(ID, NOME, COGNOME, POSIZIONE, STIPENDIO) VALUES \n'
@@ -75,6 +81,10 @@ def progettoRandomico (N:int) -> set[int]:
             print(risultato[:-2]+";" )
             return progetti
 
+
+'''FUNZIONE GENERAZIONE PROJECT WORK RANDOMICI'''
+
+
 def wpRandomico(N:int, progetti: dict[int, dict[str,Any]]) -> dict[int, list[dict[str,Any]]]:
     
     risultato = 'INSERT INTO public.WP(PROGETTO, ID, NOME, INIZIO, FINE) VALUES \n'
@@ -103,3 +113,29 @@ def wpRandomico(N:int, progetti: dict[int, dict[str,Any]]) -> dict[int, list[dic
     print(risultato[:-2] + ';')
     return wpPerProgetto
 
+
+
+'''FUNZIONE GENERAZIONE ATTIVITA DI PROGETTO RANDOMICHE'''
+
+def attivitaProgettoRandomiche(N:int, persone: list[int], progetti: dict[int, dict], wp: dict[int, list[dict]]) -> dict[int, list[dict[str,Any]]]:
+    
+    risultato = 'INSERT INTO public.AttivitaProgetto(ID, PERSONA, PROGETTO, WP, GIORNO, TIPO, OREDURATA) VALUES \n'
+
+    for elemento in range(N):
+        
+        idAttivita = elemento + 1
+        persona = random.choice(persone)
+        progetto = random.choice(list(progetti.keys()))
+        wpEntry = random.choice(wp[progetto])
+        giorno = wpEntry['INIZIO'] + timedelta(gironi=random.randint(0, 30))
+        tipo = random.choice(['Ricerca e Sviluppo', 'Dimostrazione', 'Management', 'Altro'])
+        ore = random.randint(1, 8)
+
+        risultato += f"({idAttivita},\{persona},\{progetto},\{wpEntry['ID']},\'{giorno.isoformat()}',\'{tipo}'\,{ore}),\n"
+
+    print(risultato[:-2] + ';')
+
+
+
+
+        
