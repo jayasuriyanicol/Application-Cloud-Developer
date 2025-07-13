@@ -137,5 +137,23 @@ def attivitaProgettoRandomiche(N:int, persone: list[int], progetti: dict[int, di
 
 
 
+'''FUNZIONE GENERAZIONE ATTIVITA NON PROGETTUALI RANDOMICHE'''
 
+def attivitaNonProgettualiRandomiche(N:int, persone: list[int]) -> dict[int, list[dict[str,Any]]]:
+    
+    risultato = 'INSERT INTO public.AttivitaNonProgettuale(ID, PERSONA, TIPO, WP, GIORNO, OREDURATA) VALUES \n'
+    
+
+    for elemento in range(N):
         
+        idNonAttivita = elemento + 1
+        persona = random.choice(persone)
+        tipo = random.choice(['Didattica', 'Ricerca', 'Missione', 'Incontro Dipartimentale', 'Incontro Accademico'])
+        wpFittizio = 1
+        giorno = date.today() - timedelta(giorni=random.randint(0, 365*5))
+        ore = random.randint(1, 8)
+
+        risultato += f"({idNonAttivita},\{persona},\'{tipo}',\{wpFittizio}, \'{giorno.isoformat()}', \{ore}),\n"
+
+    print(risultato[:-2] + ';')
+
