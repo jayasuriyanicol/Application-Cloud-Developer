@@ -4,7 +4,6 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **WEB**         | Vedere codice e teoria + esercizio CRUD  | *15 Luglio*               | Maggiori informazioni sul relativo file                      |
 | **PROG. DESIGN - PYTHON**         | Svolgere Implementazione eBuy  | *16 Luglio*               | Svolgere solo le classi specificate sul relativo file                      | 
 
 
