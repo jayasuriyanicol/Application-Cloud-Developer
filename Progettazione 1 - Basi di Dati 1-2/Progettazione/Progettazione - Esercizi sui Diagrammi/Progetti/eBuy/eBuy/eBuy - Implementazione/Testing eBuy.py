@@ -64,3 +64,18 @@ if __name__ == "__main__":
 
 
 
+
+
+    #Procediamo anche con la stampa del Bid effettuati da ogni utente, con un relativo messaggio completo che mostra l'orario del bid
+    def stampaBidUtente(utente):
+        print(f"\n\n\nBid EFFETTUATI dall'utente -> {utente.username()}")
+        for refimentoBid in utente.bid():
+            link = refimentoBid()
+            if link:
+                bid = link.bid()
+                print(f"\n=> Bid delle ore {bid._istante} per L'asta sull'oggetto '{bid.asta()().descrizione()}'")
+
+    stampaBidUtente(utente1)
+    stampaBidUtente(utente2)
+
+
