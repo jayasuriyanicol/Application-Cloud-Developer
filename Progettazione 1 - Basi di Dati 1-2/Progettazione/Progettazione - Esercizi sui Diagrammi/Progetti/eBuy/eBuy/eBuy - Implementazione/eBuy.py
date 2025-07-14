@@ -1,13 +1,14 @@
+from __future__ import annotations
 '''IMPLEMENTAZIONE eBuy in Linguaggio Python'''
 
 
 
 '''IMPORT per l'implementazione'''
 
-from __future__ import annotations
+
 from abc import ABC, abstractmethod
 from typing import *
-from datetime import datetime, date, timedelta
+from datetime import datetime, timedelta
 from TipiDato import *
 import weakref
 
@@ -42,7 +43,7 @@ class Utente(ABC):
     
     #Mostriamo i dati dell'utente "Registrato" 
     def __str__(self) -> str:
-        return f"L'utente : {self.username()}\nRisulta essere REGISTRATO in data: {self.registrazione()}"
+        return f"\n\nL'utente: '{self.username()}'\n\nRisulta essere REGISTRATO CORRETTAMENTE in data: '{self.registrazione()}'"
     
 
 
@@ -197,7 +198,7 @@ class PostOggetto(ABC):
     @abstractmethod
     def __str__(self) -> str:
         
-        return f"DETTAGLI OGGETTO\nDESCRIZIONE PRODOTTO: {self.descrizione}\nANNI GARANZIA:{self.anni_garanzia}\nPREZZO PRODOTTO:{self.prezzo}"
+        return f"\n\n\nDETTAGLI OGGETTO\n\nDESCRIZIONE PRODOTTO: {self.descrizione}\n\nANNI GARANZIA:{self.anni_garanzia}\n\n\nPREZZO PRODOTTO:{self.prezzo}"
 
 
 
@@ -215,7 +216,8 @@ class Asta(PostOggetto):
         self._scadenza = scadenza
         self._prezzo = prezzo_iniziale
         self._bidEffetuati = prezzo_rialzi
-        self._bidEffetuatiStorico = dict()
+        self._bidEffettuatiStorico = dict()
+
         
         super().__init__(descrizione, anni_garanzia, prezzo_iniziale)
 
@@ -246,7 +248,7 @@ class Asta(PostOggetto):
         else:
             raise AttributeError("ATTENZIONE ! Non è possibile settare un 'prezzo_bid' ad un'asta che è già terminata !")
         
-        if self._bidEffetuatiStorico:
+        if self._bidEffettuatiStorico:
 
             raise AttributeError("ATTENZIONE ! Non è possibile settare un 'prezzo_bid' ad un'asta che ha già uno  o più bid !")
         else:
@@ -264,7 +266,7 @@ class Asta(PostOggetto):
         else:
             raise AttributeError("ATTENZIONE ! Non è possibile settare un 'prezzo' ad un'asta che è già terminata !")
         
-        if self._bidEffetuatiStorico:
+        if self._bidEffettuatiStorico:
 
             raise AttributeError("ATTENZIONE ! Non è possibile settare un 'prezzo' ad un'asta che ha già uno  o più bid !")
         else:
@@ -300,11 +302,12 @@ class Asta(PostOggetto):
 
             raise ValueError("ATTENZIONE ! Il link non COINVOLGE ME !")
         
-        if linkBid.bid() in self._bidEffetuatiStorico:
+        if linkBid.bid() in self._bidEffettuatiStorico:
 
             raise KeyError(f"ATTENZIONE ! Ci sono due link dupilicati -> ({self}, {linkBid.bid()}) NON sono ammessi !")
         
-        self._bidEffetuati[linkBid.bid()] = linkBid
+        self._bidEffettuatiStorico[linkBid.bid()] = linkBid
+
 
 
 
@@ -314,9 +317,9 @@ class Asta(PostOggetto):
     
 
     def __str__(self) -> str:
-        return (f"RIEPILOGO ASTA:\nDESCRIZIONE PRODOTTO: {self._descrizione}\nPREZZO ORIGINALE: {self._prezzo:.2f}€\nRIALZO BID MINIMO: {self.prezzo_bid():.2f}€\n"
-        f"SCADENZA ASTA: {self.scadenza()}\n\DURATA GARANZIA PRODOTTO: {self.anni_garanzia()} DI  ANN{'O' if self.anni_garanzia() == 1 else 'I'}\n"
-        f"STATO ASTA: {'ATTIVO' if self.scaduto() else 'SCADUTO'}"
+        return (f"\n\n\nRIEPILOGO ASTA:\n\nDESCRIZIONE PRODOTTO: {self._descrizione}\n\nPREZZO ORIGINALE: {self._prezzo:.2f}€\n\nRIALZO BID MINIMO: {self.prezzo_bid():.2f}€\n"
+        f"\nSCADENZA ASTA: {self.scadenza()}\n\nDURATA GARANZIA PRODOTTO: {self.anni_garanzia()} ANN{'O' if self.anni_garanzia() == 1 else 'I'}\n"
+        f"\n\nSTATO ASTA: {'ATTIVO' if self.scaduto() else 'SCADUTO'}"
     )
 
 
@@ -399,6 +402,5 @@ class asta_bid:
             if not isinstance(other, asta_bid._link):
                 return False
             return (self.bid() == other.bid() and self.asta() == other.asta())
-
 
 
