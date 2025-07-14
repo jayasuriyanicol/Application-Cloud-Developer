@@ -1,18 +1,14 @@
 # |ESERCIZI - ARGOMENTI DA RIVEDERE - Basi di Dati 1-2|
 
-## Implementazione codice Python eBuy:
 
-Svolgere *l'implementazione in codice Python* del **Progetto eBuy** esclusivamente delle funzioni:
+## BASI DI DATI - Implementazione codice SQL e Ristrutturazione - VoliAerei1 e Azienda1:
 
-
-
-                       - Utente
-                       - UtentePrivato
-                       - Bid
-                       - Asta
-                       - Asta_BId
-                       - Bid_Ut
+Svolgere *l'implementazione in codice SQL e Ristrutturazione* del **VOliAerei1 e Azienda1**:
+ 
+                        
+                         1. Ristrutturazione -> implementazione in SQL
+                         2. Codice SQL comprendendo anche i vari Link
 
 
 
-Quindi partendo dal **diagramma delle classi ristrutturato**, implementare in Python le seguenti classi con i relativi **tipi di dato e link**.
+Quindi partendo dal **diagramma delle classi ristrutturato**, implementare in SQL il tutto con i relativi **tipi di dato e link**.
