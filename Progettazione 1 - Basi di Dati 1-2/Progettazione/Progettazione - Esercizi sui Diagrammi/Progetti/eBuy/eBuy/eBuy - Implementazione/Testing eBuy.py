@@ -79,3 +79,13 @@ if __name__ == "__main__":
     stampaBidUtente(utente2)
 
 
+
+
+
+    #Infine mostriamo la stampa di tutti i Bid Effettuati da ogni utente, con un relativo messaggio completo che mostra l'orario del bid
+    print("\n\n\nSTORICO DEI BID EFFETTUATI DAI UTENTI")
+    for ref in asta.bidEffettuatiStorico():
+        link = ref()
+        if link:
+            bid = link.bid()
+            print(f"\n=> È stato effettuato un BID alle ore {bid._istante} dall'utente '{bid.privato()().username()}'")
