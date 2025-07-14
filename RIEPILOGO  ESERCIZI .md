@@ -4,8 +4,8 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **PROG. DESIGN - PYTHON**         | Svolgere Implementazione eBuy  | *16 Luglio*               | Svolgere solo le classi specificate sul relativo file                      | 
-
+| **BASI DI DATI**         | Svolgere Implementazione VoliAerei1 e Azienda1  | *16 Luglio*               |              | 
+Svolgere la ristrutturazione e Codice SQL |
 
 
 
