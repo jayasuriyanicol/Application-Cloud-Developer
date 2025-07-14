@@ -57,3 +57,10 @@ if __name__ == "__main__":
         except Exception as erroreCreazioneBid:
             print(f"\nATTENZIONE ! Errore durante la creazione del bid dell'utente {utente.username()}: {erroreCreazioneBid}")
             return None
+
+    #Creiamo due Bid uno per ogni utente a distanza di 5 minuti.
+    PrimoBid = testBid(datetime.now().time(), utente1, asta)
+    SecondoBid = testBid((datetime.now() + timedelta(minutes=5)).time(), utente2, asta)
+
+
+
