@@ -31,7 +31,14 @@ class RealGEZ(int):
         if n >= 0:
             return n
         raise ValueError(f"Il valore {n} è minore di 0!")
-
+    
+class RealGZ(float):
+    # Tipo di dato specializzato Reale | Float > 0 (Greater than Zero)
+    def __new__(cls, v: float | int | str | bool | Self) -> Self:
+        n: float = float(v)  # converto in float
+        if n > 0:
+            return super().__new__(cls, n)
+        raise ValueError(f"Il valore {n} non è positivo!")
 
 class Data(date):
     # Tipo di dato specializzato Data (solo date valide)
@@ -83,6 +90,12 @@ class Telefono(str):
         raise ValueError(f"'{t}' non è un numero di telefono italiano valido")
 
 
+class Email(str):
+    def __new__(cls, t: str | Self) -> Self:
+        if re.fullmatch(r"^[\w]+@[\w]+[.\w+]$", t):
+            return super().__new__(cls, t)
+        raise ValueError(f"'{t}' non è un formato di email valido")
+
 class CAP(str):
     def __new__(cls, v: str | Self) -> Self:
         if re.fullmatch(r"^\d{5}$", v):
@@ -100,7 +113,7 @@ class Indirizzo:
         self._via: str = via
 
         if not re.search("^[0-9]+[a-zA-Z]*$", civico):
-            raise ValueError(f"value for civico '{civico}' not allowed")
+            raise ValueError(f"Valore per civico '{civico}' non consentito")
         self._civico: str = civico
         self._cap: CAP = cap
 
@@ -137,7 +150,51 @@ class Genere(StrEnum):
 
 
 
-if __name__ == "__main__":
+from typing import *
+from weakref import WeakValueDictionary, ReferenceType
+import pprint
 
-    tel1: Telefono = Telefono("ciao")
-    
+KeyType = TypeVar('KeyType')
+ValueType = TypeVar('ValueType')
+
+"""
+	Un istanza di una classe definisce un indice di un set di oggetti
+"""
+
+class Index(Generic[KeyType, ValueType]):
+	_name:str
+	_objects:WeakValueDictionary[KeyType, ValueType]
+
+	def __init__(self, name:str):
+		self._name:str = name
+		self._objects:WeakValueDictionary[KeyType, ValueType] = WeakValueDictionary()
+
+	def __str__(self)->str:
+		return (f"Index {self.name()}:\n - length: {len(self._objects)}\n - keys = {[k for k in self._objects.keys()]}")
+
+	def name(self)->str:
+		return self._name
+
+	def add(self, _id:KeyType, obj:ValueType)->None:
+		if _id in self._objects:
+			raise KeyError(f"Duplicate key {_id} for class {type(obj)}")
+		self._objects[_id] = obj
+
+	def remove(self, _id:KeyType)->None:
+		if _id is not None:
+			del self._objects[_id]
+
+	def get(self, _id:KeyType)->ValueType|None:
+		return self._objects.get(_id, None)
+
+	def all(self)->Generator[ValueType, None, None]:
+		return self._objects.values()
+
+	def __len__(self)->int:
+		return len(self._objects)
+     
+class Condizioni(StrEnum):
+     OTTIMO = auto()
+     BUONO = auto()
+     DISCRETO = auto()
+     DA_SISTEMARE = auto()
