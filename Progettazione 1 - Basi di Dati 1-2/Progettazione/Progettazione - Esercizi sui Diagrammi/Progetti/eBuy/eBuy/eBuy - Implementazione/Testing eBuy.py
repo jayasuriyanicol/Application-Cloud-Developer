@@ -31,3 +31,16 @@ if __name__ == "__main__":
         prezzo_rialzi=RealGZ(50.00),
         scadenza=scadenza
     )
+
+    #Impostiamo, come fatto per l'asta un minimo di rialzo pari ad 50 euro, nel caso minore alziamo un eccezzione
+    try:
+        asta.setPrezzoBid(RealGZ(50.00))
+    except AttributeError as errorImpostazionePrezzoBid:
+        print(f"\nErrore impostazione prezzo_bid: {errorImpostazionePrezzoBid}")
+
+
+    print("\n\n\nVALORI CREAZIONE ASTA")
+    print(asta)
+
+
+
