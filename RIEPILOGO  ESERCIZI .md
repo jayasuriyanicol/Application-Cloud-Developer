@@ -4,8 +4,7 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **BASI DI DATI**         | Svolgere Implementazione VoliAerei1 e Azienda1  | *16 Luglio*               |              | 
-Svolgere la ristrutturazione e Codice SQL |
+| **BASI DI DATI**         | Svolgere Implementazione VoliAerei1 e Azienda1  | *16 Luglio*               | Svolgere la ristrutturazione e Codice SQL |
 
 
 
