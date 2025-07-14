@@ -44,3 +44,16 @@ if __name__ == "__main__":
 
 
 
+
+
+    #Creiamo una funzione per testare le funzionalità di un Bid, nel caso di successo ritorniamo il bid con relativo messaggio, altrimenti None e messaggio d'errore
+    def testBid(ora, utente, asta):
+
+        try:
+            bid = Bid(ora, utente, asta)
+            print(f"\nSUCCESSO ! Il Bid di {utente.username()} è effettuato con successo alle '{ora}' !")
+            return bid
+        
+        except Exception as erroreCreazioneBid:
+            print(f"\nATTENZIONE ! Errore durante la creazione del bid dell'utente {utente.username()}: {erroreCreazioneBid}")
+            return None
