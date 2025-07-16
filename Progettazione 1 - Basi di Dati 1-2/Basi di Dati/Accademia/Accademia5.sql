@@ -298,4 +298,13 @@ AND pe.id = anp.persona
 AND ap.giorno = anp.giorno
 AND p.nome = 'Pegasus';
 
+-- 10 | Quali sono il nome e il cognome degli strutturati che nello stesso giorno sono assenti e hanno attivita' progettuali?
 
+
+SELECT pe.nome, pe.cognome
+
+FROM Persona pe, AttivitaProgetto ap, Assenza a 
+
+WHERE pe.id = ap.persona
+AND pe.id = a.persona
+AND ap.giorno = a.giorno;
