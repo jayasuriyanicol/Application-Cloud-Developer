@@ -287,4 +287,15 @@ AND anp.persona = p.id
 AND ap.giorno = anp.giorno;
 
 
--- 9 |
+-- 9 | Quali sono il nome e il cognome degli strutturati che nello stesso giorno hanno si attivita' progettuali che attivita' non progettuali? Si richiede di restituire anche il giorno, il nome del progetto, il tipo dell'attivita' non progettuale e la durata in ore di entrambe le attivita'
+
+SELECT DISTINCT pe.nome,pe.cognome, ap.giorno, p.nome prj, ap.oreDurata h_prj, anp.tipo att_noprj, anp.oreDurata h_noprj
+
+FROM Persona pe, Progetto p, AttivitaProgetto ap, AttivitaNonProgettuale anp
+
+WHERE pe.id = ap.persona
+AND pe.id = anp.persona
+AND ap.giorno = anp.giorno
+AND p.nome = 'Pegasus';
+
+
