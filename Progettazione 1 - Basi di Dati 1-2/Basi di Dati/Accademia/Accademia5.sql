@@ -308,3 +308,16 @@ FROM Persona pe, AttivitaProgetto ap, Assenza a
 WHERE pe.id = ap.persona
 AND pe.id = a.persona
 AND ap.giorno = a.giorno;
+
+-- 11 | Quali sono il nome e il cognome degli strutturatu che nello stesso giorno sono assenti e hanno attivita' progettuali? Si richiede anche di proiettare il giorno, il nome del progetto, la causa d'assenza e la durata in ore della attivita' progettuale.
+
+SELECT DISTINCT pe.nome, pe.cognome, a.giorno, a.tipo causa_ass, p.nome progetto, ap.oreDurata ore_att_prj
+
+FROM Persona pe, AttivitaProgetto ap, Assenza a, Progetto p
+WHERE pe.id = ap.persona
+AND pe.id = a.persona
+AND ap.giorno = a.giorno
+AND p.nome = 'Pegasus';
+
+
+-- 12 | 
