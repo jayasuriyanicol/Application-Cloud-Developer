@@ -264,7 +264,7 @@ FROM Persona p, AttivitaNonProgettuale anp
 WHERE p.id = anp.persona AND p.posizione = 'Ricercatore' AND anp.tipo = 'Didattica';
 
 
--- 7 |Quali sono il nome e il cognome dei Ricercatori che hanno più di un impegno per 'Didattica' ?
+-- 7 | Quali sono il nome e il cognome dei Ricercatori che hanno più di un impegno per 'Didattica' ?
 
 SELECT DISTINCT p.nome, p.cognome
 FROM Persona p, AttivitaNonProgettuale anp, AttivitaNonProgettuale anp2
@@ -273,3 +273,18 @@ AND anp2.id <> anp.id
 AND anp.persona = anp2.persona
 AND p.posizione = 'Ricercatore'
 AND anp.tipo = 'Didattica';
+
+
+-- 8 | Quali sono il nome e il cognome degli strutturati che nello stesso giorno hanno sia attivita' progettuali che attivita' non progettuali?
+
+
+SELECT DISTINCT p.nome, p.cognome
+
+FROM Persona p , AttivitaProgetto ap , AttivitaNonProgettuale anp
+
+WHERE ap.persona = p.id
+AND anp.persona = p.id
+AND ap.giorno = anp.giorno;
+
+
+-- 9 |
