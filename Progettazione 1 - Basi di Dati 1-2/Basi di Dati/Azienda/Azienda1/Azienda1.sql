@@ -41,7 +41,6 @@ CREATE TABLE Impiegato (
     data_nascita date NOT NULL,
     stipendio denaro NOT NULL
 
-    -- Il vincolo -> 'v.incl. Impiegato(id)'  occorre in afferisce(impiegato)
 );
 
 
