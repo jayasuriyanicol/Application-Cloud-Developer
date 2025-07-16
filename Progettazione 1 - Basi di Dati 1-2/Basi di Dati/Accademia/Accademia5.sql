@@ -205,14 +205,14 @@ commit;
 
 -- QUERY
 
--- Quali sono il nome, la data di inizio e la data di fine dei WP del progetto di nome  'Pegasus'?
+-- 1 | Quali sono il nome, la data di inizio e la data di fine dei WP del progetto di nome  'Pegasus'?
 
 SELECT wp.nome, wp.inizio, wp.fine
 FROM WP AS wp, progetto AS pr
 WHERE wp.progetto = pr.id AND pr.nome = 'Pegasus';
  
 
--- Quali sono il nome, il cognome e la posizione degli strutturati che hanno più di una attività nel progetto 'Pegasus', ordinati per cognome decrescente?
+-- 2 | Quali sono il nome, il cognome e la posizione degli strutturati che hanno più di una attività nel progetto 'Pegasus', ordinati per cognome decrescente?
 
 SELECT DISTINCT p.nome, p.cognome, p.posizione
 
@@ -224,7 +224,7 @@ ORDER BY p.cognome DESC;
 
 
 
---Quali sono il nome, il cognome e la posizione degli strutturati che hanno più di una attività nel progetto 'Pegasus'?
+-- 3 | Quali sono il nome, il cognome e la posizione degli strutturati che hanno più di una attività nel progetto 'Pegasus'?
 
 SELECT DISTINCT p.nome, p.cognome, p.posizione
 FROM Persona AS p, attivitaprogetto AS ap, attivitaprogetto AS ap2, progetto AS pr
@@ -237,7 +237,7 @@ AND ap2.progetto = ap.progetto
 ORDER BY p.cognome;
 
 
--- Quali sono il nome, il cognome dei Professori Ordinari che hanno fatto almeno una assenza per malattia?
+-- 4 | Quali sono il nome, il cognome dei Professori Ordinari che hanno fatto almeno una assenza per malattia?
 
 SELECT DISTINCT p.nome, p.cognome
 FROM Persona p, Assenza a 
@@ -245,7 +245,7 @@ WHERE p.id = a.persona AND p.posizione = 'Professore Ordinario' AND a.tipo = 'Ma
 
 
 
--- Quali sono il nome, il cognome dei Professori Ordinari che hanno fatto più di una assenza per malattia?
+-- 5 | Quali sono il nome, il cognome dei Professori Ordinari che hanno fatto più di una assenza per malattia?
 
 SELECT DISTINCT p.nome, p.cognome
 FROM Persona p, Assenza a, Assenza a2
@@ -257,11 +257,19 @@ AND a.tipo = 'Malattia';
 
 
 
--- Quali sono il nome, il cognome dei Ricercatori che hanno alemno un impegno per didattica?
+-- 6 | Quali sono il nome, il cognome dei Ricercatori che hanno almeno un impegno per didattica?
 
 SELECT  DISTINCT p.nome, p.cognome
 FROM Persona p, AttivitaNonProgettuale anp 
 WHERE p.id = anp.persona AND p.posizione = 'Ricercatore' AND anp.tipo = 'Didattica';
 
 
+-- 7 |Quali sono il nome e il cognome dei Ricercatori che hanno più di un impegno per 'Didattica' ?
 
+SELECT DISTINCT p.nome, p.cognome
+FROM Persona p, AttivitaNonProgettuale anp, AttivitaNonProgettuale anp2
+WHERE anp.persona = p.id
+AND anp2.id <> anp.id 
+AND anp.persona = anp2.persona
+AND p.posizione = 'Ricercatore'
+AND anp.tipo = 'Didattica';
