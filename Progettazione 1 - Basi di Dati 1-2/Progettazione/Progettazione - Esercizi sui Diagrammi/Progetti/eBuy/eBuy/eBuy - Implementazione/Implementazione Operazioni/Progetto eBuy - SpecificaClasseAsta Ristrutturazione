@@ -1,0 +1,15 @@
+SPECIFICA DELLA CLASSE ASTA 
+
+1| [V.Asta.scadenzaDopoPubblicazione] La scadenza dell'asta deve essere dopo la sua pubblicazione.
+
+Per ogni oggetto della classe Asta deve essere vero che pubblicazione < scadenza.
+
+Più formalmente:
+Per ogni a:Asta deve essere a.pubblicazione < a.scadenza.
+
+Equivalentemente:
+Non esiste a:Asta tale che a.pubblicazione > a.scadenza.
+
+
+
+
