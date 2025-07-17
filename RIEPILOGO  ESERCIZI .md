@@ -5,7 +5,7 @@
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
 | **BASI DI DATI**         | Svolgere Insert e ristrutturazione Azienda1  | *18 Luglio*               | Svolgere la ristrutturazione e Insert Azienda1 |
-| **WEB**         | In aggiornamento  | *21 Luglio*               | *ND* |
+| **WEB**         | Svolgere Esercizio PostCard  | *21 Luglio*               | Maggiori informazioni sul relativo file |
 
 
 
