@@ -32,7 +32,7 @@ CREATE TABLE Volo(
 
     PRIMARY KEY (codice,comp),
     FOREIGN KEY (comp)  REFERENCES Compagnia(nome),
-    FOREIGN  KEY (codice,comp) REFERENCES ArrPart(codice,comp)
+    FOREIGN  KEY (codice,comp) REFERENCES ArrPart(codice,comp) deferrable
 );
 
 
@@ -51,7 +51,7 @@ CREATE TABLE ArrPart(
 
 );
 
-
+ALTER TABLE ArrPart ADD FOREIGN KEY (codice,comp) REFERENCES Volo(codice,comp) deferrable;
 
 
 CREATE TABLE Aeroporto(
@@ -60,10 +60,10 @@ CREATE TABLE Aeroporto(
     nome StringaM NOT NULL,
 
     PRIMARY KEY (codice),
-    FOREIGN KEY codice REFERENCES LuogoAeroporto(aeroporto)
 );
 
 
+ALTER TABLE Aeroporto ADD FOREIGN KEY(codice) REFERENCES LuogoAeroporto(Aeroporto) deferrable;
 
 CREATE TABLE LuogoAeroporto(
 
@@ -72,14 +72,14 @@ CREATE TABLE LuogoAeroporto(
     nazione StringaM NOT NULL,
 
     PRIMARY KEY(aeroporto),
-    FOREIGN KEY aeroporto REFERENCES Aeroporto(codice)
+    FOREIGN KEY aeroporto REFERENCES Aeroporto(codice) deferrable
 );
 
 
 CREATE TABLE Compagnia(
 
     nome StringaM NOT NULL,
-    annoFondaz PosInteger,
+    annoFondaz PosInteger NULL,
 
     PRIMARY KEY(nome)
 );
