@@ -44,3 +44,14 @@ FROM Volo v, ArrPart arp
 WHERE v.codice = arp.codice AND v.comp = arp.comp AND arrivo = 'FCO';
 
 
+
+-- 5 | Quali sono i voli  (codice e nome alla compagnia) che partono dall' aeroporto 'FCO' e arrivano all' aeroporto 'JFK' ?
+
+SELECT DISTINCT v.codice codice_volo, v.comp compagnia
+
+FROM Volo v, ArrPart arp
+
+WHERE v.codice = arp.codice 
+AND v.comp = arp.comp 
+AND partenza = 'FCO'
+AND arrivo = 'JFK';
