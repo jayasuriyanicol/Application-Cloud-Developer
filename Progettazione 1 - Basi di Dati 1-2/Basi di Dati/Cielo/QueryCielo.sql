@@ -33,3 +33,14 @@ SELECT v.codice codice_volo, v.comp compagnia
 FROM Volo v, ArrPart arp 
 
 WHERE v.codice = arp.codice AND v.comp = arp.comp AND partenza = 'CIA';
+
+
+-- 4 | Quali sono le compagnie che hanno voli che arrivano all'aeroporto con codice 'FCO'?
+
+SELECT DISTINCT v.comp compagnia
+
+FROM Volo v, ArrPart arp
+
+WHERE v.codice = arp.codice AND v.comp = arp.comp AND arrivo = 'FCO';
+
+
