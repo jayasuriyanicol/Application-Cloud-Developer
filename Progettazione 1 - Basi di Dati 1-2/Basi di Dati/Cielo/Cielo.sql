@@ -19,10 +19,6 @@ CREATE DOMAIN CodIATA CHAR(3);
 
 -- CREAZIONE DELLE TABELLE - PRE MANIPOLAZIONE
 
- BEGIN transaction;
-
- SET constraints all deferred;
- commit
 
 CREATE TABLE Volo(
 
@@ -45,7 +41,6 @@ CREATE TABLE ArrPart(
     partenza CodIATA NOT NULL,
 
     PRIMARY KEY(codice,comp),
-    FOREIGN KEY (codice, comp) REFERENCES Volo(codice,comp),
     FOREIGN KEY (arrivo)  REFERENCES Aeroporto(codice),
     FOREIGN KEY (partenza) REFERENCES Aeroporto (codice)
 
@@ -59,11 +54,11 @@ CREATE TABLE Aeroporto(
     codice CodIATA NOT NULL,
     nome StringaM NOT NULL,
 
-    PRIMARY KEY (codice),
+    PRIMARY KEY (codice)
 );
 
 
-ALTER TABLE Aeroporto ADD FOREIGN KEY(codice) REFERENCES LuogoAeroporto(Aeroporto) deferrable;
+ALTER TABLE Aeroporto ADD FOREIGN KEY(codice) REFERENCES LuogoAeroporto(aeroporto) deferrable;
 
 CREATE TABLE LuogoAeroporto(
 
@@ -72,7 +67,7 @@ CREATE TABLE LuogoAeroporto(
     nazione StringaM NOT NULL,
 
     PRIMARY KEY(aeroporto),
-    FOREIGN KEY aeroporto REFERENCES Aeroporto(codice) deferrable
+    FOREIGN KEY (aeroporto) REFERENCES Aeroporto(codice) deferrable
 );
 
 
