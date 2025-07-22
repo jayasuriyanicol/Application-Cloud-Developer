@@ -1,6 +1,6 @@
 '''IMPLEMENTAZIONI DELLE CLASSI in Python'''
 
-
+from eBuy import *
 
 def ultimo_bid(self) -> Bid | None:
 
