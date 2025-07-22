@@ -4,7 +4,7 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **WEB**         | Svolgere Esercizio PostCard  | *21 Luglio*               | Maggiori informazioni sul relativo file |
+| **ND**         | NULL                               | *Null*               | NULL                      |
 
 
 
