@@ -1,5 +1,5 @@
 from __future__ import annotations
-
+from typing import TYPE_CHECKING
 '''IMPLEMENTAZIONE eBuy in Linguaggio Python'''
 
 
@@ -13,6 +13,13 @@ from datetime import datetime, timedelta
 from TipiDato import *
 import weakref
 
+
+
+'''Al fine dell'evitare errori 
+if TYPE_CHECKING:
+    from py.classes.Bid import Bid
+        cosi via per ogni classe che ci serve ...
+'''
 
 
 
