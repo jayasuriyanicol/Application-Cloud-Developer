@@ -1,6 +1,6 @@
-SPECIFICA DELLA CLASSE ASTA 
+SPECIFICA DELLA CLASSE ASTA
 
-[1| [V.Asta.scadenzaDopoPubblicazione] La scadenza dell'asta deve essere dopo la sua pubblicazione.
+1| [V.Asta.scadenzaDopoPubblicazione] La scadenza dell'asta deve essere dopo la sua pubblicazione.
 
 Per ogni oggetto della classe Asta deve essere vero che pubblicazione < scadenza.
 
@@ -11,7 +11,36 @@ Equivalentemente:
 Non esiste a:Asta tale che a.pubblicazione > a.scadenza.
 
 
+
+
+
+
+vincitore(): Privato[0..1]
+
+	precondizioni:
+		-this scaduta(adesso) deve essere vera
+
+	postcondizioni:
+		- Sia b il risultato dell'operazione ultimo_bid nell'istante(adesso)
+        - Se b è vuoto, result è vuoto
+		- result è il p:Privato coinvolto nel link (b,p):bid_ut
+    
+
+
+scaduta(i: DataOra ): Booleano
+      
+	precondizioni:
+    	Nessuna
+        
+    postcondizioni:
+		- result è true se this.scadenza < i 
+		- altrimenti è false
+
+
+      
+
 Operazioni di classe ASTA:
+
 
 
 |1| prezzo(i: DataOra): Reale >= 0
@@ -25,7 +54,7 @@ Operazioni di classe ASTA:
 
 
 |2| ultimo_bid(i: DataOra): Bid[0..1]
-	precondizioni: nessuna.
+	precondizioni: Nessuna
 	postcondizioni:
 		- L'operazione non modifica il livello estensionale
 		- Sia B l'insieme dei b:Bid coinvolti in un link asta_bid insieme a this e che hanno come valore dell'attributo istante minore o uguale a i, formalmente:
@@ -55,7 +84,27 @@ Operazioni di classe ASTA:
         - result è definito come segue
             - Sia b:Bid il risultato dell'operazione ultimo_bid(adesso) coinvolto nel link (p, b):bid_ut
             - result = p
-            
+
+
+|5| prezzo (i:DataOra) : FloatGEZ
+
+	precondizioni: 
+		Nessuna
+    
+	postcondizioni:
+         
+		 -L'operazione non modifca il livello estensionale dei dati
+               
+		 -Sia B: l'insieme b:Bid tale che (this,b):asta_bid e b.istante <= i.
+        
+		 
+		- Sia N il numero di elementi di B (formalmente, la cardinalità, |B|).
+		- result = this.prezzo + N * this.prezzo_bid
+
+           
+     
+	  
+
             
          
          
@@ -85,14 +134,40 @@ Operazioni di classe ASTA:
 
 |2| scaduta(i: datetime): bool
 	se this.scadenza <= i:
-		return False
-	return True
+		return True
+	return False
 	
 	
 	
 
-|3| vincitore(): Utente | None
-	se this.scaduta(adesso):
-		se ultimo_bid(adesso) == None
+|3| vincitore(): Privato | None
+
+	se this.scaduta(datetime.now() == False):
 			return None
-		return ultimo_bid(adesso).bid_ut.privato
+
+    b= this.ultimo_bid(datetime.now())
+
+	se b == None:
+	return None
+
+	altrimenti:
+	return b.bid_ut.privato
+
+
+
+
+
+|4| prezzo( i :datetime) -> FloatGEZ:
+
+    B = [] | {}
+
+    per ogni bid in this.asta_bid:
+     
+	  se bid.istante <= i:
+               
+			   B.append(bid)
+    N = len(B) | b|
+
+    result:FloatGEZ = this.prezzo + N * this.prezzo_bid
+    return result
+
