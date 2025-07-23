@@ -59,7 +59,7 @@ AND arp.arrivo = 'JFK';
 
 -- 6 | Quali sono le compagnie che hanno voli che partono dall'aeroporto 'FCO' e atterrano all' aeroporto 'JFK' ?
 
-SELECT DISTINCT v.comp compagnia
+SELECT DISTINCT v.comp compagnia            
 
 FROM Volo v, ArrPart arp
 
