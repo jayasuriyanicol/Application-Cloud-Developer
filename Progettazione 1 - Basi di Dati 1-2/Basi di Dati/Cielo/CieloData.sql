@@ -58,4 +58,10 @@ INSERT INTO Volo(codice, comp, durataMinuti) VALUES
 ('536',	'Apitalia',		'599');
 
 
+
+
+INSERT INTO Volo( codice, comp,durataminuti) VALUES (132,'Apitalia', 210);
+INSERT INTO ArrPart (codice, comp,partenza,arrivo) VALUES (132,'Apitalia', 'HTR', 'CIA');
+INSERT INTO Compagnia (nome) VALUES ('RainAir');
+
 commit;
