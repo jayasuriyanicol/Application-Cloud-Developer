@@ -14,7 +14,7 @@ WHERE com.nome = v.comp AND v.durataMinuti > 180;
 -- 2 | Quali sono le compagnie che hanno voli che superano le 3 ore?
 
 
-SELECT DISTINCT v.comp compoagnia
+SELECT DISTINCT v.comp compagnia
 
 FROM Compagnia com, Volo v
 
