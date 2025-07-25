@@ -4,8 +4,9 @@
 
 | Materia             | Esercizio                                 | Scadenza     | Note                                        |
 |---------------------|-------------------------------------------|--------------|---------------------------------------------|
-| **Sicurezza 1**         | Inserire codice PY e Crittografia slide                               | *31 Luglio*               | Maggiori Informazioni sul relativo file |                      |
 | **WEB**         | Rivedere le slide su REST                               | *28 Luglio*               | Maggiori Informazioni sul relativo file                      |
+| **Sicurezza 1**         | Inserire codice PY e Crittografia slide                               | *31 Luglio*               | Maggiori Informazioni sul relativo file |                      |
+
 
 
 
