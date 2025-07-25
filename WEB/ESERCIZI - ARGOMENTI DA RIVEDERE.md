@@ -21,3 +21,8 @@ Svolgere l'esercizio PostCard nella bisogna creare un sito con all'interno **Tre
 
 Svolgere l'esercizio importando la **postcard e creandole con bootstrap**.
 
+
+## PROGETTAZIONE Rest - Protocolli di Rete
+
+Rivedere le slide sulla parte di progettazione WEB, Protoccolli di Rete,ecc.
+
