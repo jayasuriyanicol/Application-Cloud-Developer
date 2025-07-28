@@ -5,7 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **WEB**         | Rivedere le slide su REST                     | *28 Luglio* | Creare nuovo file su GitHub e VS Code   |
+| **WEB**         | Rivedere le slide su REST                     | *29 Luglio* | Creare nuovo file su GitHub e VS Code   |
 | **Sicurezza 1** | Inserire codice PY e crittografia dalle slide | *31 Luglio* | Maggiori informazioni nel relativo file |
 
 
