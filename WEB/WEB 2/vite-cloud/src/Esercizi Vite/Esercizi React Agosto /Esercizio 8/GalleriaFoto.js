@@ -44,3 +44,29 @@ const GalleriaFoto = () => {
 };
 
 export default GalleriaFoto;
+
+
+
+/*Per l'avviamento in APP 
+
+import React from "react";
+import GalleriaFoto from "./GalleriaFoto";
+
+function App() {
+  return (
+    <div>
+      <GalleriaFoto />
+    </div>
+  );
+}
+
+export default App;
+
+
+
+*/
+
+
+
+
+
