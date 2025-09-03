@@ -60,12 +60,15 @@ print(f"\nSOMMARIO ELEMENTI DELLA FRASE -> {fraseUtente}\n\nQuesta è la LISTA d
 
 
 
-'''Possiamo utilizzare anche la forma con SORT al posto di SORTED, rendendo ancora più efficiente l'esercizio computazionalmente parlando.
+'''
+
+Possiamo utilizzare anche la forma con SORT al posto di SORTED, rendendo ancora più efficiente l'esercizio computazionalmente parlando.
 
 
 
         paroleOrdinate:list[str] = listaParole.sort(key=len)
-        paroleAlfabetiche:list[str] = listaParole.sort()  
+        paroleAlfabetiche:list[str] = listaParole.sort() 
+
 
 
 '''
