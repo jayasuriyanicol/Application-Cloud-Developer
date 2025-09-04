@@ -70,5 +70,4 @@ Possiamo utilizzare anche la forma con SORT al posto di SORTED, rendendo ancora 
         paroleAlfabetiche:list[str] = listaParole.sort() 
 
 
-
 '''
