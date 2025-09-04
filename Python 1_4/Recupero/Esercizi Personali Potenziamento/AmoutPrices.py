@@ -31,23 +31,29 @@ Categoria con spesa maggiore: affitto (500.0 €)
 
 dizionarioSpese: dict[str, float] = {}
 
+
 while True:
 
-    informazioniUtente = input("Benvenuto, Inserisci spesa e importo (es. 'spesa 20.5'), o 'fine' per uscire: ")
+    informazioniUtente:str = input("Benvenuto, Inserisci spesa e importo (es. 'spesa 20.5'), o 'fine' per uscire: ")
+    
 
     if informazioniUtente.lower() == "fine":
         print(dizionarioSpese)  
         break
 
-    testoSuddiviso = informazioniUtente.split(" ")
+    testoSuddiviso:list[str,int]  = informazioniUtente.split(" ")
+
 
     if len(testoSuddiviso) != 2:
         print("ATTENZIONE ! Ci devono essere massimo di elementi inoltre deve inserire una categoria e un importo separati da spazio!")
         continue
 
-    chiaveDizionario = testoSuddiviso[0]  
+    chiaveDizionario:str = testoSuddiviso[0]  7
+
+
     try:
-        valoreDizionario = float(testoSuddiviso[1]) 
+        valoreDizionario:int|float = float(testoSuddiviso[1]) 
+
     except ValueError:
         print("ATTENZIONE ! l'importo deve essere un numero non altro !")
         continue
