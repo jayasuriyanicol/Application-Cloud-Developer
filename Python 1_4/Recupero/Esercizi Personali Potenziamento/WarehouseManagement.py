@@ -111,4 +111,73 @@ for nomeProdotto, datiProdotto in dizionarioProdotti.items():
 print(f"\nValore totale: {totaleProdottiInventario} euro")
 print(f"\nProdotto più prezioso: {nomeProdottoMaggiore} ({prezzoMaggioreProdotto:.2f} euro)")
 
-          
+
+
+
+
+'''
+
+ESERCIZIO - Modalità Efficiente:
+
+In caso volessimo avere una soluzione più efficente e pulita, con lo stesso ragionamento utlizzato per la risoluzione dell'esercizio possiamo optare per la seguente:
+
+
+dizionarioProdotti: dict[str, dict[str, float]] = {}
+
+while True:
+    inserimentoProdotto: str = input("Inserisci prodotto, quantità e prezzo (o 'fine'): ")
+
+    if inserimentoProdotto.lower() == "fine":
+        break
+
+    informazioniProdotto = inserimentoProdotto.split()
+
+    if len(informazioniProdotto) != 3:
+        print("ATTENZIONE! Devi inserire esattamente: nome_prodotto quantità prezzo_unitario")
+        continue
+
+    nomeProdotto = informazioniProdotto[0]
+
+    try:
+        quantitaProdotto = int(informazioniProdotto[1])
+        prezzoUnitaProdotto = float(informazioniProdotto[2])
+    except ValueError:
+        print("ATTENZIONE! Quantità deve essere un numero intero e prezzo un numero decimale!")
+        continue
+
+
+    if nomeProdotto in dizionarioProdotti:
+        dizionarioProdotti[nomeProdotto]["quantità"] += quantitaProdotto
+    else:
+        dizionarioProdotti[nomeProdotto] = {
+            "quantità": quantitaProdotto,
+            "prezzoUnita": prezzoUnitaProdotto
+        }
+
+print("\nInventario:")
+
+totaleProdottiInventario = 0
+prezzoMaggioreProdotto = 0
+nomeProdottoMaggiore = ""
+
+for nomeProdotto, datiProdotto in dizionarioProdotti.items():
+    quantita = datiProdotto["quantità"]
+    prezzo = datiProdotto["prezzoUnita"]
+    valoreProdotto = quantita * prezzo
+
+    print(f"- {nomeProdotto}: {quantita} pezzi, {prezzo:.2f} €/pz")
+    totaleProdottiInventario += valoreProdotto
+
+    if valoreProdotto > prezzoMaggioreProdotto:
+        prezzoMaggioreProdotto = valoreProdotto
+        nomeProdottoMaggiore = nomeProdotto
+
+print(f"\nValore totale: {totaleProdottiInventario:.2f} €")
+print(f"Prodotto più prezioso: {nomeProdottoMaggiore} ({prezzoMaggioreProdotto:.2f} €)")
+
+
+
+
+
+
+'''
