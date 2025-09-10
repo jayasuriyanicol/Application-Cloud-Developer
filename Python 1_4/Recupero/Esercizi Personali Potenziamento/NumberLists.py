@@ -85,3 +85,41 @@ listaNumeriDecrescenti = sorted(listaNumeriInseriti, reverse=True)
 print(f"\n\nRiepilogo:\n\nNumeri inseriti: {listaNumeriInseriti}\nSomma: {sommaTotaleNumeri}\nMedia: {mediaNumeriInseriti:.2f}\nNumeri pari: {listaNumeriPari}\nNumeri dispari: {listaNumeriDispari}\nCrescente: {listaNumeriCrescenti}\nDecrescente: {listaNumeriDecrescenti}\n\n FINE RIEPILOGO")
 
 
+'''
+In alternativa possiamo utilizzare il metodo delle LIST COMPREHENSION
+
+listaNumeri:list[int] = [] 
+
+
+while True: 
+
+    inserimentoNumero:str = input("Inserisci un numero o 'fine'): ")
+
+    if inserimentoNumero.lower() == 'fine':
+        break
+        
+    try:
+        numero = int(inserimentoNumero)
+        listaNumeri.append(numero)
+    except ValueError:
+        print("ATTTENZIONE ! Non è possibile inserire numeri al di fuori da quelli INTERI")
+
+if listaNumeri:
+
+    sommaNumeriLista:int = sum(listaNumeri)
+    mediaNumeriLista:int|float = sommaNumeriLista / len(listaNumeri)
+    listaNumeriPari:list[int] = [numero for numero in listaNumeri if numero % 2 == 0]
+    listaNumeriDispari:list[int]  =[ numero for numero in listaNumeri if numero % 2 != 0] 
+
+    print(f"\nNumeri inseriti: {listaNumeri}")
+    print(f"Somma: {sommaNumeriLista}")
+    print(f"Media: {mediaNumeriLista:.2f}")
+    print(f"Numeri pari: {listaNumeriPari}")
+    print(f"Numeri dispari: {listaNumeriDispari}")
+    print(f"Crescente: {sorted(listaNumeri)}")
+    print(f"Decrescente: {sorted(listaNumeri, reverse=True)}")
+
+else:
+    print("\nATTENZIONE ! Non è stato inserito alcun numero.\nLa Lista è vuota !")
+
+'''
