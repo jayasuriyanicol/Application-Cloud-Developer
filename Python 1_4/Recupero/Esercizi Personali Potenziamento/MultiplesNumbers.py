@@ -26,6 +26,3 @@ def solution(number):
             sommaNumeriTotali += numeroIndice
     return sommaNumeriTotali
 
-
-print(solution(10))
-print(solution(16))
