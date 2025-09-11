@@ -26,3 +26,9 @@ def solution(number):
             sommaNumeriTotali += numeroIndice
     return sommaNumeriTotali
 
+
+
+'''Andiamo a verificare se il programma funziona correttamente come richiesto dal sistema, svolgendo noi un DRIVER PROGRAMM '''
+
+print(solution(10)) 
+print(solution(16))
