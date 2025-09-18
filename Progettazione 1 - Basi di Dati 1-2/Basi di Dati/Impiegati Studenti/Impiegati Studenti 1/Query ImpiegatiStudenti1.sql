@@ -31,7 +31,7 @@ WHERE ruolo = 'Progettista';
 
 -- 5. Quanti sono i responsabili?
 
-SELECT COUNT(prog.resp_prog)
+SELECT COUNT( DISTINCT prog.resp_prog)
 FROM Progetto prog, Impiegato imp
 WHERE imp.persona = prog.resp_prog AND imp.ruolo = 'Progettista';
 
