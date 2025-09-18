@@ -1,12 +1,13 @@
 -- Svolgimento delle QUERY sul DATABASE ImpiegatiStudenti1
 
 
--- 1. Quali sono i nomi degli impiegati nati a partire dall'anno 
+-- 1. Quali sono i nomi degli impiegati nati a partire dall'anno 1965
 
 SELECT p.nome 
 FROM Persona as p, Impiegato as imp;
-WHERE p.cf = imp.Persona
-ORDER BY data_nascita ASC;
+WHERE p.cf = imp.Persona AND extract('year' FROM p.data_nascita) >= 1965;
+-- oppure utilizzare la forma -> AND date_part('year',p.data_nascita) >= 1965;
+
 
 
 -- 2. Quali sono i nomi di tutti i progetti?
