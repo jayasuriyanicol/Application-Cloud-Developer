@@ -6,3 +6,5 @@ const piatti =[
    {id : 4, nome: "Torta al Limone", prezzo: 6.45 }
 
 ];
+
+export default piatti;

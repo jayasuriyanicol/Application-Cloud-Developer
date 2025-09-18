@@ -20,29 +20,39 @@ from persona import Persona
 
 class Paziente(Persona):
 
+    def __init__(self, first_name: str, last_name: str, code: str) -> None:
 
-    def __init__(self, first_name:str, last_name:str,__code:str) -> None:
         super().__init__(first_name, last_name)
+        self.__code = code 
 
-        self.code = __code
 
-    def setIdCode(self,idCode:str) -> None:
-        
-        self.code = idCode
-    
+    def setIdCode(self, idCode: str) -> None:
+
+        try:
+            self.__code = str(idCode)
+
+        except ValueError:
+
+            print("ATTENZIONE ! Il codice identificativo deve essere una stringa!")
+
     def getIdCode(self) -> str:
 
-        return self.code
-    
+        return self.__code
+
     def patientInfo(self) -> str:
 
-        return f"Paziente: {self.first_name} {self.last_name}\nID:{self.code}"
-    
+        return f"Paziente: {self.getName()} {self.getLastName()}\nID: {self.__code}"
+
+    def __str__(self) -> str:
+
+        return self.patientInfo()
 
 
-'''DRIVER PROGRAMM'''
-
+'''DRIVER PROGRAMM, per testare le funzionalità della classe Paziente'''
 
 paziente = Paziente("Francesco", "Totti", "CA345")
 
 print(paziente)
+ 
+#In alternativa, possiamo utilizzare questa forma qui per rimanere coerenti con la traccia
+print(paziente.patientInfo())

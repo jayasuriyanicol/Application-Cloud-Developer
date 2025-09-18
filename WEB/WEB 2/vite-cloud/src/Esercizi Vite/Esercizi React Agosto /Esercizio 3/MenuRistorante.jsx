@@ -1,5 +1,5 @@
 import React from "react";
-import {piatti} from "./piatti"
+import piatti from "./piatti"
 
 
 

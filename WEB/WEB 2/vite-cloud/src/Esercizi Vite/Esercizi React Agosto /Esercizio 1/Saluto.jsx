@@ -10,7 +10,7 @@ const Saluto = () => {
 export default Saluto;
 
 
-import Saluto from "./Esercizi Vite/Esercizi React Agosto /Esercizio 1/Saluto";
+
 
 /* Per l'avviamento in APP
 
@@ -26,6 +26,6 @@ function App (){
 
 }
 
-export default App;
+export default App; 
 
 */
