@@ -38,3 +38,27 @@ values
 ('ITiEsse', 'BNCMRA62R58F839Y'),
 ('Gladio', 'BNCMRA62R58F839Y') 
 returning id;
+
+
+
+insert into persona(cf, nome, cognome, data_nascita, is_uomo, is_donna, pos_uomo, maternita)
+values
+('GLNMRZ77L19H501D', 'Maurizio', 'Ugolini', '1984-09-19', true, false, 'Obiettore di coscienza', NULL),
+('FSOSBL99P31H501V', 'Isabella', 'Fois', '1999-12-31', false, true, NULL, 0),
+('MNCGNN76D16H501J', 'Giovanni', 'Mancini', '1976-04-16', true, false, 'Assolto', NULL),
+('FBRFBR82B29R678A', 'Fabrizio', 'Fabrizi', '1984-02-29', true, false, 'Non tenuto', NULL),
+('NVGCLD95U52H501T', 'Claudia', 'Navigli', '1995-09-21', false, true, NULL, 1);
+
+insert into impiegato(persona, stipendio, ruolo)
+values
+('GLNMRZ77L19H501D', 35000, 'Segretario'),
+('FSOSBL99P31H501V', 41000, 'Segretario'),
+('NVGCLD95U52H501T', 16000, 'Progettista'),
+('FBRFBR82B29R678A', 46000, 'Progettista'),
+('MNCGNN76D16H501J', 28000, 'Progettista');
+
+
+update  progetto 
+set resp_prog = 'FBRFBR82B29R678A'
+where nome = 'ITiEsse' or nome='Gladio';
+
