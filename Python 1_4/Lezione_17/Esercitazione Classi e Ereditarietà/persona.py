@@ -15,85 +15,90 @@ Creare un file chiamato "persona.py". In tale file, definire una classe chiamata
 
 class Persona:
 
-
-    def __init__(self,first_name:str, last_name:str) -> None:
-
-        self.first_name = first_name
-        self.last_name = last_name
-        self.eta = 0
+    def __init__(self, first_name: str, last_name: str) -> None:
 
         try:
-            __first_name = str(first_name)
-            __last_name = str(last_name)
-            __eta = int(self.eta)
+            self.__first_name = str(first_name)
 
         except ValueError:
-            print("ATTENZIONE ! il valore inserito non è una valore stringa !")
-            __first_name = None
-            __last_name = None
-            __eta = None
 
-    def setName(self,first_name:str) -> None:
+            print("ATTENZIONE ! Il nome inserito non è una STRINGA!")
+            self.__first_name = None
+
+        try:
+
+            self.__last_name = str(last_name)
+
+        except ValueError:
+
+            print("ATTENZIONE !Il cognome inserito non è una STRINGA!")
+            self.__last_name = None
+
         
-        try:
-          self.first_name = str(first_name)
+        if self.__first_name is not None and self.__last_name is not None:
 
-        except ValueError:
+            self.__eta = 0
+        
+        else:
+            self.__eta = None
 
-            print("ATTENZIONE ! il valore inserito per il NOME non è una stringa !")
 
-    
-    def setLastName(self,last_name:str) -> None:
-
-        try:
-            self.last_name = str(last_name)
-
-        except ValueError:
-
-            print("ATTENZIONE ! il valore inserito per il COGNOME non è una stringa !") 
-
-    
-    def setAge(self, age:int) -> None:
+    def setName(self, first_name: str) -> None:
 
         try:
 
-            self.age = int(age)
+            self.__first_name = str(first_name)
+        
+        except ValueError:
+
+            print("ATTENZIONE ! Il nome inserito non è una STRINGA!")
+
+    def setLastName(self, last_name: str) -> None:
+
+        try:
+
+            self.__last_name = str(last_name)
 
         except ValueError:
 
-            print("ATTENZIONE ! Il valore inserito per l'età non è un valore intero !")
-    
+            print("ATTENZIONE ! Il cognome inserito non è una STRINGA!")
+
+    def setAge(self, age: int) -> None:
+
+        try:
+
+            self.__eta = int(age)
+
+        except ValueError:
+
+            print("ATTENZIONE ! L'età deve essere un numero INTERO!")
+
     def getName(self) -> str:
 
-        return self.first_name   
+        return self.__first_name
 
     def getLastName(self) -> str:
 
-        return self.last_name     
-    
-    def getAge(self) -> str:
+        return self.__last_name
 
-        return self.age
-    
-    def greet(self) -> str:
+    def getAge(self) -> int:
 
-        print(f"\nCiao, sono {self.first_name} {self.last_name} ! Ho {self.eta} anni !")
-        
-    
-'''DRIVER PROGRAMM'''
+        return self.__eta
+
+    def greet(self) -> None:
+
+        print(f"\nCiao, sono {self.__first_name} {self.__last_name}! Ho {self.__eta} anni!")
 
 
-'''PRIMO CASO'''
+'''DRIVER PROGRAMM, per testare se la classe lavora correttamente'''
 
 persona = Persona("Cristiano", "Coccia")
 
+persona.setName("Cristiano")
+persona.setLastName("Coccia")
+persona.setAge(21)
 
-print(persona.setName ("Cristiano"))
-print(persona.setLastName("Coccia"))
-print(persona.setAge(21))
 print(persona.getName())
 print(persona.getLastName())
 print(persona.getAge())
-print(persona.greet())
-
-
+persona.greet()
