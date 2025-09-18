@@ -14,8 +14,9 @@ In tale file, creare una classe chiamata Fattura.
 
 '''
 
-from dottore import *
-from paziente import *
+from dottore import Dottore
+from paziente import Paziente
+
 class Fattura:
 
     def __init__(self,patient:list[Paziente],doctor:Dottore) -> None:
@@ -26,13 +27,13 @@ class Fattura:
         if doctor.isAValidDoctor():
 
             self.fatture:int = len(patient)
-            self.salary:int = 0
+            self.salary:float = self.getSalary()
         else:
 
             self.patient = None
             self.doctor = None
             self.fatture = None
-            self.doctor = None
+            self.salary = None
 
             print("ATTENZIONE ! Non è possibile creare la classe FATTURA poichè il dottore non è valido !")
     
@@ -40,30 +41,85 @@ class Fattura:
 
     def getSalary(self)-> int:
 
-        return self.salary
+        if self.doctor is not None and self.patient is not None:
+
+            self.salary = self.doctor.getParcel() * len(self.patient)
+            return self.salary
+        
+        else:
+            return 0
+        
     
     def getFatture(self) -> int:
+        
+        if self.patient is not None:
 
-        return self.fatture
+            self.fatture = len(self.patient)
+            return self.fatture
+        
+        else:
+            return 0
     
     def addPatient(self,newPatient:str) -> None:
 
-        self.fatture.add(newPatient)
-
-        self.getFatture(newPatient)
-        self.getSalary()
-
-        print(f"Alla lista del Dottor cognome è stato aggiunto il paziente {Paziente.getIdCode}")
-    
+        if self.patient is not None:
+            
+            self.patient.append(newPatient)
+            self.getFatture()
+            self.getSalary()
+            print(f"Alla lista del Dottor {self.doctor.getLastName} è stato aggiunto il paziente {Paziente.getIdCode}")
+        
+        print(f"ATTENZIONE ! Alla lista del Dottor {self.doctor.getLastName} NON è stato aggiunto nessun paziente, dato che risulta None/vuoto!")
 
     def removePatient(self, idCode:int) -> str:
 
-        for elemento in self.patient:
+        if self.patient is not None:
 
-            if elemento == idCode:
+            for paziente in self.patient:
 
-                self.fatture.remove(paziente)
+             if paziente.getIdCode() == idCode:
 
-                print(f"Alla lista del Dottor {Persona.first_name} {Persona.last_name} è stato rimosso il paziente {Paziente.getIdCode}")
-            else:
-                print("ATTENZIONE ! non corrrisponde nessun Paziente all'id del codice inserito")
+                self.patient.remove(paziente)
+                self.getFatture()
+                self.getSalary()
+
+                print(f"Alla lista del Dottor {self.doctor.getName} {self.doctor.getLastName} è stato RIMOSSO il paziente {idCode}")
+                return 
+            print("ATTENZIONE ! non corrrisponde nessun Paziente all'id del codice inserito")
+
+
+
+
+'''DRIVER PROGRAMM, per testare le funzionalità della classe Fatture'''
+
+
+
+primoDottore = Dottore("Mario", "Rossi", "Cardiologo", 100.0)
+primoDottore.setAge(45)
+
+
+pazienteUno = Paziente("Luca", "Bianchi", "P001")
+pazienteDue = Paziente("Anna", "Verdi", "P002")
+
+fatturaMedico = Fattura([pazienteUno, pazienteDue], primoDottore)
+
+print("\n TEST FATTURA ")
+
+print("Numero fatture iniziali:", fatturaMedico.getFatture())
+print("Salario iniziale:", fatturaMedico.getSalary())
+
+
+#Per testare l'aggiunta e la rimozione, creiamo un TERZO PAZIENTE per le operazioni in "FatturaMedico"
+
+terzoPaziente = Paziente("Marco", "Neri", "P003")
+
+fatturaMedico.addPatient(terzoPaziente)
+
+print("Numero fatture dopo aggiunta:", fatturaMedico.getFatture())
+print("Salario dopo aggiunta:", fatturaMedico.getSalary())
+
+
+fatturaMedico.removePatient("P001")
+
+print("Numero fatture dopo rimozione:", fatturaMedico.getFatture())
+print("Salario dopo rimozione:", fatturaMedico.getSalary())
