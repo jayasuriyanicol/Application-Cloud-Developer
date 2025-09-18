@@ -56,6 +56,9 @@ SELECT MAX(date_part('year',age(current_date,data_nascita))) as eta
 FROM Persona p ,Studente s
 WHERE p.cf = s.persona;
 
+--    Soluzione alternativa, possiamo utilizzare questa forma:
+--          SELECT date_part('year', age(current_date,MIN(data_nascita))) as eta/eta_massima
+
 
 
 -- 9. Quanti sono i direttori che hanno assolto agli obblighi militari?
