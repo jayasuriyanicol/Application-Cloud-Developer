@@ -37,11 +37,9 @@ WHERE imp.persona = prog.resp_prog AND imp.ruolo = 'Progettista';
 
 --  6. Quanti sono i progettisti che non sono responsabili?
 
--- NON CORRETTA
-
-SELECT COUNT(pr.resp_prog)
-FROM Persona p, Impiegato imp, Progetto pr
-WHERE p.cf = imp.Persona  AND pr.resp_prog = imp.Persona AND imp.ruolo NOT 'Progettista';
+SELECT COUNT(*)
+FROM Impiegato imp
+WHERE imp.ruolo = "Progettista" AND Persona NOT IN (SELECT DISTINCT resp_prog FROM Progetto);
 
 -- 7. Qual è lo stipendio medio dei segretari?
 
