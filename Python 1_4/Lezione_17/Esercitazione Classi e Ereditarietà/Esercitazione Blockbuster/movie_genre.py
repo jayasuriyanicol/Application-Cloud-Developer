@@ -49,7 +49,8 @@ class Commedia(Film):
 
     def getPenale(self) -> float:
 
-        return self.__penale
+        return self.__penale 
+
 
     def calcolaPenaleRitardo(self, numeroGiorniRitardo: int) -> float:
 
@@ -73,5 +74,5 @@ class Drama(Film):
         return self.__penale
 
     def calcolaPenaleRitardo(self, numeroGiorniRitardo: int) -> float:
-        
+
         return numeroGiorniRitardo * self.__penale
