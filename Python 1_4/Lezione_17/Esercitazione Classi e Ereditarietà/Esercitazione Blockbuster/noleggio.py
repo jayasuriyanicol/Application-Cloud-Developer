@@ -65,6 +65,7 @@ class Noleggio:
             penale = film.calcolaPenaleRitardo(days)
 
             print(f"Cliente: {clientID}! La penale da pagare per il film {film.getTitle()} è di {penale:.2f} euro!")
+            
         else:
 
             print(f"ATTENZIONE! Il cliente {clientID} non ha noleggiato il film {film.getTitle()}!")
@@ -87,5 +88,5 @@ class Noleggio:
                 print(f"{film.getTitle()} - {film.getGenere()}")
 
         else:
-            
+
             print(f"\nIl cliente {clientID} non ha film noleggiati.")
