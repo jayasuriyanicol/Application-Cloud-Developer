@@ -17,6 +17,7 @@ from __future__ import annotations
 
 class Film:
 
+
     def __init__(self, id: int, title: str) -> None:
         
         self.__id = id
@@ -24,7 +25,7 @@ class Film:
 
     
     def setID(self, id: int) -> None:
-        
+
         self.__id = id
 
     def setTitle(self, title: str) -> None:
