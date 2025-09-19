@@ -5,13 +5,10 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **WEB**         | Rivedere le slide su REST                     | *NULL* | Creare nuovo file su GitHub e VS Code   |
+| **BASI DATI**   | Completare il DB progetto eBuy                | *Giovedì 25 Settembre* | Cercare di completare fino alle Foreign Keys   |
 | **Sicurezza 1** | Inserire codice PY e crittografia dalle slide | *NULL* | Maggiori informazioni nel relativo file |
 
               
-
-              
-                -> Informazioni in aggioramento per il periodo FERIE ESTIVO 
 
 ---
 
