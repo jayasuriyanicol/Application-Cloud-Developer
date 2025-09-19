@@ -1,0 +1,32 @@
+--Creazione dei tipi di dato eBuy
+
+CREATE DATABASE eBuy;
+
+\c eBuy
+
+BEGIN TRANSACTION
+SET CONSTRAINTS ALL DEFERRED;
+
+
+CREATE DOMAIN IntGEZ as INTEGER
+    CHECK (VALUE >=0 );
+
+CREATE DOMAIN RealGEZ as INTEGER
+    CHECK (VALUE >=0 );
+
+CREATE DOMAIN RealGZ as REAL
+    CHECK (VALUE >0 );
+
+CREATE DOMAIN IntG1 as INTEGER
+    CHECK (VALUE > 1);
+
+CREATE DOMAIN Voto as INTEGER
+    CHECK (VALUE > 0 AND VALUE <= 5);
+
+CREATE DOMAIN Stringa as VARCHAR;
+
+CREATE DOMAIN Url as VARCHAR;
+
+
+CREATE TYPE Condizione as ENUM
+('Ottimo', 'Buono','Discreto', 'Da Sistemare');
