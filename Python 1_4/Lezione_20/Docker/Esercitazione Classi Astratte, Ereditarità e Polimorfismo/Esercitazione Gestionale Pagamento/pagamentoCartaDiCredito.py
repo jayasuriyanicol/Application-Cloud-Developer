@@ -44,7 +44,7 @@ class PagamentoCartaDiCredito(Pagamento):
    
     def dettagliPagamento(self):
         
-        print("\n--- Pagamento con Carta di Credito ---")
+        print("\n|PAGAMENTO Modalità -> CARTA DI CREDITO|")
         print(f"\nNome sulla carta: {self.__nomeTitolare}")
         print(f"Data di scadenza: {self.__dataScadenza}")
         print(f"Numero della carta: {self.__numeroCartaCredito}")
