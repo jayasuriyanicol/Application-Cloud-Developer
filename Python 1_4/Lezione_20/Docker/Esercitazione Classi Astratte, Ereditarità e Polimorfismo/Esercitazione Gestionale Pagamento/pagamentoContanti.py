@@ -47,7 +47,7 @@ class PagamentoContanti(Pagamento):
                     dizionarioBanconote[elemento] += soldiOccorrenti
             
 
-        print("\nLe banconote necessarie per il pagamento sono le seguenti:")
+        print("\n|PAGAMENTO Modalità -> CONTANTI|")
 
         for chiave,valore in dizionarioBanconote.items():
                   
