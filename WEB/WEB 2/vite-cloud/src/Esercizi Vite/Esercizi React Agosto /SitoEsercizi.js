@@ -1,79 +1,129 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import {useState} from 'react';
 
-import Saluto from './Esercizi/Vacanze/Esercizio_01/Saluto';
-import CardUtente from './Esercizi/Vacanze/Esercizio_02/CardUtente';
-import MenuRistorante from './Esercizi/Vacanze/Esercizio_03/MenuRistorante';
-import Termostato from './Esercizi/Vacanze/Esercizio_04/Termostato';
-import CampoRicerca from './Esercizi/Vacanze/Esercizio_05/CampoRicerca';
-import MessaggioSegreto from './Esercizi/Vacanze/Esercizio_06/MessaggioSegreto';
-import AggiornaTitolo from './Esercizi/Vacanze/Esercizio_07/AggiornaTitolo';
-import GalleriaFoto from './Esercizi/Vacanze/Esercizio_08/GalleriaFoto';
-import ModuloContatti from './Esercizi/Vacanze/Esercizio_09/ModuloContatti';
-import BlogApp from './Esercizi/Vacanze/Esercizio_10/BlogApp';
-import TodoApp from './Esercizi/Vacanze/Esercizio_11/TodoApp';
+import Saluto from './Esercizi Vite/Esercizi React Agosto /Esercizio 1/Saluto';
+import CardUtente from './Esercizi Vite/Esercizi React Agosto /Esercizio 2/CardUtente';
+import MenuRistorante from './Esercizi Vite/Esercizi React Agosto /Esercizio 3/MenuRistorante';
+import piatti from "./Esercizi Vite/Esercizi React Agosto /Esercizio 3/piatti";
+import Termostato from './Esercizi Vite/Esercizi React Agosto /Esercizio 4/Termostato';
+import CampoRicerca from './Esercizi Vite/Esercizi React Agosto /Esercizio 5/CampoRicerca';
+import MessaggioSegreto from './Esercizi Vite/Esercizi React Agosto /Esercizio 6/MessaggioSegreto';
+import AggiornaTitolo from './Esercizi Vite/Esercizi React Agosto /Esercizio 7/AggiornaTitolo';
+import GalleriaFoto from './Esercizi Vite/Esercizi React Agosto /Esercizio 8/GalleriaFoto';
+import ModuloContatti from './Esercizi Vite/Esercizi React Agosto /Esercizio 9/ModuloContatti';
+import BlogApp from './Esercizi Vite/Esercizi React Agosto /Esercizio 10/BlogApp';
+import TodoApp from './Esercizi Vite/Esercizi React Agosto /Esercizio 11/TodoApp';
 
 function App() {
+
+  let [paginaCorrente, setValore] = useState(Saluto) 
+
+  let NavbarTitles= ["Saluto", "CardUtente","MenuRistorante","Termostato","CampoRicerca",
+                      "MessaggioSegreto","AggiornaTitolo","GalleriaFoto","ModuloContatti","BlogApp","ToDoApp"] 
+
+  function impostaValore () {
+
+    switch (paginaCorrente){
+
+      case "Saluto":
+
+      return(<Saluto/>)
+
+      case "CardUtente":
+
+      return (
+          <>
+            <CardUtente nome="Nicol" email="jayasuriyanicol28@gmail.com" imgUrl="https://placehold.co/600x400" />
+            <CardUtente nome="Franco" email="franco@libero.it" imgUrl="https://placehold.co/250x600" />
+          </>
+        )
+        case "MenuRistorante":
+        return (
+          <MenuRistorante />
+        )
+
+      case "Termostato":
+        return (
+          <Termostato />
+        )
+
+      case "CampoRicerca":
+        return (
+          <CampoRicerca />
+        )
+
+      case "MessaggioSegreto":
+        return (
+          <MessaggioSegreto />
+        )
+
+      case "AggiornaTitolo":
+        return (
+          <AggiornaTitolo />
+        )
+
+      case "GalleriaFoto":
+        return (
+          <GalleriaFoto />
+        )
+
+      case "ModuloContatti":
+        return (
+          <ModuloContatti />
+        )
+
+      case "BlogApp":
+        return (
+          <BlogApp />
+        )
+
+      case "ToDoApp":
+
+      return(<TodoApp/>)
+  }  }
   return (
-    <>
-      <div style={{ marginLeft: "10px" }}>
-        <h1>Esercizio 1</h1>
-        <Saluto />
+  <>
+    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="#">Esercizi React Agosto</a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon" />
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+           
+            
+           {NavbarTitles.map((indice,chiave)=>{
+            return(
+              <li className="nav-item"key={chiave}>
+              <a className="nav-link" href="#"onClick={()=>setValore(indice)}>{indice}</a>
+            </li>
 
-        <hr className='my-4 border-primary border border-5' />
+            )
+           })}
+        
 
-        <h1>Esercizio 2</h1>
-        <CardUtente nome="Cristiano" email="cristiano003@gmail.com" imgUrl="https://placehold.co/600x400" />
-        <CardUtente nome="Gianluca" email="gianl@yahoo.com" imgUrl="https://placehold.co/250x600" />
-
-        <hr className='my-4 border-primary border border-5' />
-
-        <h1>Esercizio 3</h1>
-        <MenuRistorante />
-
-        <hr className='my-4 border-primary border border-5' />
-
-        <h1>Esercizio 4</h1>
-        <Termostato />
-
-        <hr className='my-4 border-primary border border-5' />
-
-        <h1>Esercizio 5</h1>
-        <CampoRicerca />
-
-        <hr className='my-4 border-primary border border-5' />
-
-        <h1>Esercizio 6</h1>
-        <MessaggioSegreto />
-
-        <hr className='my-4 border-primary border border-5' />
-
-        <h1>Esercizio 7</h1>
-        <AggiornaTitolo />
-
-        <hr className='my-4 border-primary border border-5' />
-
-        <h1>Esercizio 8</h1>
-        <GalleriaFoto />
-
-        <hr className='my-4 border-primary border border-5' />
-
-        <h1>Esercizio 9</h1>
-        <ModuloContatti />
-
-        <hr className='my-4 border-primary border border-5' />
-
-        <h1>Esercizio 10</h1>
-        <BlogApp />
-
-        <hr className='my-4 border-primary border border-5' />
-
-        <h1>Esercizio 11</h1>
-        <TodoApp />
+          </ul>
+        </div>
       </div>
-    </>
-  )
+    </nav>
+    <div>{impostaValore()}</div>
+ 
+  </>
+  
+  
+)
 }
 
-export default App
+
+ export default App;
