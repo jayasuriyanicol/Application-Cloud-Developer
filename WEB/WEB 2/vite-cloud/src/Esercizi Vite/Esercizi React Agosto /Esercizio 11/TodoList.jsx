@@ -1,21 +1,21 @@
+import React from "react";
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ tasks, handleDeleteTask, handleToggleTask }) => {
+const TodoList = ({tasks,onDeleteTask,onToggleTask}) => {
   return (
-    <div>
-      <h2>Lista Task</h2>
-      {tasks.length === 0 && <p>Nessun task disponibile</p>}
-      <ul>
-        {tasks.map((task) => (
-          <TodoItem
-            key={task.id}
-            task={task}
-            handleDeleteTask={handleDeleteTask}
-            handleToggleTask={handleToggleTask}
-          />
-        ))}
-      </ul>
-    </div>
+    <ul className="list-group">
+    
+     {
+      tasks.map((t)=>{
+        return (<TodoItem key ={t.id} 
+          task={t} 
+          onDeleteTask={onDeleteTask}
+          onToggleTask={onToggleTask}>
+            
+          </TodoItem>)
+     })
+    }
+    </ul>
   );
 };
 
