@@ -14,16 +14,18 @@ import AggiornaTitolo from './Esercizi Vite/Esercizi React Agosto /Esercizio 7/A
 import GalleriaFoto from './Esercizi Vite/Esercizi React Agosto /Esercizio 8/GalleriaFoto';
 import ModuloContatti from './Esercizi Vite/Esercizi React Agosto /Esercizio 9/ModuloContatti';
 import BlogApp from './Esercizi Vite/Esercizi React Agosto /Esercizio 10/BlogApp';
+import TodoApp from './Esercizi Vite/Esercizi React Agosto /Esercizio 11/TodoApp';
 
 function App() {
 
   let [paginaCorrente, setValore] = useState(Saluto) 
-  let NavbarTitles= ["Saluto", "CardUtente","MenuRistorante","piatti","Termostato","CampoRicerca",
-                      "MessaggioSegreto","AggiornaTitolo","GalleriaFoto","ModuloContatti","BlogApp"] 
+
+  let NavbarTitles= ["Saluto", "CardUtente","MenuRistorante","Termostato","CampoRicerca",
+                      "MessaggioSegreto","AggiornaTitolo","GalleriaFoto","ModuloContatti","BlogApp","ToDoApp"] 
+
   function impostaValore () {
 
     switch (paginaCorrente){
-
 
       case "Saluto":
 
@@ -31,13 +33,61 @@ function App() {
 
       case "CardUtente":
 
-      return(<CardUtente/>)
+      return (
+          <>
+            <CardUtente nome="Nicol" email="jayasuriyanicol28@gmail.com" imgUrl="https://placehold.co/600x400" />
+            <CardUtente nome="Franco" email="franco@libero.it" imgUrl="https://placehold.co/250x600" />
+          </>
+        )
+        case "MenuRistorante":
+        return (
+          <MenuRistorante />
+        )
+
+      case "Termostato":
+        return (
+          <Termostato />
+        )
+
+      case "CampoRicerca":
+        return (
+          <CampoRicerca />
+        )
+
+      case "MessaggioSegreto":
+        return (
+          <MessaggioSegreto />
+        )
+
+      case "AggiornaTitolo":
+        return (
+          <AggiornaTitolo />
+        )
+
+      case "GalleriaFoto":
+        return (
+          <GalleriaFoto />
+        )
+
+      case "ModuloContatti":
+        return (
+          <ModuloContatti />
+        )
+
+      case "BlogApp":
+        return (
+          <BlogApp />
+        )
+
+      case "ToDoApp":
+
+      return(<TodoApp/>)
   }  }
   return (
   <>
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">Navbar</a>
+        <a className="navbar-brand" href="#">Esercizi React Agosto</a>
         <button
           className="navbar-toggler"
           type="button"
@@ -51,14 +101,7 @@ function App() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Features</a>
-            </li>
+           
             
            {NavbarTitles.map((indice,chiave)=>{
             return(
@@ -75,8 +118,12 @@ function App() {
       </div>
     </nav>
     <div>{impostaValore()}</div>
-
+ 
   </>
+  
+  
 )
 }
+
+
  export default App;
