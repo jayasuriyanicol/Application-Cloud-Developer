@@ -37,33 +37,29 @@ from rettangolo import Rettangolo
 from quadrato import Quadrato
 
 
-quadrato = Quadrato(Forma)
-quadrato(4)
 
-rettangolo = Rettangolo(Forma)
-rettangolo(8,4)
-
-
-triangolo = Triangolo(Forma)
-triangolo(4,4)
+quadrato = Quadrato(4)
+rettangolo = Rettangolo(8,4)
+triangolo = Triangolo(4)
 
 
 
-print("\nEcco un Quadrato di lato 4 !\n ")
+
+print("\n---Ecco un Quadrato di lato 4 !\n---")
 quadrato.render()
 
-print("L'area di questo quadrato vale: ",quadrato.getArea())
+print("\nL'area di questo quadrato vale: ",quadrato.getArea())
 
 
 
-print("\nEcco un Rettangolo avente base 8 ed altezza 4 !\n ")
+print("\n---Ecco un Rettangolo avente base 8 ed altezza 4 !\n---")
 rettangolo.render()
 
-print("L'area di questo Rettangolo vale: ",rettangolo.getArea())
+print("\nL'area di questo Rettangolo vale: ",rettangolo.getArea())
 
 
 
-print("\nEcco un Triangolo avente base 4 ed altezza 4 !\n ")
+print("---\nEcco un Triangolo avente base 4 ed altezza 4 !\n---")
 triangolo.render()
 
-print("L'area di questo Triangolo vale: ",triangolo.getArea())
+print("\nL'area di questo Triangolo vale: ",triangolo.getArea())
