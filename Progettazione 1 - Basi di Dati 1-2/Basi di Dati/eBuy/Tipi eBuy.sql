@@ -29,7 +29,8 @@ CREATE DOMAIN Voto as INTEGER
 CREATE DOMAIN Stringa as VARCHAR;
 
 CREATE DOMAIN Url as VARCHAR
-      CHECK ( VALUE ~ [-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*));
+    --Aggiornamento, il CHECK VALUE sull'Url lo rendiamo commentato dato che durante la fase di INSERT nel DB può dare problemi
+    --CHECK ( VALUE ~ [-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*));
 
 
 CREATE TYPE Condizione as ENUM
