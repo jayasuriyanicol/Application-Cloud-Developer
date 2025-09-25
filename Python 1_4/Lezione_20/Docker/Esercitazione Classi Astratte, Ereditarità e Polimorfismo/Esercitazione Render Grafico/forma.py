@@ -17,19 +17,17 @@ from abc import ABC, abstractmethod
 class Forma(ABC):
 
 
-    def __init__ (self, nomeForma:str, funzionalita:str)-> None:
+    def __init__ (self, nomeForma:str)-> None:
 
         self.nomeForma = nomeForma
-        self.funzionalita = funzionalita
 
-    def Forma(ABC):
-       @abstractmethod
+    @abstractmethod
+    def render(self)-> None:
 
-       def nomeForma(self,nomeForma:str)-> None:
-           
-           self.nomeForma = nomeForma
-           pass
+        pass
 
+
+    @abstractmethod
     def getArea()->float:
         
         pass
