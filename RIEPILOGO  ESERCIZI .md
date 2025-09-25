@@ -5,8 +5,8 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **BASI DATI**   | Completare il DB progetto eBuy                | *Giovedì 25 Settembre* | Cercare di completare fino alle Foreign Keys   |
-| **Sicurezza 1** | Inserire codice PY e crittografia dalle slide | *NULL* | Maggiori informazioni nel relativo file |
+| **BASI DATI**   | Completare il DB progetto eBuy                | *NULL*      | Cercare di completare tutto fino alle QUERY   |
+| **Sicurezza 1** | Inserire codice PY e crittografia dalle slide | *NULL*      | Maggiori informazioni nel relativo file |
 
               
 
