@@ -20,12 +20,11 @@ from forma import Forma
 
 class Triangolo(Forma):
 
-    def __init__(self, nomeForma:str, funzionalita:str, latoTriangolo:int)-> None:
+    def __init__(self, latoTriangolo:int)-> None:
 
-        super().__init__(nomeForma, funzionalita)
+        super().__init__("Triangolo")
 
         self.latoTriangolo = latoTriangolo
-        self.nomeForma = "Triangolo"
 
 
     def getLatoTriangolo(self)-> int:
@@ -44,20 +43,17 @@ class Triangolo(Forma):
     def render(self)-> str:
 
         lato = self.getLatoTriangolo()
-        altezza:int = 1
-        base:int = 1
 
-        while altezza <= lato:
-            lunghezza = 1
-            
-            while lunghezza <= lato:
-                if altezza == 1 or altezza == base or lunghezza == lato:
+        for parteSuperioreInferiore in range (lato):
+            for parteInferiore in range(parteSuperioreInferiore + 1):
+                
+                if parteSuperioreInferiore == lato - 1 or parteInferiore == 0 or parteInferiore == parteSuperioreInferiore:
                      print('* ',end="")
                 else:
                      print("  ",end="")
 
             print()
-            altezza += 1
+        
 
 
 
