@@ -14,46 +14,42 @@ from forma import Forma
 
 class Rettangolo(Forma):
 
-    def __init__(self, nomeForma:str, funzionalita:str,base:int,altezza:int) -> None:
-        super().__init__(nomeForma, funzionalita)
+    def __init__(self,base:int, altezza:int) -> None:
+        super().__init__("Rettangolo")
         self.base = base
         self.altezza = altezza
-        nomeForma = "Rettangolo"
-    
+        
 
     def getBase(self) -> int:
+
         return self.base
     
     def getAltezza(self) -> int:
-        return self.base
+
+        return self.altezza
     
     def getArea(self) -> float:
         
         base = self.base
         altezza = self.altezza
 
-
-        areaRettangolo = (base * altezza) // 2
+        areaRettangolo = (base * altezza)
         return areaRettangolo
     
 
     def render(self) -> str:
-        altezzaRettangolo = 1
-        baseRettangolo = 1
+
         altezza = self.getAltezza()
         base = self.getBase()
 
-        while altezza <= altezzaRettangolo :
-            base = 1
-            
-            while base <= baseRettangolo:
-                if altezzaRettangolo == 1 or altezzaRettangolo == altezza or baseRettangolo == 1 or baseRettangolo == base:
+        for parteSuperioreInferiore in range(altezza):
+            for parteInferiore in range(base):
+                if parteSuperioreInferiore == 0 or parteSuperioreInferiore == altezza - 1 or parteInferiore == 0 or parteInferiore == base - 1:
                      print('* ',end="")
                 else:
-                     print(" ",end="")
-                altezza += 1
+                     print("  ",end="")
             print()
-            altezza += 1
+            
 
 
     
