@@ -23,7 +23,7 @@ FOREIGN KEY (super) REFERENCES categoria(nome);
 CREATE TABLE Utente(
 
     username Stringa PRIMARY KEY,
-    registrazione TIMESTAMP NOT NULL
+    registrazione TIMESTAMP NOT NULL,
 
     --Per utilizzare la funzione 'Disjoint & Complete' possiamo utilizzare questo CHECK
     --dato che in PostgreSQL non vi è un'opzione specifica ma ELEMENTARMENTE possiamo utilizzare
@@ -46,7 +46,7 @@ CREATE TABLE VenditoreProfessionale(
 
 
 );
-
+-- Vincoli {disjoint, complete} su Utente non ancora completati
 
 CREATE TABLE Privato(
 
@@ -72,58 +72,100 @@ CREATE TABLE PostOggetto(
     id SERIAL PRIMARY KEY,
     descrizione Stringa NOT NULL,
     pubblicazione TIMESTAMP NOT NULL,
-    ha_feedback BOOLEAN,
+    ha_feedback BOOLEAN DEFAULT false,
     voto Voto,
     commento Stringa,
     istante_feedback TIMESTAMP NOT NULL,
 
-    Utente Stringa NOT NULL,
+    pubblica Stringa NOT NULL,
     Categoria Stringa NOT NULL,
 
-    FOREIGN KEY (Utente) REFERENCES utente(username),
+  --CHIAVE NON MINIMALE:Utilizziamo questa forma facoltativa, perchè la FOREIGN KEY deve puntare da qualche parte
+  --garantendo così la coerenza di dati, così da ovviare ad errori.
+    UNIQUE(id,pubblica) 
+    
+
+    FOREIGN KEY (pubblica) REFERENCES utente(username),
     FOREIGN KEY (Categoria) REFERENCES categoria(nome),
 
-    CHECK((ha_feedback = True AND voto IS NOT NULL)
-      OR  (ha_feedback = False AND voto IS NULL AND commento IS NULL) )
+    
+  --CHECK superfluo, non necessario per il sistema, ma possibile utilizzarlo come metodo di ENNUPLA
+    CHECK (istante_feedback IS NULL OR istante_feedback > pubblicazione)
+
+    CHECK((ha_feedback = True) =  (voto IS NOT NULL AND istante_feedback IS NOT NULL))
+    
+  --Utilizziamo la funzione A -> (implica) B  ==  (NOT A) OR B
+    CHECK((commento IS NOT NULL or ha_feedback = True))
 );
 
 
 CREATE TABLE met_post (
 
     metodo Stringa NOT NULL,
-    post   INTEGER NOT NULL
+    postOggetto INTEGER NOT NULL,
 
-    PRIMARY KEY (metodo,post),
+    PRIMARY KEY (metodo,postOggetto),
+
     FOREIGN KEY (metodo) REFERENCES MetodoPagamento(nome),
-    FOREIGN KEY (post) REFERENCES PostOggetto(id)
+    FOREIGN KEY (postOggetto) REFERENCES PostOggetto(id)
 
-);
+    --Il vinc. inclus. (id) occorre in met_post(postoggetto)
 
-
-
-CREATE TABLE PostOggettoNuovo(
-
-    anni_garanzia IntG1 NOT NULL,
-
-    pon_isa_po INTEGER PRIMARY KEY,
-    pubblica_nuovo Stringa NOT NULL,
-
-    FOREIGN KEY (pon_isa_po) REFERENCES PostOggetto(id),
-    FOREIGN KEY(pubblica_nuovo) REFERENCES VenditoreProfessionale(vp_isa_ut)
 );
 
 
 CREATE TABLE PostOggettoUsato(
 
     condizione Condizione NOT NULL,
-    anni_garanzia IntGEZ NOT NULL
+    anni_garanzia IntGEZ NOT NULL,
 
-    pou_isa_po INTEGER PRIMARY KEY,
-    FOREIGN KEY (pou_isa_po) REFERENCES PostOggetto(id)
+    postoggetto INTEGER PRIMARY KEY,
+    FOREIGN KEY (postoggetto) REFERENCES PostOggetto(id)
 
 );
 
 
+CREATE TABLE PostOggettoNuovo(
+
+    anni_garanzia IntG2 NOT NULL,
+
+    postoggetto INTEGER PRIMARY KEY,
+    pubblica_nuovo Stringa NOT NULL,
+
+    FOREIGN KEY (postoggetto) REFERENCES PostOggetto(id),
+    FOREIGN KEY(pubblica_nuovo) REFERENCES VenditoreProfessionale(utante)
+    FOREIGN KEY (postoggetto, pubblica_nuovo) REFERENCES postoggetto(id,pubblica)
+);
+
+
+CREATE TABLE postoggettocompralosubito(
+
+    postoggetto INTEGER PRIMARY KEY,
+    prezzo RealGZ NOT NULL,
+    acquirente Stringa NOT NULL,
+
+
+    acquirente Stringa,
+    istante_acquisto TIMESTAMP,
+
+    FOREIGN KEY (acquirente) REFERENCES privato(utente)
+    FOREIGN KEY(postoggetto) REFERENCES postoggetto(id)
+    
+
+    CHECK((acquirente INTEGER IS NULL) = (istante_acquisto IS NULL))
+);
+
+
+CREATE TABLE postoggettoasta(
+    
+    postoggetto INTEGER PRIMARY KEY,
+
+    prezzo_base Stringa PRIMARY KEY,
+    prezzo_bid TIMESTAMP NOT NULL,
+    scadenza TIMESTAMP NOT NULL,
+
+    FOREIGN KEY(postoggetto) REFERENCES postoggetto(id)
+);
 
 
 
@@ -170,13 +212,7 @@ CREATE TABLE CompraloSubito(
 
 
 
-CREATE TABLE Acquirente(
 
-    acqu_isa_ut Stringa PRIMARY KEY,
-    istante TIMESTAMP NOT NULL,
-
-    FOREIGN KEY(acqu_isa_ut) REFERENCES Utente(username)
-);
 
 
 COMMIT;

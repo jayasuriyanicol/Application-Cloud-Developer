@@ -20,12 +20,16 @@ CREATE DOMAIN RealGZ as REAL
 CREATE DOMAIN IntG1 as INTEGER
     CHECK (VALUE > 1);
 
+CREATE DOMAIN IntG2 as INTEGER
+    CHECK (VALUE > 1);
+
 CREATE DOMAIN Voto as INTEGER
     CHECK (VALUE > 0 AND VALUE <= 5);
 
 CREATE DOMAIN Stringa as VARCHAR;
 
-CREATE DOMAIN Url as VARCHAR;
+CREATE DOMAIN Url as VARCHAR
+      CHECK ( VALUE ~ [-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*));
 
 
 CREATE TYPE Condizione as ENUM
