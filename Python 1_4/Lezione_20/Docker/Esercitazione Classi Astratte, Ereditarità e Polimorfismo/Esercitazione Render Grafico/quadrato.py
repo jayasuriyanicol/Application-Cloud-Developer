@@ -17,11 +17,11 @@ from forma import Forma
 class Quadrato(Forma):
 
 
-    def __init__(self, nomeForma:str, funzionalita:str,latoQuadrato:int) -> None:
-        super().__init__(nomeForma, funzionalita)
+    def __init__(self,latoQuadrato:int) -> None:
+
+        super().__init__("Quadrato")
  
         self.latoQuadrato = latoQuadrato
-        self.nomeForma = "Quadrato"
    
     def getLato(self) -> int:
 
@@ -38,21 +38,19 @@ class Quadrato(Forma):
 
     def render(self) -> str:
 
-        altezza:int = 1
-        lunghezza:int = 1
         lato = self.getLato()
 
-        while altezza <= lato:
-            lunghezza = 1
-            
-            while lunghezza <= lato:
-                if altezza == 1 or altezza == lato or lunghezza == 1 or lunghezza == lato:
-                     print('* ',end="")
+        for parteSuperioreInferiore in range(lato):
+            for parteLaterale in range(lato):
+                if parteSuperioreInferiore == 0 or parteSuperioreInferiore == lato - 1 or parteLaterale == 0 or parteLaterale == lato - 1:
+                     
+                    print('* ',end="")
+
                 else:
-                     print(" ",end="")
-                altezza += 1
+                     
+                     print("  ",end="")
             print()
-            altezza += 1
+         
 
 
 
