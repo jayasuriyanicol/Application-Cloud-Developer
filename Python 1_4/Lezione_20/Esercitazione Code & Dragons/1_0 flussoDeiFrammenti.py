@@ -25,6 +25,7 @@ def sum_list(nums:list[int]) -> int:
             sommaNumeri += numeroPresente
         return sommaNumeri
 
+
 '''Nel caso volessimo utilizzare una formula più ridotta possiamo adottare:'''
 
 def sum_list(nums:list[int]) -> int:
