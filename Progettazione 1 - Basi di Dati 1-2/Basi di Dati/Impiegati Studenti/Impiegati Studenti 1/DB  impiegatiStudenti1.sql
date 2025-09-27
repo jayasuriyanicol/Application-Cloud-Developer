@@ -3,6 +3,7 @@ CREATE DATABASE ImpiegatiStudenti1;
 \c ImpiegatiStudenti1
 
 
+
 BEGIN TRANSACTION
 SET CONSTRAINTS ALL DEFERRED;
 
