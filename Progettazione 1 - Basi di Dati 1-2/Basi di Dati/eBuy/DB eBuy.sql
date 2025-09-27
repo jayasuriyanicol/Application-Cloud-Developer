@@ -40,9 +40,9 @@ CREATE TABLE VenditoreProfessionale(
 
     vetrina Url UNIQUE NOT NULL,
 
-    vp_isa_ut Stringa PRIMARY KEY,
+    utente Stringa PRIMARY KEY,
 
-    FOREIGN KEY (vp_isa_ut) REFERENCES Utente(username)
+    FOREIGN KEY (utente) REFERENCES Utente(username) DEFERRABLE
 
 
 );
@@ -50,9 +50,9 @@ CREATE TABLE VenditoreProfessionale(
 
 CREATE TABLE Privato(
 
-    pr_isa_ut Stringa PRIMARY KEY,
+    utente Stringa PRIMARY KEY,
 
-    FOREIGN KEY (pr_isa_ut) REFERENCES Utente(username)
+    FOREIGN KEY (utente) REFERENCES Utente(username) DEFERRABLE
 
 );
 
@@ -63,7 +63,6 @@ CREATE TABLE MetodoPagamento(
     nome Stringa PRIMARY KEY NOT NULL
 
 );
-
 
 
 
@@ -78,15 +77,15 @@ CREATE TABLE PostOggetto(
     istante_feedback TIMESTAMP NOT NULL,
 
     pubblica Stringa NOT NULL,
-    Categoria Stringa NOT NULL,
+    categoria Stringa NOT NULL,
 
   --CHIAVE NON MINIMALE:Utilizziamo questa forma facoltativa, perchè la FOREIGN KEY deve puntare da qualche parte
   --garantendo così la coerenza di dati, così da ovviare ad errori.
     UNIQUE(id,pubblica) 
     
 
-    FOREIGN KEY (pubblica) REFERENCES utente(username),
-    FOREIGN KEY (Categoria) REFERENCES categoria(nome),
+    FOREIGN KEY (pubblica) REFERENCES Utente(username),
+    FOREIGN KEY (Categoria) REFERENCES Categoria(nome),
 
     
   --CHECK superfluo, non necessario per il sistema, ma possibile utilizzarlo come metodo di ENNUPLA
@@ -120,7 +119,7 @@ CREATE TABLE PostOggettoUsato(
     anni_garanzia IntGEZ NOT NULL,
 
     postoggetto INTEGER PRIMARY KEY,
-    FOREIGN KEY (postoggetto) REFERENCES PostOggetto(id)
+    FOREIGN KEY (postoggetto) REFERENCES PostOggetto(id) DEFERRABLE
 
 );
 
@@ -132,17 +131,18 @@ CREATE TABLE PostOggettoNuovo(
     postoggetto INTEGER PRIMARY KEY,
     pubblica_nuovo Stringa NOT NULL,
 
-    FOREIGN KEY (postoggetto) REFERENCES PostOggetto(id),
-    FOREIGN KEY(pubblica_nuovo) REFERENCES VenditoreProfessionale(utante)
-    FOREIGN KEY (postoggetto, pubblica_nuovo) REFERENCES postoggetto(id,pubblica)
+    FOREIGN KEY (postoggetto) REFERENCES PostOggetto(id) DEFFERABLE,
+    FOREIGN KEY(pubblica_nuovo) REFERENCES VenditoreProfessionale(utante) DEFFERABLE,
+    FOREIGN KEY (postoggetto, pubblica_nuovo) REFERENCES postoggetto(id,pubblica) DEFERRABLE
 );
 
+-- Vincoli {disjoint, complete} su PostOggetto nuovo/usato non ancora implementati
 
-CREATE TABLE postoggettocompralosubito(
+CREATE TABLE PostOggettoCompraloSubito(
 
     postoggetto INTEGER PRIMARY KEY,
     prezzo RealGZ NOT NULL,
-    acquirente Stringa NOT NULL,
+    acquirente Stringa,
 
 
     acquirente Stringa,
@@ -156,30 +156,19 @@ CREATE TABLE postoggettocompralosubito(
 );
 
 
-CREATE TABLE postoggettoasta(
+CREATE TABLE PostOggettoAsta(
     
     postoggetto INTEGER PRIMARY KEY,
-
-    prezzo_base Stringa PRIMARY KEY,
-    prezzo_bid TIMESTAMP NOT NULL,
-    scadenza TIMESTAMP NOT NULL,
-
-    FOREIGN KEY(postoggetto) REFERENCES postoggetto(id)
-);
-
-
-
-CREATE TABLE Asta(
 
     prezzo_base RealGEZ NOT NULL,
     prezzo_bid RealGZ NOT NULL,
     scadenza TIMESTAMP NOT NULL,
 
-    asta_isa_po INTEGER PRIMARY KEY,
-    FOREIGN KEY (asta_isa_po) REFERENCES PostOggetto(id)
-
-
+    FOREIGN KEY(postoggetto) REFERENCES Postoggetto(id) DEFERRABLE
 );
+
+
+
 
 CREATE TABLE Bid(
 
@@ -198,21 +187,6 @@ CREATE TABLE Bid(
     FOREIGN KEY(bid_ut) REFERENCES Privato(pr_isa_ut)
 
 );
-
-
-
-CREATE TABLE CompraloSubito(
-
-    prezzo RealGZ NOT NULL,
-
-    cs_isa_po INTEGER PRIMARY KEY,
-
-    FOREIGN KEY(cs_isa_po) REFERENCES PostOggetto(id)
-);
-
-
-
-
 
 
 COMMIT;
