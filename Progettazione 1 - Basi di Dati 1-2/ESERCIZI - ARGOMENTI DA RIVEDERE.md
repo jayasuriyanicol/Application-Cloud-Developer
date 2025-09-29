@@ -1,14 +1,16 @@
 # |ESERCIZI - ARGOMENTI DA RIVEDERE - Basi di Dati 1-2|
 
-## Progetto eBuy - Insert DB & Types e CREAZIONE QUERY
+## Accademia6 - Insert DB e SVOLGIMENTO QUERY
 
-Svolgere la fase di inserimento dei **Tipi e Tabelle**, nel terminale di *PostGres SQL* per poi poter procedere con:
+Svolgere la fase di inserimento delle **Tabelle**, nel terminale di *PostGres SQL* per poi poter procedere con:
 
                     -> Verifica delle Tabelle inserite nella maniera corretta con FOREIGN E PRIMARY KEY
 
-Inoltre riaggiornare il DB presente su -> VsCode, con le parti mancanti sul **DEFERRABLE**, ecc.
+Infine verificare la correttezza del **DB**, ma anche delle ultime **Query** svolte tramite *Terminale*. 
 
-Infine cercare di svolgere alcune *QUERY* di natura **MATEMATICA** e non (circa 2/4 query) sul DB eBuy
 
+Svolgere il tutto e consegnare sul **Moodle**
+
+                Moodle -> Accademia6 Assignment (seguire le istruzioni di consegna)
 
 
