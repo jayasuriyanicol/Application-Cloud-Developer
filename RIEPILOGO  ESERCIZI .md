@@ -5,7 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **BASI DATI**   | Completare il DB progetto eBuy                | *NULL*      | Cercare di completare tutto fino alle QUERY   |
+| **BASI DATI**   | Completare il DB & Query Accademia6                | *NULL*      | Completare le Query e concludere assignment  |
 | **Sicurezza 1** | Inserire codice PY e crittografia dalle slide | *NULL*      | Maggiori informazioni nel relativo file |
 
               
