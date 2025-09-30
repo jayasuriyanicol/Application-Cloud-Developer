@@ -98,7 +98,6 @@ CREATE TABLE Assenza (
     persona PosInteger NOT NULL,
     tipo CausaAssenza NOT NULL,
     giorno DATE NOT NULL,
-    oreDurata NumeroOre NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (persona) REFERENCES Persona(id),
     UNIQUE (persona, giorno)
@@ -183,6 +182,7 @@ VALUES
 ('8',	'5',	'Altro',					'2012-12-15',	'6'),
 ('9',	'0',	'Didattica',				'2012-04-18',	'4'),
 ('10',	'6',	'Didattica',				'2011-05-07',	'7');
+
 
 
 INSERT INTO Assenza(id, persona, tipo, giorno) VALUES
