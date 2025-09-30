@@ -225,7 +225,7 @@ GROUP BY p.posizione;
 
 -- 2. Quanti sono gli strutturati con stipendio ≥ 40000?
 
-SELECT COUNT(*) as NumeroRuolo  
+SELECT COUNT(*) as Numero 
 FROM Persona p 
 WHERE p.stipendio >= 40000;
 
@@ -295,7 +295,17 @@ GROUP BY pr.id, pr.nome;
 
 -- 10. Qual è il nome dei progetti su cui lavorano più di due strutturati?
 
-SELECT w.nome
-FROM Persona p, WP w, AttivitaProgetto ap
-WHERE p.id = w.
+SELECT pr.id,pr.nome AS NomeProgetto
+FROM Persona p,Progetto pr, AttivitaProgetto ap
+WHERE p.id = ap.persona and ap.progetto = pr.id
+GROUP BY pr.id,pr.nome
+HAVING COUNT(DISTINCT p.id) > 2;
 
+
+-- 11. Quali sono i professori associati che hanno lavorato su più di un progetto?
+
+SELECT p.id AS id_persona, p.nome, p.cognome
+FROM Persona p, Progetto pr, AttivitaProgetto ap
+WHERE p.id = ap.persona AND pr.id = ap.progetto AND p.posizione = 'Professore Associato'
+GROUP BY p.id, p.nome, p.cognome
+HAVING COUNT(DISTINCT pr.id) > 1;
