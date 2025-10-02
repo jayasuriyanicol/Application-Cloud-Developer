@@ -255,7 +255,7 @@ WHERE ap.progetto = p.id AND p.nome = 'Pegasus';
 SELECT p.id,p.nome,p.cognome,AVG(ap.oreDurata) AS MediaDurata, MAX(ap.oreDurata) AS MassimaDurata,MIN(ap.oreDurata) AS MinimaDurata
 FROM  AttivitaProgetto ap,persona p
 WHERE ap.progetto = 1 and  p.id = ap.persona
-GROUP BY p.id;
+GROUP BY p.id,p.nome, p.cognome;
 
 
 
