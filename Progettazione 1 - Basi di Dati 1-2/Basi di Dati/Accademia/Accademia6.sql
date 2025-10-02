@@ -265,8 +265,7 @@ GROUP BY p.id;
 SELECT p.id, p.nome,p.cognome,SUM(anp.oreDurata) AS ore_didattica
 FROM  Persona p, AttivitaNonProgettuale anp
 WHERE anp.tipo = 'Didattica' AND p.id = anp.persona
-GROUP BY p.id;
-
+GROUP BY p.id, p.nome,p.cognome;
 
 -- 7. Qual è la media, il massimo e il minimo degli stipendi dei ricercatori?
 
