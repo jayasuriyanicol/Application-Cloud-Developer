@@ -236,8 +236,7 @@ WHERE p.stipendio >= 40000;
 
 SELECT COUNT(*) as ProgettiFIniti  
 FROM Progetto p 
-WHERE p.budget >= 50000;
-
+WHERE p.budget >= 50000 AND fine < CURRENT_DATE;
 
 -- 4. Qual è la media, il massimo e il minimo delle ore delle attività relative al progetto
 --‘Pegasus’ ?
