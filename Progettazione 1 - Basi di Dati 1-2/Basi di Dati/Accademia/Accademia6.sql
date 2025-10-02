@@ -244,7 +244,7 @@ WHERE p.budget >= 50000 AND fine < CURRENT_DATE;
 
 SELECT AVG(ap.oreDurata) AS MediaDurata, MAX(ap.oreDurata) AS MassimaDurata,MIN(ap.oreDurata) AS MinimaDurata
 FROM  AttivitaProgetto ap
-WHERE ap.progetto = 1;
+WHERE ap.progetto = p.id AND p.nome = 'Pegasus';
 
 --Per la formattazione è possibile utilizzare anche la funzione 'ROUND' -> ROUND((variabile),2)
 
