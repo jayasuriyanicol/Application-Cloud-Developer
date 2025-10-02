@@ -246,6 +246,8 @@ SELECT AVG(ap.oreDurata) AS MediaDurata, MAX(ap.oreDurata) AS MassimaDurata,MIN(
 FROM  AttivitaProgetto ap
 WHERE ap.progetto = 1;
 
+--Per la formattazione è possibile utilizzare anche la funzione 'ROUND' -> ROUND((variabile),2)
+
 -- 5. Quali sono le medie, i massimi e i minimi delle ore giornaliere dedicate al progetto
 --‘Pegasus’ da ogni singolo docente?
 
