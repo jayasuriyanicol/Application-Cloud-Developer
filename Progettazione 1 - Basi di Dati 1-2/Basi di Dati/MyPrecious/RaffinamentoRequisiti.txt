@@ -1,0 +1,60 @@
+
+RAFFINAMENTO DEI REQUISITI - Progettp MyPrecious
+
+
+
+Consegna presente nella stessa cartella 'MyPrecious'.
+
+
+
+
+RAFFINAMENTO:
+
+
+1.1 Opere:
+
+    1.1.1.nome : stringa
+    1.1.2.categoria : tipologia enumerativa
+      1.1.2.1 categoria = { dipinto, scultura, mosaico, manoscritto}
+    1.1.3. autore: stringa
+    1.1.4. annoDiRealizzazione : data
+    1.1.5. tecnica : stringa | null
+    1.1.6. correntiArtistiche : stringa
+
+1.2 Autore:
+
+    1.2.1. nome : stringa
+    1.2.2. luogo : stringa
+    1.2.3. dataNascita : data
+    1.2.4. dataNascita : data | null
+    1.2.5. opereRealizzate : stringa
+
+1.3 ResponsabiliGestione: 
+
+    1.3.1. opere : tipologia enumerativa
+      1.3.1.1. opere= {permanenti,temporanee}
+      1.3.1.2  permanenti -> sono opere più importanti sempre fruibili
+      1.3.1.3. temporanee -> sono opere con temi particolari meno fruibili nel tempo
+        1.3.1.3.1 temporanee(temaParticolare) -> ovvero un 'temaParticolare' inteso come stringa rappresenta una descrizione particolare dell'opereRealizzate
+        1.3.1.3.2 temporanee(temaParticolare) -> nella descrizione contiene il nome,l'intervallo, date all'interno quando vengono eseguite e prezzo per visionarlo
+    1.3.2. le opere possono essere esposte per un certo periodo di tempo
+        1.3.2.1 collegamento con 'Opere' con variabile PeriodoEspozione
+
+
+1.4 Museo:
+
+    1.4.1. biglietti: tipologia di cui bisogna aver conoscenza della tariffa
+        1.4.1.1. biglietti(istanteVendita) : timestamp (orario effettivo di vendita del biglietto)
+        1.4.1.2. biglietti(dataValidita) : operazione per verificare la validità effettiva (istanteVendita + tariffaScelta)
+        1.4.1.1  biglietti = {Standard, Extended access}
+              1.4.1.1.1. biglietti(Standard) -> accesso solo alle esposizioni permanenti, con prezzo uguale alla tariffaScelta
+              1.4.1.1.2. biglietti(Extended access) -> accesso tutte esposizioni permanenti e un 'insieme' di esposizioni temporanee (scelte dall'acquirente)
+                      1.4.1.1.3. biglietti(Extended access(prezzo)) -> 
+    1.4.2. tariffa : tipologia
+        1.4.2.1 tariffa(nome) : stringa
+        1.4.3.1 tariffa(prezzoBase): reale >= 0
+
+
+
+
+ARRIVATO FINO AD ExtendedAccess
