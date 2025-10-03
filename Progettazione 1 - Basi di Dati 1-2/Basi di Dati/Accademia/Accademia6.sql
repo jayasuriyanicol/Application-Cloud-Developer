@@ -265,7 +265,8 @@ GROUP BY p.id,p.nome, p.cognome;
 SELECT p.id, p.nome,p.cognome,SUM(anp.oreDurata) AS ore_didattica
 FROM  Persona p, AttivitaNonProgettuale anp
 WHERE anp.tipo = 'Didattica' AND p.id = anp.persona
-GROUP BY p.id, p.nome,p.cognome ;
+GROUP BY p.id, p.nome,p.cognome;
+
 
 -- 7. Qual è la media, il massimo e il minimo degli stipendi dei ricercatori?
 
@@ -301,7 +302,7 @@ WHERE p.id = ap.persona and ap.progetto = pr.id
 GROUP BY pr.id,pr.nome
 HAVING COUNT(DISTINCT p.id) > 2;
 
-
+so
 -- 11. Quali sono i professori associati che hanno lavorato su più di un progetto?
 
 SELECT p.id AS id_persona, p.nome, p.cognome
