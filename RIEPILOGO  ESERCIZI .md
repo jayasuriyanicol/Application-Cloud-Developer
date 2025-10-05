@@ -5,7 +5,9 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **Sicurezza 1** | Inserire codice PY e crittografia dalle slide | *NULL*      | Maggiori informazioni nel relativo file |
+| **PROG/BASI DATI** | Svolgere le parti mancanti del progetto 'MyPrecious' | *ND*  | Proseguire arrivando almeno agli USE CASE |
+
+| **Sicurezza 1** | Rivedere le slide pubblicate su OS e Crittografia | *NULL*      | Maggiori informazioni nel relativo file |
 
               
 
