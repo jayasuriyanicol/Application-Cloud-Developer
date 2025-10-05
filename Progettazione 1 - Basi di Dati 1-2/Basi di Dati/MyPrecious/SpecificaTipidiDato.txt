@@ -1,0 +1,130 @@
+1. Nome
+
+Valore: stringa alfanumerica
+Vincolo: lunghezza massima 50 caratteri
+Descrizione: utilizzato per denominare entità come Opera, Autore, Tariffa, Esposizione, Città e Museo.
+
+2. CategoriaOpera
+
+Valore: stringa enumerica
+Dominio:
+CategoriaOpera = {dipinto, scultura, mosaico, manoscritto, fotografia, altro}
+Descrizione: indica la tipologia dell’opera.
+
+3. CorrenteArtistica
+
+Valore: stringa enumerica
+Dominio:
+CorrenteArtistica = {impressionismo, cubismo, rinascimento, barocco, neoclassicismo, moderno, contemporaneo, altro}
+Descrizione: specifica la corrente artistica di riferimento.
+
+4. Tecnica
+
+Valore: stringa alfanumerica
+Vincolo: opzionale; può assumere valore nullo se non pertinente alla categoria dell’opera
+Descrizione: descrive la tecnica artistica utilizzata (es. olio su tela, marmo scolpito, affresco, ecc.).
+
+5. Data
+
+Valore: stringa numerica
+Formato: GG/MM/AAAA
+(G = giorno, M = mese, A = anno)
+Descrizione: usato per data di nascita, data di morte, data validità biglietto, data vendita, data inizio/fine esposizione temporanea.
+
+6. Ora
+
+Valore: stringa numerica
+Formato: OO:MM:SS
+(O = ora, M = minuto, S = secondo)
+Descrizione: utilizzato per rappresentare l’orario di vendita dei biglietti.
+
+7. DataOra
+
+Valore: stringa numerica
+Formato: GG/MM/AAAA OO:MM:SS
+Descrizione: utilizzato per indicare un’istante temporale completo (es. istante di vendita del biglietto).
+
+8. Prezzo
+
+Valore: numerico reale (≥ 0)
+Formato: decimale con due cifre decimali (es. 12.50)
+Descrizione: rappresenta il prezzo di accesso, il prezzo base della tariffa o il prezzo totale del biglietto.
+
+9. IntervalloDate
+
+Valore: coppia ordinata (dataInizio, dataFine)
+Vincolo: dataInizio ≤ dataFine
+Descrizione: rappresenta il periodo di validità di un’esposizione temporanea.
+
+10. NomeArte
+
+Valore: stringa alfanumerica
+Vincolo: lunghezza massima 40 caratteri
+Descrizione: pseudonimo o nome d’arte dell’autore.
+
+11. Paese, Regione, Provincia, Città
+
+Valore: stringa alfabetica
+Vincolo: iniziale maiuscola, lunghezza massima 30 caratteri
+Descrizione: identifica l’unità geografica.
+
+12. TipoBiglietto
+
+Valore: stringa enumerica
+Dominio: TipoBiglietto = {Standard, ExtendedAccess}
+Descrizione: specifica la tipologia di biglietto venduto.
+
+13. TipoEsposizione
+
+Valore: stringa enumerica
+Dominio: TipoEsposizione = {Permanente, Temporanea}
+Descrizione: definisce la tipologia dell’esposizione.
+
+14. Tema
+
+Valore: stringa alfanumerica
+Vincolo: opzionale; presente solo per esposizioni temporanee
+Descrizione: descrive il tema dell’esposizione (es. “L’Impressionismo Francese”, “Arte Moderna Italiana”).
+
+15. Identificativo
+
+Valore: stringa alfanumerica
+Vincolo: univoco, lunghezza massima 8 caratteri
+Descrizione: identificativo univoco per entità come Opera, Autore, Biglietto, Tariffa.
+
+16. TariffaNome
+
+Valore: stringa alfanumerica
+Vincolo: univoco nel contesto del museo
+Descrizione: nome della tariffa, es. Base, Ridotto, Studente.
+
+SPECIFICA ATTRIBUTI (Vincoli semantici)
+Prezzo
+
+Deve essere maggiore o uguale a zero.
+
+Per Biglietto.Standard: prezzo = prezzoBase della Tariffa.
+
+Per Biglietto.ExtendedAccess: prezzo = prezzoBase + somma(prezzoAccesso delle esposizioni temporanee selezionate).
+
+Data di Validità Biglietto
+
+Deve essere successiva o uguale alla data di vendita.
+
+IntervalloDate
+
+dataInizio ≤ dataFine
+
+Deve essere coerente con il periodo di attività dell’esposizione temporanea.
+
+Autore.dataMorte
+
+Facoltativa, ma se presente deve essere successiva a dataNascita.
+
+Opera.annoRealizzazione
+
+Deve essere maggiore o uguale all’anno di nascita dell’autore.
+
+Tecnica
+
+Obbligatoria solo se CategoriaOpera ∈ {dipinto, mosaico, manoscritto}.
