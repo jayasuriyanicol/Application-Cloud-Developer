@@ -134,6 +134,10 @@ HAVING MAX(durataMinuti) > D.massimaDurata
 
 --14. Qual'è il nome delle compagnie che non hanno voli ?
 
+SELECT DISTINCT (com.nome)
+FROM Compagnia com
+WHERE com.nome NOT IN (
 
-               -- TO DO 
-
+SELECT v.comp
+FROM Volo V
+);
