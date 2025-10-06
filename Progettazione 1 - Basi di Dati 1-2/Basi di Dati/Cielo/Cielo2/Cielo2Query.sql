@@ -135,3 +135,5 @@ HAVING MAX(durataMinuti) > D.massimaDurata
 --14. Qual'è il nome delle compagnie che non hanno voli ?
 
 
+               -- TO DO 
+
