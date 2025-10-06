@@ -20,7 +20,7 @@ GROUP BY ap.codice, ap.nome;
 
 SELECT COUNT(apr.codice) as NumeroVoliHTR
 FROM Volo v, ArrPart apr
-WHERE v.codice = apr.codice AND apr.partenza = 'HTR' AND v.durataMinuti >= 100;
+WHERE v.codice = apr.codice AND v.comp = apr.comp AND apr.partenza = 'HTR' AND v.durataMinuti >= 100;
 
 
 
