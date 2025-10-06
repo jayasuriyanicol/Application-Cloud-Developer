@@ -1,0 +1,152 @@
+SPECIFICA DELLE OPERAZIONI DI CLASSE  - Progetto MyPrecious
+
+
+SPECIFICA DELLE OPERAZIONI DI CLASSE:
+
+
+
+Specifica della classe ExtendedAccess
+-------------------------------------
+
+[V.ExtendedAccess.calcoloPrezzo]  
+Il prezzo di un biglietto ExtendedAccess deve essere pari al prezzo base della tariffa selezionata più la somma dei prezzi di tutte le esposizioni temporanee scelte.
+
+Per ogni oggetto della classe ExtendedAccess deve essere vero che:
+prezzoBiglietto = tariffa.prezzoBase + Σ(Temporanea.prezzoAccesso)
+per ogni t:Temporanea tale che (this, t) : accede.
+
+Più formalmente:
+Per ogni e:ExtendedAccess deve essere
+e.prezzoBiglietto = e.tariffa.prezzoBase + Σ(t.prezzoAccesso) per ogni (e,t):accede.
+
+Equivalentemente:
+Non esiste e:ExtendedAccess tale che e.prezzoBiglietto ≠ e.tariffa.prezzoBase + Σ(t.prezzoAccesso).
+
+
+calcolaPrezzo(): Prezzo
+	precondizioni: nessuna.
+	postcondizioni:
+		- L’operazione non modifica il livello estensionale dei dati.
+		- Sia T l’insieme delle esposizioni t:Temporanea tali che (this,t):accede.
+		- result = this.tariffa.prezzoBase + Σ(t.prezzoAccesso) per ogni t ∈ T.
+
+
+
+Specifica della classe Temporanea
+---------------------------------
+
+[V.Temporanea.dateCoerenti]  
+Le date di inizio e fine di una esposizione temporanea devono essere coerenti.
+
+Per ogni oggetto della classe Temporanea deve essere vero che
+intervalloTempo.dataInizio ≤ intervalloTempo.dataFine.
+
+Più formalmente:
+Per ogni t:Temporanea, t.intervalloTempo.dataInizio ≤ t.intervalloTempo.dataFine.
+
+Equivalentemente:
+Non esiste t:Temporanea tale che t.intervalloTempo.dataInizio > t.intervalloTempo.dataFine.
+
+
+calcolaIntroiti(periodo: IntervalloDate): Prezzo
+	precondizioni: nessuna.
+	postcondizioni:
+		- L’operazione non modifica il livello estensionale dei dati.
+		- Sia B l’insieme dei biglietti b:ExtendedAccess tali che (b, this):accede e b.dataValidita ∈ periodo.
+		- Sia N = |B| (numero di biglietti venduti nel periodo).
+		- result = N * this.prezzoAccesso.
+
+
+contaBigliettiVenduti(data: Data): Intero
+	precondizioni: nessuna.
+	postcondizioni:
+		- L’operazione non modifica il livello estensionale dei dati.
+		- Sia B l’insieme dei biglietti b:ExtendedAccess tali che (b, this):accede e b.dataValidita = data.
+		- result = |B| (cardinalità dell’insieme).
+
+
+[V.Temporanea.prezzoPositivo]  
+Il prezzo di accesso deve essere maggiore o uguale a zero.
+
+Per ogni t:Temporanea deve essere vero che
+t.prezzoAccesso ≥ 0.
+
+Equivalentemente:
+Non esiste t:Temporanea tale che t.prezzoAccesso < 0.
+
+
+
+Specifica della classe Museo
+----------------------------
+
+[V.Museo.coerenzaBiglietti]  
+Ogni biglietto venduto deve essere associato a una tariffa esistente e a un visitatore.
+
+Per ogni b:Biglietto deve essere vero che:
+b.tariffa ≠ NULL ∧ b.visitatore ≠ NULL.
+
+Equivalentemente:
+Non esiste b:Biglietto tale che b.tariffa = NULL ∨ b.visitatore = NULL.
+
+
+trovaEsposizionePiuVisitata(periodo: IntervalloDate): Temporanea
+	precondizioni:
+		- Esiste almeno una esposizione temporanea attiva nel periodo.
+	postcondizioni:
+		- L’operazione non modifica il livello estensionale dei dati.
+		- Sia E l’insieme di tutte le esposizioni t:Temporanea.
+		- Per ogni t ∈ E, si consideri N_t = |B_t|, con B_t = insieme dei biglietti b:ExtendedAccess tali che (b, t):accede e b.dataValidita ∈ periodo.
+		- result è la t in E tale che N_t è massimo.
+		- Formalmente: result = argmax_t (N_t).
+
+
+
+Specifica della classe Autore
+-----------------------------
+
+[V.Autore.dateCoerenti]  
+La data di nascita di un autore deve essere antecedente alla data di morte (se esiste).
+
+Per ogni a:Autore deve essere vero che
+a.dataMorte = NULL ∨ a.dataNascita < a.dataMorte.
+
+Equivalentemente:
+Non esiste a:Autore tale che
+a.dataMorte ≠ NULL ∧ a.dataNascita ≥ a.dataMorte.
+
+
+trovaOpereNonEsposte(periodo: IntervalloDate): Insieme<Opera>
+	precondizioni: nessuna.
+	postcondizioni:
+		- L’operazione non modifica il livello estensionale dei dati.
+		- Sia O l’insieme delle opere o:Opera tali che (this, o):realizzare.
+		- Sia E l’insieme delle esposizioni e:Esposizione tali che (e, o):esporre e e.periodoEsposizione ∩ periodo ≠ ∅.
+		- result = O \ { o ∈ O | ∃ e ∈ E : (e, o):esporre }.
+
+
+
+Specifica della classe Esposizione
+----------------------------------
+
+[V.Esposizione.operePresenti]  
+Ogni esposizione deve esporre almeno un’opera.
+
+Per ogni e:Esposizione deve essere vero che
+|{ o:Opera | (e,o):esporre }| ≥ 1.
+
+Equivalentemente:
+Non esiste e:Esposizione tale che non esista alcun o:Opera con (e,o):esporre.
+
+
+
+Specifica della classe Biglietto
+--------------------------------
+
+[V.Biglietto.coerenzaDate]  
+La data di validità del biglietto deve essere uguale o successiva alla data di vendita.
+
+Per ogni b:Biglietto deve essere vero che
+b.dataValidita ≥ b.istanteVendita.
+
+Equivalentemente:
+Non esiste b:Biglietto tale che b.dataValidita < b.istanteVendita.
