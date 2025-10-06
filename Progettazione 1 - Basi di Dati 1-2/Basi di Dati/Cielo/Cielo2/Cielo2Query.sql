@@ -107,3 +107,31 @@ SELECT v.comp AS NomeCompagnia
 FROM Volo v
 GROUP BY v.comp
 HAVING MIN(v.durataMinuti) > 100;
+
+
+
+--13. Qual'è il nome delle compagnie che hanno il volo più lungo?
+
+
+WITH D AS(
+
+    SELECT MAX(durataMinuti) AS massimaDurata
+    FROM Volo
+)
+
+--D è una tabella 1x1 con una sola colonna 'max_durata'
+
+SELECT DISTINCT v.comp
+FROM Volo,D 
+-- Risulta in una tavella in cui ogni ennupla è una ennupla di 'volo' con  anche il valore 'D.massimaDurata'
+
+
+-- In maniera alternativa
+SELECT comp
+FROM Volo v, D 
+GROUP BY comp, D.massimaDurata
+HAVING MAX(durataMinuti) > D.massimaDurata
+
+--14. Qual'è il nome delle compagnie che non hanno voli ?
+
+
