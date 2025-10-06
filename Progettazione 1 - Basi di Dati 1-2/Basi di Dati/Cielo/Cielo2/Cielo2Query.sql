@@ -76,7 +76,7 @@ GROUP BY v.comp;
 
 --9 Quali sono gli aeroporti nei quali operano esattamente due compagnie?
 
-SELECT a.codice AS CodiceAeroporto,a.nome AS nomeCompagnia
+SELECT a.codice AS CodiceAeroporto,a.nome AS NomeAeroporto
 FROM  Aeroporto a, ArrPart arp
 WHERE (arp.arrivo = a.codice OR arp.partenza = a.codice) 
 GROUP BY a.codice, a.nome
