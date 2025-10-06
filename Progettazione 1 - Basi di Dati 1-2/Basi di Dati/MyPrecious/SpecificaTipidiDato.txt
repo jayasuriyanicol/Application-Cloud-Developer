@@ -1,130 +1,139 @@
-1. Nome
+SPECIFICA DEI TIPI DI DATO - Progetto MyPrecious
 
-Valore: stringa alfanumerica
-Vincolo: lunghezza massima 50 caratteri
-Descrizione: utilizzato per denominare entità come Opera, Autore, Tariffa, Esposizione, Città e Museo.
 
-2. CategoriaOpera
+SPECIFICA DEI DATI:
 
-Valore: stringa enumerica
-Dominio:
-CategoriaOpera = {dipinto, scultura, mosaico, manoscritto, fotografia, altro}
-Descrizione: indica la tipologia dell’opera.
 
-3. CorrenteArtistica
 
-Valore: stringa enumerica
-Dominio:
-CorrenteArtistica = {impressionismo, cubismo, rinascimento, barocco, neoclassicismo, moderno, contemporaneo, altro}
-Descrizione: specifica la corrente artistica di riferimento.
+1. Data  
+Utilizzato per rappresentare: 
 
-4. Tecnica
+- date di nascita e morte di un autore  
+- anno di realizzazione di un’opera  
+- intervalli temporali delle esposizioni  
+- date di validità dei biglietti  
 
-Valore: stringa alfanumerica
-Vincolo: opzionale; può assumere valore nullo se non pertinente alla categoria dell’opera
-Descrizione: descrive la tecnica artistica utilizzata (es. olio su tela, marmo scolpito, affresco, ecc.).
+SINTASSI:  
+stringa numerica, che segue il formato GG/MM/AAAA  
+ovvero → G = giorno, M = mese, A = anno
 
-5. Data
 
-Valore: stringa numerica
-Formato: GG/MM/AAAA
-(G = giorno, M = mese, A = anno)
-Descrizione: usato per data di nascita, data di morte, data validità biglietto, data vendita, data inizio/fine esposizione temporanea.
+2. Ora  
+Utilizzato per rappresentare:  
 
-6. Ora
+- l’istante di vendita del biglietto  
+- eventuali orari di apertura o chiusura (se previsti)
 
-Valore: stringa numerica
-Formato: OO:MM:SS
-(O = ora, M = minuto, S = secondo)
-Descrizione: utilizzato per rappresentare l’orario di vendita dei biglietti.
+SINTASSI:  
+stringa numerica, che segue il formato OO:MM:SS  
+ovvero → O = ora, M = minuto, S = secondo
 
-7. DataOra
 
-Valore: stringa numerica
-Formato: GG/MM/AAAA OO:MM:SS
-Descrizione: utilizzato per indicare un’istante temporale completo (es. istante di vendita del biglietto).
+3. DataOra  
+Utilizzato per rappresentare:  
 
-8. Prezzo
+- timestamp completi (es. istante di vendita biglietto)
 
-Valore: numerico reale (≥ 0)
-Formato: decimale con due cifre decimali (es. 12.50)
-Descrizione: rappresenta il prezzo di accesso, il prezzo base della tariffa o il prezzo totale del biglietto.
+SINTASSI:  
+stringa, che segue il formato GG/MM/AAAA OO:MM:SS  
+ovvero → G = giorno, M = mese, A = anno, O = ora, M = minuto, S = secondo
 
-9. IntervalloDate
 
-Valore: coppia ordinata (dataInizio, dataFine)
+4. Nome  
+Utilizzato per rappresentare:  
+
+- nome di autori, esposizioni, tariffe, tecniche, città, regioni, paesi, correnti artistiche
+
+SINTASSI:  
+stringa alfanumerica, con massimo 50 caratteri NOT NULL
+
+
+5. Categoria  
+Utilizzato per rappresentare la categoria dell’opera (tipologia artistica).
+
+
+SINTASSI:  
+valore stringa enumerica  
+Categoria = {Dipinto, Scultura, Mosaico, Manoscritto, Installazione, Altro}
+
+
+6. Tecnica  
+Utilizzato per rappresentare la tecnica utilizzata nella realizzazione di un’opera (es. olio su tela, affresco, marmo, bronzo, ecc.).
+
+SINTASSI:  
+stringa alfanumerica, con massimo 50 caratteri, possibile NULL
+
+
+7. TemaParticolare  
+Utilizzato per rappresentare il tema di una esposizione temporanea (es. “Impressionismo”, “Leonardo e il Rinascimento”).
+
+SINTASSI:  
+stringa alfanumerica, con massimo 100 caratteri, possibile NULL
+
+
+8. IntervalloDate  
+Utilizzato per rappresentare un intervallo temporale (inizio e fine).
+
+SINTASSI:  
+coppia di valori ordinati di tipologia Data, che seguono il formato:
+( dataInizio : Data , dataFine : Data )
+
 Vincolo: dataInizio ≤ dataFine
-Descrizione: rappresenta il periodo di validità di un’esposizione temporanea.
 
-10. NomeArte
 
-Valore: stringa alfanumerica
-Vincolo: lunghezza massima 40 caratteri
-Descrizione: pseudonimo o nome d’arte dell’autore.
+9. Prezzo  
+Utilizzato per rappresentare un valore monetario positivo (es. prezzoAccesso a una esposizione temporanea).
 
-11. Paese, Regione, Provincia, Città
+SINTASSI:  
+valore numerico reale ≥ 0
 
-Valore: stringa alfabetica
-Vincolo: iniziale maiuscola, lunghezza massima 30 caratteri
-Descrizione: identifica l’unità geografica.
 
-12. TipoBiglietto
+10. PrezzoBase  
+Utilizzato per rappresentare il prezzo base associato a una tariffa.
 
-Valore: stringa enumerica
-Dominio: TipoBiglietto = {Standard, ExtendedAccess}
-Descrizione: specifica la tipologia di biglietto venduto.
+SINTASSI:  
+valore numerico reale ≥ 0
 
-13. TipoEsposizione
 
-Valore: stringa enumerica
-Dominio: TipoEsposizione = {Permanente, Temporanea}
-Descrizione: definisce la tipologia dell’esposizione.
+11. PrezzoExt  
+Utilizzato per rappresentare il prezzo finale del biglietto Extended Access, calcolato come somma di PrezzoBase + prezzi delle Temporanee selezionate.
 
-14. Tema
+SINTASSI:  
+valore numerico reale ≥ 0
 
-Valore: stringa alfanumerica
-Vincolo: opzionale; presente solo per esposizioni temporanee
-Descrizione: descrive il tema dell’esposizione (es. “L’Impressionismo Francese”, “Arte Moderna Italiana”).
 
-15. Identificativo
+12. IstanteVendita  
+Utilizzato per rappresentare il momento esatto di acquisto di un biglietto.
 
-Valore: stringa alfanumerica
-Vincolo: univoco, lunghezza massima 8 caratteri
-Descrizione: identificativo univoco per entità come Opera, Autore, Biglietto, Tariffa.
+SINTASSI:  
+valore di tipologia DataOra con valore 'timestamp'
 
-16. TariffaNome
 
-Valore: stringa alfanumerica
-Vincolo: univoco nel contesto del museo
-Descrizione: nome della tariffa, es. Base, Ridotto, Studente.
+13. ValiditaVisita  
+Utilizzato per rappresentare la data per cui il biglietto è valido per l’accesso.
 
-SPECIFICA ATTRIBUTI (Vincoli semantici)
-Prezzo
+SINTASSI:  
+valore di tipologia Data
 
-Deve essere maggiore o uguale a zero.
 
-Per Biglietto.Standard: prezzo = prezzoBase della Tariffa.
+14. CorrenteArtistica  
+Utilizzato per rappresentare la corrente o il movimento artistico di un’opera.
 
-Per Biglietto.ExtendedAccess: prezzo = prezzoBase + somma(prezzoAccesso delle esposizioni temporanee selezionate).
+SINTASSI:  
+valore stringa enumerica  
+CorrenteArtistica = {Rinascimento, Barocco, Impressionismo, Cubismo, Surrealismo, Contemporaneo, Altro}
 
-Data di Validità Biglietto
 
-Deve essere successiva o uguale alla data di vendita.
+15. TariffaScelta  
+Utilizzato per rappresentare il nome della tariffa selezionata al momento dell’acquisto del biglietto.
 
-IntervalloDate
+SINTASSI:  
+stringa alfanumerica, corrispondente a una tariffa esistente
+TariffaScelta = Tariffa.nome
 
-dataInizio ≤ dataFine
 
-Deve essere coerente con il periodo di attività dell’esposizione temporanea.
+16. PeriodoEsposizione  
+Utilizzato per rappresentare il periodo durante il quale un’opera è esposta.
 
-Autore.dataMorte
-
-Facoltativa, ma se presente deve essere successiva a dataNascita.
-
-Opera.annoRealizzazione
-
-Deve essere maggiore o uguale all’anno di nascita dell’autore.
-
-Tecnica
-
-Obbligatoria solo se CategoriaOpera ∈ {dipinto, mosaico, manoscritto}.
+SINTASSI:  
+tipologia IntervalloDate
