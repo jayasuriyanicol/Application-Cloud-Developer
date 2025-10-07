@@ -4,7 +4,6 @@ SPECIFICA DEI TIPI DI DATO - Progetto MyPrecious
 SPECIFICA DEI DATI:
 
 
-
 1. Data  
 Utilizzato per rappresentare: 
 
