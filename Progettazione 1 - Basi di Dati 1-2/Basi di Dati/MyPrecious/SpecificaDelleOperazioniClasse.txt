@@ -150,3 +150,10 @@ b.dataValidita ≥ b.istanteVendita.
 
 Equivalentemente:
 Non esiste b:Biglietto tale che b.dataValidita < b.istanteVendita.
+
+
+
+
+[V.Biglietto.ContaPermanenti] 
+La
+
