@@ -2,7 +2,12 @@ import React, { useEffect, useState } from 'react'
 import Home from './Home';
 import About from './About';
 import Profile from './Profile';
+import ErrorPage from './ErrorPage';
+import SingleProfile from './SingleProfile';
+import MyProfile from './MyProfile';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+
+
 
 const ProvaRoute = () => {
     const [link, setLink] = useState("Home")
@@ -19,42 +24,47 @@ const ProvaRoute = () => {
         }
     };
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log("Componente Renderizzato")
     })
     return (
         <>
-        <BrowserRouter>
-        <nav className='navbar bg-body-tertiary'>
-        <div className='container-fluid'>
+            <BrowserRouter>
+                <nav className='navbar bg-body-tertiary'>
+                    <div className='container-fluid'>
 
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/profile">Profile</Link>
-        </div>
+                        <Link to="/">Home</Link>
+                        <Link to="/about">About</Link>
+                        <Link to="/profile">Profile</Link>
+                    </div>
 
-        </nav>
-        <Routes>
-            <Route path="/" element={<Home></Home>}></Route>
-            <Route path="/about" element={<About></About>} ></Route>
-            <Route path="/profile" element={<Profile></Profile>}></Route>
-        </Routes>
-        </BrowserRouter>
-        <div>
-            <nav className="navbar bg-body-tertiary">
-                <div className="container-fluid">
-                    <button className="btn btn-link nav-link" onClick={() => setLink("Home")} > Home </button>
-                    <button className="btn btn-link nav-link" onClick={() => setLink("About")} > About </button>
-                    <button className="btn btn-link nav-link" onClick={() => setLink("Profile")}> Profile </button>
+                </nav>
+                <Routes>
+                    <Route path="/" element={<Home></Home>}></Route>
+                    <Route path="/about" element={<About></About>} ></Route>
+                    <Route path="/profile/" element={<Profile></Profile>}>
+                        <Route path=":id" element={<SingleProfile/>}></Route>
+                        <Route path="me" element={<MyProfile/>}></Route>
+                    </Route>
+
+                    <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
+                </Routes>
+            </BrowserRouter>
+            <div>
+                <nav className="navbar bg-body-tertiary">
+                    <div className="container-fluid">
+                        <button className="btn btn-link nav-link" onClick={() => setLink("Home")} > Home </button>
+                        <button className="btn btn-link nav-link" onClick={() => setLink("About")} > About </button>
+                        <button className="btn btn-link nav-link" onClick={() => setLink("Profile")}> Profile </button>
+                    </div>
+                </nav>
+
+                <div className='container'>
+
+                    {renderComponent()}
                 </div>
-            </nav>
 
-            <div className='container'>
-
-          {renderComponent()}
             </div>
-        
-        </div>
         </>
     );
 };
