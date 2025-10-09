@@ -26,6 +26,7 @@ def check_security_alarm(s1: bool, s2: bool, s3: bool) -> str:
 
 #Oppure, in alternativa con l'utilizzo del NOT:
 
+
 '''
 if s1==True (not s2 or not s3 ):
         return "Allarme attivato"
