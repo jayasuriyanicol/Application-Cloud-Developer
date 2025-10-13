@@ -83,6 +83,7 @@ SPECIFICA USE CASE:
         Postcondizioni:
 
             - a viene aggiunto all'insieme di artisti del museo
+            - a può essere modificato, include anche 'modifica artista'
 
 
     3.2 modificaArtista(a: artista):
@@ -92,7 +93,9 @@ SPECIFICA USE CASE:
             - a è già nel sistema
 
         Postcondizioni:
+
             - a viene modificato e sovrascritto nel sistema
+            - a può essere modificato anche durante la creazione, inclusione con 'aggiungere artista'
 
 
 4. Specifica Gestione Biglietto:
