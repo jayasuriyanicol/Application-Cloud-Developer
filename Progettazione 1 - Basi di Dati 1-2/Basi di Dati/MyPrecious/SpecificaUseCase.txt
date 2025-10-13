@@ -1,0 +1,167 @@
+SPECIFICA DEGLI USE CASE - Progetto MyPrecious
+
+
+SPECIFICA USE CASE:
+
+
+
+1. Specifica Gestione Esposizione:
+
+  1.1 creazioneEsposizione(O: opere): 
+
+        Precondizioni:
+
+            - O sono già nel sistema
+            - O non sono presenti in altre esposizioni attualmente attive
+
+        Postcondizioni:
+
+            - O vengono aggiunte alle opere dell'Esposizione
+
+    
+    1.1.1 tipologiaEsposizione(tipo: Esposizione):
+        
+        Precondizioni:
+           - tipo non ci sono più di una scelta
+
+        Postcondizioni:
+
+            - tipo vengono aggiunte alla creazione dell'Esposizione
+
+    1.1.2 periodoEsposizione(data: IntervalloDate)
+
+        Precondizioni:
+            -dataInizio non può essere di dataFine.
+        
+        Postcondizioni
+            - data viene aggiunto alla creazione dell'Esposizione
+
+    1.1.3 modificaEsposizione(e:Esposizione, o: opere)
+
+        Precondizioni:
+            -e deve esistere per essere modificata
+            -o deve esistere > 0 
+        
+        Postcondizioni
+            - e va a modificare l'Esposizione
+            - o può essere rimossa da e
+            - 0 può essere aggiunta in e 
+
+
+
+2. Specifica Gestione Opera D'Arte:
+
+    2.1 inserimentoOpera(O: opere): 
+
+     
+        Precondizioni:
+            - o non è già presente nel sistema
+
+        Postcondizioni:
+            - o è aggiunta all’insieme delle opere gestite dal museo
+    
+    2.2 rimozioneOpera(o: opere):
+        
+        Precondizioni:
+
+            - o è presente nel sistema
+
+        Postcondizioni:
+
+            - o è rimossa dall’insieme delle opere gestite dal museo
+
+
+3. Specifica Gestione Artista:
+
+    3.1 aggiungereArtista(a: artista): 
+
+     
+        Precondizioni:
+
+            - a non è già presente nel sistema
+
+        Postcondizioni:
+
+            - a viene aggiunto all'insieme di artisti del museo
+
+
+    3.2 modificaArtista(a: artista):
+
+     Precondizioni:
+
+            - a è già nel sistema
+
+        Postcondizioni:
+            - a viene modificato e sovrascritto nel sistema
+
+
+4. Specifica Gestione Biglietto:
+
+    4.1 creazioneBiglietto(b: biglietto): 
+
+     
+        Precondizioni:
+
+            - b deve avere una tipologia
+            - b deve avere un periodo di validità valido
+
+        Postcondizioni:
+
+            - b viene aggiunto come biglietto nel sistema
+
+
+        4.1.1.Tipologia(b: biglietto):
+
+        Precondizioni:
+     
+            - b non deve avere una tipologia inserita
+
+        Postcondizioni:
+            - b viene modificato e sovrascritto nel sistema con la tipologia
+
+        4.1.2.periodoValidità(b: biglietto):
+
+        Precondizioni:
+     
+            - nessuna
+
+        Postcondizioni:
+            - b viene modificato e sovrascritto nel sistema con il periodo di validità
+    
+
+          4.1.2.1.registrazioneVendita(b: biglietto, d: IntervalloDate):
+
+            Precondizioni:
+     
+            -b sono stati venduti in d
+            -b hanno tipoligia comune
+
+            Postcondizioni:
+              - b viene registato nel sistema per la vendita ai visitatori
+        
+         4.1.2.2. venditaBiglietti (b: biglietto, d: IntervalloDate):
+
+            Precondizioni:
+     
+            - b sono stati venduti in d 
+            - b hanno tipologia comune
+
+            Postcondizioni:
+
+            - b viene venduto ai visitatori 
+
+
+5. Specifica Gestione Calcolo:
+
+    5.1 calcoloIntroiti(e: esposizioneTemporanea, t: IstanteVendita): 
+
+    
+        Precondizioni:
+
+            - e è un’esposizione temporanea registrata nel sistema
+            - t.inizio <= t.fine
+
+        Postcondizioni:
+
+            - result = somma dei prezzi di tutti i biglietti Extended Access venduti per e nel periodo
+
