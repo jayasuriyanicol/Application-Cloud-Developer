@@ -31,7 +31,7 @@ SPECIFICA USE CASE:
     1.1.2 periodoEsposizione(data: IntervalloDate)
 
         Precondizioni:
-            -dataInizio non può essere di dataFine.
+            -data.dataInizio < data.dataFine.
         
         Postcondizioni
             - data viene aggiunto alla creazione dell'Esposizione
@@ -45,7 +45,7 @@ SPECIFICA USE CASE:
         Postcondizioni
             - e va a modificare l'Esposizione
             - o può essere rimossa da e
-            - 0 può essere aggiunta in e 
+            - o può essere aggiunta in e 
 
 
 
@@ -138,17 +138,6 @@ SPECIFICA USE CASE:
 
             Postcondizioni:
               - b viene registato nel sistema per la vendita ai visitatori
-        
-         4.1.2.2. venditaBiglietti (b: biglietto, d: IntervalloDate):
-
-            Precondizioni:
-     
-            - b sono stati venduti in d 
-            - b hanno tipologia comune
-
-            Postcondizioni:
-
-            - b viene venduto ai visitatori 
 
 
 5. Specifica Gestione Calcolo:
