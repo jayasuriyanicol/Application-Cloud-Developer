@@ -1,0 +1,62 @@
+SPECIFICA CASI DI CALCOLO RICHIESTI - Progetto MyPrecious
+
+
+SPECIFICA DEI CASI DI CALCOLO RICHIESTI:
+
+
+
+1. Calcolare il numero di biglietti Extended Access venduti per un’esposizione e una data
+
+
+    precondizioni:
+
+        -Deve esistere un e: esposizioneTemporanea nel sistema
+        -Devono esistere b: biglietti di tipoligia Extended Access registrati nel sistema
+
+    postcondizioni:
+
+    - sia N : biglietto,il numero di biglietti di tipologia Extended Access venduti
+    - sia e: Esposizione, l'esposizione d'interesse e data:Data specifica per quella determinata esposizione
+    - result = N, il numero totale di biglietti Extended Access validi per quella determinata esposizione 'e'con relativa data 'd'.
+
+
+
+2. Calcolare l’esposizione temporanea con più biglietti Extended Access in un periodo
+
+
+    precondizioni:
+
+        -deve esistere un e: Esposizione di tipoligia temporanea registrata nel sistema 
+        -devono esistere dei biglietti Extended Access nel t:IntervalloDate indicato
+    
+    postcondizioni:
+
+        - sia p: IntervalloDate, il periodo di riferimento
+        - sia N(e) biglietto il numero di biglietti Extended Access per ciascuna e nel periodo p.
+        - result = e_max tale che N(e_max) = MAX (N(e), e appartenente alle esposizioni Temporanee)
+        
+        ovvero l’esposizione temporanea con il massimo numero di biglietti Extended Access venduti nel periodo p.
+                  
+            
+
+
+3. Calcolare le opere di un artista mai esposte in un periodo:
+
+
+
+
+    precondizioni:
+
+        - Nel sistema deve esistere un'esposizione e: Esposizione registrata nel sistema per il periodo t: IntervalloDate.
+
+        - deve esistere un artista a registato nel sistema
+
+    
+    postcondizioni:
+
+        - sia InOp: l'insieme di opere, sia a: artista  quindi InOp(a): insieme opere artista
+        - sia E l'insieme delle esposizioni temporanee e t: IntervalloDate periodo di esposizione, quindi E(t) le esposizioni temporanee di un determinato periodo
+
+        - result = InOp(a) - Opere(E(t))
+        
+            ovvero,l’insieme delle opere dell’artista a che non compaiono in alcuna esposizione temporanea del periodo t.
