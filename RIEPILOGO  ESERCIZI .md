@@ -5,12 +5,10 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **PROG/BASI DATI** | Svolgere le parti mancanti del progetto 'MyPrecious' | *ND*  | Proseguire arrivando almeno agli USE CASE |
-
-| **Sicurezza 1** | Rivedere le slide pubblicate su OS e Crittografia | *NULL*      | Maggiori informazioni nel relativo file |
-
-              
-
+| **WEB 2** | Svolgere il primo esercizio di React di Ottobre | *15 Ottobre*  | Completare l'esercizio fornito |
+| **WEB 2** | Svolgere il secondo esercizio di React di Ottobre | *21 Ottobre*  | Completare l'esercizio sugli UseState |
+| **Sicurezza** | Rivedere le slide pubblicate su OS e Crittografia | *ND*      | Rivedere le ultime slide aggiunte |
+| **BASI DATI** | Rivedere le slide ripasso | *ND*      | - |
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellares
