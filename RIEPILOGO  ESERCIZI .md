@@ -5,7 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **WEB 2** | Svolgere il primo esercizio di React di Ottobre | *15 Ottobre*  | Completare l'esercizio fornito |
+| **PROGETTAZIONE 1** | Rivedere slide di PROGETTAZIONE 1 | *20 Ottobre*  | Vedere le slide aggiornate di Progettazione |
 | **WEB 2** | Svolgere il secondo esercizio di React di Ottobre | *21 Ottobre*  | Completare l'esercizio sugli UseState |
 | **Sicurezza** | Rivedere le slide pubblicate su OS e Crittografia | *ND*      | Rivedere le ultime slide aggiunte |
 | **BASI DATI** | Rivedere le slide ripasso | *ND*      | - |
