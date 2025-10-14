@@ -3,13 +3,6 @@
 ## REACTJS - useState e useEffect
 
 
-## ESERCIZIO CHECKBOX 
-
-Esercizio: **Checkbox Multiple con Counter**
-
-Creare un componente React che *permetta di selezionare delle skills tramite checkbox*, con **conteggio delle selezioni e controllo del limite massimo**.
-
-
 ## ESERCIZIO BASE REACT USESTATE
 
 EserciziO **base useState**
@@ -21,7 +14,6 @@ Creare un **componente per ogni esercizio**
 
 
 
-## PROGETTAZIONE Rest - Protocolli di Rete
+## PROGETTAZIONE 2 Rest e API
 
-Rivedere le slide sulla parte di progettazione WEB, Protoccolli di Rete,ecc.
-
+Rivedere le slide sulla parte di progettazione WEB sulla parte riguardante **REST** ed **API**,, svolte anche nel modulo di *Python 5-6*.
