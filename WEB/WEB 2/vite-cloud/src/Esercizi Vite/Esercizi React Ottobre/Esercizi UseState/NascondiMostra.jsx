@@ -25,7 +25,7 @@ return(
         <br></br>
 
 
-        <button onClick={mostraContenuto()}>
+        <button onClick={mostraContenuto}>
 
            {mostraTesto ?  "Nascondi" : "Mostra"}
         </button>
