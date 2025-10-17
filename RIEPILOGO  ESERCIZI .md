@@ -5,8 +5,8 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
+| **BASI DATI** | Rivedere le slide ripasso | *27 Ottobre*      | - |
 | **Sicurezza** | Rivedere le slide pubblicate su OS e Crittografia | *ND*      | Rivedere le ultime slide aggiunte |
-| **BASI DATI** | Rivedere le slide ripasso | *ND*      | - |
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellares
