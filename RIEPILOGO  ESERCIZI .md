@@ -5,7 +5,6 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **PROGETTAZIONE 1** | Rivedere slide di PROGETTAZIONE 1 | *20 Ottobre*  | Vedere le slide aggiornate di Progettazione |
 | **Sicurezza** | Rivedere le slide pubblicate su OS e Crittografia | *ND*      | Rivedere le ultime slide aggiunte |
 | **BASI DATI** | Rivedere le slide ripasso | *ND*      | - |
 ---
