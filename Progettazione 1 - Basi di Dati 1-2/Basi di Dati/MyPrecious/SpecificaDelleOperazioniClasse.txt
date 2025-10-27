@@ -25,6 +25,7 @@ per ogni t:Temporanea tale che (this, t) : accede.
 
 
 
+
 2. Specifica della classe Temporanea
 
 
@@ -55,6 +56,14 @@ contaBigliettiVenduti(data: Data): Intero
 		- L’operazione non modifica il livello estensionale dei dati.
 		- Sia B l’insieme dei biglietti b:ExtendedAccess tali che (b, this): accede e b.dataValidita = data (validità del biglietto)
 		- result = B (biglietti validi per quella determinata data)
+	
+	[V.ExtendedAccess.calcoloPrezzo]  
+	Il prezzo di un biglietto ExtendedAccess deve essere pari al prezzo base della tariffa selezionata più la somma dei prezzi di tutte le esposizioni temporanee scelte.
+
+	Per ogni oggetto della classe ExtendedAccess deve essere vero che:
+	prezzoBiglietto = tariffa.prezzoBase + (Temporanea.prezzoAccesso)
+	per ogni t:Temporanea tale che (this, t) : accede.
+
 
 
 [V.Temporanea.prezzoPositivo]  
@@ -155,7 +164,8 @@ Non esiste b:Biglietto tale che b.dataValidita <= b.istanteVendita.
 getPermanenti(): EsposizionePermanente [0..*]:
 
 	precondizioni: 
-			il b:Biglietto (this) deve appartenere alla categoria Standard
+			
+			nessuna
 
 	postcondizioni:
 		-L'operazione non modifica il livello estensionale dei dati
@@ -168,4 +178,62 @@ getPermanenti(): EsposizionePermanente [0..*]:
 
 	Poiché nel sistema possono esserci zero o più esposizioni permanenti, il risultato può contenere nessuna o più istanze [0 .. *].
 
+
+prezzoBiglietto(): Reale >=0 :
+
+	precondizioni:
+
+	nessuna
+
+	postcondizioni:
+
+
+		sia t: Triffa tale che esite il link (this,t): associare
+
+		sia E l'insieme degli oggetti e: Temporanea tali che esiste il link (this,e): temp_scelta
+		
+		sia tot la somma di e.prezzo di ogni elemento e dell'insieme e
+
+		result = tot + t.prezzoBase
+
+
+Specifica della classe Opera
+--------------------------------
+
+Per ogni o:Opera:
+
+Per ogni link(o,e): esporre (e: esposisione in cui è esposta o (opera))
+
+	Siano io,fo,rispettivamente, i valori degli attributi inizio e fine del link (o,e)
+
+	 
+
+- Deve essere vero che io >= e.inizio
+
+	- Se e:Temporanea, allora io <= e.fine
+
+- Se fo ha un valore, allora fo >= e.inizio
+	- Se e:Temporanea,allora,fo<= e.fine
+
+
+
+Operazione ausiliaria:
+sovrapposti(i1: DataOra, f1: DataOra, i2: DataOra, f2: DataOra): Booleano
+	precondizioni: i1 <= f1 e i2 <= f2
+	Postcondizioni
+		Il risultato result è definito come segue:
+			- result = True se e solo se vale la seguente condizione:
+
+			- Esiste un t: DataOra tale che
+				i1 <= t <= f1 AND i2 <= t <= f2
+
+
+[V.Opera.no_esposizioni_contemporanea]
+
+Per ogni o: Opera:
+	Per ogni coppia di esposizioni e1, e2: Temporanea, e1 != e2
+		Tali che esistono i link
+			(o, e1): op_esp   e   (o, e2): op_esp
+
+	sovrapposti(e1.inizio, e1.fine, e2.inizio, e2.fine) = False
 
