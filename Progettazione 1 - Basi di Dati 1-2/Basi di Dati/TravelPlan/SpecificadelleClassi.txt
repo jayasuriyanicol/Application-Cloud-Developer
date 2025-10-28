@@ -1,0 +1,172 @@
+SPECIFICA DELLE OPERAZIONI DI CLASSE  - Progetto TravelPlan
+
+
+SPECIFICA DELLE OPERAZIONI DI CLASSE:
+
+
+
+1. Specifica della classe Utente:
+
+
+[V.Utente.dataIscrizione] 
+
+La data d'iscrizione dell'utente non può essere maggiore dell'istante di tempo in cui viene creato
+
+Quindi per ogni dataIscrizione di un'utente deve essere vero che:
+
+dataIscrizione < timestamp 
+
+dove timestamp è il momento esatto in cui l'utente viene iscritto/registrato
+
+
+2. Specifica della classe Viaggio:
+
+[V.Viaggio.numeroMinimoPartecipanti]
+
+Il numero minimo dei partecipanti deve essere maggiore oppure uguale a zero, quindi non negativo
+
+numeroMinimoPartecipanti >= 0
+
+
+[V.Viaggio.numeroMinimoPartecipanti]
+
+Il numero massimo dei partecipanti deve essere maggiore oppure uguale a zero, anche uguale a zero perchè non è specificato un numero minimo o massimo di partecipanti nella consegna, 
+quindi numeroMassimoPartecipanti non può essere negativo
+
+numeroMassimoPartecipanti >= 0
+
+
+calcoloViaggiDestinazione (destinazione: Città, inizio: DataOra, fine: DataOra)
+
+    precondizioni:
+
+        la destinazione non deve essere NULL
+        inizio < fine 
+    
+    postcondizioni
+
+     -L'operazione non modifica il livello estensionale dei dati
+     -L'operazione di Result è così definita:
+
+        Sia InsV l'insieme dei viaggi di v:Viaggio e a:Attivita:
+
+        a deve appartenere a v.attivita 
+        a.luogo.citta = destinazione 
+        v.dataInizio <= fine 
+        v.dataFine >= inizio
+
+        con result InsV
+
+
+     
+    
+3. Specifica della classe Città:
+
+MaggiorNumeroViaggi(viaggio: Viaggio, inizio:DataOra, fine:DataOra): Intero
+
+    precondizioni:
+        inizio < fine
+
+    postcondizioni:
+
+    -L'operazione non modifica il livello estensionale dei dati
+    -L'operazione di Result è così definita:
+
+       Sia InsC l'insieme delle c:città che abbiano almeno un v: Viaggio, deve esistere inoltre un a:attivita 
+
+       v.dataInizio < fine e  v.dataFine > inizio
+       esiste almeno a:attivita appartenente a v.attivita 
+       a.luogo.citta = c
+
+    Per ogni c in InsC, numV(c) = v dove tocca c (ovvero dove il viaggio tocca la città)
+      quindi result sarà ugaule ad:
+    
+    result = c in InsC max(numV(c))
+
+
+
+4. Specifica della classe Regione:
+
+
+OrganizzazioneViaggiRegione(nazione: Nazione, inizio: DataOra, fine:DataOra): Intero
+
+
+    precondizioni:
+
+    inizio < fine
+    nazione non deve essere NULL
+    
+
+    postcondizioni:
+
+    -L'operazione non modifica il livello estensionale dei dati
+    -L'operazione di Result è così definita:
+
+        Sia r:Regione, n:Nazione,v:Viaggio 
+
+        r deve essere vero che r.nazione = N
+        sia NumViaggi il numero dei viaggi tali che:
+
+        - esista un v:Viaggio con v.dataInizio < fine  e dataFine > inizio
+        - esista un a:Attivita con a.luogo.citta.regione = r 
+        - result = (r,NumViaggi(r) con r appartenente a n.regioni)
+
+    
+
+
+5. Specifica della classe Viaggio
+ 
+ InsiemeViaggiBudgetIntervallo (min:Prezzo, max:Prezzo. r:Regione, inizio: DataOra, fine:DataOra, N:intero >= 0)
+
+
+    precondizioni:
+
+    inizio < fine
+    r non deve essere NULL
+    min < max
+    n >= 0
+
+    postcondizioni:
+
+    - L'operzione non modifica il livello estensionale dei dati
+    - L'operazione di result è così definita:
+
+
+        Sia V l'insieme dei v:Viaggio tali che:
+
+        min <= v.budget <= max 
+        
+        v. dataInzio >= inizio v.dataFine <= fine
+
+        deve esistere un'a:attivita appartenente a v.attivita in a.luogo.citta.regione = regione
+
+        v.viaggioPrecendente:Viaggio (viaggio precedente) 
+
+        v.viaggioPrecendente.organizzatore = v.organizzatore 
+
+        v.viaggioPrecendente < v.dataInizio >= N (numero Viaggi Inseriti)
+
+        result = V
+
+
+
+ViaggiMeseUltimoAnno(destinazione:Città, anno:Intero): Intero 
+
+    precondizioni:
+
+        destinazione non può essere NULL
+        anno >=0
+    
+    postcondizioni:
+
+    
+    - L'operzione non modifica il livello estensionale dei dati
+    - L'operazione di result è così definita:
+
+      Per ogni m:Mese in anno 
+      sia numViaggi(m) = 
+      - v:Viaggio con a.attività appartenente ad v.attivita con a.luogo.citta= destinazione
+      - anno(v.dataInizio) = anno e mese(v.dataInzio)= m
+
+    result = (m,numViaggi(m)) -> m tra (1..12)
+      
