@@ -5,7 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **BASI DATI** | Svolgere UseCase e Operazioni TravelPlan | *ND*      | -  Svolgere UseCase e Operazioni del progetto Simulazione TravelPlan |
+| **BASI DATI** | Svolgere UseCase e Operazioni TravelPlan | *ND*      |  Svolgere UseCase e Operazioni del progetto Simulazione TravelPlan |
 | **Sicurezza** | Rivedere le slide pubblicate su OS e Crittografia | *ND*      | Rivedere le ultime slide aggiunte |
 ---
 
