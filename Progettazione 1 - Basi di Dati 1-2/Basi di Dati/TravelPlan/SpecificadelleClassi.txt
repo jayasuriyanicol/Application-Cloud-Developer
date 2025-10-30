@@ -19,6 +19,8 @@ dataIscrizione < timestamp
 dove timestamp è il momento esatto in cui l'utente viene iscritto/registrato
 
 
+
+
 2. Specifica della classe Viaggio:
 
 [V.Viaggio.numeroMinimoPartecipanti]
@@ -36,137 +38,149 @@ quindi numeroMassimoPartecipanti non può essere negativo
 numeroMassimoPartecipanti >= 0
 
 
-calcoloViaggiDestinazione (destinazione: Città, inizio: DataOra, fine: DataOra)
-
-    precondizioni:
-
-        la destinazione non deve essere NULL
-        inizio < fine 
-    
-    postcondizioni
-
-     -L'operazione non modifica il livello estensionale dei dati
-     -L'operazione di Result è così definita:
-
-        Sia InsV l'insieme dei viaggi di v:Viaggio e a:Attivita:
-
-        a deve appartenere a v.attivita 
-        a.luogo.citta = destinazione 
-        v.dataInizio <= fine 
-        v.dataFine >= inizio
-
-        con result InsV
+prezzoTotale() : Reale >=0 
 
 
-     
-    
-3. Specifica della classe Città:
+    Precondizioni:
 
-MaggiorNumeroViaggi(viaggio: Viaggio, inizio:DataOra, fine:DataOra): Intero
-
-    precondizioni:
-        inizio < fine
-
-    postcondizioni:
-
-    -L'operazione non modifica il livello estensionale dei dati
-    -L'operazione di Result è così definita:
-
-       Sia InsC l'insieme delle c:città che abbiano almeno un v: Viaggio, deve esistere inoltre un a:attivita 
-
-       v.dataInizio < fine e  v.dataFine > inizio
-       esiste almeno a:attivita appartenente a v.attivita 
-       a.luogo.citta = c
-
-    Per ogni c in InsC, numV(c) = v dove tocca c (ovvero dove il viaggio tocca la città)
-      quindi result sarà ugaule ad:
-    
-    result = c in InsC max(numV(c))
-
-
-
-4. Specifica della classe Regione:
-
-
-OrganizzazioneViaggiRegione(nazione: Nazione, inizio: DataOra, fine:DataOra): Intero
-
-
-    precondizioni:
-
-    inizio < fine
-    nazione non deve essere NULL
-    
-
-    postcondizioni:
-
-    -L'operazione non modifica il livello estensionale dei dati
-    -L'operazione di Result è così definita:
-
-        Sia r:Regione, n:Nazione,v:Viaggio 
-
-        r deve essere vero che r.nazione = N
-        sia NumViaggi il numero dei viaggi tali che:
-
-        - esista un v:Viaggio con v.dataInizio < fine  e dataFine > inizio
-        - esista un a:Attivita con a.luogo.citta.regione = r 
-        - result = (r,NumViaggi(r) con r appartenente a n.regioni)
+       Deve esistere almeno un link associare con a:Attività tale che esista il link (this,a):associare
 
     
+    Postcondizioni:
+
+        -Non modifca il livello estensionale dei dati
+        -L'operazione result è così definita:
+
+            Sia A l'insieme delle a:Attività che sono coinvolti in un link(this,a):associare
+            Result sarà il valore della somma di a.prezzo() per ogni oggetto appartente ad A.
 
 
-5. Specifica della classe Viaggio
- 
- InsiemeViaggiBudgetIntervallo (min:Prezzo, max:Prezzo. r:Regione, inizio: DataOra, fine:DataOra, N:intero >= 0)
+inizio(): DataOra
 
 
-    precondizioni:
+    Precondizioni:
+     nessuna
 
-    inizio < fine
-    r non deve essere NULL
-    min < max
-    n >= 0
+    Postcondizioni:
 
-    postcondizioni:
-
-    - L'operzione non modifica il livello estensionale dei dati
-    - L'operazione di result è così definita:
-
-
-        Sia V l'insieme dei v:Viaggio tali che:
-
-        min <= v.budget <= max 
+        -Non modifca il livello estensionale dei dati
+        -L'operazione Result è così definita:
         
-        v. dataInzio >= inizio v.dataFine <= fine
-
-        deve esistere un'a:attivita appartenente a v.attivita in a.luogo.citta.regione = regione
-
-        v.viaggioPrecendente:Viaggio (viaggio precedente) 
-
-        v.viaggioPrecendente.organizzatore = v.organizzatore 
-
-        v.viaggioPrecendente < v.dataInizio >= N (numero Viaggi Inseriti)
-
-        result = V
+            Sia A l'insieme delle a:Attività che sono coinvolti in un link (this,a):associare
+            Result sarà il valore minore fra tutti i valori di a.fine() per ogni oggetto dell'insieme A.
 
 
 
-ViaggiMeseUltimoAnno(destinazione:Città, anno:Intero): Intero 
+fine(): DataOra
 
-    precondizioni:
+    Precondizioni:
 
-        destinazione non può essere NULL
-        anno >=0
+        nessuna
     
-    postcondizioni:
+    Postcondizioni:
+
+        -Non modifca il livello estensionale dei dati
+        -L'operazione Result è copsì definita:
+
+
+            Sia A l'insieme delle a:Attività che sono coinvolti in un link (this,a):associare
+            Result sarà il valore maggiore fra tutti i valori di a.fine() per ogni oggetto dell'insieme A.
+
+
+
+3. Specifica della classe Attività:
+
+    prezzo():Reale >= 0
+
+        Precondizioni:
+            nessuna
+
+        Postcondizioni:
+
+            -Non modifica il livello estensionale dei dati
+            -L'operazione Result è così definita
+                
+                this.prezzo se this è un'istanza di AttivitàSemplice
+                this.prezzo() se this è istanza di AttivitàComposta
+    
+
+    inizio(): DataOra
+
+        Precondizioni:
+            nessuna
+
+        Postcondizioni:
+
+            -Non modifica il livello estensionale dei dati
+            -L'operazione result è così definita:
+
+
+                this.inizio se this è istanza di AttivitàSemplice
+                this.inizio() se this è istanza di AttivitàComposta
+
+
+4. Specifica della classe AttivitàSemplice:
+
+    fine(): DataOra
+    
+        Precondizioni:
+            nessuna
+
+        Postcondizioni:
+            -l'operazione non modifica il livello estensionale dei dati
+            -l'operazione di result è così definita:
+
+                this.inizio +(this.durataMinuti in minuti)
+                dove in minuti è una stringa che accompagna il numero effettivo 'this.durataMinuti'
+
+
+
+
+5. Specifica della classe AttivitàComposta:
+
+
+    prezzo(): Reale >=0:
+
+
+        Precondizioni:
+            nessuna
+
+        Postcondizioni:
+
+            -L'operazione non modifica il livello estensionale dei dati
+            -L'operazione result è così definita:
+
+
+            Sia S l'inseme degli oggetti a:AttivitàSemplice tali che esiste il link(this,a): appartenere
+
+               Result è uguale alla somma del valore dell'attributo prezzo di ogni ogetto S
+
+
+
+    inizio(): DataOra
+
+        Precondizioni: 
+            nessuna
+
+        Postcondizioni: 
+            -L'operazione non modifica il livello estensionale dei dati
+            -L'operazione result è così definita:
+
+                Sia S l’insieme degli oggetti a:AttivitàSemplice tali che esiste il link (this, a): appartenere
+                Result è il valore minore tra tutti i valori di a.inizio degli elementi a dell’insieme S
 
     
-    - L'operzione non modifica il livello estensionale dei dati
-    - L'operazione di result è così definita:
+    
+    fine(): DataOra
 
-      Per ogni m:Mese in anno 
-      sia numViaggi(m) = 
-      - v:Viaggio con a.attività appartenente ad v.attivita con a.luogo.citta= destinazione
-      - anno(v.dataInizio) = anno e mese(v.dataInzio)= m
+        Precondizioni:
+         nessuna
 
-    result = (m,numViaggi(m)) -> m tra (1..12)
-      
+        Postcondizioni: 
+
+           -L'operazione non modifica il livello estensionale dei dati
+           -L'operazione result è così definita:
+                Sia S l’insieme degli oggetti a:AttivitàSemplice tali che esiste il link (this, a): appartene
+                Result è il valore maggiore tra tutti i valori a.fine() degli elementi a dell’insieme S.
+
+
