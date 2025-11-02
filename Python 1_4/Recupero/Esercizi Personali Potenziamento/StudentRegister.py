@@ -109,7 +109,7 @@ registro.add_course("S001", "Matematica", 28)
 registro.add_course("S001", "Informatica", 30)
 registro.add_course("S002", "Storia", 25)
 
-print(registro.get_average("S001"))  # ➜ 29.0
+print(registro.get_average("S001")) 
 registro.remove_course("S001", "Matematica")
 print(registro.list_students())
 
