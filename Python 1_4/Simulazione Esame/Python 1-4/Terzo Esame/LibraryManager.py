@@ -1,4 +1,40 @@
+'''
+Classe LibraryManager – PUNTI 2
 
+Progetta una classe LibraryManager per gestire una piccola biblioteca digitale.
+
+Attributi:
+
+books: dict[str, dict] — dizionario che contiene tutti i libri presenti.
+La chiave è il codice del libro (book_id), e il valore è un altro dizionario con:
+
+"titolo": str — titolo del libro
+
+"disponibile": bool — indica se il libro è disponibile o già prestato
+
+Metodi:
+
+add_book(book_id: str, titolo: str) -> dict | str
+Aggiunge un nuovo libro. Se il codice esiste già, restituisce "Errore: libro già presente.".
+Altrimenti, aggiunge il libro con disponibile=True e ritorna il dizionario del libro aggiunto.
+
+borrow_book(book_id: str) -> dict | str
+Se il libro non esiste, restituisce "Errore: libro non trovato.".
+Se non è disponibile, restituisce "Errore: libro già in prestito.".
+Altrimenti imposta disponibile=False e restituisce il libro aggiornato.
+
+return_book(book_id: str) -> dict | str
+Se non esiste, restituisce "Errore: libro non trovato.".
+Altrimenti imposta disponibile=True e restituisce il libro aggiornato.
+
+remove_book(book_id: str) -> dict | str
+Rimuove un libro dal catalogo. Se non esiste, restituisce "Errore: libro non trovato.".
+Altrimenti restituisce il libro rimosso.
+
+list_books() -> list[str]
+Restituisce la lista dei codici libro (book_id) presenti nel sistema.
+
+'''
 
 
 
