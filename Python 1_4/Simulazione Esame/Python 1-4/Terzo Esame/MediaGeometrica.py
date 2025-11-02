@@ -1,5 +1,21 @@
 
+'''
+Calcola Media Geometrica – PUNTI 1
 
+Scrivi una funzione con il seguente header:
+
+geometric_mean(values: list[float]) -> float
+
+La funzione deve calcolare la media geometrica di una lista di numeri positivi.
+Se la lista è vuota o contiene valori ≤ 0, solleva un’eccezione ValueError("valori non validi").
+
+📘 Esempio:
+
+geometric_mean([1.0, 4.0, 9.0]) ➜ 3.0
+
+(Suggerimento: la media geometrica è la radice n-esima del prodotto dei valori.)
+
+'''
 from math import sqrt
 
 def geometric_mean(values:list[float]) -> float:
