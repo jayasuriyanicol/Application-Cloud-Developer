@@ -87,5 +87,5 @@ w = Warehouse()
 w.add_item("Monitor", 10)
 w.add_item("Mouse", 25)
 w.remove_item("Mouse", 5)
-print(w.check_stock("Mouse"))   # ➜ 20
-print(w.list_items())           # ➜ {'Monitor': 10, 'Mouse': 20}
+print(w.check_stock("Mouse"))  
+print(w.list_items())           
