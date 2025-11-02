@@ -1,4 +1,52 @@
+'''
+Sistema di Gestione Ordini – PUNTI 2
 
+Implementa tre classi che simulano la gestione degli ordini in un negozio online.
+
+Classe Product:
+
+Attributi:
+product_id: str, name: str, price: float, in_stock: bool
+
+Metodi:
+
+mark_sold_out() -> None → imposta in_stock=False
+
+restock() -> None → imposta in_stock=True
+
+Classe Customer:
+
+Attributi:
+customer_id: str, name: str, orders: list[str]
+
+Metodi:
+
+add_order(order_id: str) -> None → aggiunge un ordine alla lista
+
+list_orders() -> list[str] → restituisce la lista degli ordini del cliente
+
+Classe Store:
+
+Attributi:
+products: dict[str, Product], customers: dict[str, Customer]
+
+Metodi:
+
+add_product(product_id: str, name: str, price: float) -> None
+
+register_customer(customer_id: str, name: str) -> None
+
+create_order(customer_id: str, product_id: str) -> None
+Se il prodotto o il cliente non esistono, stampa "Errore: dati non validi.".
+Se il prodotto è disponibile, aggiunge l’ordine al cliente e imposta in_stock=False.
+
+list_available_products() -> list[str]
+
+list_customer_orders(customer_id: str) -> list[str] | str
+
+
+
+'''
 
 
 
