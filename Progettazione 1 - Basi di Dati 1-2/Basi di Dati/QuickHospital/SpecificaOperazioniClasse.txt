@@ -1,0 +1,318 @@
+SPECIFICA DELLE OPERAZIONI DI CLASSE  - Progetto QuickHospital:
+
+
+SPECIFICA DELLE OPERAZIONI DI CLASSE:
+
+
+
+1. Specifica della classe Ricovero:
+
+
+[V.Ricovero.dataRicovero] 
+
+    Precondizioni:
+
+        - deve esistere un dataRicovero
+    
+    Postcondizioni:
+
+        -Non modifca il livello estensionale dei dati
+
+        -Sia da:dataRicovero e dm:dataDimissione, da non può essere maggiore della rispetto la data di dm 
+        
+         per ogni dataRicovero di un paziente deve essere vero che:
+
+         dataRicovero <  dataDimissione
+
+
+[V.Ricovero.dataDimissione]
+
+    Precondizioni:
+        nessuna
+    
+    Postcondizioni:
+
+        
+        La data di dimissione può essere facoltativa, ovvero un pazine può essere dimesso o meno nonostante
+        sia ricoverato.
+
+        Quindi una dataDimissione di un paziente può essere avvenuta o meno che, indichiamo come facoltativa con [0..1]:
+
+
+    dataDimissione:DataOra [0..1] 
+
+
+
+2. Specifica della classe SpecificaSpecializzazione:
+
+    [V.SpecificaSpecializzazione.specializzazionePrimaria] 
+
+
+    Una specializzazione di tipologia primaria, può avere una sola specializzazione
+
+    Quindi con vincolo 1..1 sul specializzazionePrimaria: 1..1
+
+    [V.SpecificaSpecializzazione.specializzazioneSecondaria]
+
+    Una specializzazione di tipologia secondaria, può avere da zero a più di una specializzazione
+    però che siano uniche e che non vadano ad interferire con la specifica della specializzazione 
+    di tipologia primaria:
+
+    Quindi analogamente:
+
+    specializzazionePrimaria != specializzazioneSecondaria
+
+
+
+
+
+3. Specifica della classe PrestazioneRichiesta:
+
+
+   [V.PrestazioneRichiesta.PrestazioneMedico]
+
+    Sia prs: PrestazioneRichiesta,m:medico, sp: SpecificaSpecializzazione
+
+
+    Dato l'insieme prs, esista un elemento m:PrestazioneMedico e un elemento sp:PrestazioniSpecializzazione, che abbia in comune  un link
+    spi:specializzazionePrimaria e sps:specializzazioneSecondaria.
+
+    Così tale d'avere una sp collegata con prs che abbia un m in comune tramite il link spi o sps.
+
+
+    InsiemeMediciIdonei(s:stringa) -> Insieme(specializzazionePrimaria)| Insieme(specializzazioneSecondaria)
+
+        Precondizioni:
+
+            - s non deve essere NULL 
+
+        Postcondizioni:
+
+            -Non modifica il livello estensionale dei dati
+            -L'operazione Result è così definita:
+
+                - Sia s:specializzazionePrimaria e m:medico
+                
+                - Se esiste un m:specializzazionePrimaria in s, il valore viene aggiunto all'interno dell'insieme
+                di specializzazionePrimaria risultante per ogni medico fino a completare i m 'idonei' 
+                alla ruolo di specializzazionePrimaria.
+               
+                - Altrimenti il risultato è pari all'insieme delle specializzazioneSecondaria che hanno come specializzazione
+                  la medesima specializzazione presente nella specializzazionePrimaria. 
+
+                 -Aggiungendo però l'elemento inerente all'Insieme(specializzazioneSecondaria)
+
+
+
+4. Specifica della classe Paziente:
+
+
+    itineriarioPazienti(med:Medico) -> (Intero >= 0, Intero>= 0)
+
+        Precondizioni:
+
+            - med non deve essere NULL
+
+        Postcondizioni:
+
+            -Non modifica il lovello estensionale dei dati
+            -L'operazione Result è csoì definita:
+
+                Sia S:Stanza l'insieme di Stanza
+                Sia R:Ricovero l'insieme di Ricovero
+                Sia P:postoLetto l'insieme di PostoLetto
+
+
+                Esista un r elemento di R, con un link (med,r): medicoRicovero 
+                Esista un s elemento di S, con un link (r,s) : ricoverare
+                Ed esista un p elemento  di P, con link(s,p):presente
+                
+                L'operazione result sarà l'insieme dei elementi interi di s:
+
+                (p,st)
+
+                p: l'elemento piano di s 
+                st : l'elemento settore di s 
+            
+    registrazione(paz:Paziente) -> None:
+
+        Precondizioni:
+            
+            - paz non deve essere NULL
+        
+        Postcondizioni:
+
+            - Non modifca il livello estensionale dei dati 
+            - L'operazione Result è così definita:
+
+             Sia P
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[V.SpecificaSpecializzazione.PrestazioniSpecializzazione]
+
+Il numero massimo dei partecipanti deve essere maggiore oppure uguale a zero, anche uguale a zero perchè non è specificato un numero minimo o massimo di partecipanti nella consegna, 
+quindi numeroMassimoPartecipanti non può essere negativo
+
+numeroMassimoPartecipanti >= 0
+
+
+prezzoTotale() : Reale >=0 
+
+
+    Precondizioni:
+
+       Deve esistere almeno un link associare con a:Attività tale che esista il link (this,a):associare
+
+    
+    Postcondizioni:
+
+        -Non modifca il livello estensionale dei dati
+        -L'operazione result è così definita:
+
+            Sia A l'insieme delle a:Attività che sono coinvolti in un link(this,a):associare
+            Result sarà il valore della somma di a.prezzo() per ogni oggetto appartente ad A.
+
+
+inizio(): DataOra
+
+
+    Precondizioni:
+     nessuna
+
+    Postcondizioni:
+
+        -Non modifca il livello estensionale dei dati
+        -L'operazione Result è così definita:
+        
+            Sia A l'insieme delle a:Attività che sono coinvolti in un link (this,a):associare
+            Result sarà il valore minore fra tutti i valori di a.fine() per ogni oggetto dell'insieme A.
+
+
+
+fine(): DataOra
+
+    Precondizioni:
+
+        nessuna
+    
+    Postcondizioni:
+
+        -Non modifca il livello estensionale dei dati
+        -L'operazione Result è copsì definita:
+
+
+            Sia A l'insieme delle a:Attività che sono coinvolti in un link (this,a):associare
+            Result sarà il valore maggiore fra tutti i valori di a.fine() per ogni oggetto dell'insieme A.
+
+
+
+3. Specifica della classe Attività:
+
+    prezzo():Reale >= 0
+
+        Precondizioni:
+            nessuna
+
+        Postcondizioni:
+
+            -Non modifica il livello estensionale dei dati
+            -L'operazione Result è così definita
+                
+                this.prezzo se this è un'istanza di AttivitàSemplice
+                this.prezzo() se this è istanza di AttivitàComposta
+    
+
+    inizio(): DataOra
+
+        Precondizioni:
+            nessuna
+
+        Postcondizioni:
+
+            -Non modifica il livello estensionale dei dati
+            -L'operazione result è così definita:
+
+
+                this.inizio se this è istanza di AttivitàSemplice
+                this.inizio() se this è istanza di AttivitàComposta
+
+
+4. Specifica della classe AttivitàSemplice:
+
+    fine(): DataOra
+    
+        Precondizioni:
+            nessuna
+
+        Postcondizioni:
+            -l'operazione non modifica il livello estensionale dei dati
+            -l'operazione di result è così definita:
+
+                this.inizio +(this.durataMinuti in minuti)
+                dove in minuti è una stringa che accompagna il numero effettivo 'this.durataMinuti'
+
+
+
+
+5. Specifica della classe AttivitàComposta:
+
+
+    prezzo(): Reale >=0:
+
+
+        Precondizioni:
+            nessuna
+
+        Postcondizioni:
+
+            -L'operazione non modifica il livello estensionale dei dati
+            -L'operazione result è così definita:
+
+
+            Sia S l'inseme degli oggetti a:AttivitàSemplice tali che esiste il link(this,a): appartenere
+
+               Result è uguale alla somma del valore dell'attributo prezzo di ogni ogetto S
+
+
+
+    inizio(): DataOra
+
+        Precondizioni: 
+            nessuna
+
+        Postcondizioni: 
+            -L'operazione non modifica il livello estensionale dei dati
+            -L'operazione result è così definita:
+
+                Sia S l’insieme degli oggetti a:AttivitàSemplice tali che esiste il link (this, a): appartenere
+                Result è il valore minore tra tutti i valori di a.inizio degli elementi a dell’insieme S
+
+    
+    
+    fine(): DataOra
+
+        Precondizioni:
+         nessuna
+
+        Postcondizioni: 
+
+           -L'operazione non modifica il livello estensionale dei dati
+           -L'operazione result è così definita:
+                Sia S l’insieme degli oggetti a:AttivitàSemplice tali che esiste il link (this, a): appartene
+                Result è il valore maggiore tra tutti i valori a.fine() degli elementi a dell’insieme S
+           
