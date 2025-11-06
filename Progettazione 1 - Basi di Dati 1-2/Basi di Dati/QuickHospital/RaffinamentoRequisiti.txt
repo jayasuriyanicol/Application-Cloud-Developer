@@ -1,0 +1,130 @@
+RAFFINAMENTO REQUISITI QuickHospital:
+
+
+1.0 REQUISITI SUI PAZIENTI:
+    1.0.1 Un paziente può essere ricoverato in una certa data previa disponibilità dei posti letto (con esito positivo)
+
+ 1.1 nome: stringa 
+ 1.2.cognome: stringa
+ 1.3 dataNascita:  dataNascita
+
+
+
+2.0 REQUISITI SUI RECAPITI TELEFONICI:
+
+    2.1 recapitoTelefonico:  numero
+     2.1.1 il recapito telefonico deve essere UNIQUE/UNICO
+
+
+3.0 REQUISITI SUI RECAPITI EMAIL:
+
+    3.1 recapitoEmail : email 
+      3.1.1 il recapito telefonico deve essere UNIQUE/UNICO
+
+
+4.0 REQUISITI SUI RECAPITI POSTALI:
+
+    4.1 indirizzoRecapito: indirizzo 
+       4.1.1 il dato 'Indirrizzo' è modellato secondo la struttura standard ovvero -> 'indirizzo | civico | interno | cap
+    
+5.0  REQUISITI SULLE CITTÀ:
+
+    5.1 nome: stringa UNIQUE 
+      5.1.1 sono collegate con recapito tramite link
+
+6.0 REQUISITI SULLE REGIONI:
+
+    6.1 nome: stringa UNIQUE 
+      6.1.1 sono collegate con ciità tramite link
+
+
+7.0 REQUISITI SULLE NAZIONI:
+
+    7.1 nome: stringa UNIQUE 
+      7.1.1 sono collegate con ciità tramite link
+
+
+8.0 REQUISITI SUI MEDICI:
+
+   8.0.1 interessa avere a disposizione i pazienti di cui hanno cura i medici
+   8.0.2. il medico deve conoscere la sua specializzazione primaria e le sue specializzazioni secondarie.
+
+  8.1 nome: stringa
+  8.2 cognome: stringa
+  8.3 dataNascita : dataNascita
+ 
+
+
+
+9.0 REQUISITI SULLA STANZA:
+
+    9.0.1 una volta effettuato il ricovero, si ha a disposizione una stanza che ha un posto letto
+
+   9.1. stanza: stringa
+     9.1.1: una stanza può contenere un massimo di 8 posti a un minimo di 1
+   9.2 piano: intero >= 0
+
+   9.3. settore: intero >= 0
+
+   9.4. postoLetto :stringa
+      9.4.1 Il posto letto è associato in ambito di una stanza
+
+
+
+
+
+
+FUNZIONALITA' DEL SISTEMA
+
+
+999.0.0  Il sistema deve inoltre permettere la memorizzazione dello storico di tutti i pazienti
+che sono stati ricoverati e poi dimessi nel tempo, con le informazioni relative ai posti
+letto occupati durante i diversi ricoveri.
+
+999.1.0 la registrazione del ricovero di un paziente e della sua dimissione ad opera del personale di accettazione. 
+
+
+999.2.0 calcolare, su richiesta di un medico, il suo itineriario delle visite, ovvero un insieme ordinato delle stanze cui accedere (che sono 2
+tutte e sole le stanze che ospitano i pazienti che ha in cura).
+
+
+999.3.0  il sistema deve permettere di calcolare, su richiesta di un medico, il suo itineriario delle visite, ovvero un insieme ordinato delle stanze cui accedere (che sono tutte e sole le stanze che ospitano i pazienti che ha in cura).
+
+
+999.4.0 L’ordinamento è dato in primo luogo dal piano delle stanze dei pazienti da visitare, ed
+in secondo luogo dal settore di appartenenza di tali stanze (entrambi in ordine crescente).
+I settori sono infatti numerati secondo un criterio di vicinanza topologica. Pertanto se
+un dato medico deve visitare le stanze {(7, 4), (7, 1), (1, 3), (1, 1), (3, 4)} dove la prima
+componente di ognuna è il piano e la seconda il settore, l’itinerario di visita proposto
+deve essere [(1, 1), (1, 3), (3, 4), (7, 1), (7, 7)].
+
+
+FUNZIONALITA USE CASE:
+
+
+A. Oltre ai pazienti dell’ospedale, il sistema gestisce anche prestazioni mediche fatte
+da medici dell’ospedale a pazienti esterni. L’anagrafica di tali pazienti è registrata nel
+sistema (ad opera del personale addetto alle prenotazioni), con l’informazione aggiuntiva
+ della particolare prestazione medica richiesta al personale ospedaliero (oltre che la
+data richiesta). 
+
+B. Le prestazioni sono caratterizzate da una specializzazione richiesta (ad.,
+ortopedia, dermatologia, ecc.) e una descrizione più estesa
+
+
+C. Di ogni medico il sistema deve conoscere la sua specializzazione primaria e le sue
+specializzazioni secondarie.
+
+
+D. Data una prestazione richiesta da un paziente esterno (per una specializzazione s), il
+sistema deve restituire l’insieme dei medici maggiormente idonei a soddisfarla. Il criterio
+di idoneità è il seguente: se esistono medici con specializzazione primaria pari ad s, il
+risultato è l’insieme di tali medici. Altrimenti, il risultato è l’insieme dei medici che hanno
+s tra le loro specializzazioni secondarie.
+
+
+E. l sistema QuickHospital è accessibile ai medici, al personale amministrativo e a quello
+dell’ufficio prenotazioni.
+
+
+
