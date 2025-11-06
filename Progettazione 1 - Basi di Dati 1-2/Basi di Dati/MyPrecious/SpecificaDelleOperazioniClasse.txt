@@ -227,6 +227,19 @@ sovrapposti(i1: DataOra, f1: DataOra, i2: DataOra, f2: DataOra): Booleano
 			- Esiste un t: DataOra tale che
 				i1 <= t <= f1 AND i2 <= t <= f2
 
+Oppure in forma differente:
+	[V.Esptemp.op.NonContemporanee] La stessa opera non può essere in due esposizioni temporanee contemporaneamente-
+		o:Opera
+		e1:Esptemp
+		e2:Esptemp
+		- e1 != e2
+		- e2.fine < e1.inizio oppure e1.fine < e2.inizio
+    Per ogni o:OPera sia e1:ETEMP e e2: ETEMP tale che :
+
+		(0,e1):op_esp e (o,e2): op_esp 
+		
+		Deve essere e1 != e2  e(AND LOGICO) (e2 fine <e1.inizio oppure e1 fine<e2.inizio)
+
 
 [V.Opera.no_esposizioni_contemporanea]
 
