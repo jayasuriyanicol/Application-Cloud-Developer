@@ -165,7 +165,7 @@ AttivitaMaxPartecipanti(viaggio: Viaggio): Insieme(Attività,Intero>=0)
 
 
 
-6. "Data una citt`a di destinazione, per ognuno dei 12 mesi dell’anno, calcolare il numero di viaggi organizzati in tale mese nell’ultimo anno solare, in tale città."
+6. "Data una citta di destinazione, per ognuno dei 12 mesi dell’anno, calcolare il numero di viaggi organizzati in tale mese nell’ultimo anno solare, in tale città."
 
 
 num_viaggi_città_ultimi_12_mesi(c: Città): (1..12, Intero >= 0) [1..12]
