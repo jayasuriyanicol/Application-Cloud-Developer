@@ -3,7 +3,8 @@ RAFFINAMENTO REQUISITI QuickHospital:
 
 1.0 REQUISITI SUI PAZIENTI:
     1.0.1 Un paziente può essere ricoverato in una certa data previa disponibilità dei posti letto (con esito positivo)
-
+    1.0.1.1 Un pazinete può essere sia interno che esterno.
+            1.0.1.1.1 Ad un paziente esterno è legato una Prestazione richiesta da un medico e una specializzazione
  1.1 nome: stringa 
  1.2.cognome: stringa
  1.3 dataNascita:  dataNascita
@@ -45,7 +46,7 @@ RAFFINAMENTO REQUISITI QuickHospital:
 
 
 8.0 REQUISITI SUI MEDICI:
-
+  
    8.0.1 interessa avere a disposizione i pazienti di cui hanno cura i medici
    8.0.2. il medico deve conoscere la sua specializzazione primaria e le sue specializzazioni secondarie.
 
