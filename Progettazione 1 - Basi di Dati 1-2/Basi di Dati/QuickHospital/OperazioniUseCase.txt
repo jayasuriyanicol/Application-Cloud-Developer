@@ -91,21 +91,20 @@ dimissione(paz:Paziente) -> None:
 
 
 
-
-    '''
-    TODO:
-    L’ordinamento è dato in primo luogo dal piano delle stanze dei pazienti da visitare, ed in secondo luogo dal settore di appartenenza di tali stanze (entrambi in ordine crescente).
-    I settori sono infatti numerati secondo un criterio di vicinanza topologica. Pertanto se
-    un dato medico deve visitare le stanze {(7, 4), (7, 1), (1, 3), (1, 1), (3, 4)} dove la prima
-    componente di ognuna è il piano e la seconda il settore, l’itinerario di visita proposto
-    deve essere [(1, 1), (1, 3), (3, 4), (7, 1), (7, 7)].
-    Si assuma per semplicità che durante il periodo di un ricovero il paziente non possa cambiare letto
-    '''
-
-    ordinamentoItinerarioPazienti()-> Insieme(Tuple):
+    ordinamentoItinerarioPazienti(s1:Stanza,s2:Stanza)-> Insieme(Tuple):
 
         Precondizioni:
+            nessuna
 
         PostCondizioni:
+
+            Non modifica il livello estensionale dei dati 
+
+            Il result è così deinito:
+
+            Se s1.piano < s2.piano, result = True 
+            Se s1.piano = s2.piano e s1.settore <= s2.settore, allora result = True 
+
+            Altrimenti, result = True
 
         
