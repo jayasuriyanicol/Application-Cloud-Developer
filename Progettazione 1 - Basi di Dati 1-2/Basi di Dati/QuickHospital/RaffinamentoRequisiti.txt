@@ -27,22 +27,26 @@ RAFFINAMENTO REQUISITI QuickHospital:
 
     4.1 indirizzoRecapito: indirizzo 
        4.1.1 il dato 'Indirrizzo' è modellato secondo la struttura standard ovvero -> 'indirizzo | civico | interno | cap
-    
-5.0  REQUISITI SULLE CITTÀ:
 
-    5.1 nome: stringa UNIQUE 
-      5.1.1 sono collegate con recapito tramite link
-
-6.0 REQUISITI SULLE REGIONI:
-
-    6.1 nome: stringa UNIQUE 
-      6.1.1 sono collegate con ciità tramite link
+5.0 REQUISITI SULLE PRESTAZIONI RICHIESTE:
+  5.1 necessaria una descrizione estesa:stringa
+  5.2 necessaria una dataRichiesta: DataOra
+  5.3 ogni prestazioneRichiesta è collegata ad un medico ed una specializzazione già esistente
 
 
-7.0 REQUISITI SULLE NAZIONI:
+6.0 REQUISITI SULLE PERSONE:
+  6.1. interesse sapere il nome:stringa
+  6.2. cognome:stringa
+  6.3. dataNascita: dataNascita
+  6.4. ogni persona è una super-categoria che racchiude un'insieme di persone
+    6.5. ogni persona può essere un paziente 
+    6.6. ogni persona può essere un medico
 
-    7.1 nome: stringa UNIQUE 
-      7.1.1 sono collegate con ciità tramite link
+
+
+7.0 REQUISITI SUI PAZIENTI(INTERNI):
+  7.1. I pazienti possono essere interni 
+
 
 
 8.0 REQUISITI SUI MEDICI:
@@ -53,24 +57,45 @@ RAFFINAMENTO REQUISITI QuickHospital:
   8.1 nome: stringa
   8.2 cognome: stringa
   8.3 dataNascita : dataNascita
+
+
  
+9.0 REQUISITI SUI PAZIENTI(ESTERNI):
+
+    9.1. ad ogni paziente esterno è associata una richiesta di prestazione:
+      9.1.1. una richiesta di prestazione è formata da una descrizione estesa:stringa
+      9.1.2. una richiesta di prestazione è formata da una dataRichiesta: DataOra
+
+
+10.0 REQUISITI SULLA STANZA:
+
+    10.0.1 una volta effettuato il ricovero, si ha a disposizione una stanza che ha un posto letto
+
+   10.1. stanza: stringa
+     10.1.1: una stanza può contenere un massimo di 8 posti a un minimo di 1
+   10.2 piano: intero >= 0
+
+   10.3. settore: intero >= 0
+
+
+11.0 REQUISITI SUI POSTI LETTO:
+    11.0.1 Il posto letto è associato in ambito di una stanza
+
+    11.1. ci deve essere un calcolo della disponibilità della stanza a monte
+       11.1.1. calcolando la disponibilità dei posti i una stanza e restituendo un booleano -> {True or False}
+
+
+12.0 REQUISITI SUI RICOVERI:
+  12.1.1 Interesse sapere la dataRicovero: DataOra
+  12.2.2. Interesse sapere la dataDimissione:DataOra
+      12.2.2.1 La dataDimissione può essere facoltativa, ovvero che di un paziente non è necessario conoscere se è stato dimesso 
+              già nell'istante di ricovero: [0..1]
 
 
 
-9.0 REQUISITI SULLA STANZA:
+13.0 REQUISITI SULLE SPECIFICHE DELLE SPECAILIZZAZIONI:
 
-    9.0.1 una volta effettuato il ricovero, si ha a disposizione una stanza che ha un posto letto
-
-   9.1. stanza: stringa
-     9.1.1: una stanza può contenere un massimo di 8 posti a un minimo di 1
-   9.2 piano: intero >= 0
-
-   9.3. settore: intero >= 0
-
-   9.4. postoLetto :stringa
-      9.4.1 Il posto letto è associato in ambito di una stanza
-
-
+    13.1 nome: stringa univoca
 
 
 
@@ -100,8 +125,7 @@ componente di ognuna è il piano e la seconda il settore, l’itinerario di visi
 deve essere [(1, 1), (1, 3), (3, 4), (7, 1), (7, 7)].
 
 
-FUNZIONALITA USE CASE:
-
+FUNZIONALITA USE CASE(Operazioni e Diagramma):
 
 A. Oltre ai pazienti dell’ospedale, il sistema gestisce anche prestazioni mediche fatte
 da medici dell’ospedale a pazienti esterni. L’anagrafica di tali pazienti è registrata nel
