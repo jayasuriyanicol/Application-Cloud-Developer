@@ -107,3 +107,5 @@ dimissione(paz:Paziente) -> None:
         Precondizioni:
 
         PostCondizioni:
+
+        
