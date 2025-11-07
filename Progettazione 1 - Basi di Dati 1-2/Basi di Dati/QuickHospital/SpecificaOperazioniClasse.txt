@@ -79,3 +79,29 @@ SPECIFICA DELLE OPERAZIONI DI CLASSE:
 
     Così tale d'avere una sp collegata con prs che abbia un m in comune tramite il link spi o sps.
 
+
+
+
+
+4. Specifica della classe PostoLetto:
+
+
+    disponibilitàStanza(s:Stanza) -> bool:
+
+        Precondizioni:
+        nessuna
+
+        Postcondizioni:
+
+        -Non modifca il livello estensionale dei dati
+        - Result è così definita:
+
+            Sia s:Stanza e pl:PostoLetto tale che (s,pl):presente
+            Ogni s può avere un numero n posti letto, con condizione: 1 <= n<= 8
+            Sia d = (s,pl):presente, ovvero il link fra s e pl
+
+            Quindi, possiamo definire come segue Result:
+            
+            - L'operazione darà True: se esiste almeno un pl associato a s che risulta 'disponibile' (ovvero non occupata), con l'esistenza di almeno un d
+            - L'operazione darà False: in caso non ci sia nessun pl associato a s che risulta analogamente 'non disponibile' (ovvero occupato), con nessuna esista di un d.
+
