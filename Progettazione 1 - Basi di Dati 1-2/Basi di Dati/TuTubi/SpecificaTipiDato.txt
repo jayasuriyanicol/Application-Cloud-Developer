@@ -1,0 +1,51 @@
+                    SPECIFICA DEI TIPI DI DATO - Prog+ TuTubi
+
+
+
+SPECIFICA TIPI DATO:
+
+
+1. DataOra: stringa secondo standard che ha un timestamp come segue: GG/MM/AAAA - HH:MM:SS 
+            
+                
+                (G=giorno,M=mese,A=anno,H=ora,M=minuto,S:secondo)
+
+
+2. valutazioneVideo: valore enumerico pre-definito, che ha al suo interno i seguenti valori:
+
+                valutazione = {0,1,2,3,4,5} ovvero da [0..5] -> un valore da pessimo ad ottimo
+
+
+
+3. nomeFile: valore alfanumerica pre-definita secondo standard che segue la seguente sintassi:
+
+
+                nomeFile = (nome.estesione) dove:
+
+                nome = nome del file, maniera in cui è stato nominato il file
+                estesione = estesione file, che segue le estensioni reali secondo standard disponibili (MP4, MOV, AVI, WMV, FLV e MKV)
+
+
+4. link: valore alfanumerico secondo standard, che segue la seguente sintassi standard:
+
+            link = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
+
+
+
+5. Video : un dizionario alfanumerico pre-definito secondo la seguente sintassi:
+
+
+            Video = {True: 'link' | False : None}
+
+    Quindi in caso video sia True viene associato ad un link:linkVideo(Video) univoco
+    Altrimenti False ed automaticamente None,ovvero nullo
+
+
+
+6. Durata : valore alfanumerico pre-definito secondo la seguente sintassi:
+
+            Durata =  numeroMinuti minuti 
+
+        Dove numeroMinuti = valore numero da 0 999(estendibile)
+        
+
