@@ -91,7 +91,7 @@ dimissione(paz:Paziente) -> None:
 
 
 
-    ordinamentoItinerarioPazienti(s1:Stanza,s2:Stanza)-> Insieme(Tuple):
+ordinamentoItinerarioPazienti(s1:Stanza,s2:Stanza)-> Insieme(Tuple):
 
         Precondizioni:
             nessuna
