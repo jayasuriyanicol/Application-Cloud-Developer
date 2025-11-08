@@ -1,0 +1,152 @@
+                SPECIFICA delle CLASSI e Operazioni - Progetto TuTubi
+
+
+
+
+
+
+SPECIFICA delle classi e Operazioni:
+
+
+
+1. SPECIFICA della classe Registrato(Utente):
+ 
+ [V.Registrato.AzioniDisponibili]
+
+ Sia ur:Registrato e v:Video tale che (ur,v):pubblicare che permette di pubblicare video 
+
+ esista il link (ur,v): visualizzare che permette di visualizzare un video 
+
+ Sia c:Commento tale che (v,c):commentare 
+ Sia val:Valutazione tale che (v,val):valutare
+
+ sia pub = (ur,v):pubblicare 
+ sia vis = (ur,v):visualizzare
+ sia repl = v.videoRisposta 
+ sia com= (v,c):commentare
+ sia valu= (v,val):valutare
+
+ dove per ogni pub è permesso 'segnalare' uno ed esclusivamente un repl.
+
+ Non deve esistere un'azione repl per un link pub effettuato da uno stesso ur.
+
+ Inoltre un ur può:
+
+ 1. effettuare da 0 a più pub per v
+ 2. visualizzare da 0 a più vis per v
+ 3. commentare da 0 a più com per v:
+    3.1 in caso un ur non abbia partecipato al link vis non può esistere il link com
+ 4. valutare uno ed esclusivamente un valu per v:
+    4.1 in caso sia stato un ur a pubblicare un v non può esistere un link valu
+    4.2 in caso un ur non abbia partecipato al link vis non può esistere il link valu
+
+
+2. SPECIFICA della classe Playlist:
+    
+[V.Playlist.PlaylistPubblicheVisualizzabili] 
+
+Sia p:Playlist e pp:Pubblica il sottoinsieme di p 
+
+Sia u:Utente tale che (pp,u):visual_play 
+
+Sia visPlay = (pp,u):visual_play
+
+Sia u tale che (u,p):creare 
+
+Quindi:
+
+Un u può creare una p di tipologia pp e conseguentemente 'visualizzabile'a tutti gli u tramite un link visPlay.
+In maniera tale da poter ottenere una p di tipologia pp di un altro u.
+
+
+3. SPECIFICA della classe Video:
+
+
+ricercaVideo(c:stringa,t:list[Tag],val:intero[0..5]) -> stringa:Video 
+
+    Precondizioni:
+    nessuna
+
+    PostCondizioni:
+    -Non modifica il livello estensionale dei dati
+    -L'operazione di Result è così di seguito definita:
+
+        Sia v:Video e c:Categoria tale che (v,c):categorizzare 
+        Sia t:Tag tale che (v,t):taggare 
+        Sia valut:Valutazione tale che (v,valut):valutare
+
+        Sia valutazione = v.valut.valutazioneVideo ovvero la valutazione di quel determinato video
+
+        Result:
+            
+            Per ogni v in c, esista un  c1:Categoria == c
+            Per ogni v in t, esista alemeno un elemento un t1:Tag == t
+            Esista almeno una valutazione == val, nonostante valutazione == 0 | None vengono inclusi
+
+            I v che soddisfano tale richiesta ->  Result v 
+
+
+
+4. SPECIFICA della classe VideoCensurato:
+
+[V.VideoCensurato.CensuraTotaleVideo]
+
+Sia v:Video sopraclasse di vc:VideoCensurato 
+Sia u:Utente sopraclasse di ur:Registrato e unr:NonRegistrato tale che (ur,v):visualizzare
+Sia c:Commento tale che (v,c):commentare
+Sia val:Valutazione tale che (v,val):valutare
+
+Sia:
+inclu = (u,v):includere 
+vis = (ur,v):visualizzare
+com =(v,c):commentare
+valu = (v,val):valutare
+
+
+un qualsiasi u non può per ogni v di vc, svolgere le seguenti azioni:
+
+    1. svolgere un link inclu, ovvero includere una p in un vc
+    2. svolgere un link vis, ovvero visualizzare un vc di v 
+    3. svolgere un link com, ovvero commentare un vc di v 
+    4. svolgere un link valu, ovvero valutare un vc di v 
+    5. restituire un vc di un determinato u come risultato di ricerca 
+
+
+
+
+5. SPECIFICA della classe Categoria:
+
+
+ricercaMaxReplyVideoCategoria(c:Categoria) -> stringa:Video[Categoria]
+
+    Precondizioni:
+    nessuna
+
+    PostCondizioni:
+
+    -Non modifica il livello estensionale dei dati
+    -L'operazione di Result è di seguito definita:
+
+    Sia v:Video e c:Categoria tale che(v,c):categorizzare
+    Per ogni v in c, Sia vidRisp = v.videoRisposta
+    
+    Se vidRisp ha valore = {True, link}, significa che v è un video in risposta ad un'altro video identificato da link
+
+    Definiamo totRis un dict, con link come chiave e un intero >= 1:
+      
+       verifichiamo se link è già presente in totRis:
+
+        A.Se sì, incrementiamo totRis[link] di 1
+
+        B.Se no, aggiungiamo totRis[link] = 1
+
+
+    Alla fine della ricerca, andiamo a ricercare il valore massimo tra quelli presenti in totRis:
+
+        Prendiamo il link del valore massimo e rintracciamo il v corrispondete che sarà il nostro Result
+
+
+
+
+
+
