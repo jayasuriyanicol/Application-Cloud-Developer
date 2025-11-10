@@ -1,0 +1,92 @@
+
+                SPECIFICA UseCase - Progetto TuTubi
+
+
+
+
+
+
+SPECIFICA UseCase:
+
+
+Strumenti Video:
+
+
+ricercaVideo(c:stringa,t:list[Tag],val:intero[0..5]) -> stringa:Video 
+
+    Precondizioni:
+    nessuna
+
+    PostCondizioni:
+    -Non modifica il livello estensionale dei dati
+    -L'operazione di Result è così di seguito definita:
+
+        Sia v:Video e c:Categoria tale che (v,c):categorizzare 
+        Sia t:Tag tale che (v,t):taggare 
+        Sia valut:Valutazione tale che (v,valut):valutare
+
+        Sia valutazione = v.valut.valutazioneVideo ovvero la valutazione di quel determinato video
+
+        Result:
+            
+            Per ogni v in c, esista un  c1:Categoria == c
+            Per ogni v in t, esista alemeno un elemento un t1:Tag == t
+            Esista almeno una valutazione == val, nonostante valutazione == 0 | None vengono inclusi
+
+            I v che soddisfano tale richiesta ->  Result v 
+
+
+
+ricercaMaxReplyVideoCategoria(c:Categoria) -> stringa:Video[Categoria]
+
+    Precondizioni:
+    nessuna
+
+    PostCondizioni:
+
+    -Non modifica il livello estensionale dei dati
+    -L'operazione di Result è di seguito definita:
+
+    Sia v:Video e c:Categoria tale che(v,c):categorizzare
+    Per ogni v in c, Sia vidRisp = v.videoRisposta
+    
+    Se vidRisp ha valore = {True, link}, significa che v è un video in risposta ad un'altro video identificato da link
+
+    Definiamo totRis un dict, con link come chiave e un intero >= 1:
+      
+       verifichiamo se link è già presente in totRis:
+
+        A.Se sì, incrementiamo totRis[link] di 1
+
+        B.Se no, aggiungiamo totRis[link] = 1
+
+
+    Alla fine della ricerca, andiamo a ricercare il valore massimo tra quelli presenti in totRis:
+
+        Prendiamo il link del valore massimo e rintracciamo il v corrispondete che sarà il nostro Result
+
+
+
+Strumento Playlist:
+
+trovaPlalistUtente(u:Utente(Registrato)): Playlist(Pubblica)
+
+
+    Precondizioni :
+        nessuna
+
+    PostCondizioni:
+
+        Sia u:Utente sopraclasse di ur:Registrato 
+        Sia p:Playlist sopraclasse di pp:Pubblica tale che (u,pp):visual_play
+        Sia trovPlay =(u,pp):visual_play
+
+
+        Sia result così definita:
+
+            Result = insieme pp che abbiano link trovPlay
+
+    
+
+
+

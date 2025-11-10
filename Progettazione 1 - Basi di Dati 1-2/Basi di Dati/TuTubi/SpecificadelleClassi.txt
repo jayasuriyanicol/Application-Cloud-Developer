@@ -2,9 +2,6 @@
 
 
 
-
-
-
 SPECIFICA delle classi e Operazioni:
 
 
@@ -41,6 +38,9 @@ SPECIFICA delle classi e Operazioni:
     4.2 in caso un ur non abbia partecipato al link vis non può esistere il link valu
 
 
+
+
+
 2. SPECIFICA della classe Playlist:
     
 [V.Playlist.PlaylistPubblicheVisualizzabili] 
@@ -59,31 +59,56 @@ Un u può creare una p di tipologia pp e conseguentemente 'visualizzabile'a tutt
 In maniera tale da poter ottenere una p di tipologia pp di un altro u.
 
 
+
+
 3. SPECIFICA della classe Video:
 
-
-ricercaVideo(c:stringa,t:list[Tag],val:intero[0..5]) -> stringa:Video 
+numeroVisualizzazioni(): intero >= 0:
 
     Precondizioni:
-    nessuna
+        nessuna
 
     PostCondizioni:
-    -Non modifica il livello estensionale dei dati
-    -L'operazione di Result è così di seguito definita:
 
-        Sia v:Video e c:Categoria tale che (v,c):categorizzare 
-        Sia t:Tag tale che (v,t):taggare 
-        Sia valut:Valutazione tale che (v,valut):valutare
+        - Non modifica il livello estensionale dei dati
+        - L'operazione Result è così definita:
 
-        Sia valutazione = v.valut.valutazioneVideo ovvero la valutazione di quel determinato video
 
-        Result:
-            
-            Per ogni v in c, esista un  c1:Categoria == c
-            Per ogni v in t, esista alemeno un elemento un t1:Tag == t
-            Esista almeno una valutazione == val, nonostante valutazione == 0 | None vengono inclusi
+            Sia u:Utente sopraclasse di ur:Registrato 
+            Sia v:Video tale che (ur,v):visualizzare
+            Sia visVideo = (ur,v):visualizzare
+            Sia Vtot l'insiene che contiene tutti i link visVideo, tali che (ur,this):visualizzare
 
-            I v che soddisfano tale richiesta ->  Result v 
+
+            Il result sarà la cardinalità di Vtot, ovvero il numero delle visualizzazioni totali per un determinato v:
+
+             Result = |Vtot|
+
+
+mediaVisualizzazioni(): reale[0..5] :
+
+    Precondizioni:
+        almeno un valore this deve essere coinvolto in un link da ur:Registrato a v:Video 
+
+    PostCondizioni:
+
+        - Non modifica il livello estensionale dei dati
+        - L'operazione Result è così definita:
+
+
+            Sia u:Utente sopraclasse di ur:Registrato 
+            Sia v:Video tale che (ur,v):visualizzare
+            Sia visVideo = (ur,v):visualizzare
+            Sia Vtot l'insiene che contiene tutti i link visVideo, tali che (ur,this):visualizzare
+            Sia S la somma di tutti i valori presenti in Vtot 
+
+            Il result sarà:
+
+             Result = S / |Vtot| 
+
+              ovvero la somma del numero delle visualizzazioni totali fratto con la cardinalità di visTot
+
+
 
 
 
@@ -113,38 +138,36 @@ un qualsiasi u non può per ogni v di vc, svolgere le seguenti azioni:
 
 
 
+5. SPECIFICA della classe Commento:
 
-5. SPECIFICA della classe Categoria:
-
-
-ricercaMaxReplyVideoCategoria(c:Categoria) -> stringa:Video[Categoria]
-
-    Precondizioni:
-    nessuna
-
-    PostCondizioni:
-
-    -Non modifica il livello estensionale dei dati
-    -L'operazione di Result è di seguito definita:
-
-    Sia v:Video e c:Categoria tale che(v,c):categorizzare
-    Per ogni v in c, Sia vidRisp = v.videoRisposta
-    
-    Se vidRisp ha valore = {True, link}, significa che v è un video in risposta ad un'altro video identificato da link
-
-    Definiamo totRis un dict, con link come chiave e un intero >= 1:
-      
-       verifichiamo se link è già presente in totRis:
-
-        A.Se sì, incrementiamo totRis[link] di 1
-
-        B.Se no, aggiungiamo totRis[link] = 1
+[V.Commento.Video.NoCommentoVideoCensurato]
 
 
-    Alla fine della ricerca, andiamo a ricercare il valore massimo tra quelli presenti in totRis:
+Sia u:Utente sopraclasse di ur:Registrato 
+Sia v:Video tale che (ur,v):visualizzare
+Sia vc:VideoCensurato sottoclasse di v 
+Sia c:Commento tale che (v,c):commentare
 
-        Prendiamo il link del valore massimo e rintracciamo il v corrispondete che sarà il nostro Result
+Quindi vogliamo che:
 
+Non ci sia un link (v,c):commentare per v di tipologia vc, dato che non è possibile commentare un video CensuraTotaleVideo
+
+
+
+6.SPECIFICA della classe Valutazione:
+
+
+[V.Valutazione.Video.NoVisualVideoCens]
+
+
+Sia u:Utente sopraclasse di ur:Registrato
+Sia v:Video tale che (ur,v):pubblicare 
+Sia vc:VideoCensurato sottoclasse di V
+Sia val:Valutazione tale che (v,val):valutare
+
+Quindi:
+
+Non deve esistere un link(v,val):valutare per v di tipologia vc, dato che non è possibile valutare un video censurato.
 
 
 
