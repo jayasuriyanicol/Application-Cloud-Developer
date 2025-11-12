@@ -40,17 +40,13 @@ def benvenutoNome(nome:str) -> str:
 
 def squareOfN(n:int):
 
-    return f"Il quadrato del numero {n} è {n**n}"
+    return f"Il quadrato del numero {n} è {n*n}"
 
 @routing.route('/sum/<int:a>/<int:b>')
 
 def sumOfNumbers(a:int,b:int)-> int:
 
     return f"La somma dei numeri {a} e {b} è di : {a+b}"
-
-
-routing.run(debug=True)
-
 
 
 
