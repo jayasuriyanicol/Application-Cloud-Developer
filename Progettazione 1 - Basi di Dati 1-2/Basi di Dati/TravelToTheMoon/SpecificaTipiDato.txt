@@ -1,0 +1,53 @@
+                            SPECIFICA TIPI DI DATO - Progetto TravelToTheMoon
+
+
+
+
+
+
+
+SPECIFICA TIPI di dato:
+
+
+
+1. Indirizzo: stringa alfanumerica secondo standard, che segue la seguente sintassi
+
+
+        Indirizzo = {
+
+            Via: stringa
+            Civico: stringa alfanumerica
+            Interno: stringa alfanumerica
+            CAP: CAP
+
+
+           }
+
+        CAP : stringa secondo standard
+
+
+2. fasciaOraria : stringa alfanumerica secondo standard, che segue la seguente sintassi:
+
+
+        fasciaOraria ={
+            dal GG/MM/AAAA dalle ore HH:MM:SS 
+
+            al GG/MM/AAAA alle ore HH:MM:SS 
+
+           }
+
+           GG/MM/AAAA : sequenza numerica data secondo standard
+
+           HH:MM:SS : sequenza numerica orario secondo standard
+
+
+
+3. Comfort : valore numerico pre-definito :
+
+
+        Comfort -> [3..5] 
+
+
+        dove 3 valore minimo e 5 valore massimo  
+
+        
