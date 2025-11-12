@@ -1,0 +1,58 @@
+
+                                    SPECIFICA DELLE CLASSI - Progetto TravelToTheMoon
+
+
+
+
+
+
+SPECIFICA DELLE CLASSI:
+
+
+
+
+1. SPECIFICA della classe  CROCIERA:
+
+ [V.Crociera.dateCongrue]
+
+ Sia c:Crociera 
+
+ Non può esistere c.dataInizio > c.dataFine oppure c.dataFine < c.dataInizio.
+
+
+
+ 2. SPECIFICA della classe ITINERARIO:
+
+
+ [V.Itinerario.dateCongrue]  
+
+ Sia i:Itinerario
+
+ Non può esistere i.dataPartenza > i.dataArrivo oppure i.dataArrivo < i.dataPartenza 
+
+
+
+ 3. SPECIFICA della classe DESTINAZIONE:
+
+[V.Destinazione.dateCongrue]
+
+ Sia d:Destinazione
+ Non può esistere d.dataPartenza > d.dataArrivo oppure d.dataArrivo < d.dataPartenza 
+
+
+ 4. SPECIFICA della classe VISITA:
+    
+ [V.Visita.dateCongrue]
+  
+  Sia v:Visita
+  Sia data = v.fasciaOraria 
+
+  Quindi, dati gli elementi di data:
+
+    Sia elm1 = 'dal GG/MM/AAAA dalle ore HH:MM:SS'
+
+    Sia elm2= 'al GG/MM/AAAA alle ore HH:MM:SS'
+
+    Non può esistere elm1 > elm2 oppure elm2 < elm1
+
+ 
