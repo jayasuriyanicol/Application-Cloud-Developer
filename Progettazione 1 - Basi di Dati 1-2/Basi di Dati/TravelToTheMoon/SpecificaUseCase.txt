@@ -2,5 +2,120 @@
                             SPECIFICA USECASE - Progetto TravelToTheMoon
 
         
-
 SPECIFICA USECASE:
+
+
+
+1. "Dato un cliente che desidera prenotare un certo numero di posti per una crociera
+c, il personale dell’Ufficio Prenotazioni deve poter effettuare la relativa prenota-
+zione. La richiesta di prenotazione deve essere rifiutata nel caso il numero di posti
+disponibili, all’istante corrente, per la crociera c non sia sufficiente."
+
+
+disponibilitàPrenotazione(n:Intero >=0, c:stringa ) -> stringa:
+
+    PreCondizioni:
+        -nessuna
+
+    PostCondizioni:
+        -Non modfica il livello estensionale dei dati
+        -L'operazione Result è così definita:
+
+            -Sia c:Cliente e p:Prenotazione tale che (c,p):prenotare 
+            -Sia cr:Crociera tale che (p,cr):effettuare
+            -Sia n:Nave tale che (cr,n): utilizzare
+
+             Sia codCrociera = c, il codice della crociera passato in input 
+
+             Se non esiste cr tale che:
+                    cr.codice == codCrociera
+
+            allora
+
+                 Result = "codice della nave errato":
+
+            Sia nav la n:Nave utilizzata per la crociera cr
+            Sia postiOccupati = la somma dei p.numeroPostiPrenotati di tutte le p tali che (p,cr):effettuare
+            Sia Postidisponibili = nav.maxPassegeri - postiOccupati
+
+            Quindi nel caso:
+
+                        1.Postidisponibili < n:
+
+                            Result = "Posti per la crociera {c} non è sufficiente"
+                        
+                        Altrimenti :
+
+                            Result = "Posti disponibili per la crociera {c} sono{Postidisponibil}i posto/i"
+
+
+
+
+2. L’Ufficio Marketing deve poter calcolare l’età media dei clienti che hanno prenotato,
+in un dato periodo, almeno una crociera che prevede una destinazione esotica
+(ovvero che si trova in un continente diverso dall’Europa).
+
+clientiPrenotazioneEsotica(d:DataOra) -> Reale:
+
+    PreCondizioni:
+        - nessuna 
+    
+    PostCondizioni:
+
+        -Non modifica il livello estensionale dei dati 
+        -L'operazione Result è così definita:
+
+
+            Sia c:Cliente e p:Prenotazione tale che (c,p):prenotare
+            Sia cr:Crociera tale che (p,cr):effettuare 
+            Sia i:Itinerario tale che (cr,i): prevede 
+            Sia d:Destinazione tale che (i,d):arrivare
+            Sia cit:Città tale che (d,cit):dest_cit
+            Sia r:Regione tale che (c,r):reg_cit 
+            Sia p:Paese tale che  (r,p):paes_reg
+            Sia con:Continente tale che (p,con):cont_pae
+           
+        
+        Sia P l'insieme dei c:Cliente  tali che:
+            (c,p):prenotare 
+        
+        Sia CR l'insieme cr:Crociera tali che:
+
+            (p,cr):effettuare
+                
+             cr.dataInizio <= d <= cr.dataFine
+        
+        Sia DE l'insieme delle d:Destinazione tali che:
+
+            (cr,i):prevede
+            (i,d):arrivare
+            d.continenteNome =/= Europa 
+        
+        Quindi, sia CE l'insieme dei clienti c tali che esiste almeno una p prenotazione che soddisfa:
+             
+             c appartenente a p
+             cr appartenente a CR
+             d appartenente a DE
+            
+            Sia sommaEta la somma di tutte le età di tutti i clienti in CE
+            Sia n il numero di clienti in CE
+
+            Result è così definita:
+
+            Se n = 0, Result = 0
+
+            Altrimenti mediaEtà = sommaEta / n
+
+
+            Result = mediaEtà
+
+
+3. L’Ufficio Marketing deve poter calcolare la percentuale delle destinazioni da con-
+siderarsi gettonate in un periodo dato. Una destinazione va considerata gettonata
+in un certo periodo se è stata raggiunta, in quel periodo, da almeno dieci crociere
+di luna di miele, oppure da almeno quindici crociere per famiglie.
+
+
+
+                        TO DO 
+                        
