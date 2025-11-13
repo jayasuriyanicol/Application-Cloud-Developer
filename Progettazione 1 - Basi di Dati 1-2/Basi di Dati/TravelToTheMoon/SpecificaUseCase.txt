@@ -70,10 +70,7 @@ clientiPrenotazioneEsotica(d:DataOra) -> Reale:
             Sia cr:Crociera tale che (p,cr):effettuare 
             Sia i:Itinerario tale che (cr,i): prevede 
             Sia d:Destinazione tale che (i,d):arrivare
-            Sia cit:Città tale che (d,cit):dest_cit
-            Sia r:Regione tale che (c,r):reg_cit 
-            Sia p:Paese tale che  (r,p):paes_reg
-            Sia con:Continente tale che (p,con):cont_pae
+            Sia con:Continente tale che (d,con):cont_dest
            
         
         Sia P l'insieme dei c:Cliente  tali che:
@@ -93,7 +90,7 @@ clientiPrenotazioneEsotica(d:DataOra) -> Reale:
         
         Quindi, sia CE l'insieme dei clienti c tali che esiste almeno una p prenotazione che soddisfa:
              
-             c appartenente a p
+             c appartenente a P
              cr appartenente a CR
              d appartenente a DE
             
@@ -110,6 +107,7 @@ clientiPrenotazioneEsotica(d:DataOra) -> Reale:
             Result = mediaEtà
 
 
+
 3. L’Ufficio Marketing deve poter calcolare la percentuale delle destinazioni da con-
 siderarsi gettonate in un periodo dato. Una destinazione va considerata gettonata
 in un certo periodo se è stata raggiunta, in quel periodo, da almeno dieci crociere
@@ -117,5 +115,49 @@ di luna di miele, oppure da almeno quindici crociere per famiglie.
 
 
 
-                        TO DO 
+
+    percentualiDestinazioniGettonate(p:DataOra) -> stringa[Destinazione]
+
+
+        PreCondizioni:
+
+            nessuna
+
+        PostCondizioni:
+
+            -Non modifica il livello estensionale dei dati
+            -L'operazione Result è così definita:
+
+                Sia c:Crociera e i:Itinerario tale che (c,i):prevede 
+                Sia d:Destinazione tale che (i,d):arrivare
+               
+             
+             Sia D l'insieme d:Destinazione tale che:
+
+             (i,d): arrivare
+              
+             Sia C l'insieme c:Luna di Miele tale che:
+             (i,c):prevede 
+
+             Sia F l'insieme c':Crociera Famiglia tale che:
+             (i,c'):prevede
+              
+            Deve essere che: 
+
+            |C| >= 10  v |F| >= 15
+              
+            Quindi:
+
+            Sia FinalD l'insieme di tutti i d:Destinazione
+
+            Sia Result =  ((|D|/|FinalD|) * 100)
+
+                
+
+
+
+                
+
+
                         
+            
