@@ -1,0 +1,145 @@
+
+                SPECIFICA DEGLI USE - CASE - Progetto Out!
+
+
+    
+SPECIFICA USE-CASE:
+
+
+1.Iscriversi al servizio, fornendo i propri dati di interesse (nome, cognome, codice fiscale) che il sistema deve memorizzare
+
+
+
+IscrizioneServizio (nome:stringa,cognome:stringa,codiceFiscale: cf) -> Persona(Utente):
+
+
+    PreCondizioni:
+        - Per codiceFiscale non deve esistere un codiceFiscale' = codiceFiscale dato che è un dato univoco 
+    PostCondizioni:
+        -Modifica il modello dei dati 
+        -Result così definita:
+
+            Sia p:Persona istanza di p:Utente
+            
+            Per ogni p:
+                p.nome = nome
+                p.cognome = cognome
+                p.codiceFiscale =codiceFiscale
+                
+            Result p 
+
+
+2. Prenotare uno o più posti a prezzo pieno o ridotto di un dato settore per una
+data di uno spettacolo. I posti non sono liberi, pertanto il sistema deve assegnare,
+all’atto della prenotazione, un numero di posti sufficienti non ancora prenotati.
+
+"Si assuma per semplicità che i posti vengano assegnati in modo completamente arbitrario, e non
+dal “migliore” al “peggiore”."
+
+
+prenotazionePosti(u:Utente,numeroPosti:intero >= 0,d: DataOra) -> stringa:
+
+    PreCondizioni:
+
+        deve esistere almeno un sp:Spettacolo tale che (sp,inf):spettacolo con inf:InfoSpettacolo
+
+            con inf.dataInizio = d 
+
+    PostCondizioni:
+        -Non modifca il livello estensionale dei dati
+        -Result così definita:
+
+            Sia p:Persona istanza di p:Utente e non istanza di p':Artista
+            Sia pr:Prenotare tale che (p,pr):effettuare
+            Sia s:Spettacolo tale che (pr,s):prenotare 
+            Sia inf:InfoSpettacolo tale che (s,inf):spettacolo
+            Sia sal:Sala tale che (inf,sal):info 
+            Sia po:Posto tale che (sal,po):avere 
+
+            Quindi:
+
+                Sia P l'insieme di po:Posto di sal tale che (po,sal):avere:
+
+                Sia pDisp = sal.Postidisponibili(d), i posti disponibili per il dato settore 
+
+                Quindi:
+
+                    1. Se pDisp >= numeroPosti
+
+                        -Creiamo una pr:Prenotazione con:
+                            pr.numeroPosti = numeroPosti
+                            pr.data = adesso
+
+                            Result = "Sono stati assegnati {numeroPosti} posti"
+                    2. Altrimenti:
+
+                        Result = "Posti non disponibili"
+
+                    
+
+
+
+3. Consultare la lista degli spettacoli di una certa tipologia e genere (ad es., spettacoli
+teatrali/commedie) previsti in un certo giorno.
+
+
+consultareSpettacoli(tipologia:stringa, genere: stringa,d:DataOra) -> stringa[Spettacolo]:
+
+    Pre-PreCondizioni:
+        nessuna
+    PostCondizioni:
+        -Non modifica il livello estensionale dei dati 
+        -Result così definita:
+
+            Sia S l'insieme di s:Spettacolo,tali che:
+             s.tipologia = tipologia 
+             Esista un g:Genere tale che (s,g):avere e g.nome = genere
+             Esita inf:InfoSpettacolo con (s,inf):spettacolo e inf.dataInizio = d
+
+             Result = S 
+
+
+4. Ricevere dal sistema suggerimenti di nuovi spettacoli da vedere. In particolare, si
+richiede che il sistema segnali ad un utente l’insieme degli spettacoli programmati
+nei successivi 7 giorni, che sono dello stesso genere (anche se di tipologia diversa)
+dell’ultimo spettacolo da egli prenotato. 
+
+
+
+suggerimentiSpettacoli(u:Utente) -> stringa[Spettacolo] | None
+
+    PreCondizioni:
+        -una p:Persona istanza p:Utente deve aver effettuato dalla nascita almeno una p:Prenotazione, altrimenti None 
+        "Oppure in maniera più formale: Esita una pr:Prenotazione tale che (u,pr):effettuare, altrimenti Result = None"
+
+    PostCondizione:
+
+        -Non modifca il livello esistensionale dei dati 
+        -Result così definita:
+
+            Sia p:Persona istanza di p:Utente e non istanza di p':Artista
+
+            Sia P l'insieme delle pr:Prenotazione tali che (p,pr):effettuare
+            Sia UPre l'ultima prenotazione effettuata in ordine temporale
+
+            Sia spUltimo:Spettacolo tale che (UPre,spUltimo):prenotare
+            Sia gUltimo:Genere tale (spUltimo,gUltimo):avere
+
+            Sia Ugen = gUltimo.nome
+
+            Quindi:
+            
+            Sia SP insieme degli sp:Spettacolo, tali che:
+
+                Esita un g:Genere con (sp,g):avere e g.nome = Ugen 
+                Esista inf:InfoSpettacolo con (sp,inf):spettacolo con:
+
+                     adesso <= inf.dataInizio <=  adesso +7 giorni'
+            
+            Result =  SP
+
+
+                
+
+
+            
