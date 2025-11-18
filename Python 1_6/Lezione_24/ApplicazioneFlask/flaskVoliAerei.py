@@ -11,18 +11,37 @@ def AboutVoli() -> str:
     return "<h3>Benvenuto sul sito di VoliAerei !</h3>"
 
 
+#Metodo GET per ottenere i numero dei voli totali presenti nel 'DB'
 @voli.route('/voli',methods =['GET'])
 
 def get_voli():
 
     return jsonify({'Totali Voli': len(dati)})
 
+@voli.route('/Insiemevoli',methods=['GET'] )
 
-@voli.route('/nazioni',methods=['GET'] )
+
+#Metodo GET per ottenere tutti i voli presenti nel 'DB'
+def get_InsiemeVoli():
+    return jsonify({'Voli': dati['Volo']})
+
+
+
+@voli.route('/nazioni',methods=['GET'] ) 
+
+      return jsonify({'Nazioni' : dati['Nazioni'] })
+
+#Metodo GET per ottenere tutte le NAZIONI presenti nel 'DB'
+@voli.route('/Insiemenazioni',methods=['GET'] )
 def get_nazioni():
 
         return jsonify({'Nazioni': dati['Nazione']})
 
+
+
+
+
+#Metodo POST per inserire una nuova nazione previa verifica se non esiste già nel 'DB'
 @voli.route('/nazioni', methods=['POST'])
 
 def add_nazione():
@@ -49,7 +68,7 @@ def add_nazione():
 
 
 
-#Gestione di ErrorHandler personalizzato 
+#Gestione delgi ErrorHandler personalizzato 
 @voli.errorhandler(400)
 
 def requiredName(error):
