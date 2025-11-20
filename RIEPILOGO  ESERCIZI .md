@@ -5,7 +5,6 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **Progettazione 1** | Svolgere Specifiche UseCase - Out Project | *13/14 Novembre*     | Maggiori informazioni relativo file |
 | **Sicurezza** | Rivedere le slide pubblicate su OS e Crittografia | *ND*      | Rivedere le ultime slide aggiunte |
 ---
 
