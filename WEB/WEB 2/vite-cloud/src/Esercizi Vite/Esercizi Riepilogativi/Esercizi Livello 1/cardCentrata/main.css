@@ -1,0 +1,40 @@
+
+ul li:nth-child(1) {
+    background-color: yellow; ;
+    font-weight: bold;
+}
+
+ul li:nth-child(3) {
+    background-color: green;
+    font-weight: bold;
+}
+
+
+button:hover{
+    background-color: green;
+}
+
+        .contenitoreCard {
+            width: 300px; 
+            margin: auto; 
+            border: 1px solid red;
+            padding: 30px; 
+        }
+
+       
+        .titolo {
+        
+            color: black;
+            margin-top: auto; /
+    
+        }
+
+        .descrizione {
+            color: grey;
+           
+        }
+
+        .prezzo {
+            font-weight: bold;
+            text-align: center; 
+        }
