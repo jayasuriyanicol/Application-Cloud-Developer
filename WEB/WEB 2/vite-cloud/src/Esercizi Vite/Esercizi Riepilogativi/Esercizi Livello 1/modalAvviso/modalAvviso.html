@@ -1,0 +1,97 @@
+<!--
+
+7. Modal di Avviso
+Richiesto: un pulsante che apre un’area sovrapposta semi-trasparente con un messaggio e
+pulsante di chiusura.
+Usare: sovrapposizione a schermo intero, proprietà display o classi per mostrare/nascondere.
+Risultato: finestra di avviso centrata che copre la pagina.
+
+-->
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Modal Avviso</title>
+    <style>
+    
+        
+        #modalApertura {
+            padding: 15px 30px;
+            font-size: 1rem;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+       
+        #sovrapposizione {
+            display: none; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            justify-content: center;
+            align-items: center;
+       
+        }
+
+        
+        .box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        
+       #modalChiusura {
+            margin-top: 15px;
+            padding: 8px 16px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Messaggio Modal</h1>
+    <p>Clicca il pulsante per la lettura dell'avvisp</p>
+    
+    <button id="modalApertura">Apri Avviso</button>
+
+    <div id="sovrapposizione">
+        <div class="box">
+            <h2>Attenzione</h2>
+            <p>Questa è una finestra modale sovrapposta.</p>
+            <button id="modalChiusura">Chiudi</button>
+        </div>
+    </div>
+
+    <script>
+        const sovrapposta = document.getElementById("sovrapposizione");
+        const apriBottone = document.getElementById("modalApertura");
+        const chiudiBottone = document.getElementById("modalChiusura");
+
+        apriBottone.addEventListener("click", function() {
+            sovrapposizione.style.display = "flex";
+        });
+
+        chiudiBottone.addEventListener("click", function() {
+            sovrapposizione.style.display = "none";
+        });
+
+        sovrapposizione.addEventListener("click", function(e) {
+            if (e.target === sovrapposizione) {
+                sovrapposizione.style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+</html>
