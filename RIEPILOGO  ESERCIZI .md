@@ -5,6 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
+| **JAVA** | Svolgere gli eserdcizi introddutivi di JAVA dal 7 al 11 | *NULL*      | NULL |
 | **Sicurezza** | Rivedere le slide pubblicate su OS e Crittografia | *ND*      | Rivedere le ultime slide aggiunte |
 ---
 
