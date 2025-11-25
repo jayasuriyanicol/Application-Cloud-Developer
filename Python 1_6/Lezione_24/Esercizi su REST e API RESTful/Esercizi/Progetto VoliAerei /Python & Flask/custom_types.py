@@ -20,10 +20,6 @@ class CodiceIATA(str):
         raise ValueError(f"La stringa '{c}' non è un codice IATA valido per un aeroporto!")
 
 
-
-
-
-
 class IntGEZ(int):
     # Tipo di dato specializzato Intero >= 0 (Greater than or Equal to Zero)
     def __new__(cls, v: float | int | str | bool | Self) -> Self:
