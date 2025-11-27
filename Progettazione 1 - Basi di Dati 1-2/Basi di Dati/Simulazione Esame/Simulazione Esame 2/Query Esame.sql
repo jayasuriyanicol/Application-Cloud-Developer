@@ -58,7 +58,7 @@ ORDER BY p.cognome, p.nome;
 
 
 SELECT DISTINCT p.nome,p.cognome, SUM(atp.oreDurata)
-FROM Persona p, AttivitaProgetto atp, Progetto pr
+FROM Persona p, AttivitaProgetto atp
 WHERE atp.id = 5, p.id = atp.persona
 GROUP BY p.id,p.nome,p.cognome
 ORDER BY p.cognome, p.nome;
