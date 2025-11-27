@@ -5,7 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **JAVA** | Svolgere gli eserdcizi introddutivi di JAVA dal 7 al 11 | *NULL*      | NULL |
+| **JAVA** | Svolgere gli esercizi JAVA dal 3 in poi  | *Mercoledì 03 Dicembre* | Svolgere gli esercizi del secondo pacchetto di esercizi e caricare il PDF con il link GitHub |
 | **Sicurezza** | Rivedere le slide pubblicate su OS e Crittografia | *ND*      | Rivedere le ultime slide aggiunte |
 ---
 
