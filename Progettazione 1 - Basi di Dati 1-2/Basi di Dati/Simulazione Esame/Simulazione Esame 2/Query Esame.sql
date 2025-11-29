@@ -83,6 +83,7 @@ FROM Persona p, AttivitaNonProgettuale atnp
 WHERE atnp.tipo = "Didattica";
 
 
+
 --QUERY 10: Quali sono le persone che hanno svolto attività nel WP di id ‘5’ del progetto con id ‘3’. Per ogni persona, restituire il numero totale di ore svolte in attività progettuali per il WP in questione
 
 SELECT DISTINCT p.nome, p.cognome SUM(atp.oreDurata)
