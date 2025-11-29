@@ -110,8 +110,8 @@ public class Esercizio9_0 {
 		}
 		
 	
-		System.out.println("Numeri Estratti: " + Arrays.toString(ruota));
-		System.out.println("Numeri da te giocati:       " + Arrays.toString(giocata));
+		System.out.println("Numeri Estratti: " + Arrays.toString(lotteria));
+		System.out.println("Numeri da te giocati: " + Arrays.toString(giocata));
 		
 		
 		System.out.println("Hai indovinato " + indovinati + " numeri.");
