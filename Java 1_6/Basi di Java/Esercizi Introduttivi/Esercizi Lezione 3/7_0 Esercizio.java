@@ -1,3 +1,7 @@
+/*Exercise #7 – Common Elements
+Read as input two arrays A and B, of length n and m, and print all the elements
+common to A and B.
+*/
 package eserciziLezione3;
 import java.util.Scanner;
 import java.util.Arrays;
