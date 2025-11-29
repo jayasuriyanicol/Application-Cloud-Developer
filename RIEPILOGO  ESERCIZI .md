@@ -5,11 +5,13 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **JAVA** | Svolgere gli esercizi JAVA dal 3 in poi  | *Mercoledì 03 Dicembre* | Svolgere gli esercizi del secondo pacchetto di esercizi e caricare il PDF con il link GitHub |
+| **WEB 1-2** | Rivedere gli argomenti pre-esame  | *NULL* | -  |
+| **JAVA** | Vedere le slide teoriche caricate fino all'OPP con esercizi  | *Mercoledì 03 Dicembre* | Slide sul Moodle  |
+| **BASI DI DATI 1-2** | Svolgere Simulazione Esame 1 e Ristrutturazione MyPrecious  | *Venerdì 05 Dicembre* | Maggiori informazioni sul relativo file |
 | **Sicurezza** | Rivedere le slide pubblicate su OS e Crittografia | *ND*      | Rivedere le ultime slide aggiunte |
 ---
 
-## 🔁 Argomenti da Rivedere e Specifica Tabellares
+## 🔁 Argomenti da Rivedere e Specifica Tabellare
 
 "La specifica degli esercizi da svolgere sono presenti su ogni cartella specifica".
 
