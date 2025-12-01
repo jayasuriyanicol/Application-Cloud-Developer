@@ -15,6 +15,10 @@ CREATE DOMAIN RealGEZ AS REAL
 
 
 
+CREATE DOMAIN IntGEZ AS INTEGER
+    CHECK (VALUE >=0);
+
+
 --Creaiamo la tipologia str, anche se potrbbe tranquillamente essere VARCHAR, ma per completezza l'aggiungiamo 
 CREATE DOMAIN str AS VARCHAR;
     
@@ -79,7 +83,7 @@ CREATE TABLE Opera (
     idOpera SERIAL PRIMARY KEY,
 
     nome str NOT NULL,
-    anno_realizzazione INTEGER NOT NULL,
+    anno_realizzazione IntGEZ NOT NULL,
 
 
     --Tutti i valori associati ad Opera:
@@ -177,9 +181,13 @@ CREATE TABLE ExtendedAccess(
 );
 
 
+
+
 --Creiamo il link ext_temp, ma senza l'ausilio del CHECK dato che non abbiamo svolto il TRIGGER
 
 CREATE TABLE ext_temp(
+
+    --Vincolo 0..* - 0..*  fra Biglietto ed Esposizione
 
     extended_access INTEGER PRIMARY KEY NOT NULL,
     FOREIGN KEY(extended_access) REFERENCES ExtendedAccess(biglietto)
@@ -190,9 +198,13 @@ CREATE TABLE ext_temp(
 
 
 
+
+
 --Association class fra Opera ed Esposizione
 
 CREATE TABLE espone(
+
+    --Vincolo 0..* - 0..*  fra Esposizione ed Opera
 
     inizio DATE NOT NULL,
     fine DATE,
@@ -206,3 +218,25 @@ CREATE TABLE espone(
     esposizione INTEGER PRIMARY KEY NOT NULL,
     FOREIGN KEY(esposizione) REFERENCES Esposizione(idEsposizione) 
 );
+
+
+
+
+CREATE TABLE op_corr(
+
+     --Vincolo 0..* - 1..*  fra Opera ed CorrenteArtistica
+
+
+     opera INTEGER PRIMARY KEY NOT NULL,
+
+     FOREIGN KEY (opera) REFERENCES Opera(idOpera),
+
+     correnteArtistica str PRIMARY KEY NOT NULL,
+     FOREIGN KEY (correnteArtistica) REFERENCES correnteArtistica(nome)
+
+
+);
+
+
+
+COMMIT;
