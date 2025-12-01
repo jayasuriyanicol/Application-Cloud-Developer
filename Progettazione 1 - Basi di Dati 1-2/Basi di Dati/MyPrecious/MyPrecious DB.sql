@@ -57,9 +57,9 @@ CREATE TABLE Artista (
     data_morte DATE,
 
     
-    --Verifichiamo che la data di morte sia maggiore di quella di nascita
+    --Verifichiamo che la data di morte sia maggiore o maggiore uguale a quella di nascita
 
-    CHECK(data_morte > data_nascita)
+    CHECK(data_morte >= data_nascita)
 );
 
 CREATE TABLE Tecnica (
