@@ -7,7 +7,7 @@
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
 | **WEB 1-2** | Rivedere gli argomenti pre-esame  | *NULL* | -  |
 | **JAVA** | Vedere le slide teoriche caricate fino all'OPP con esercizi  | *Mercoledì 03 Dicembre* | Slide sul Moodle  |
-| **BASI DI DATI 1-2** | Svolgere Simulazione Esame 1 e Ristrutturazione MyPrecious  | *Venerdì 05 Dicembre* | Maggiori informazioni sul relativo file |
+| **BASI DI DATI 1-2** | Svolgere Simulazione Esame 1  | *Venerdì 05 Dicembre* | Maggiori informazioni sul relativo file |
 | **Sicurezza** | Rivedere le slide pubblicate su OS e Crittografia | *ND*      | Rivedere le ultime slide aggiunte |
 ---
 
