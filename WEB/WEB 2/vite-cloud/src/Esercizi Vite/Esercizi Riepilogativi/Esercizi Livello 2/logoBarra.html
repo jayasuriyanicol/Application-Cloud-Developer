@@ -1,0 +1,52 @@
+<!--ESERCIZI LIVELLO 2 — FLEXBOX, ES6, ARRAY, OGGETTI (11–20)
+11. Header con Flexbox
+Richiesto: barra superiore con logo a sinistra e gruppo di icone a destra.
+Usare: display:flex, justify-content:space-between, allineamenti.
+Risultato: header equilibrato e coerente su un’unica riga.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header con Flexbox</title>
+</head>
+<style>
+    .main-header{
+        display:  flex;
+    }
+
+    .logo{ 
+
+        font-size: 24px;
+        justify-content: left;
+        font-weight: bold;
+    }
+
+    .pannello{
+        display: flex;
+        justify-content: right ;
+        gap:15px ;
+    }
+
+
+
+</style>
+<body>
+
+    <header class="main-header">
+    <div class ="logo">ITS ICT ACADEMY</div>
+
+    <div class = "pannello">
+        
+        <span>Ricerca</span>
+        <span>Profilo</span>
+        <span>Indicazioni</span>
+    </div>
+
+    </header>
+
+
+    
+</body>
+</html>
