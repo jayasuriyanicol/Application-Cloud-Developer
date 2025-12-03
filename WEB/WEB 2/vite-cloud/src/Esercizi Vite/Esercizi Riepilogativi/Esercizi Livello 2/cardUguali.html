@@ -1,0 +1,66 @@
+<!--
+12. Tre Card Uguali in Riga
+Richiesto: tre card affiancate di uguale larghezza dentro un contenitore.
+Usare: flex, proprietà di distribuzione dello spazio.
+Risultato: tre riquadri con la stessa dimensione e spaziatura uniforme.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tre Card Uguali in Riga</title>
+</head>
+
+<style>
+
+    .box{
+        display: flex;
+        gap: 20px;
+        padding: 20px;
+        background-color: #f0f0f0;
+    }
+
+    .card{
+
+        flex:1;
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+
+        
+    }
+</style>
+
+
+<body>
+
+    <h3>Tre Card Uguali in Riga</h3>
+    <br>
+
+    <div class="box">
+        <div class="card">
+            <h3>Prima card</h3>
+
+            <p>Benvenuto, nella descrizione della <b>PRIMA CARD</b></p>
+        </div>
+
+
+           <div class="card">
+            <h3>Seconda card</h3>
+
+            <p>Benvenuto, nella descrizione della <b>SECONDA CARD</b>, che sta in mezzo rispetto alle altre due</p>
+        </div>
+
+
+           <div class="card">
+            <h3>Terza card</h3>
+
+            <p>Benvenuto, nella descrizione della <b>TERZA CARD</b></p>
+        </div>
+
+    </div>
+    
+</body>
+</html>
