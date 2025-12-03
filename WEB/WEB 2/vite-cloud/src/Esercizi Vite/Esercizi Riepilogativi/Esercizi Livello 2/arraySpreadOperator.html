@@ -1,0 +1,43 @@
+<!--
+
+18. Unione di Array
+Richiesto: creare un nuovo array contenente elementi di due array distinti.
+Usare: spread operator.
+Risultato: array completo con tutti gli elementi originali.
+
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unione di Array</title>
+</head>
+<body>
+
+    <h4>Apri, la console per vedere lo <b>Unione fra due array distinti, con creazione di un'altro array unificato</b></h4>
+     <br>
+     <p>Analizza -> Console -> Log</p>
+
+    <script>
+
+
+        const arrayA = ["Francesco", "Michele"];
+        const arrayB = ["Martina", "Elisa"];
+        
+        
+        const arrayC = [...arrayA , ...arrayB]; 
+
+
+        console.log("Array unificato: ", arrayC);
+
+
+
+    </script>
+</body>
+
+
+</html>
