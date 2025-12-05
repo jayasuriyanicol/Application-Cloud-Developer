@@ -1,18 +1,14 @@
-# | ESERCIZI DA COMPLETARE - PYTHON 1_4|
-
-### Lezione numero 5:
-
-REVISIONARE il ESERCIZIO della *lepre e della tartaruga.*
+# | ESERCIZI DA COMPLETARE - PYTHON 1_6|
 
 
-### Lezione numero 9:
-
-- ARGOMENTO TEORICO: *Regex and LAMDA*
+## mainRifugioAnimali e CentroAssistenzaElettronica
 
 
-### Lezione numero 18:
+Completare aggiungendo le parti mancanti al **mainRifugioAnimali**, svolgere la nuova esercitazione su **CentroAssistenzaElettronica**.
 
-2_0 Esercizio fino 6_0 Esercizio
 
-- ARGOMENTI TEORICI: *ASSERT, TRY-EXPECTION, COMPREHENSIONS*
+             Moodle -> Lezione 23 -> CentroAssistenzaElettronica
+
+
+
 
