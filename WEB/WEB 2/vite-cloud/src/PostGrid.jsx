@@ -16,8 +16,8 @@ const PostGrid = () => {
 
         try{
 
-            const userP=fetch(URL_USERS+post.userId).then(reso => resp.json())
-            const commentsP=fetch(URL_USERS+"?postId="+post.id).then(reso => resp.json())
+ostI            const userP=fetch(URL_USERS+post.userId).then(resp => resp.json())
+            const commentsP=fetch(URL_USERS+"?pd="+post.id).then(resp => resp.json())
             const[user,commenti] = await Promise.all([userP, commentsP] ) 
             return{
 
