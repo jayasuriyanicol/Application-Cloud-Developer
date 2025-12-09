@@ -1,6 +1,7 @@
 package eserciziLezione7;
 import java.util.ArrayList;
 
+
 public class Magazzino {
 	
 
@@ -68,7 +69,7 @@ public class Magazzino {
 
 }
 
-public void costiTotali() {
+public String costiTotali() {
 		
 		if (warehouse.size() == 0) {
 			
@@ -80,10 +81,12 @@ public void costiTotali() {
 		for (Articolo articolo : warehouse) {
 			
 			  
-			costoTotale += articolo.prezzoVendita();
+			costoTotale += articolo.getCosto();
 			
 		}
-		System.out.println("Questi sono i COSTI TOTALI del MAGAZZINO:  " + costoTotale );
+		String testoFormattato = String.format("Questi sono i COSTI TOTALI del MAGAZZINO: %.2f%n", costoTotale );
+		
+		return testoFormattato;
 	}
 	
 	
@@ -92,7 +95,7 @@ public void costiTotali() {
 	
 	
 	
-	public void ricaviTotali() {
+	public String ricaviTotali() {
 
 		if (warehouse.size() == 0) {
 			
@@ -107,7 +110,12 @@ public void costiTotali() {
 			ricaviTotale += articolo.prezzoVendita();
 			
 		}
-		System.out.println("Questi sono i RICAVI TOTALI del MAGAZZINO:  " + ricaviTotale );
+		
+       String testoFormattato2 = String.format("\nQuesti sono i RICAVI TOTALI del MAGAZZINO:  %.2f%n" , ricaviTotale );
+		
+		return testoFormattato2;
+		
+
 	}
 	
 	
@@ -116,13 +124,13 @@ public void costiTotali() {
 
 		ArrayList<Articolo> trovati = new ArrayList<>();
 
-		for (Articolo art : warehouse) {
+		for (Articolo articolo : warehouse) {
 
 
-			if (art.getModello().toLowerCase().equals(modello.toLowerCase()))
+			if (articolo.getModello().toLowerCase().equals(modello.toLowerCase()))
 
 
-				trovati.add(art);
+				trovati.add(articolo);
 
 
 		}
@@ -134,34 +142,26 @@ public void costiTotali() {
 	}
 
 
-	
 
 
 	@Override
-
 	public String toString() {
 
+		String magazzino= "MAGAZZINO\n";
 
-		String res = "Magazzino\n";
 
-
-		for (Articolo art : elencoArticoli) {
-			res += art.toString() + "\n";
+		for (Articolo articolo : warehouse) {
+			
+			magazzino += articolo.toString() + "\n";
 
 
 		}
-
-
-
-		return res;
-
-
+		return magazzino;
 	}
+
+
 	
-		
-	}
-	
-	
+
 	
 	
 	
