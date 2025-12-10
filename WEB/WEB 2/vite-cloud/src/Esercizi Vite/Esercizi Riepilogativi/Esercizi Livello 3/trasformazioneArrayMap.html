@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trasformazione Array con Map</title>
+</head>
+<body>
+    
+    <br>
+    <p>Risultato <b>Nome e Cognome:</b></p>
+
+    <div id="risultato"></div>
+
+
+    <script>
+        let risultato = document.getElementById("risultato")
+
+        let persone = [
+
+       { nome : "Cristiano",
+         cognome : "Goccia"
+       },
+
+
+       { nome : "Gippitina",
+         cognome : "Dockerina"
+       },
+
+
+       { nome : "Giacomo",
+         cognome : "Maldini"
+       }
+
+        ] ;
+
+
+        let cicloPersone = persone.map(u =>`${u.nome} ${u.cognome}<br / >` );
+
+        let stampa = "";
+
+        for(u of cicloPersone){
+            stampa += u
+        };
+        
+        risultato.innerHTML = stampa;
+    </script>
+
+</body>
+</html>
