@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro Condizionale</title>
+</head>
+
+<body>
+    
+
+    <input type="text" id="categoria" />
+    <input type="number" id="prezzo" />
+
+    <button id="submit"> Invia</button>
+
+    <ul id="tabella">
+
+        <li>Cellulare - Categoria: Elettronica - Prezzo: 209.00</li>
+        <li>Forno - Categoria: Cucina -  Prezzo: 302.99</li>
+        <li> T-Shirt - Categoria: Vestiario - Prezzo: 10.99</li>
+        <li> Pantalone - Categoria: Vestiario - Prezzo: 15.24</li>
+        <li> Tablet - Categoria: Elettronica - Prezzo: 150.49</li>
+        <li> Pala - Categoria: Giardinaggio - Prezzo: 39.90</li>
+        
+    </ul>
+
+
+    <script>
+
+        let categoria = document.getElementById("categoria");
+        let prezzo = document.getElementById("prezzo");
+        let invio = document.getElementById("submit");
+        let tabella = document.getElementById("tabella");
+
+        let prodotti = [
+
+
+        { name: "Cellulare",
+          category : "Elettronica",
+          price : 209.00
+        },
+
+          { name: "Forno",
+          category : "Cucina",
+          price : 302.99
+        },
+
+          { name: "T-Shirt",
+          category : "Vestiario",
+          price : 10.99
+        },
+
+          { name: "Pantalone",
+          category : "Vestiario",
+          price : 15.24
+        },
+
+          { name: "Tablet",
+          category : "Elettronica",
+          price : 150.49
+        },
+
+          { name: "Pala",
+          category : "Giardinaggio",
+          price : 39.90
+        }
+
+        ];
+
+        const filtraProdotti = () =>{
+
+            tabella.innerHTML = "";
+            let prezzoUtente = parseFloat(prezzo.value);
+
+            let filtraggioProdotti =  prodotti.filter(
+                p =>{
+                
+                let corrispondenza1 = (p.category.toLowerCase().includes(categoria.value.toLowerCase()))
+                
+                
+                //Gestiamo il caso in cui l'utente non inserisce il prezzo del prodotto e in automatico andiamo a stampare tutti i prodotti per quella categoria, in caso positivo invece andiamo a stamapare il p con quella determinata categoria e prezzo.
+                let corrispondenza2 = isNaN(prezzoUtente) ? true : p.price === prezzoUtente;
+            
+                    
+                return corrispondenza1 && corrispondenza2;
+    
+           });
+
+            console.log(filtraggioProdotti);
+
+            for (p of filtraggioProdotti){
+
+
+                let li = document.createElement("li");
+                li.innerHTML = `${p.name} - Categoria ${p.category} - Prezzo  ${p.price} EURO`;
+                
+                tabella.append(li);
+
+
+        }
+    }
+    invio.addEventListener("click", filtraProdotti);
+     </script>
+</body>
+</html>
