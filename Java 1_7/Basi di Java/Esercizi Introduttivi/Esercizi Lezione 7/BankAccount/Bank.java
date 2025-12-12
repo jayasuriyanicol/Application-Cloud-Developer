@@ -50,6 +50,7 @@ public class Bank {
 	}
 	
 	
+	
 	public void trasferimento(BankAccount ordinante, BankAccount beneficiario, Date data,double ammontare) {
 		
 		
@@ -85,7 +86,7 @@ public class Bank {
 		
 		for(BankAccount conto : listaConti) {
 			
-			patrimonio = conto.saldo;
+			patrimonio += conto.saldo;
 		}
 		
 		return patrimonio;

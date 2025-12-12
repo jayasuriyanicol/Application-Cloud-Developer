@@ -11,134 +11,72 @@ Inoltre si richiede una funzione che calcola l’interesse sul saldo e lo aggiun
 Si prevede infine un metodo per stampare i dati del conto
 
  */
+
+
 package eserciziLezione7;
 
-import java.util.ArrayList;
+import java.util.Date;
 
-import eserciziLezione7.Movimento.tipologiaOperazione;
-
-public class Savings {
-	
-	private final String intestatario;
-	private final String numeroConto;
-	private double saldo;
-    ArrayList<Movimento> listaMovimenti = new ArrayList<Movimento>();
-    private double depositoIniziale;
-    private double interesseApplicato;
+public class Savings extends BankAccount {
+    
+    private double tassoInteresse; 
     private double tettoMassimo;
+
+    public Savings(String intestatario, String numeroConto, double depositoIniziale, double tassoInteresse, double tettoMassimo) {
+        super(intestatario, numeroConto, depositoIniziale);
+        this.tassoInteresse = tassoInteresse;
+        this.tettoMassimo = tettoMassimo;
+    }
+
+    public Savings(String intestatario, String numeroConto, double tassoInteresse, double tettoMassimo) {
+        super(intestatario, numeroConto);
+        this.tassoInteresse = tassoInteresse;
+        this.tettoMassimo = tettoMassimo;
+    }
+
+    @Override
+    public void gestioneMovimento(Movimento movimento) {
+        
+        if(movimento.getTipologiaOperazione().equals(Movimento.tipologiaOperazione.PRELIEVO)) {
+            
+            if(movimento.getImporto() > tettoMassimo) {
+                System.out.println("ATTENZIONE ! L'importo supera il Tetto Massimo consentito!");
+                return; 
+            }
+        }
+        
+        super.gestioneMovimento(movimento);
+    }
     
-    
-    
-    
+    public void applicaInteresse() {
+        double importoInteressi = saldo * tassoInteresse;
+        
+        if (importoInteressi > 0) {
+            Movimento accreditoInteressi = new Movimento(Movimento.tipologiaOperazione.VERSAMENTO, new Date(), importoInteressi);
+            super.gestioneMovimento(accreditoInteressi);
+            System.out.println("Interessi applicati: " + importoInteressi);
+        }
+    }
 
-	
-	
-	public Savings(String intestatario, String numeroConto, double saldo, ArrayList<Movimento> listaMovimenti,
-			double depositoIniziale, double interesseApplicato, double tettoMassimo) {
-
-		this.intestatario = intestatario;
-		this.numeroConto = numeroConto;
-		this.saldo = saldo;
-		this.listaMovimenti = listaMovimenti;
-		this.depositoIniziale = depositoIniziale;
-		this.interesseApplicato = interesseApplicato;
-		this.tettoMassimo = tettoMassimo;
-	}
-
-	
-	
-
-
-
-
-	public Savings(String intestatario, String numeroConto, double saldo, ArrayList<Movimento> listaMovimenti,
-			double interesseApplicato, double tettoMassimo) {
-	
-		this.intestatario = intestatario;
-		this.numeroConto = numeroConto;
-		this.saldo = saldo;
-		this.listaMovimenti = listaMovimenti;
-		this.interesseApplicato = interesseApplicato;
-		this.tettoMassimo = tettoMassimo;
-	}
-
-
-
-
-
-
-
-
-
-	public void gestioneMovimento(Movimento movimento, double ammontare) {
-		
-		
-		if(movimento.getTipologiaOperazione().equals(tipologiaOperazione.PRELIEVO)) {
-			
-			if(movimento.getImporto() <= tettoMassimo && movimento.getImporto() <= saldo) {
-				
-				
-				saldo -= ammontare;
-			}
-			else {
-			
-				
-				System.out.println("ATTENZIONE ! L'importo supera quello del Tetto massimo stabilito oppure quella del SALDO, NON DISPENSABILE !");
-			}
-			
-		}
-		
-		
-		else if (movimento.getTipologiaOperazione().equals(tipologiaOperazione.VERSAMENTO)) {
-			
-			
-			saldo += ammontare;
-			
-		
-			
-		}
-		
-		else {
-			
-			System.out.println("ATTENZIONE ! Il movimento inserito è ERRATO ! Sia o PRELIEVO oppure VERSAMENTO ");
-		}
-	}
-	
-	
-	public double calcoloInteresse() {
-		
-		double somma = this.depositoIniziale;
-		
-		somma = saldo + interesseApplicato;
-		
-		return somma;
-		
-		
-		
-	}
-
-
-
-	@Override
-	public String toString() {
-		return "\n|CONTO RIEPILOGO |\n\nINTESTATARIO: " + intestatario + "\n\nNUMERO DEL CONTO: " + numeroConto + "\n\nSALDO ATTUALE: " + saldo
-				+ "\n\nLISTA MOVIMENTI: " + listaMovimenti + "\n\nDEPOSITO INIZIALE: " + depositoIniziale 
-				+ "\n\nINTERESSE APPLICATO: " + interesseApplicato + "\n\nTETTO MASSIMO: " + tettoMassimo;
-		
-	}
-	
-	
-
-	  
-	
-	
-    
-    
-    
-	
-    
-    
-	
-	
-
+    @Override
+    public String toString() {
+        return "\n|CONTO SAVINGS RIEPILOGO |\n" +
+               "INTESTATARIO: " + intestatario + "\n" +
+               "NUMERO DEL CONTO: " + numeroConto + "\n" +
+               "SALDO ATTUALE: " + saldo + "\n" +
+               "DEPOSITO INIZIALE: " + depositoIniziale + "\n" +
+               "TASSO INTERESSE: " + tassoInteresse + "\n" +
+               "TETTO MASSIMO: " + tettoMassimo;
+    }
 }
+	
+	
+    
+    
+    
+	
+    
+    
+	
+	
+

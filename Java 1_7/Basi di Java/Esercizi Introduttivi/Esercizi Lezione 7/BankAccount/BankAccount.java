@@ -15,134 +15,84 @@
 
 
 package eserciziLezione7;
+
 import java.util.ArrayList;
+import java.util.Date;
 
-import eserciziLezione7.Movimento.tipologiaOperazione;
 public class BankAccount {
-	
-		
-	public final String intestatario;
-	private final String numeroConto;
-	public double saldo;
-    ArrayList<Movimento> listaMovimenti = new ArrayList<Movimento>();
-    private double depositoIniziale;
     
+    protected String intestatario;
+    public String numeroConto;
+    protected double saldo;
+    protected ArrayList<Movimento> listaMovimenti;
+    protected double depositoIniziale;
     
+    public BankAccount(String intestatario, String numeroConto, double depositoIniziale) {
+        this.intestatario = intestatario;
+        this.numeroConto = numeroConto;
+        this.saldo = depositoIniziale;
+        this.depositoIniziale = depositoIniziale;
+        this.listaMovimenti = new ArrayList<Movimento>();
+        
+        Movimento iniziale = new Movimento(Movimento.tipologiaOperazione.VERSAMENTO, new Date(), depositoIniziale);
+        listaMovimenti.add(iniziale);
+    }
     
+    public BankAccount(String intestatario, String numeroConto) {
+        this.intestatario = intestatario;
+        this.numeroConto = numeroConto;
+        this.saldo = 0.0;
+        this.depositoIniziale = 0.0;
+        this.listaMovimenti = new ArrayList<Movimento>();
+    }
     
-	public BankAccount(String intestatario, String numeroConto, double saldo, ArrayList<Movimento> listaMovimenti, double depositoIniziale) {
-		
-		this.intestatario = intestatario;
-		this.numeroConto = numeroConto;
-		this.saldo = saldo;
-		this.listaMovimenti = listaMovimenti;
-		this.depositoIniziale = depositoIniziale;
-	}
+    public void gestioneMovimento(Movimento movimento) {
+        
+        if(movimento.getTipologiaOperazione().equals(Movimento.tipologiaOperazione.PRELIEVO)) {
+            if(saldo >= movimento.getImporto()) {
+                saldo -= movimento.getImporto();
+                listaMovimenti.add(movimento);
+            }
+            else {
+                System.out.println("ATTENZIONE ! Saldo insufficiente.");
+            }
+        }
+        else if (movimento.getTipologiaOperazione().equals(Movimento.tipologiaOperazione.VERSAMENTO)) {
+            saldo += movimento.getImporto();
+            listaMovimenti.add(movimento);
+        }
+        else {
+            System.out.println("ATTENZIONE ! Tipo operazione errato.");
+        }
+    }
     
-	
-	
-    
-	public BankAccount(String intestatario, String numeroConto, double saldo, ArrayList<Movimento> listaMovimenti) {
-		
-		this.intestatario = intestatario;
-		this.numeroConto = numeroConto;
-		this.saldo = saldo;
-		this.listaMovimenti = listaMovimenti;
+    public boolean checkBalance() {
+        double somma = this.depositoIniziale;
+        
+        for (Movimento m : listaMovimenti) {
+            if(m.getTipologiaOperazione().equals(Movimento.tipologiaOperazione.PRELIEVO)) {
+                somma -= m.getImporto();
+            }
+            else {
+                somma += m.getImporto();
+            }
+        }
+        
+        if (Math.abs(saldo - somma) < 0.001) {
+            return true;
+        }
+        else {
+            System.out.println("ATTENZIONE ! Incoerenza saldo.");
+            return false;
+        }
+    }
 
-	}
-	
-
-	
-	public void gestioneMovimento(Movimento movimento) {
-		
-		
-		if(movimento.getTipologiaOperazione().equals(tipologiaOperazione.PRELIEVO)) {
-			
-			if(movimento.getImporto() >= saldo) {
-				
-				
-				saldo -= movimento.getImporto();
-			}
-			else {
-			
-				
-				System.out.println("ATTENZIONE ! Importo maggiore di quello disponibile, NON DISPENSABILE !");
-			}
-			
-		}
-		
-		
-		else if (movimento.getTipologiaOperazione().equals(tipologiaOperazione.VERSAMENTO)) {
-			
-			
-			saldo += movimento.getImporto();
-			
-		
-			
-		}
-		
-		else {
-			
-			System.out.println("ATTENZIONE ! Il movimento inserito è ERRATO ! Sia o PRELIEVO oppure VERSAMENTO ");
-		}
-	}
-		
-
-	  public boolean checkBalance(){
-		  
-		  double somma = this.depositoIniziale;
-		  for (Movimento m: listaMovimenti) {
-			  
-			if(m.getTipologiaOperazione().equals(Movimento.tipologiaOperazione.PRELIEVO)) {
-				
-				somma -= m.getImporto();
-				
-				
-			}
-			else if (m.getTipologiaOperazione().equals(Movimento.tipologiaOperazione.VERSAMENTO)) {
-				
-				somma += m.getImporto();
-			}
-			
-			else {
-				
-				System.out.println("ATTENZIONE ! Errore nel sistema.");
-			}
-			    
-			  
-		  }
-		  
-		  if (saldo == somma) {
-			  
-			  return true;
-		  }
-		  else {
-			  
-			  System.out.println("\nATTENZIONE ! I valori della LISTA MOVIMENTI e il saldo NON COINCIDONO");
-			  System.out.println("Saldo attuale: " + saldo +"\nSomma Totale (Deposito e Movimenti): " + somma);
-			  return false;
-		  }
-		  
-		
-		  
-	  }
-
-	  @Override
-	  public String toString() {
-		return "\n|CONTO RIEPILOGO |\n\nINTESTATARIO: " + intestatario + "\n\n NUMERO DEL CONTO: " + numeroConto + "\n\nSALDO ATTUALE: " + saldo
-				+ "\n\nLISTA MOVIMENTI: " + listaMovimenti + "\n\nDEPOSITO INIZIALE: " + depositoIniziale;
-	  }
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-		
-		
-	}
-
+    public void stampaDati() {
+        System.out.println("Intestatario: " + intestatario);
+        System.out.println("Conto: " + numeroConto);
+        System.out.println("Saldo: " + saldo);
+    }
+}
 
 
 	
