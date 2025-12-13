@@ -15,7 +15,7 @@ It is mainly focused on coding and on the creation and organization of Software 
 
 # ✅ Key Features  
 
-- **Hands-on** practice mostly coding in **Python**  
+- **Hands-on** practice mostly coding in **Python** and **Java**
 - *Software* and *Developer* approach  
 - <u>Cloud-Oriented</u>  
 
