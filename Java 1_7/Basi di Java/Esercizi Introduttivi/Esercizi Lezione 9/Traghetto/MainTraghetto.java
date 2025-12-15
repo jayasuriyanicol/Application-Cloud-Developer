@@ -77,10 +77,10 @@ public class MainTraghetto {
 				System.out.println("SUCCESSO, Transito pagato da: " +pag3.getClass().getSimpleName() + " con MERCE." );
 				
 			
-			} catch(RuntimeException e) {
+			} catch(CodaVuota e) {
 				
 				
-				System.out.println("Errore nell'elaborazione: " + e.getMessage());
+				System.out.println("Errore CODA VUOTA: " + e.getMessage());
 			}
 
 			
@@ -92,16 +92,7 @@ public class MainTraghetto {
 			
 			System.out.println("\nCODA VUOTA, tentativo pagamento: ");
 			
-			try {
-				
-				biglietteria.riceviPagamento();
-				
-			}
-			
-			catch (ArrayIndexOutOfBoundsException e) {
-				
-				System.out.println("La situazione di ERRORE : " + e.getMessage());
-			}
+		
 			
 			
 			
