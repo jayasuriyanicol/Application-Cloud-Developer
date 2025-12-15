@@ -1,7 +1,7 @@
 package eserciziLezione9;
 
 import java.util.ArrayList; 
-public class Biglietteria {
+public class Biglietteria  {
 	
 	private double cassa;
 	ArrayList<Tariffabile> coda = new ArrayList<>();
@@ -13,11 +13,13 @@ public class Biglietteria {
 			
 	}
 	
-	public Tariffabile riceviPagamento() {
+	public Tariffabile riceviPagamento() throws CodaVuota{
 		
+		
+		//In this case, to use a personalize custom throwable, we add an 'CodaVuota' special constructed exceptio method.
 		if (coda.size() == 0) {
 			
-			throw new ArrayIndexOutOfBoundsException("ATTENZIONE ! La cossa risulta vuota, deve essre presente almeno un elemento nella coda");
+			throw new CodaVuota("ATTENZIONE ! La coda risulta vuota, deve essere presente almeno un elemento nella coda !");
 		}
 		
 		else {
