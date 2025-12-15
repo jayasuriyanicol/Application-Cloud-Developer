@@ -5,9 +5,10 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
+| **JAVA** | Svolgere esercizi sulle classi astratte  | *19 Dicembre* | Svolgere gli esercizi con le classi prima della scadenza  |
 | **PYTHON 6** | Svolgere Main e nuova esercitazione  | *NULL* | Maggiori informazioni sul relativo file  |
 | **WEB 1-2** | Rivedere gli argomenti pre-esame  | *NULL* | -  |
-| **Sicurezza** | Rivedere le slide pubblicate su OS e Crittografia | *ND*      | Rivedere le ultime slide aggiunte |
+| **Sicurezza** | Rivedere le slide pubblicate su OS e Crittografia | *ND*  | Rivedere le ultime slide aggiunte |
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellare
