@@ -5,13 +5,11 @@
 
 
 
-Svolgere, le i due esercizi mancanti, sulle *classi astratte*:
-
-
-                1. PRENOTAZIONE CAMERE  
-                2. SCATOLE CINESI 
+Svolgere, l' esercizio mancante, sulle *classi astratte*:
+ 
+                1. SCATOLE CINESI 
                 
-Il materiale con la consegna degli esercizi è presente su:
+Il materiale con la consegna del esercizio è presente su:
 
 
              Moodle -> Materiale Didattico -> Classi Astratte
