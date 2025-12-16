@@ -1,0 +1,44 @@
+/*In this example of first using the Cloud Firebase of Google, we implemented some call from a site and appearing it on the DB in realtime of Google's Firebase Development system */
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn btn-primary">Pulsante 1</button>
+    <button class="btn btn-secondary">Pulsante 2</button>
+    <button class="btn btn-success">Pulsante 3</button>
+    <script>
+          const URL_DB="https://cloud-firebase-dedce-default-rtdb.europe-west1.firebasedatabase.app/tasks/"
+            const id= Date.now();
+
+            const newTask={
+                text:"Primo task",
+                done:false
+            }
+
+            // fetch(URL_DB+id+".json",{
+            //     method:"PUT",
+            //     headers:{
+            //         "Content.Type":"application/json"
+            //     },
+            //     body:JSON.stringify(newTask)
+            // }).then(res=>res.json())
+            // .then(data=>console.log("Creato ",data))
+            // .catch(err=>console.error(err))
+ fetch(URL_DB+".json",{
+                method:"POST",
+                headers:{
+                    "Content.Type":"application/json"
+                },
+                body:JSON.stringify(newTask)
+            }).then(res=>res.json())
+            .then(data=>console.log("Creato ",data))
+            .catch(err=>console.error(err))
+    </script>
+</body>
+</html>
