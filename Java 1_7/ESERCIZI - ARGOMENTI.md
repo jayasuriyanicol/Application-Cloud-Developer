@@ -5,11 +5,12 @@
 
 
 
-Svolgere, l' esercizio mancante, sulle *classi astratte*:
+Svolgere, gli esercizi mancanti, sulle *classi astratte*:
  
                 1. SCATOLE CINESI 
+                2. IL CONTEST 
                 
-Il materiale con la consegna del esercizio è presente su:
+Il materiale con la consegna degli esercizi è presente su:
 
 
              Moodle -> Materiale Didattico -> Classi Astratte
