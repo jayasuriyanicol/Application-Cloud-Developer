@@ -354,40 +354,102 @@ def get_estimate_time(plate_id, factor = 1.0):
 
 @app.route('/vehicles', methods=["POST"])
 
-def post_vehicles() -> dict:
-
-
-
+def post_vehicles():
     data = request.get_json()
-
-
+    
     #Required data, that we pass to check with the 'issubset' and the original JSON data ->  'data'     
-    datiRichiesti:set[str] = { "type", "id","model", "customer_name","purchase_year", "status" }
+    datiRichiesti = {"type", "id", "model", "driver_name", "registration_year", "status"}
+
 
     #Throught the 'issubset' we go to check if all the fields are on it. Avoiding using match or if cases to validate the fields 
     if not data or not datiRichiesti.issubset(data):
 
+
         return jsonify({'ERRORE': 'CI SONO DEI DATI MANCANTI, PER FAVORE COMPILARLI'}), 400
     
     if flotta.get(data["id"]):
-
-        return jsonify({"ERRORE": "PLATE ID (TARGA) GIÀ ESISTENTE"}), 400
+        return jsonify({"ERRORE": "Targa già esistente"}), 400
     
+    try:
+        status_obj = Status[data["status"].replace("Status.", "")]
+
+    except KeyError:
+
+        status_obj = Status.AVAILABLE
+
     if data["type"] == "car":
 
-        veicolo = Car(**data)
+        veicolo = Car(
+            data["id"], 
+            data["model"], 
+            data["driver_name"], 
+            data["registration_year"], 
+            status_obj, 
+            data.get("doors", 5), 
+            data.get("is_cabrio", False)
+        )
+
     elif data["type"] == "van":
 
-        veicolo = Van(**data)
+        veicolo = Van(
+            data["id"], 
+            data["model"], 
+            data["driver_name"], 
+            data["registration_year"], 
+            status_obj, 
+            data.get("max_load_kg", 1000), 
+            data.get("require_special_license", False)
+        )
 
-    else :
-        return jsonify({'ERROR': 'TIPOLOGIA DI VEICOLO (TYPE) NON VALIDA'}), 400 
+    else:
+        return jsonify({'ERROR': 'Tipo non valido'}), 400 
 
     flotta.add(veicolo)
-    
-
-
     return jsonify(veicolo.info()), 201
+
+
+
+
+@app.route("/vehicles/<plate_id>", methods=["PUT"])
+
+def put_vehicle(plate_id):
+
+    data = request.get_json()
+    veicolo_esistente = flotta.get(plate_id)
+    
+    if not veicolo_esistente:
+        return jsonify({"ERRORE": "Veicolo non trovato"}), 404
+    
+    try:
+        status_obj = Status[data["status"].replace("Status.", "")]
+
+    except KeyError:
+        status_obj = Status.AVAILABLE
+
+    if data["type"] == "car":
+
+        nuovo = Car(plate_id, data["model"], 
+                    data["driver_name"], 
+                    data["registration_year"], 
+                    status_obj, 
+                    data.get("doors", 5), 
+                    data.get("is_cabrio", False))
+        
+    elif data["type"] == "van":
+        nuovo = Van(plate_id, data["model"],
+                     data["driver_name"], 
+                    data["registration_year"], status_obj, 
+                    data.get("max_load_kg", 1000), 
+                    data.get("require_special_license", False))
+        
+    else:
+        return jsonify({"ERRORE": "Tipo non valido"}), 400
+
+    flotta.update(plate_id, nuovo)
+    return jsonify(nuovo.info()), 200
+
+
+
 
 
 @app.route("/vehicles/<plate_id>/status", methods =["PATCH"] )
@@ -412,17 +474,12 @@ def patch_status(plate_id) -> dict:
 
 
 @app.route("/vehicles/<plate_id>", methods=["DELETE"])
-def delere_vehicle(plate_id):
-
+def delete_vehicle(plate_id):
     if not flotta.get(plate_id):
-           return jsonify({"ERRORE" : "ATTENZIONE ! il veicolo NON è stato TROVATO"}), 404
+        return jsonify({"ERRORE": "Veicolo non trovato"}), 404
     
-    else:
-
-        flotta.remove(plate_id)
-        return jsonify({f"ELIMINATO" : "SUCCESSO ! il veicolo con TARGA(PLATE_ID) -> {plate_id}  è stato ELIMINATO CON SUCCESSO !"}), 200
-
-
+    flotta.delete(plate_id)
+    return jsonify({"deleted": True, "id": plate_id}), 200
 
 
 if __name__ ==  "__main__":
