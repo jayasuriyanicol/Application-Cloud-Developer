@@ -176,13 +176,16 @@ class Vehicle(ABC):
         pass
 
     def info(self) -> dict:
+
+        #We use this value to get te state of an Object through the '.value', otherwise we will use it as a str.               
+        valoreCorrente = self.status.value if hasattr(self.status, 'value') else self.status
         return {
             "id": self.plate_id,
             "model": self.model,
             "driver_name": self.driver_name,
             "vehicle_type": self.vehicle_type(),
             "registration_year": self.registration_year,
-            "status": self.status.value
+            "status": valoreCorrente
         }
 
     def estimated_prep_time(self, factor: float = 1.0) -> int:
