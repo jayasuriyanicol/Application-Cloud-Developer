@@ -192,6 +192,7 @@ def homePage():
     })
         
 
+
 @rifugioAnimali.route('/animals') 
 
 def get_animals():
@@ -203,6 +204,8 @@ def get_animals():
         data.append(el.info()) 
     return jsonify(data)
 
+
+
 @rifugioAnimali.route('/animals/<animal_id>')
 
 def get_animal(animal_id):
@@ -210,10 +213,11 @@ def get_animal(animal_id):
     animal = rifugio.get(animal_id)
     if animal is None:
 
-        return jsonify({"error": "Animal not found"}),404
+        return jsonify({"ERRORE": "Animale NON TROVATO"}),404
     else:
         
         return jsonify(animal.info())
+
 
 @rifugioAnimali.route('/animals/<animal_id>/food')
 
@@ -224,7 +228,7 @@ def get_animal_food(animal_id):
 
     if animal is None:
 
-        return jsonify({"error": "Animal not found"}),404
+        return jsonify({"ERRORE": "Animale NON TROVATO"}),404
     else:
 
         num = animal.daily_food_grams()
@@ -235,6 +239,7 @@ def get_animal_food(animal_id):
             "daily_food_grams": num
 
             }
+    
 
 @rifugioAnimali.route('/animals/<animal_id>/adoption')
 def get_animal_adoption(animal_id):
@@ -244,7 +249,7 @@ def get_animal_adoption(animal_id):
     if animal is None:
 
 
-        return jsonify({"error": "Animal not found"}),404
+        return jsonify({"ERRORE": "Animale NON TROVATO"}),404
     else:
         
         if animal_id in rifugio.adoptions:
@@ -266,43 +271,46 @@ def get_animal_adoption(animal_id):
 
                 }
         
+        
 
 @rifugioAnimali.route('/animals/add', methods=["POST"])
 def post_animal() -> dict:
 
     data = request.get_json()
+    tipo = data.get("type", "").lower() 
 
     if not data or 'id' not in data or 'type' not in data:
-        return jsonify({'errore': 'Animal id o type errato'}), 400
+        return jsonify({'ERRORE': 'Animale ID O TIPO SBAGLIATO'}), 400
     
     
     if rifugio.get(data["id"]) is not None:
-        return jsonify({'errore': 'Animal id già esistente'}), 400
+        return jsonify({'ERRORE': 'ID Animale GIÀ ESISTENTE'}), 400
 
-    match data["type"]:
-        case "dog":
-            nuovoAnimale: Dog = Dog(
-                data["id"],
-                data["name"],
-                data["age_years"],
-                data["weight_kg"],
-                data["breed"],
-                data["is_trained"]
-            )
-
-        case "cat":
-            nuovoAnimale: Cat = Cat(
-                data["id"],
-                data["name"],
-                data["age_years"],
-                data["weight_kg"],
-                data["indoor_only"],
-                data["favorite_toy"]
-            )
-            
-        case __:
-            return jsonify({'errore': 'No specie provided'}), 400 
+   
     
+    if tipo == "dog":
+        nuovoAnimale = Dog(
+            data["id"], 
+            data["name"], 
+            data.get("age_years"),
+            data.get("weight_kg"),
+            data.get("breed"), 
+            data.get("is_trained")
+        )
+
+    elif tipo == "cat":
+        nuovoAnimale = Cat(
+            data["id"], 
+            data["name"],
+            data.get("age_years"),
+            data.get("weight_kg"), 
+            data.get("indoor_only"), 
+            data.get("favorite_toy")
+        )
+    else:
+        return jsonify({'ERRORE': f'La tipologia -> {tipo} NON ESISTE nel sistema !'}), 400
+            
+
     rifugio.add(nuovoAnimale)
 
     return jsonify({
@@ -312,27 +320,29 @@ def post_animal() -> dict:
         },
         "animal_id": nuovoAnimale.id 
     }), 201
+
+
+
 @rifugioAnimali.route('/animals/<animal_id>/adopt', methods=["POST"])
 def adopt_animal(animal_id):
 
     data = request.get_json()
 
-    # Controllo JSON presente
     if not data or "adopter_name" not in data:
-        return jsonify({"error": "Missing adopter_name"}), 400
+        return jsonify({"ERRORE": "Il campo del PADRONE mancante !"}), 400
 
     adopter = data["adopter_name"]
 
-    # Controllo che esista l’animale
+  
     animal = rifugio.get(animal_id)
     if animal is None:
-        return jsonify({"error": "Animal not found"}), 404
+        return jsonify({"ERRORE": "Animale NON TROVATO"}), 404
 
-    # Se già adottato (opzionale)
+   
     if animal_id in rifugio.adoptions:
-        return jsonify({"error": "Animal already adopted"}), 400
+        return jsonify({"ERRORE": "Animale già ADOTTATO !"}), 400
 
-    # Registra adozione
+
     rifugio.set_adopted(animal_id, adopter)
 
     return jsonify({
@@ -340,3 +350,10 @@ def adopt_animal(animal_id):
         "adopted": True,
         "adopter_name": adopter
     }), 200
+
+
+
+
+if __name__ ==  "__main__":
+
+    rifugioAnimali.run(debug= True)
