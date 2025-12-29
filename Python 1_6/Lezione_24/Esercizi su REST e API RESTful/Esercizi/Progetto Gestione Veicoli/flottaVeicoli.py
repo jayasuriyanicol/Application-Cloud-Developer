@@ -150,214 +150,123 @@ class Status(Enum) :
     
     AVAILABLE:str = "AVAILABLE"
     RENTED:str = "RENTED"
-    MAINTENANCE:str = "RENTED"
+    MAINTENANCE:str = "MAINTENANCE"
     CLEANING:str = "CLEANING"
     RETIRED:str = "RETIRED"
-    
-
-class Veichle(ABC):
-
-    def __init__(self, plate_id:str, model:str,driver_name:str,registration_year:int, status:Status) -> None:
 
 
+class Vehicle(ABC):
+    def __init__(self, plate_id: str, model: str, driver_name: str, registration_year: int, status: Status):
         self.plate_id = plate_id
         self.model = model
         self.driver_name = driver_name
         self.registration_year = registration_year
-        self.status = status 
+        self.status = status
+
+    @abstractmethod
+    def vehicle_type(self) -> str:
+        pass
+
+    @abstractmethod
+    def base_cleaning_time(self) -> int:
+        pass
+
+    @abstractmethod
+    def wear_level(self) -> int:
+        pass
+
+    def info(self) -> dict:
+        return {
+            "id": self.plate_id,
+            "model": self.model,
+            "driver_name": self.driver_name,
+            "vehicle_type": self.vehicle_type(),
+            "registration_year": self.registration_year,
+            "status": self.status.value
+        }
+
+    def estimated_prep_time(self, factor: float = 1.0) -> int:
+        return int(self.base_cleaning_time() * factor + self.wear_level() * 15)
 
 
-@abstractmethod
-def vehicle_type(type_veichle:str) -> str:
-
-    return type_veichle
-
-@abstractmethod
-def base_cleaning_time(timeCleaning:int) -> int:
-
-    return timeCleaning
-
-@abstractmethod
-def wear_level(wearLevel:int) -> int:
-
-
-    if 1< wearLevel > 5:
-
-        print("ATTENZIONE ! il livello di usura deve essere tra un minimo di 1 e un massimo di 5 !");
-
-    else:
-        return wearLevel
-       
-
-def info(self) -> dict[Veichle]:
-
-  return { "id" : self.plate_id,
-           "model" : self.model,
-           "driver_name": self.driver_name,
-           "veichle_type": self.veichle_type,
-           "registration_year": self.registration_year,
-           "status": self.status,
-           "veichle_type": vehicle_type(),
-           "cleaning_time": base_cleaning_time(),
-           "wear_level": wear_level()
-  
-       }
-
-
-def estimated_prep_time(factor:float = 1.0) -> int:
-
-
-    timeEstimated:int = (base_cleaning_time() * factor + wear_level() * 15)
-
-    return timeEstimated
-
-
-
-class Car(Veichle):
-
-    def __init__(self, plate_id:str, model:str, driver_name:str, registration_year:int, status:Status,doors:int,is_cabrio:bool )-> None:
-
+class Car(Vehicle):
+    def __init__(self, plate_id, model, driver_name, registration_year, status: Status, doors: int, is_cabrio: bool):
         super().__init__(plate_id, model, driver_name, registration_year, status)
-
-
         self.doors = doors
         self.is_cabrio = is_cabrio
 
-
-    def veichle_type(self)-> str:
-
+    def vehicle_type(self) -> str:
         return "car"
-    
 
     def base_cleaning_time(self) -> int:
-
         return 30
-    
+
     def wear_level(self) -> int:
+        return 2
 
-        return 2 
-    
-    def info(self) -> dict[Veichle]:
-
-        base = super().info()
-
-        base['doors'] = self.doors
-        base['is_cabrio'] = self.is_cabrio
-
-
-        return base 
-    
+    def info(self) -> dict:
+        data = super().info()
+        data.update({
+            "doors": self.doors,
+            "is_cabrio": self.is_cabrio
+        })
+        return data
 
 
-class Van(Veichle):
-
-    def __init__(self, plate_id:str, model:str, driver_name:str, registration_year:int, max_load_kg:int, status:Status, require_special_license:bool )-> None:
-
-        super().__init__(plate_id, model, driver_name, registration_year,status)
-
-
+class Van(Vehicle):
+    def __init__(self, plate_id, model, driver_name, registration_year, status: Status, max_load_kg: int, require_special_license: bool):
+        super().__init__(plate_id, model, driver_name, registration_year, status)
         self.max_load_kg = max_load_kg
         self.require_special_license = require_special_license
 
-
-    def veichle_type(self)-> str:
-
+    def vehicle_type(self) -> str:
         return "van"
-    
 
     def base_cleaning_time(self) -> int:
-
         return 60
-    
+
     def wear_level(self) -> int:
-
         return 5
-    
-    def info(self) -> dict[Veichle]:
 
-        base = super().info()
-
-        base['max_load'] = self.max_load_kg
-        base['require_special_license'] = self.require_special_license
-
-
-        return base 
-    
-
-class FleetManager():
+    def info(self) -> dict:
+        data = super().info()
+        data.update({
+            "max_load_kg": self.max_load_kg,
+            "require_special_license": self.require_special_license
+        })
+        return data
 
 
-    def __init__(self) -> None:
+class FleetManager:
+    def __init__(self):
+        self.vehicles: dict[str, Vehicle] = {}
 
-        vehicles:dict[str,Veichle] = {}      
-
-    def add(self,vehicle: Veichle) -> bool:
-
-        if vehicle not in self.vehicles:
-
-            self.vehicles[vehicle.plate_id] = vehicle
-
-            return True
-        else:
-
-            print("ATTENZIONE ! È già presente un veicolo nel DB, con lo stesso PLATE ID (TARGA) -> ", vehicle.plate_id)   
-
+    def add(self, vehicle: Vehicle) -> bool:
+        if vehicle.plate_id in self.vehicles:
             return False
-    
-    def get(self,plate_id:str) -> Veichle: 
+        self.vehicles[vehicle.plate_id] = vehicle
+        return True
 
+    def get(self, plate_id: str) -> Vehicle:
         return self.vehicles.get(plate_id)
-    
 
-    def update(self, plate_id:str, new_vehicle: Veichle) -> None:
+    def update(self, plate_id: str, new_vehicle: Vehicle) -> None:
+        self.vehicles[plate_id] = new_vehicle
 
-    
-        self.vehicles.pop(plate_id)
+    def patch_status(self, plate_id: str, new_status: Status) -> None:
+        vehicle = self.get(plate_id)
+        if vehicle:
+            vehicle.status = new_status
 
-        print("SUCCESSO ! Il veicolo è stato RIMOSSO con successo nessuna targa con -> ", plate_id)
-
-        self.vehicles.add(new_vehicle)
-
-        print("SUCCESSO ! Nuovo veicolo è stato AGGIUNTO con successo !")
-
-    
-
-
-
-
-    def patch_status(self, plate_id: str, new_status: Veichle) -> None:
-
-        veicolo:Veichle = self.vehicles.get(plate_id)
-
-        veicolo.status(new_status)
-
-        print(f'SUCCESSO ! Lo stato del veicolo con TARGA -> {plate_id} è stato aggiornato con successo con STATUS  {new_status}')
-        
-
-
-    def delete(self, plate_id:str) -> bool:
-
-
-
-        popVeicolo = self.vehicles.pop(plate_id)
-
-
-        if(popVeicolo):
-
-            print("SUCCESSO ! Il veicolo è stato RIMOSSO con successo nessuna targa con -> ", plate_id)
+    def delete(self, plate_id: str) -> bool:
+        if plate_id in self.vehicles:
+            del self.vehicles[plate_id]
             return True
-        else: 
+        return False
 
-            print("ERRORE ! Non è stato possibile procedere con la rimozione dell'auto TARGA NON ESISTENTE ->  ", plate_id)
-            return False 
-        
-
-    def list_all(self) -> list[Veichle]:
-
-
+    def list_all(self) -> list[Vehicle]:
         return list(self.vehicles.values())
 
-        
 
 
 
