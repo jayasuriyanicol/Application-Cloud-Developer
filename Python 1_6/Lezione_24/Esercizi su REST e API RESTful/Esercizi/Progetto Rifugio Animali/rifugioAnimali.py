@@ -236,8 +236,7 @@ class Shelter:
             self.adoptions[animal_id]  = adopter_name      
 
 
-#Creazione dei dati 
-
+#Creazione dei dati, che verranno già inseriti di 'DEFAULT'
 primoAnimale : Dog = Dog('d1','Cris', 4, 50.6, 'Pastore Tedesco', True)
 secondoAnimale : Cat = Cat('c1','Atta', 1, 1.34, False, 'Peluche')
 
