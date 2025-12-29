@@ -1,13 +1,13 @@
 # | ESERCIZI DA COMPLETARE - PYTHON 1_6|
 
 
-## mainRifugioAnimali | CentroAssistenzaElettronica | gestioneCentroVeicoli
+##  CentroAssistenzaElettronica | gestioneSmartHome
 
 
-Completare aggiungendo le parti mancanti al **mainRifugioAnimali**, svolgere la nuova esercitazione su **CentroAssistenzaElettronica** e completare l'ultima parte della **gestioneCentroVeicoli**.
+Completare le nuove esercitazioni su **CentroAssistenzaElettronica** e  **gestioneSmartHome**.
 
 
-             Moodle -> Lezione 23 -> CentroAssistenzaElettronica &gestioneCentroVeicoli
+             Moodle -> Lezione 23 -> CentroAssistenzaElettronica & gestioneSmartHome
 
 
 
