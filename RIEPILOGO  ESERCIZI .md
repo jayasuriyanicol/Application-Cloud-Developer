@@ -6,7 +6,6 @@
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
 | **JAVA** | Svolgere esercizi sulle classi astratte  | *Mercoledì 07 Gennaio* | Svolgere gli esercizi con le classi entro la scadenza  |
-| **PYTHON 6** | Svolgere le nuove esercitazioni  | *Giovedì 08 Gennaio* | Maggiori informazioni sul relativo file  |
 | **Sicurezza** | Rivedere le slide pubblicate su OS e Crittografia | *ND*  | Rivedere le ultime slide aggiunte |
 ---
 
