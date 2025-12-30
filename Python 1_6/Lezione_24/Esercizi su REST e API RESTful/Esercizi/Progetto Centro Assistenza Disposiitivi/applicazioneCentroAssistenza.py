@@ -387,7 +387,6 @@ def put_device(device_id):
 
 
         nuovoDisp = Smartphone (
-            device_id,
             data["id"], 
             data["model"], 
             data["customer_name"], 
@@ -405,7 +404,7 @@ def put_device(device_id):
 
 
         nuovoDisp = Laptop (
-            device_id,
+    
             data["id"], 
             data["model"], 
             data["customer_name"], 
@@ -422,9 +421,8 @@ def put_device(device_id):
         return jsonify ({'ERRORE' : "ATTENZIONE ! Tipologia di dispositivo NON PRESENTE NEL SISTEMA !"}),400 
     
 
-    assistenza.add(nuovoDisp)
-    return jsonify(nuovoDisp.info()), 201
-
+    assistenza.update(device_id,nuovoDisp)
+    return jsonify(nuovoDisp.info()), 200
 
 @app.route('/devices/<device_id>/status', methods=["PATCH"])
 
