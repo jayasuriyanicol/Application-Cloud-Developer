@@ -452,7 +452,7 @@ def delete_device(serial_number:str):
         return jsonify({'ERROR': "ATTENZIONE ! Il dispositivo inserito NON esiste"}), 404
     else:
          
-         smart.delete(disp)
+         smart.delete(serial_number)
          return jsonify({"ELIMINATO" : True, "ID dispositivo eliminato" : serial_number}), 200
          
 
