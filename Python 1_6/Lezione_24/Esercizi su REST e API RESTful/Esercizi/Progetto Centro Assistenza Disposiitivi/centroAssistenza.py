@@ -138,7 +138,7 @@ from abc import ABC, abstractmethod
 from enum import Enum
 
 
-class Status (Enum):
+class Status (str,Enum):
 
    received:str = "RECEIVED"
    diagnosing:str = "DIAGNOSING"
@@ -183,7 +183,7 @@ class Device(ABC):
                 "model": self.model,
                 "customer_name": self.customer_name,
                 "purchase_year": self.purchase_year,
-                "status": self.status.value
+                "status": self.status
 
          }
     
