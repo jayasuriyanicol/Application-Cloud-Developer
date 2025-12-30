@@ -144,7 +144,7 @@ if __name__ == "__main__":
     delimitatore("PUT /devices/<devices_id> (SOSTITUIRE INFO DISPOSITIVO)")
 
     modificaDisp = { 
-         
+   
         'type' : 'smartphone',
         'id' : 'D002',
         'model': 'Xiamo RedGrey 2',
@@ -152,13 +152,13 @@ if __name__ == "__main__":
         'purchase_year': 2022,
         'status' : 'delivered',
         'has_protective_case' : True,
-        'storage_gb': 128
+        'storage_gb': 256
     }
 
 
     ris = requests.put(f"{BASE_URL}/devices/{DEVICE}", json=modificaDisp, headers=headers)
 
-    if ris.status_code == 200:
+    if ris.status_code in [200,201] :
 
         print("SUCCESSO ! Dispositivo aggiornato con successo !")
         print("JSON:\n", ris.json())
@@ -176,7 +176,7 @@ if __name__ == "__main__":
     ris = requests.delete(f"{BASE_URL}/devices/{DEVICE}", headers=headers)
 
 
-    if ris.status_code == 200:
+    if ris.status_code == 200 :
 
         print(f"SUCCESSO ! Dispositivo RIMOSSO con successo !")
         print("JSON:\n", ris.json())
