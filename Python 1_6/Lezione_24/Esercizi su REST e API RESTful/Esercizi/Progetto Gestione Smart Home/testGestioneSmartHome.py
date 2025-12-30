@@ -178,21 +178,17 @@ if __name__ == "__main__":
     ris = requests.delete(f"{BASE_URL}/devices/{DEVICE}", headers=headers)
 
 
-    if ris.status_code == 200:
+    if ris.status_code == 200 :
 
         print(f"SUCCESSO ! Dispositivo RIMOSSO con successo !")
         print("JSON:\n", ris.json())
 
         #8.GET /devices/<serial_number> per verificare che non esista più (status 404).
-
-
         delimitatore("GET /devices/<serial_number> (VERIFICA RIMOZIONE DISPOSITIVO)")
         ris_verifica = requests.get(f"{BASE_URL}/devices/{DEVICE}", headers=headers)
         
         if ris_verifica.status_code == 404:
             print("CONFERMATO ! Il Dispositivo non esiste più (404 Not Found).")
-
-
 
     else:
 
