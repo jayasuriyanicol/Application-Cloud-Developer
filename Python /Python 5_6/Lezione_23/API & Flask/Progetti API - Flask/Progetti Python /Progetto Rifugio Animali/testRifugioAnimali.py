@@ -70,8 +70,8 @@ if __name__ == "__main__":
         'is_indoor': True,
         'favorite_toy': 'Topolino di stoffa'
     }
-    ris_post_gattp = requests.post(f"{URL}/animals/add", json=nuovoGatto, headers=headers)
-    print(f"Risposta aggiunta: {ris_post_gattp.json()}")
+    ris_post_gatto= requests.post(f"{URL}/animals/add", json=nuovoGatto, headers=headers)
+    print(f"Risposta aggiunta: {ris_post_gatto.json()}")
 
     
     #8.0 POST /animals/<animal_id>/adopt – registrare un’adozione
@@ -84,3 +84,28 @@ if __name__ == "__main__":
     delimitatore("VERIFICA FINALE ADOZIONE")
     res_final = requests.get(f"{URL}/animals/d99/adoption", headers=headers)
     print(f"Stato finale Rudy: {res_final.json()}")
+
+
+  #Following the insertion of ADDITIONAL checks not required by the exercise, but still relevant to the correct functioning of the program
+
+
+    #9.GET/animals/<animal_id> - verificare che non sia possibile adottare un animale insesistente
+    delimitatore("GET/animals/xyz (ADOTTARE UN ANIMALE INSISTENTE)")
+    res_fake_adoption = requests.get(f"{URL}/animals/xyz", headers=headers)
+    print(f"Stato adozione cane: {res_fake_adoption.json()}")
+
+
+   #10. POST/animals/add/<animal_id> - verificare che non sia possibile adottare un animale già adottato/esistente 
+    delimitatore("GET/animals/add/<animal_id> (CREAZIONE ANIMALE CON LO STESSO ID)")
+    hackerCane = {
+        'id': 'd1',
+        'type': 'dog',
+        'name': 'Giacomo Hackerino',
+        'age_years': 99,
+        'weight_kg': 99.9,
+        'breed': 'PRO HACKER',
+        'is_trained': True
+    }
+
+    res_fake_creation = requests.post(f"{URL}/animals/add", json=hackerCane, headers=headers)
+    print(f"Creazione Hackerino: {res_fake_creation.json()}")
