@@ -302,7 +302,7 @@ WHERE p.id = ap.persona and ap.progetto = pr.id
 GROUP BY pr.id,pr.nome
 HAVING COUNT(DISTINCT p.id) > 2;
 
-so
+
 -- 11. Quali sono i professori associati che hanno lavorato su più di un progetto?
 
 SELECT p.id AS id_persona, p.nome, p.cognome
