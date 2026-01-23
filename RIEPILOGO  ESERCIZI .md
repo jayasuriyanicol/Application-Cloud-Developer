@@ -5,7 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **Sicurezza** | Rivedere le slide pubblicate su OS e Crittografia | *ND*  | Rivedere le ultime slide aggiunte |
+| **JAVA** | Svolgere l'esercitazione Biblioteca e Strategy | *Venerdì 30 Gennaio*  | Maggiori informazioni sul relativo file |
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellare
