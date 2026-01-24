@@ -5,7 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **JAVA** | Svolgere l'esercitazione Biblioteca e Strategy | *Venerdì 30 Gennaio*  | Maggiori informazioni sul relativo file |
+| **JAVA** | Svolgere l'esercitazione Biblioteca e Thread | *Venerdì 30 Gennaio*  | Maggiori informazioni sul relativo file |
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellare
