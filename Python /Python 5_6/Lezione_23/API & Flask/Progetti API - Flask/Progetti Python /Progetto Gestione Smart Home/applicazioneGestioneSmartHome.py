@@ -301,7 +301,7 @@ def post_devices():
 
            return jsonify({'ERRORE': "Ci sono dei DATI MANCANTI DA COMPILARE"}), 400
     
-    if not (data["serial_number"]):
+    if (data["serial_number"]):
 
            return jsonify({"ERRORE" : "Il dispositivo risulta già essere PRESENTE"}), 400 
      
@@ -381,7 +381,7 @@ def put_devices(serial_number:str):
 
          device = SmartBulb (
 
-            data["serial_number"], 
+            serial_number, 
             data["brand"], 
             data["room"], 
             data["installation_year"],
@@ -395,7 +395,7 @@ def put_devices(serial_number:str):
 
          device = SecurityCamera (
 
-            data["serial_number"], 
+            serial_number, 
             data["brand"], 
             data["room"], 
             data["installation_year"],
