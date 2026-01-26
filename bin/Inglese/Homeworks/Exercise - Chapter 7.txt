@@ -1,0 +1,116 @@
+EXERCISE AT THE END OF THE PAGE: 
+
+Summary of Chapter 7: Tutorial for Python Beginners
+
+# EXERCISE 1
+r = 5  # You can choose any value for the radius
+pi = 3.14159  # Approximation of π
+
+# EXERCISE 2
+area = pi * r**2
+print("Area of the circle:", area)
+
+# EXERCISE 3
+a = 10
+b = 7
+print("Is a greater than b?", a > b)  # Prints True or False
+
+# EXERCISE 4
+def bigger(x, y):
+    return x > y
+
+# Test the function with different values
+print(bigger(10, 5))  # True
+print(bigger(3, 8))   # False
+print(bigger(7, 7))   # False
+
+------------------------------------------------------------------
+EXERCISE CHAPTER 7:
+
+
+
+Vocabulary Matching (Word to Definition)
+
+1. **Interpreter** → **(i)** A tool that executes Python code line by line.  
+2. **Variable** → **(a)** A placeholder in programming that stores a value.  
+3. **String** → **(c)** A sequence of characters enclosed in quotes.  
+4. **Boolean** → **(d)** A value that can only be True or False.  
+5. **Indentation** → **(g)** The extra spaces at the beginning of a line of code, used to structure programs.  
+6. **Function** → **(b)** A named block of code that performs a specific task when called.  
+7. **Parameter** → **(j)** A value passed into a function to customize its behavior.  
+8. **Operator** → **(h)** A symbol used to perform an action on values (e.g., +, -, *).  
+9. **Comment** → **(f)** A piece of code that Python ignores, used for explanations.  
+10. **Assignment** → **(e)** The process of giving a variable a specific value.  
+
+
+
+True or False Comprehension Questions
+
+1. **False** – The Python Interpreter executes code line by line, not all at once.  
+2. **False** – Strings can be enclosed in either single (`'`) or double (`"`) quotes.  
+3. **True** – `print()` is used to display output in Python.  
+4. **False** – Python uses indentation instead of curly brackets `{}` to define code blocks.  
+5. **True** – The `==` operator checks if two values are equal.  
+6. **False** – Variables do not need to be declared before assignment in Python.  
+7. **True** – The `return` statement is used to send a value from a function.  
+8. **False** – A Boolean variable can only store `True` or `False`.  
+9. **True** – Comments in Python begin with the `#` symbol.  
+10. **True** – Functions in Python can accept multiple parameters.  
+
+
+
+ Multiple Choice Questions
+
+1. How do you start the Python interpreter in a command line?**  
+   - **c) python**  
+
+2. **What will `print(3 < 4)` output?**  
+   - **c) True**  
+
+3. **Which of the following is NOT a basic data type in Python?**  
+   - **d) Statement**  
+
+4. **How do you define a function in Python?**  
+   - **a) def function_name():**  
+
+5. **Which of the following correctly assigns a string to a variable?**  
+   - **b) message = 'Hello, World!'**  
+
+6. **What is the purpose of the `return` keyword in a function?**  
+   - **c) It returns a value to the calling code.**  
+
+7. **What happens if a function does not include a `return` statement?**  
+   - **b) It returns None.**  
+
+8. **What is the result of `print(5 % 2)`?**  
+   - **b) 1** (Modulo operator `%` gives remainder)  
+
+9. **What is the correct way to include a variable inside a `print` statement?**  
+   - **b) print("My age is", age, "years old.")**  
+
+10. **Which of the following is NOT an arithmetic operator in Python?**  
+   - **d) ==** (`==` is a comparison operator, not arithmetic)  
+
+
+
+
+
+NOT INCLUDED : Discussion Questions (Sample Answers)
+
+1. **Why do you think indentation is important in Python?**  
+   - Indentation defines code blocks in Python. It improves readability and ensures the correct execution of loops, functions, and conditions.  
+
+2. **How does using functions help organize and reuse code in programming?**  
+   - Functions prevent code repetition, make programs more modular, and improve readability by grouping related operations into reusable blocks.  
+
+3. **In what situations would you use comments in your Python code?**  
+   - Comments help explain complex logic, mark sections of code, and leave notes for future reference or other programmers.  
+
+4. **What is the difference between a function that prints output and one that returns a value?**  
+   - A function that prints simply displays the output but does not store it, while a function that returns a value allows the output to be used elsewhere in the program.  
+
+5. **Explain the difference between `==` and `=` in Python.**  
+   - `=` is the assignment operator, used to assign values to variables (e.g., `x = 10`).  
+   - `==` is a comparison operator, used to check if two values are equal (e.g., `x == 10`).  
+
+

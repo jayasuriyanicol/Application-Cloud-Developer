@@ -1,0 +1,45 @@
+<!--Esercizio 3.1 Scrivere un programma che dichiara e valorizza 5 numeri a proprio piacimento e restituisca in output la somma e la media. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Esercizio 3_1 - JavaScript Calcoli</title>
+</head>
+<body>
+
+  <h1>ESERCIZIO 3_1</h1>
+
+  <h3>CONSEGNA:</h3>
+
+  <p>Esercizio 3.1: Scrivere un programma che dichiara e valorizza 5 numeri a proprio piacimento e restituisca in output la somma e la media.</p>
+
+  <h2><br>SVOLGIMENTO DELL'ESERCIZIO:</h2>
+
+  <p id="outputSomma"></p>
+  <p id="outputMedia"></p>
+
+  <script>
+    // Dichiarazione dei numeri
+    var num1 = 7;
+    var num2 = 8;
+    var num3 = 6;
+    var num4 = 5;
+    var num5 = 5;
+
+    // Calcolo somma e media
+    var somma = num1 + num2 + num3 + num4 + num5;
+    var media = somma / 5;
+
+    // Output nella console
+    console.log("Numeri:", num1, num2, num3, num4, num5);
+    console.log("Somma:", somma);
+    console.log("Media:", media);
+
+    // Output nella pagina
+    document.getElementById("outputSomma").innerHTML = "La somma dei numeri è: " + somma;
+    document.getElementById("outputMedia").innerHTML = "La media dei numeri è: " + media.toFixed(2); // formato 2 decimali
+  </script>
+
+</body>
+</html>
+

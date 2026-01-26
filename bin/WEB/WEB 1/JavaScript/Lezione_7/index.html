@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=ù, initial-scale=1.0">
+    <title>Introduzione a Javascript</title>
+</head>
+<body>
+     <h1>JAVASCRIPT - Parte Teorica</h1>
+
+     <h2>Linguaggio di Programmazione : rendere dinamico HTML</h2>
+     <h2>
+         Fase 1 - 1994 / 2009 FRONTEND (Browser) <br>
+         Fase 2 - 2009 - 2015 Node.js (Server) / Browser (Client) - ES5 / ES6 Versioni di js - React e Angular<br>
+         Fase 3 - 2009 Microsoft "estenderlo" Typescript : Tipizzazione Forte / Interfacce / Generics - Node.js (Server)<br>
+     </h2>
+
+     <h3>
+        <b>ECMA International, Organizzazione |ECMASCRIPT ES|</b><br>
+        Javascript ES6<br><br>
+        Però ci poniamo una domanda, "Perche il codice è diverso?" -> JavaScript è furbo, dato che ha le sue librerie
+
+        <br>Per esempio PRINT() -> è una libreria BUILT-IN di Python<br>
+        <br>Invece su JavaScript, abbiamo una libreria principale che il DOM "document.getElementById()"
+                                                                             "console.log()"
+        
+        <br><br>JAVASCRIPT FRONTEND (client), HTML 
+
+        Abbiamo 3 modalità per scrivere codice JavaScript:<br><br>
+
+        1. In MODALITÀ INILE ovvero blocco estenderlo che sono meglio da EVITARE<br>
+        2. In MODALITÀ BLOCCO, che viene utilizzata POCO <br>
+        3. In MODALITÀ ESTERNO che viene utilizzata TANTO  <br>                   
+    </h3>
+    <div onclick="test()">CLICCA QUI</div>
+    <script>
+        function test(){window.alert("ciao");}
+        document.getElementById("test").innerHTML = "ciao";
+    </script>
+</body>
+</html>

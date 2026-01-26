@@ -1,0 +1,98 @@
+<!-- 30. Dashboard con Conteggi
+Richiesto: contare elementi completati e non completati.
+Usare: filter per due insiemi distinti.
+Risultato: dashboard con due valori numerici separati. -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard con Conteggi</title>
+</head>
+<body>
+
+    <br>
+
+    <b><p>ELEMENTI COMPLETATI</p></b>
+    <br>
+    <div id="completi"></div>
+
+    <br>
+    
+    <b><p>ELEMENTI NON COMPLETI</p></b>
+    <br>
+    <div id="nocompleti"></div>
+
+
+    <script>
+
+        let completi = document.getElementById("completi");
+        let noCompleti = document.getElementById("nocompleti");
+
+
+        let dashboard = 
+         [
+            {
+                "name": "Spesa domenicale",
+                "completato": false,
+            },
+            {
+                "name": "Calcetto ore 21",
+                "completato": true
+            },
+            {
+                "name": "Studio React",
+                "completato": true,
+            },
+            {
+                "name": "Studio Java",
+                "completato": false,
+            },
+            {
+                "name": "Uscita con i boys",
+                "completato": false,
+            },
+            {
+                "name": "War Clash Royale",
+                "completato": true
+            },
+            {
+                "name": "Finire React",
+                "completato": false,
+            },
+            {
+                "name": "Acquisto regali Natale",
+                "completato": true,
+            },
+            {
+                "name": "Aggiornare la tabella",
+                "completato": false,
+            },
+            {
+                "name": "Palestra",
+                "completato": true,
+            },
+            {
+                "name": "Portare Fuori il cane",
+                "completato": true,
+            },
+            {
+                "name": "Esame WEB",
+                "completato": true,
+            },
+        ];
+
+
+        let compl = dashboard.filter((i) => i.completato);
+        let nocompl = dashboard.filter((i) => !i.completato);
+
+        completi.innerHTML = compl.length;
+        noCompleti.innerHTML = nocompl.length;
+
+    </script>
+</body>
+</html>

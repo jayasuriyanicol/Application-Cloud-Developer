@@ -1,0 +1,93 @@
+RAFFINAMENTO REQUISITI SIMULAZIONE D'ESAME TRAVELPLAN
+
+
+Raffinamento Requisiti:
+
+
+1. Requisiti sugli Utenti:
+
+    1.0 nome: stringa
+    1.1 cognome: stringa
+    1.2 indirizzoEmail: indirizzoemail
+    1.3 cittàProvenienza: stringa ( vedi requ 4.2)
+    1.4 dataIscrizione: DataOra
+    1.5 Un utente può organizzare un viaggio in qualità di organizzatore oppure come partecipante (vedi requ.2)
+
+
+
+2. Requisiti sui Viaggi :
+
+    2.0 Un utente può creare dei viaggi in qualità di ORGANIZZATORE (vedi requ. 6) 
+    2.1 nome : stringa
+    2.2 numeroMinimoPartecipanti : int > 0
+    2.3 numeroMassimoPartecipanti : int > 0, (maggiore o uguale al numero minimo (vedi requ. 2.2))
+    2.4 Un viaggio è associato ad un certo numero (insieme) di Attività
+    2.5 Queste Attività possono essere: 
+        2.5.1 Attività = {visite,pasti,tour,trasporti,pernottamenti,ecc.}
+    2.6 deve permettere di specificare gli utenti che partecipano ad una determinata Attività
+
+
+
+3. Requisiti sulle Attività :
+
+    3.0 il viaggio al quale appartiene, (consideriamo solo il viaggio in se)
+    3.1 nome : stringa
+    3.2 istanteInizio : timestamp
+    3.3 durata : Durata (intero >=0, in minuti, tipologia di dato speciale)
+    3.4 prezzo : reale >= 0
+    3.5 luogoTenuto: stringa
+    3.6 descrizione : stringa
+    3.7 Possibilità di creazione di Attività Composte (vedi req. 6)
+
+
+4. Requisiti sui Luoghi:
+
+    4.1 indirizzo : indirizzo
+    4.2 a cui viene associata una città,una regione e la nazione (classi divise)
+
+
+5. Requisiti sugli Organizzatori:
+
+    5.1 Ogni utente può creare viaggi in qualità di ORGANIZZATORE
+
+
+
+6. Requisiti sulle Attività Composte:
+ 
+    6.0 nome : stringa (facoltativa)
+    6.1 Include l'Attività principale con un'insieme di Attività Semplici
+
+
+7. Requisiti sugli Spostamenti:
+
+    7.0 Gli spostamenti sono una tipologia particolare di Attività Semplice
+    7.1 Deve poter rappresentare gli spostamenti come Attività specificando il mezzo (classe apparte)
+    7.2 luogoPartenza:stringa
+    7.3 luogoArrivo: stringa
+
+
+
+
+OPERAZIONI DI SISTEMA
+
+Il sistema deve permettere le seguenti Attività:
+
+
+    999.0 trovare tutti i viaggi che includono una certa destinazione in un certo intervallo di
+    tempo.
+
+    999.2 trovare la/e citta toccata/e dal maggior numero di viaggi in un certo intervallo di
+    tempo;
+
+    999.3 calcolare, per ogni regione di una data nazione, il numero di viaggi organizzati in un
+    dato periodo di tempo che toccano tale regione;
+
+    999.4 dato un budget minimo, un budget massimo, un insieme di regioni, un periodo di
+    tempo e un numero N , calcolare l’insieme dei viaggi che hanno un budget nell’intervallo
+    richiesto, toccano almeno una delle regioni date, si svolgono interamente all’interno del
+    periodo dato e sono organizzati da un utente che abbia organizzato almeno N viaggi
+    in precedenza.
+
+    999.5 I responsabili del sistema devono poter calcolare, data una citt`a di destinazione, per
+    ognuno dei 12 mesi dell’anno, il numero di viaggi organizzati in quel mese nell’ultimo
+    anno solare.

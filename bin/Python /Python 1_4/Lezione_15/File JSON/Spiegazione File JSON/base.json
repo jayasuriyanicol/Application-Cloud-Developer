@@ -1,0 +1,17 @@
+
+{  
+"commento": "Questo è un PRIMO ESEMPIO DI UN FILE JSON, i commenti sui FILE JSON si creano tramite variabile e valore. Sintassi -> 'commento' : 'frase' ",
+    "nome": "Luca Rossi",
+    "eta": 30,
+    "email": "luca.rossi@example.com",
+    "iscrizione_newsletter": true,
+    "interessi": ["musica", "sport", "tecnologia"],
+    "indirizzo": {
+      "via": "Via Roma 123",
+      "citta": "Milano",
+      "CAP": "20100",
+      "paese": "Italia"
+      
+    }
+  }
+  

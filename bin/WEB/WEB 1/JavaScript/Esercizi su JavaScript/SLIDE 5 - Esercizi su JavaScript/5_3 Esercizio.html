@@ -1,0 +1,104 @@
+<!--Esercizio 5.3. Esercizio TRE: indovina il numero. Creare una pagina per il gioco indovina un numero
+
+La pagina dovrà esserre formata dal tittolo "Gioco: indovina il numero!" in h1 con sotto la relativa casella di testo per l'inserimento del numero
+dove accanto troveremo il tasto "Controlla". Inoltre sotto avremo il numero di Tentativi effettuati che man mano si andrà ad incrementare e sotto con
+il tasto "Nuovo Gioco" per iniziare un nuovo game.
+
+ATTENZIONE: All'avvio il programma genera un numero casuale compreso fra 0 e 100. Il giocatore deve indovinarlo scrivendo il proprio tentativo e premendo 
+il tato "Controlla". Il programma dice al giocatore se il tentatico fatto è più piccolo o più grande del numero da indovinare.
+-->
+
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 5.3 | Gioco Indovina il numero</title>
+
+</head>
+<body>
+
+     <!--Iniziamo con la parte del inserimento dei dati in HTML, riportando già le relatice funzioni dello script-->
+
+     <h1>Gioco: Indovina il numero!</h1>
+
+     <input type="number" id="tentativo" placeholder="Inserisci un numero da 0 a 100"> 
+     <button onclick="controllaNumero()" id="Controlla">Controlla</button>
+
+     <h5>Messaggio indicatore: <span id="messaggio"></span></h5> 
+     <h5>Tentativi svolti: <span id="conteggio">0</span></h5>
+
+     <button onclick="nuovoGioco()">Nuovo Gioco</button>
+
+     <script>
+        
+        //Iniziamo con la dichiarazione delle variabili come random e tentativi
+        let numeroIndovinare = Math.floor (Math.random() * 101);
+        let tentativi = 0;
+
+    
+    //Creiamo la funzione controllaNumero() per inizializzare, dare messaggi di errore nel caso di num non int
+    function controllaNumero (){
+        const input = document.getElementById("tentativo");
+        const conteggio = document.getElementById("conteggio");
+        const messaggio = document.getElementById ("messaggio");
+        const numeroInserito = parseInt(input.value);
+
+
+    
+
+    if (isNaN(numeroInserito)){
+
+        messaggio.textContent = "ATTENZIONE ! Inserire un numero valido INTERO !";
+        return;
+
+    }
+    
+    //Incrementiamo i tenativi se il numero non vine indovinato, stamopandolo anche a schermo in tempo reale
+    tentativi++;
+    conteggio.textContent = tentativi;
+
+
+    //Verifichiamo sempre attraverso messaggi in tempo reale se il numero inserito è basso, alto o corretto con una condizione IF-ELIF-ELSE
+    if (numeroInserito < numeroIndovinare){
+
+
+        messaggio.textContent = "Il numero inserito è TROPPO BASSO !";
+    }else if (numeroInserito > numeroIndovinare){
+        messaggio.textContent = "Il numero insetito è TROPPO ALTO !";
+    } else{
+        messaggio.textContent = "Il numero inserito è CORRETTO !! COMPLIMENTI HAI INDOVINATO DOPO " + tentativi + " tentativo/i";
+    }
+
+}
+
+//Procediamo con la stesura dell'ultima funzione nuovoGioco(), nel caso vogliamo che riavviare la partita da zero, azzerando tutti i relativi valori.
+function nuovoGioco(){
+    numeroIndovinare = Math.floor(Math.random() * 101);
+    tentativi = 0;
+    document.getElementById("tentativo").value = "";
+    document.getElementById("conteggio").textContent = 0;
+    document.getElementById("messaggio").textContent = "";
+    
+
+
+}
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

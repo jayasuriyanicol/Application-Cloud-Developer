@@ -1,0 +1,46 @@
+<!-- Esercizio 3.4 Questo codice chiede all’utente di inserire due numeri, quindi ne mostra la somma. Funziona in maniera errata.  
+L’output nell’esempio qui sotto è 12. Perché? Prova a correggerlo, il risultato deve essere 3.
+var a = prompt("Inserisci il primo numero"); // 1
+var b = prompt("Inserisci il secondo numero"); // 2
+console.log(a + b); // 12
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Esercizio 3_4 - Somma tramite prompt dei comandi</title>
+</head>
+<body>
+
+  <h1>ESERCIZIO 3_4</h1>
+
+  <h3>CONSEGNA:</h3>
+
+  <p>
+    Questo codice chiede all’utente di inserire due numeri, quindi ne mostra la somma. Funziona in maniera errata.<br>
+    L’output nell’esempio è <code>12</code> invece di <code>3</code> perché i valori inseriti sono considerati come **stringhe**.<br>
+    Dobbiamo convertirli in numeri prima di sommarli.
+  </p>
+
+  <h2><br>SVOLGIMENTO DELL'ESERCIZIO:</h2>
+
+  <p id="outputSomma"></p>
+
+  <script>
+    // Input da utente (con conversione a numero intero)
+    let primoNumero = parseInt(prompt("Inserisci il primo numero:"));
+    let secondoNumero = parseInt(prompt("Inserisci il secondo numero:"));
+
+    // Calcolo della somma
+    let somma = primoNumero + secondoNumero;
+
+    // Output in console
+    console.log("La somma dei numeri è la seguente: " + somma);
+
+    // Output nella pagina
+    document.getElementById("outputSomma").innerHTML = "La somma dei numeri è la seguente: " + somma;
+  </script>
+
+</body>
+</html>
+

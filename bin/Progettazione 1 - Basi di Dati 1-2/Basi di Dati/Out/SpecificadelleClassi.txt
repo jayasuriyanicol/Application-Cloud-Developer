@@ -1,0 +1,126 @@
+                SPECIFCA DELLE CLASSI - Progetto Out!
+
+
+
+
+Specifica della classse Prenotazione:
+
+[V.Prenotazione.DataPrenotazioneDataSpettacolo]
+
+    Sia u:Utente che è sopraclasse p:Persona 
+    Sia pr:Prenotazione tale che (u,pr):effettuare 
+    Sia s:Sala e inf:InfoSpettacolo tale che (s,inf):info 
+    Sia sp:Spettacolo tale che (pr,sp):prenotare e (inf,sp):spettacolo
+
+    Sia prenot = (pr,sp):prenotare
+
+    Quindi sia pr.data == inf.dataInizio, in caso non sia coerente non è possibile che:
+
+    u possa avere un link prenot 
+
+
+Specifica della classe Spettacolo:
+
+spettacoloSovrapposto(d:DataOra,f:DataOra)-1> Boolean:
+
+
+    PreCondizione:
+
+        nessuna
+    
+    PreCondizione: 
+    - Non modifica il livello estensionale dei dati 
+    - l'operazione Result è così definita:
+
+        Sia s:Sala e inf:InfoSpettacolo tale che (s,inf):info
+        Sia spet: Spettacolo tale che (inf,spet):spettacolo
+
+        Sia t:DataOra, valore istante di tempo casuale 
+
+        Nel caso:
+
+            1. d >= t <= f -> l'istante t si sovrappone all'intervallo in cui si tiene spet , quindi Result = True
+
+
+            2. t <= d oppure t >= i -> l'istante t non si sovrappone all'intervallo in cui si tiene spet quindi Result = False
+
+
+Specifica della classe Sala:
+
+
+
+Postidisponibili(d:DataOra) -> Intero >=0:
+
+    PreCondizione:
+        nessuna 
+
+    PostCondizione:
+        -Non modifica il livello estensionale dei dati 
+        - L'operazione Result è così definita:
+
+            Sia u:Utente sopraclasse si p:Persona
+            Sia pr:Prenotazione tale che (u,pr):effettuare 
+            Sia sp:Spettacolo tale che (pr,sp):prenotare
+            Sia s:Sala e p:Posto tale che (s,p):avere
+            Sia inf:InfoSpettacolo tale che (s,inf):info ed (inf,sp):spettacolo
+
+        Sia P l'insieme di tutti i p:Posto tali che:
+         (p,s):avere 
+         (s,inf):info 
+         
+         info.dataInizio <= d <= info.dataFine 
+
+        Result =  |P|
+
+
+Specifica della classe Utente:
+ 
+
+[V.Utente.NostessoSpettacolo]
+
+    Sia u:Utente sopraclasse p:Persona 
+    Sia pr:Prenotazione tale che (u,pr):effettuare 
+    Sia sp:Spettacolo tale che (pr,sp):prenotare 
+    s:Sala e inf:InfoSpettacolo tale che (s,inf):info ed (inf,sp):spettacolo
+
+    effet = (u,pr):effettuare 
+    infSpet = (s,inf):info
+
+    Esistano f1:inf.dataInizio, f2:inf.dataFine, d1.pr.data e d2.pr.data. 
+    Sia d1 =/= d2, che abbiano i seguenti link:
+
+    (s,inf): info, (inf,f1):spettacolo
+    (s,inf):info, (inf,f2):spettacolo 
+    (u,pr):effettuare, (pr,d1):prenotare
+    (u,pr):effettuare, (pr,d2):prenotare 
+
+
+    Non siano quindi sovrapposti (f1.dataInizio, f2.dataFine, d1.data,d2.data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+        
+   
+
+

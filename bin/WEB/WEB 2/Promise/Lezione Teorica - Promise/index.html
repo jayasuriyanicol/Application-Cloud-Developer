@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lezione WEB 2</title>
+
+    <script>
+    
+    //JavaScript : codice in mdoo "sincrono", ovvero come sinonimo anche "proceduale"
+    let a = () =>{
+        console.log ("SONO A: BENVENUTO !");
+    }
+
+    let b = () => { 
+        console.log ("SONO B");
+
+        let x = new Promise( (res,rej) =>{ 
+                    
+            console.log("STO RECUPERANDO GLI UTENTI DAL DATABASE");
+
+        },0);
+        // La funzione "setTimeOut()" è un a funzione del BROWSER e NON di JavaScript.
+        // Deleghiamo al Browser, facendo ritardare il codice
+
+        
+
+    };
+
+
+
+        
+        setTimeout( () => {
+            console.log("STO RECUPERANDO GLI UTENTI DAL DATABASE");
+
+
+
+
+        }, 5000);
+    
+
+
+    let c = () =>{
+        console.log ("SONO C : CALCOLO IL CODICE FISCALE");
+    }
+
+    let d = () =>{
+        console.log ("SONO D : CALCOLO BUSTA PAGA");
+    }
+
+
+    let calcolo = () =>{
+
+        a();
+        b().then( (risultato) => {
+
+            console.log(risultato); //STO RECUPERANDO GLI UTENTI DAL DATABASE
+            c();
+            d();
+
+        }).catch( (errore) => {
+            
+            console.log(errore);
+   
+
+    });
+
+    calcolo ();
+
+    // JavaScript è un linguaggio "FURBO", ovvero sfrutta funzioni del browser, si lega strattamente all'ambiente di esecuzione 
+
+    // JavaScript è un linguaggi con due ambienti di esecuzione ovvero (JS - Browser) con questo da inizio al processo ASINCRONO
+
+    // Con il termine ASINCRONO intendiamo che quest'ultimo viene eseguito in un'altro ambiente, quindi che non è mia e vengono restituite alla fine
+ 
+    
+    // La funzione "setTimeOut()" è un a funzione del BROWSER e NON di JavaScript. Ha la funzione principale di ritardare il codice
+
+
+
+    console.log("FINE");   
+
+    //Esecuzione di calcolo => A - B -C -D - Fine - UTENTI (dopo un tot di secondi)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

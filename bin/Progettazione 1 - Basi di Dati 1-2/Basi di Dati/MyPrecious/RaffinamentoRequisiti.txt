@@ -1,0 +1,165 @@
+
+RAFFINAMENTO DEI REQUISITI - Progettp MyPrecious
+
+
+
+Consegna presente nella stessa cartella 'MyPrecious'.
+
+
+
+RAFFINAMENTO:
+
+
+1.1 Opera
+
+    1.1.1. nome : stringa
+    1.1.2. categoria : Categoria (tipologia enumerativa)
+      1.1.2.1 Categoria = {dipinto, scultura, mosaico, manoscritto}
+    1.1.3. autore : Autore (collegamento 1..1 → ogni Opera ha un Autore)
+    1.1.4. annoDiRealizzazione : Data (formato GG/MM/AAAA)
+    1.1.5. tecnica : stringa | null (solo se rilevante)
+    1.1.6. correntiArtistiche : stringa (una o più correnti associate)
+    1.1.7. periodoEsposizione : Periodo (opzionale – periodo in cui è esposta)
+      1.1.7.1 Periodo = (dal GG/MM/AAAA HH:MM:SS al GG/MM/AAAA HH:MM:SS)
+    1.1.8. appartenenzaMuseo : Museo (collegamento 1..1 – ogni opera è di proprietà di un museo)
+
+1.2 Autore
+
+    1.2.1. nome : stringa (nome d’arte)
+    1.2.2. luogoNascita : Città (collegamento 1..1)
+    1.2.3. dataNascita : Data (formato GG/MM/AAAA)
+    1.2.4. dataMorte : Data | null (può essere mancante)
+    1.2.5. opereRealizzate : {Opera} (insieme di opere appartenenti al museo)
+
+1.3 ResponsabileGestione
+
+    1.3.1. idResponsabile : intero (identificativo univoco)
+    1.3.2. nome : stringa
+    1.3.3. cognome : stringa
+    1.3.4. organizzazioneEsposizioni : {Esposizione} (collegamento 1..* ↔ 1..*)
+
+1.4 Esposizione
+
+    1.4.0. generalizzazione: {DJSJoint, Complete} → Permanente, Temporanea
+    1.4.1. nome : stringa
+    1.4.2. opereEsposte : {Opera} (collegamento 0..* ↔ 0..)
+    1.4.3. periodoEsposizione : Periodo (periodo di esposizione variabile)
+      1.4.3.1. Periodo = (dal GG/MM/AAAA HH:MM:SS al GG/MM/AAAA HH:MM:SS)
+    1.4.4. organizzatori : {ResponsabileGestione} (collegamento 1.. ↔ 1..*)
+    1.4.5. tipoEsposizione : {permanente, temporanea}
+
+1.5 Temporanea
+
+    1.5.0. collegamento ISA con Esposizione
+    1.5.1. temaParticolare : stringa (descrizione del tema)
+      1.5.1.1. Può descrivere: artista, gruppo di artisti, corrente artistica, periodo storico
+    1.5.2. intervalloTempo : Periodo (dal GG/MM/AAAA HH:MM:SS al GG/MM/AAAA HH:MM:SS)
+    1.5.3. prezzoAccesso : reale (≥ 0)
+
+1.6 Permanente
+
+    1.6.0. collegamento ISA con Esposizione
+    1.6.1. note : stringa | null (eventuali note sulle opere più importanti)
+
+1.7 Museo
+
+    1.7.1. nome : stringa
+    1.7.2. sede : Città (collegamento 1..1)
+    1.7.3. operePossedute : {Opera} (collegamento 1 ↔ 0..)
+    1.7.4. bigliettiVenduti : {Biglietto} (collegamento 1 ↔ 0..)
+
+1.8 Biglietto
+
+    1.8.0. generalizzazione: {Disjoint, Complete} → Standard, ExtendedAccess
+    1.8.1. tariffaScelta : Tariffa (collegamento 1 ↔ 0..)
+    1.8.2. istanteVendita : Timestamp (GG/MM/AAAA HH:MM:SS)
+    1.8.3. dataValidita : Data (GG/MM/AAAA)
+    1.8.4. visitatore : Visitatore (collegamento 1 ↔ 0..)
+    1.8.5. museoVenditore : Museo (collegamento 1 ↔ 0..*)
+
+1.8.1 Standard
+
+    1.8.1.1. accesso : {EsposizionePermanente}
+    1.8.1.2. prezzoBiglietto : Prezzo = prezzoBase della Tariffa scelta
+
+1.8.2 ExtendedAccess
+
+    1.8.2.1. accesso : {EsposizionePermanente ∪ EsposizioneTemporanea (selezionate)}
+    1.8.2.2. esposizioniTemporaneeIncluse : {Temporanea} (collegamento 0..* ↔ 0..*)
+    1.8.2.3. prezzoBiglietto : Prezzo = prezzoBaseTariffa + somma(prezzoAccesso di ogni Temporanea scelta)
+
+1.9 Visitatore
+
+    1.9.1. idVisitatore : intero
+    1.9.2. nome : stringa
+    1.9.3. cognome : stringa
+    1.9.4. bigliettiAcquistati : {Biglietto} (collegamento 1 ↔ 0..*)
+    1.9.5. metodoPagamento : stringa | null
+
+1.10 Tariffa
+
+    1.10.0. collegamento con Biglietto (1 ↔ 0..*)
+    1.10.1. nome : stringa
+    1.10.2. prezzoBase : reale ≥ 0
+    1.10.3. descrizione : stringa | null (facoltativa)
+
+1.11 Standard (ISA Biglietto)
+
+    1.11.1. prezzoBiglietto : reale = prezzoBase della Tariffa
+    1.11.2. accesso : {EsposizionePermanente}
+
+1.12 ExtendedAccess (ISA Biglietto)
+
+    1.12.1. prezzoBiglietto : reale = prezzoBase + somma(prezzi esposizioni temporanee scelte)
+    1.12.2. accesso : {EsposizionePermanente, EsposizioneTemporanea}
+
+1.13 Città
+
+    1.13.1. nome : stringa
+    1.13.2. provincia : Provincia (collegamento 1..1)
+    1.13.3. autoriNati : {Autore} (collegamento 0..* ↔ 1..1)
+    1.13.4. museiPresenti : {Museo} (collegamento 0..* ↔ 1..1)
+
+1.14 Provincia
+
+    1.14.1. nome : stringa
+    1.14.2. regione : Regione (collegamento 1..1)
+    1.14.3. cittàPresenti : {Città} (collegamento 0..* ↔ 1..1)
+
+1.15 Regione
+
+    1.15.1. nome : stringa
+    1.15.2. paese : Paese (collegamento 1..1)
+    1.15.3. provincePresenti : {Provincia} (collegamento 0..* ↔ 1..1)
+
+1.16 Paese
+
+    1.16.1. nome : stringa
+    1.16.2. regioniPresenti : {Regione} (collegamento 0..* ↔ 1..1)
+
+
+-----------------------------------------------------------------------------------------------------------
+
+999.1 Funzionalità del sistema
+
+    999.1.1. Inserimento e rimozione di opere d’arte
+    999.1.2. Creazione di esposizioni e associazione delle opere relative
+      999.1.2.1. Modifica delle informazioni di un’esposizione
+      999.1.2.2. Calcolo totale introiti per un’esposizione temporanea (in un periodo dato)
+    999.1.3. Aggiunta e modifica di un artista
+    999.1.4. Registrazione della vendita di uno o più biglietti di una certa tipologia validi per una data
+
+
+999.2 Specifica Funzionalità
+
+    999.2.1. CalcoloBigliettiExAcc
+      Input: Esposizione temporanea, Data
+      Output: Numero di biglietti Extended Access venduti per quella esposizione e validi in tale data
+
+    999.2.2. CalcoloBigliettiEspTempExAcc
+      Input: Periodo di tempo
+      Output: Esposizione temporanea con numero massimo di biglietti Extended Access venduti in quel periodo
+
+    999.2.3. CalcoloOpereNonEsposte
+      Input: Artista, Periodo di tempo
+      Output: Insieme di opere realizzate dall’artista e mai esposte nel periodo dato

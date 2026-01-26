@@ -1,0 +1,50 @@
+                        SPECIFICA DEI TIPI DATO - Progetto Out !
+
+
+
+SPECIFCA DEI TIPI DATO:
+
+
+
+1. indirizzo : 
+
+    stringa alfanumerica che segue il formato standard d'identificazione univoca la posizione secondo la sintassi:
+
+    Via NumeroCivico, CAP Città (SiglaProvincia), Nazione
+
+    dove:
+
+    Via: solo lettere, numeri e caratteri speciali ammessi (', ., -, spazio)
+
+    NumeroCivico: numerico o alfanumerico (es. “12A”)
+
+    CAP: 5 cifre numeriche (es. 00184)
+
+    Città: solo lettere e spazi (iniziale maiuscola)
+
+    SiglaProvincia: due lettere maiuscole opzionali racchiuse tra parentesi
+
+    Nazione: nome completo della nazione (iniziale maiuscola)
+
+2. cf:
+
+stringa alfanumerica secondo standard che segue la seguente sintassi 
+
+
+3. Prezzo:
+
+    tipologia enumerica -> Prezzo = {Prezzo Pieno, Prezzo Ridotto}
+
+
+4. Data:
+    stringa secondo standard GG/MM/AAAA ->  G = giorno, M = mese, A = anno
+
+5. Tipologia:
+
+    tipologia enumerica  -> Tipologia = { concerto, rappresentazione teatrale, film }
+
+
+    
+
+
+

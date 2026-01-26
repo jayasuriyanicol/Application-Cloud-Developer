@@ -1,0 +1,84 @@
+<!-- 24. Media Totale con Map + Reduce
+Richiesto: media dei voti per studente e media generale.
+Usare: map per singole medie e reduce per media finale.
+Risultato: valore unico che rappresenta la media complessiva. -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Totale con Map + Reduce</title>
+</head>
+<body>
+
+    <p>Medie per ogni singolo studente: </p>
+    <b><div id="media1"></div></b>
+
+    <p>Media generale classe: </p>
+    <b><div id="media2"></div></b>
+
+
+    <script>
+
+        let mediaSingola = document.getElementById("media1");
+        let mediaGenerale = document.getElementById("media2")
+
+        const studenti =[
+
+            {
+                name: "Giacomo Coccodrillini",
+                grades :[7.5,5.5,6.25,7.10] 
+
+            },
+
+            {
+                name: "Francesca Polpettina",
+                grades :[6.5,4.5,6.25,8.10] 
+
+            },
+
+            {
+                name: "Davide Trotterellini",
+                grades :[8.5,9.5,6.50,5.5] 
+
+            },
+            {
+                name: "Gipittina Dockerina",
+                grades :[3.0,5.5,8.25,4.10] 
+
+            }
+        ] 
+
+        const medieSingole = studenti.map((s) =>{ 
+            let somma = s.grades.reduce((som,grade) =>{
+                return som + grade;
+
+            },0) 
+
+            return somma / s.grades.length;
+        } );
+
+        console.log(medieSingole);
+
+        //In questa maniera andiamo a creare un array di voti, con 2 cifre decimali e seguite da "-"
+        mediaSingola.innerHTML = medieSingole.map(v => v.toFixed(2)).join(" - ");
+        
+
+        let sommaGenerale = medieSingole.reduce((somma,media) =>{
+
+            return somma+media;
+        },0);
+
+        let mediaTotale = sommaGenerale / medieSingole.length;
+
+        mediaGenerale.innerHTML = `<b>${mediaTotale.toFixed(2)}</b>`;  
+
+    </script>
+    
+</body>
+
+
+</html>

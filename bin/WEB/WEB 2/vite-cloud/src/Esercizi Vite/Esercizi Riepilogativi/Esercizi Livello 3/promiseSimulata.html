@@ -1,0 +1,52 @@
+<!-- 25. Promise Simulata
+Richiesto: simulare recupero dati dopo un ritardo.
+Usare: Promise, timeout.
+Risultato: testo che compare dopo alcuni secondi. -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Simulata</title>
+</head>
+<body>
+    
+
+    <div id="risultato"></div>
+
+    <script>
+
+        let risultato = document.getElementById("risultato");
+
+
+        const fetchRitardata = () =>{
+
+            promiseMessaggio = new Promise((ris) =>{
+
+                
+                setTimeout(() =>{ 
+
+                    ris("SUCCESSO ! I dati sono stati recuperati in CLOUD !");
+                },2000);               
+
+
+            });
+
+            return promiseMessaggio;
+
+        };
+
+
+        fetchRitardata() 
+        .then((inst) =>{
+
+            risultato.innerText = inst;
+        });
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+
+                            OPERAZIONI USE CASE - SIMULAZIONE D'ESAME TravelPlan
+
+
+OPERAZIONI USE CASE:
+
+
+
+1. "Dato un viaggio e un utente che vi partecipa, calcolare il numero di attività del viaggio di tipo “spostamento” alle quali ha preso parte"
+
+
+NumeroAttivitaPartecipa(viaggio:Viaggio,utente:utente) : Intero 
+
+
+    Precondizioni:
+        viaggio non può essere NULL
+        utente non può essere NULL
+
+    PostCondizioni:
+
+        -Non modifica il livello estensionale dei dati
+        -L'operazione Result è così definita:
+
+            Sia u:Utente e v:Viaggio collegati tramite il link (u,v):partecipare
+
+            Sia a:Attività collegata tramite link (v,a): associare 
+
+            Sia as: AttivitàSemplice e ac: AttiviàComposta sottoinsiemi di a collegati tramite link (as,ac):appartenere
+
+            Sia s:Spostamento sottoinsieme di as
+
+            Sia ASP l'insieme di as di v (ovverro l'insieme delle Attività Semplici di tipo "Spostamento" del viaggio)
+
+
+            Quindi deve soddisfare le seguenti condizioni:
+
+                - u = Utente e v = Viaggio
+                - as deve essere uguale a s 
+
+                Se il link (u,v):partecipare esiste, allora:
+
+                    Result = |ASP|  sennò Result = 0
+                
+
+
+
+
+2. "Dato un viaggio, ottenere gli utenti che hanno partecipato al viaggio e che hanno preso parte al maggior numero di attivita organizzate in esso."
+
+
+UtentiPartViaggioAttivita(viaggio:Viaggio): Insieme(Utente)
+
+    Precondizioni
+        viaggio non può essere NULL
+    
+    PostCondizioni
+
+        -Non modifica il livello estensionale dei dati
+        -L'operazione Result è così definita:
+
+            Sia v:Viaggio con v= viaggio
+
+            Sia u:Utente collegato a v  tramite il link (u,v):partecipare
+            Sia a:Attività con link (v,a):associare
+            Sia as:AttivitàSemplice e ac:AttiviàComposta sottoinsiemi di a, collegati tramite link (ac,as):appartenere
+    
+    
+            Sia (u, a):utenteAttività il link che rappresenta la partecipazione dell’utente u all’attività a
+
+            Quindi,per ogni utente u partecipante al viaggio v, sia:
+
+                numAtt(u) = numero di attività a di v tali che (u, a):utenteAttività
+
+            Sia maxN = massimo valore di numAtt(u) per tutti gli utenti u partecipanti al viaggio v
+
+            Result =  u | numAtt(u) = maxN 
+
+
+
+
+3. "I responsabili del sistema, data una nazione, devono poter calcolare, per ognuna delle sue regioni, la/e citta toccata/e dal maggior numero di viaggi."
+
+
+
+    CittaToccateMaxViaggi(nazione:Nazione): Insieme(città,Intero>=0)
+
+
+        Precondizioni
+            nazione non può essere NULL
+        
+        PostCondizioni
+
+            -Non modifica il livello estensionale dei dati
+            -L'operazione Result è così definita:
+
+                Sia v:Viaggio e a:Attività con link (v,a):associare
+                Sia as:AttivitàSemplice e ac:AttiviàComposta sottoinsiemi di a, collegati tramite link (ac,as):appartenere
+                Sia l:Luogo collegata con link(as,l):tenere
+                Sia c:Città collegata con link(l,c):luogoCittà
+                Sia r:Regione collegata con link(c,r):cittàRegione
+                Sia n:Nazione collegata con link(r,n):regioneNazione e con n=nazione
+    
+
+                Per ogni regione r appartenente alla nazione n, definimao
+                  numV(c) = al numero di viaggi di v tali che esistono a,as,l che soddisfano le condizioni
+                            precedenti e in cui c è collegata a r e r è collegata a nazione
+                
+
+                Sia maxN(r) = al valore massimo di numViaggi(c) per titte le città c appartenenti alla regione r
+
+                Result = (c,numViaggi(c) = maxN(r))
+
+
+
+
+4. "Data un’attivita, calcolare il numero di utenti che vi ha preso parte."
+
+
+NumeroUtentiAttivita(attività:Attività) : Intero
+
+
+        Precondizioni
+            attività non può essere NULL
+        
+        PostCondizioni
+
+            -Non modifica il livello estensionale dei dati
+            -L'operazione Result è così definita:
+
+                Sia u:Utente e v:Viaggio (u,v):partecipare
+                Sia a:Attività  con a= Attività e con link (v,a):associare 
+                Sia as:AttivitàSemplice e ac:AttiviàComposta sottoinsiemi di a, collegati tramite link (ac,as):appartenere
+
+                Sia u:Utente collegato con a tramite il link (u, a):utenteAttività (che rappresenta la partecipazione dell’utente u all’attività a)
+
+                  Result = | u:Utente | (u, a):utenteAttività |
+                
+
+
+5. "Dato un viaggio, ottenere la/e attivita organizzata/e in esso alla/e quale/i ha preso parte il maggior numero di utenti."
+
+AttivitaMaxPartecipanti(viaggio: Viaggio): Insieme(Attività,Intero>=0)
+
+        Precondizioni:
+            - viaggio non può essere NULL
+
+        Postcondizioni:
+            - Non modifica il livello estensionale dei dati
+            - L’operazione Result è così definita:
+
+                Sia v:Viaggio con v = viaggio
+                Sia a:Attività collegata a v tramite il link (v, a):associare
+                Sia as:AttivitàSemplice e ac:AttivitàComposta sottoinsiemi di a,
+                    collegati tramite (ac, as):appartenere
+                Sia u:Utente collegato con a tramite il link (u, a):utenteAttività
+
+                Per ogni attività a del viaggio v si definisce:
+                    numUt(a) = numero di utenti u tali che (u, a):utenteAttività
+
+            Sia maxN = massimo valore di numUt(a) per tutte le attività a del viaggio v
+
+            Result =  a | numUt(a) = maxN 
+
+
+
+
+
+6. "Data una citta di destinazione, per ognuno dei 12 mesi dell’anno, calcolare il numero di viaggi organizzati in tale mese nell’ultimo anno solare, in tale città."
+
+
+num_viaggi_città_ultimi_12_mesi(c: Città): (1..12, Intero >= 0) [1..12]
+
+    Precondizioni: 
+        nessuna
+    Postcondizioni
+        L’operazione non modifica i dati.
+        Il risultato result è così definito:
+
+        Sia mc il numero del mese corrente. (mc = oggi.mese)
+
+        Sia result un insieme di coppie (m, n), dove
+        m è un numero intero tra 1 e mc (incluso)
+        n è il numero di oggetti v: Viaggio tali che
+        Esistono a: Attività, l: Luogo tali che
+        (a, v): att_via
+        (a, l): luogo_att oppure (a, l): arrivo
+        (l, c): luogo_cit
+        a.inizio().mese = m  (oppure, il mese di a.inizio è m)
+        (oppure, per essere molto pedanti, il periodo [a.inizio(), a.fine()] include il mese m)
+
+
+
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esempio Funzioni in JavaScript</title>
+
+</head>
+<body>
+
+    <div id="risultato"></div>
+    <div id="saluto"></div>
+
+    <script>
+        
+
+        //Esempio funzione che NON ritorna nulla
+        function somma (num1, num2){
+
+            document.getElementById("risultato").innerHTML = num1 + num2;
+                
+        }
+        somma(5,3); // -> NaN, nel caso non dichiariamo tutte le variabili
+   
+        //Esempio funzione che TORNA un valore, nel caso in cui vogliamo inserire un valore fdi default facciamo : varibile = "valore default"
+        function benvenuto(nome = "Guest"){ 
+
+
+            return "Welcome " + nome;
+        }
+        let name = prompt("Inserisci il tuo nome: ")
+        let msg= benvenuto(name) // -> undefinied, nel caso non dichiariamo nulla
+        document.getElementById("saluto").innerHTML = msg;
+    </script>
+    
+</body>
+</html

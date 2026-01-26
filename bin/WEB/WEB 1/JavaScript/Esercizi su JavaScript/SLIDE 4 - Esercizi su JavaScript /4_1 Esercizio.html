@@ -1,0 +1,37 @@
+
+<!--- Esercizio 4.1 Dichiarare e valorizzare un numero intero scegliendone uno da 1 a 10 e mostrare a video la relativa tabellina, ad
+esempio se scelgo il numero 5 visualizzerò a video (eseguire l’esercizio sia con il ciclo for che con il ciclo
+while):
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+5 x 4 = 20
+Ecc…
+--->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Esercizio 4.1 - Tabellina</title>
+</head>
+<body>
+    <h1>Esercizio 4.1 - Tabellina del numero</h1>
+    <script>
+        // Con il ciclo for
+        var numero = 5;
+        console.log("Tabellina del " + numero + " con for:");
+        for (var i = 1; i <= 10; i++) {
+            console.log(numero + " x " + i + " = " + (numero * i));
+        }
+
+        // Con il ciclo while
+        console.log("Tabellina del " + numero + " con while:");
+        var i = 1;
+        while (i <= 10) {
+            console.log(numero + " x " + i + " = " + (numero * i));
+            i++;
+        }
+    </script>
+</body>
+</html>

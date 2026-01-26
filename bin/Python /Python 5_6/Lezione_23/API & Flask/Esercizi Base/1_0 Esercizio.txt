@@ -1,0 +1,41 @@
+Consegna:
+
+1.  Progettazione risorse: Considera un centro sportivo che gestisce corsi, istruttori e iscritti. 
+    Elenca le principali risorse e scrivi gli URI corretti. Indica anche esempi di URI errati.
+
+
+
+Svolgimento:
+
+
+GET /corsi           #Ottengo tutti i corsi 
+GET /istruttori      #Ottengo tutti gli istruttori  
+GET /iscritti        #Ottengo tutti gli iscritti
+
+GET /corsi/2         #Ottengo tutti i corsi con ID 2
+GET /istruttori/6    #Ottengo tutti gli istruttori con ID 6 
+GET /iscritti/9      #Ottengo tutti gli iscritti con ID 9
+
+POST /corsi          #Creo un nuovo corso
+POST /istruttori     #Creo un nuovo istruttore
+POST /iscritti       #Creo un nuovo iscritto
+
+
+
+PUT /corsi/3          #Aggiorno il corso con ID 3
+PUT /istruttori/7     #Aggiorno l'istruttore con ID 7
+PUT /iscritti/10      #Aggiorno L'iscritto con ID 10
+ 
+ 
+  
+DELETE /corsi/3          #Elimino il corso con ID 3
+DELETE /istruttori/7     #Elimino il corso con ID 7 
+DELETE /iscritti/10      #Elimino il corso con ID 10
+
+
+
+Esempi SCORRETTI:
+
+GET /ottieniCorso 
+POST /creaIscritto 
+DELETE /cancellaIstruttore/7

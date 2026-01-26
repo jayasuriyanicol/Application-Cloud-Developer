@@ -1,0 +1,71 @@
+EXERCISE FOR 03/03/2025:
+
+Here are the answers to the exercises from Chapter 4:
+
+### **TRUE OR FALSE**
+1. **F** – Abstraction removes details to simplify a problem, not add them.
+2. **T** – A metro map is a simplified representation of reality.
+3. **F** – Dynamic models show changes over time, while static models do not.
+4. **T** – Abstraction keeps relevant details and ignores irrelevant ones.
+5. **F** – A directed graph can represent both static and dynamic models.
+6. **T** – Leaky abstractions occur when hidden details unexpectedly affect the system.
+7. **F** – Email is an abstraction of communication, simplifying technical details.
+8. **T** – Models help simplify complex systems for better understanding.
+9. **F** – Models do not create exact replicas but rather useful representations.
+10. **F** – Accuracy refers to closeness to the true value, while precision is about refinement.
+
+### **MULTIPLE CHOICE QUESTIONS**
+1. **b)** – Abstraction simplifies a system by removing irrelevant details.
+2. **b)** – A photograph is a direct representation, not an abstraction.
+3. **a)** – Dynamic models change over time, static models do not.
+4. **b)** – Abstractions can oversimplify and miss crucial details.
+5. **c)** – "Vehicle" is the most general level of abstraction.
+6. **b)** – Models help visualize and understand relationships between entities.
+7. **c)** – Higher layers suppress more details for a broader view.
+8. **b)** – Entities represent the core concepts or objects in a system.
+9. **c)** – "Order teleported" is not a valid state in an online shopping system.
+10. **a)** – Models simplify reality to enable efficient problem-solving.
+
+### **MULTIPLE MATCHING QUESTIONS**
+1. **Abstraction → A** (The act of representing essential details while ignoring irrelevant ones.)
+2. **Static Model → B** (A model that represents a system at a single point in time.)
+3. **Dynamic Model → C** (A model that shows how a system changes over time.)
+4. **Entity → D** (A core concept or object within a system.)
+5. **Relationship → E** (A connection that links entities within a system.)
+6. **Layers of Abstraction → F** (The process of structuring concepts at different levels of detail.)
+7. **Leaky Abstraction → G** (A situation where hidden details unexpectedly affect a system.)
+8. **Modelling → H** (The process of creating representations to analyze and solve problems.)
+9. **Precision → I** (The level of refinement in measurement.)
+10. **Accuracy → J** (The closeness of a measurement to the true value.)
+
+### **COMPREHENSION QUESTIONS FOR CLASSROOM DISCUSSION**
+1. **Why is abstraction important in computational thinking?**  
+   Abstraction is important because it simplifies complex problems by removing irrelevant details, allowing us to focus on the essential aspects needed to find a solution.
+
+2. **How does a metro map serve as an abstraction?**  
+   A metro map is an abstraction because it represents only the essential information (e.g., the order of stops and line intersections), ignoring details such as the actual distance between stations or the exact shape of the tracks.
+
+3. **What is the main difference between static and dynamic models?**  
+   A static model represents a system at a single point in time, while a dynamic model shows how the system changes over time.
+
+4. **How can leaky abstractions impact a system?**  
+   Leaky abstractions can cause problems when hidden details unexpectedly influence the system's behavior, leading to errors or malfunctions.
+
+5. **Why do models not always represent reality with perfect accuracy?**  
+   Models are approximations of reality and often ignore irrelevant details to simplify understanding and analysis. The goal is to create a useful representation, not a perfectly accurate one.
+
+6. **What role do layers of abstraction play in problem-solving?**  
+   Layers of abstraction allow us to consider a problem from different perspectives, starting with a broad view and moving toward more specific details, reducing mental load and facilitating understanding.
+
+7. **How can modelling help in understanding complex systems?**  
+   Modelling helps simplify complex systems by representing only the essential entities and relationships, making it easier to analyze and solve problems.
+
+8. **Give an example of a real-world situation where abstraction is useful.**  
+   An example is the use of a clock to represent time. The clock abstracts the concept of time into hours, minutes, and seconds, ignoring complex details such as the Earth's movement or relativity.
+
+9. **Why is precision different from accuracy in computational models?**  
+   Precision refers to the level of detail in a measurement, while accuracy refers to how close a measurement is to the true value. A model can be precise but not accurate, or vice versa.
+
+10. **How does a state machine diagram represent different system states?**  
+    A state machine diagram represents the different states of a system and the transitions between them, showing how the system changes in response to events or actions.
+

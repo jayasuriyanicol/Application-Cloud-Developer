@@ -1,0 +1,211 @@
+
+                            OPERAZIONI FUNZIONALITÀ AVANZATE - SIMULAZIONE D'ESAME TravelPlan
+
+
+Il sistema deve permettere agli utenti registrati di partecipare a viaggi e di creare viaggi
+in qualit`a di organizzatori, aggiungendo a essi attivit`a di vario tipo.
+Infine, il sistema deve offrire agli utenti registrati e ai responsabili del sistema le seguenti
+funzionalita' avanzate:
+
+OPERAZIONI FUNZIONALITÀ AVANZATE:
+
+
+1. "Trovare tutti i viaggi che includono una certa destinazione in un certo intervallo di tempo."
+
+
+
+ViaggiIntervalloTempo(destinazione:Città, inizio:DataOra, fine:DataOra): Insieme(Viaggio)
+
+
+    Precondizioni:
+
+        -La destinazione non deve essere NULL
+        - inizio < fine
+    
+    PostCondizioni:
+
+        -Non modifica il livello estensionale dei dati 
+        -L'operazione Result è così definita:
+
+            Sia V l'insieme dei v:Viaggio e a:Attività tramite il link (v,a):associare
+
+            Sia as:AttivitàSemplice il sottoinsieme di a e l:Luogo collegati tramite link(as,l):tenere
+
+            Sia c:Città collegato tramite il link (l,c):luogoCitta = destinazione
+
+            Con v.a.inizio <= fine e v.a.fine >= inizio
+
+            con Result V
+
+
+
+2. "trovare la/e città toccata/e dal maggior numero di viaggi in un certo intervallo di tempo."
+
+
+
+CittàToccataMaxViaggi( inizio:DataOra, fine:DataOra): Insieme(Città)
+
+    Precondizioni:
+
+        inizio < fine
+    
+    PostCondizioni:
+
+        -Non modifica il livello estensionale dei dati
+        -L'operazione Result è così definita:
+
+
+        Sia M l'insieme dei v:Viaggio e a:Attività tramite il link(v,a):associare
+
+        Sia as:AttivitàSemplice e ac:AttiviàComposta sottoinsiemi di a, con link (ac,as):appartenere
+
+        Sia l:Luogo e c:Città collegati insieme tramite il link (l,c):città = viaggio
+
+        con v.a.inzio <=fine e v.a.fine >= inizio 
+
+
+        Sia num(c)= il numero di viaggi v che soddifano le condizioni di c
+        Sia maxN = massimo di num(c) di tutte le città
+
+
+        Quindi con Result = c | num(c) = maxN
+
+
+
+3. "calcolare, per ogni regione di una data nazione, il numero di viaggi organizzati in un dato periodo di tempo che toccano tale regione"
+
+
+NumViaggiNazione (regione:Regione,nazione:Nazione,inizio:DataOra,fine:DataOra): Intero 
+
+    Precondizioni:
+
+        inizio < fine
+        Regione non può essere NULL
+        Nazione non può essere NULL
+
+    PostCondizioni
+
+        -L'operazione non modifica il livello estensionale dei dati
+        -L'operazione Result è così definita:
+
+            Sia N l'insieme di v:Viaggio e a:Attività collegati tramite il link (v,a):associare
+            Sia as:AttivitàSemplice e ac:AttiviàComposta sottoinsiemi di a, con link(ac,as):appartenere
+            Sia l:luogo collegato tramite as con il link (as,l):tenere 
+
+            Sia c:Città collegato tramite l con il link (l,c):luogoCitta
+
+            Sia r:Regione collegato tramite link (c,r):cittaRegione
+
+            Sia n:Nazione collegato tramite (r,n):regioneNazione.
+
+
+            Siano equivalentemente r = Regione ed n = nazione, con:
+
+            v.a.inizio <= fine e v.a.fine >= inizio
+
+            Sia num(r,n) = al numero di viaggi v che soddisfano le condizioni in precedenza
+           
+            Quindi con Result = num(r,n)
+
+
+
+
+4. "dato un budget minimo, un budget massimo, un insieme di regioni, un periodo di tempo e un numero N , calcolare l’insieme dei viaggi che hanno un budget nell’intervallo richiesto, toccano almeno una delle regioni date, 
+    si svolgono interamente all’interno del periodo dato e sono organizzati da un utente che abbia organizzato almeno N viaggi in precedenza."
+
+
+NumInsiemeBudget (bMin:Reale >=0, bMax:Reale >=0, regione:Regione[1..*] , inzio:DataOra, fine:DataOra, N:Intero): Insieme(Viaggio[0..*] )
+
+
+    Precondizioni:
+
+        inizio < fine
+        bMin <= bMax
+        bMax >= bMin
+        regione non può essere NULL
+        N non può essere NULL
+
+    PostCondizioni:
+
+        -Non modifica il livello estensionale dei dati 
+        -L'operazione Result è così definita:
+
+        Sia u:utente e v:Viaggio collegati tramite un link (u,v):organizzare, che abbiamo in comune un a:Attività collegata tramite (v,a):associare
+        
+        Sia as:AttivitàSemplice e ac:AttiviàComposta sottoinsiemi di a, tramite link(as,ac):appartenere 
+
+        Sia l:luogo collegato tramite (as,l):tenere 
+        Sia c:Città con (l,a):luogoCitta 
+        Sia r:Regione (c,r):cittaRegione
+
+
+        Siano equivalentemente r= regione, con le seguenti condizioni:
+
+            1. v.fine <= fine e v.inizio >= inizio 
+            2. bMin <= u.v.prezzoTotale() <= bMax
+            3. esista r appartente a regione tale che ci sia un link (c,r):cittaRegione, quindi affinchè il viaggio totcchi alemo una delle regioni date
+            4. u abbia organizzato almeno N viaggi,ovvero (u,v):organizzare tale che il numero di link organizzare che coinvolgono u sia >= N
+        
+        Con Result v | con tutte le condizioni soddisfatte
+
+
+
+
+5. "I responsabili del sistema devono poter calcolare, data una citt`a di destinazione, per ognuno dei 12 mesi dell’anno, il numero di viaggi organizzati in quel mese nell’ultimo anno solare."
+
+
+
+ViaggiMeseAnnoSolare(destinazione: Città) : (1..12,Intero>=0)
+
+    Precondizioni:
+
+        destinazione non può essere NULL
+    
+    PostCondizioni:
+
+        -Non modifica il livello estensionale dei dati 
+        -L'operazione Result è così definita:
+
+
+        Sia mc il numero del mese corrente. (mc = oggi.mese)
+
+        Sia Result un insieme di coppie (m, n), dove:
+        
+            m è un numero intero tra 1 e mc (incluso)
+            n è il numero di oggetti v: Viaggio tali che:
+
+                Esistono a: Attività e as:AttivitàSemplice ed l: Luogo, ac:AttiviàComposta collegati tramite link (ac,as):appartenere sottoinsiemi di a tali che:
+                    (a, v): associare
+                    (as, l): tenere oppure (as, l): luogoArrivo
+                     c= destinazione
+                    (l, c): luogo_cit
+                    a.inizio().mese = m  (oppure, il mese di a.inizio è m)
+
+
+                
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

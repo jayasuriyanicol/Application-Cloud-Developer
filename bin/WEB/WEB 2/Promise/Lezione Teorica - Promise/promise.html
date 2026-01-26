@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise: Oggetto JavaScript</title>
+
+    <script>
+        
+
+        console.log("1");
+
+        // Le funzioni possono essere passate come PARAMETRI, procediamocon una funziuone banale "STAMPA"
+        let stampa = () =>{
+            console.log("2");
+            cosole.log("SONO STAMPA");
+          }
+
+        let test = (t) => { 
+            t();
+        }
+        
+        console.log("3")
+        test(stampa);
+
+        // CODICE COSTRUTTORE : dove ho scritto la promise
+
+        // Dichiariamo una funzione "Promise()". Promise(): è un ogggetto che ha due esiti: 1. RESOLVE(andato tutto con successo) 2. REJECT(qualcosa è andato storto)
+        //Possiamo chiamarla come vogliamo, ma bisogna sapere che la prima deve essere positivo (resolve) e l'altra negativa (reject)
+        let x = new Promise( (res,rej) => {
+
+              console.log("4");
+              // Deve esserci una chiamata asincrona
+              setTimeout( () =>{ 
+
+                // Chiamata fallita
+                console.log("5");
+                res("Tutto ok utenti recuperati"); 
+     
+
+                },2000);
+        });
+
+        console.log("Il numero 6, codice corposo 1000 righe 1 secondo")
+
+        // Sequenza di stampa =>  1 - 3 - 2 - 4 - 6 - 8 - 5 - 7
+            // 1 secondo
+
+
+              // CODICE CONSUMATORE : stampare a video. Quando consumo (esempio: clcicco un bottone) dal codice produttore.
+
+
+              // Se tutto va bene da una risposta al "then()", in caso negativo al "cath()"
+              // Nel "then()", ci entrerà solamente alla fine (asincrona viene eseguita solo alla fine)
+              
+              x.then( (risultato) => {
+
+                console.log("7");
+                //Stamperà il messaggio di res che è strettamente legato a then (esito positivo)
+                cosole.log(risultato);
+              } ).catch((errore) => { 
+
+                console.log(errore);
+
+              });
+
+              console.log("8");
+
+            
+
+    </script>
+</head>
+<body>
+    
+
+
+
+    <h1>Promise</h1>
+
+    <br>
+
+    <p>Promise() : è un'oggetto JavaScript che rappresenta un valore sconosciuto, che al compito di gesitre le <b>chiamate ASICRONE</b></p>
+</body>
+</html>

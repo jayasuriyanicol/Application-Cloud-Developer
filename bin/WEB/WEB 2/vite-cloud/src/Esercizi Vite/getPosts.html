@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="root"></div>
+    <script>
+
+       //Svolgono la stessa funzione solo che l'async await è una funzione e va richiamata 
+        
+
+        //1.Metodo .THEN
+        const urlBase="https://jsonplaceholder.typicode.com/";
+        const div= document.getElementById("root")
+        fetch(urlBase + "posts/1")
+
+            .then((response)=> response.json())
+            .then((post) => {
+
+                div.innerHTML=`<h2> ${post.title} </h2><p>${post.body}</p>` 
+
+                const userP=fetch(urlBase+"users/"+post.userId).then(resp=>resp.json())
+                const commentsP=fetch(urlBase+"comments?postId="+post.id).then(resp=>resp.json())
+
+                Promise.all([userP,commentsP]).then(res=>{
+
+                    console.log(res)
+                    const small= document.createElement("small")
+                    small.textContent=res[0].name
+                    div.appendChild(small) 
+                    const commenti = res[1];
+                    commenti.forEach(e => {
+
+                        div.innerHTML="<div>" + e.name + "</div>"
+
+                        
+
+                        
+                    }); 
+                })
+            });
+        
+        //2. Metodo ASYNC AWAIT
+         async function getPost(){
+            const response = await fetch(urlBase +"posts/1")
+            const ris = await response.json()
+
+            console.log("ASYNC", ris)
+            return ris;
+        }
+         const result = getPost()
+
+         //Vado a consumare la promise con il '.then'
+         result.then(ris => console.log(ris))
+
+
+         //Una chiamata asincrona ritorna sempre una promise -> promise{pending}
+         console.log(result)
+
+
+
+
+    </script>
+    
+</body>
+</html>

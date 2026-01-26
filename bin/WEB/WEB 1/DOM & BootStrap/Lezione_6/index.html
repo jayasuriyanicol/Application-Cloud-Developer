@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lezione Numero 6 - BOOTSTRAP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+
+</head>
+<body>
+    
+    <h1>BOTSTRAP: Libreria CSS e JS </h1>
+    <h2>import:css / js getbootstrap.com </h2>
+
+    <!--Layout Responsive : -->
+
+    <!--Codice già pronto : -->
+   
+
+
+    <!--Tabelle normali senza utilizzo dei DIV, non possiamo effettuare modifiche-->
+    <table>
+        <tr>
+
+            <!--Con il paragrafo più lungo all'interno della riga di una tebella, avrò il problema che esso non sarà uniforme
+                andando a spostare la posizione originale delle altre parti della tabella-->
+            <td>Paragrafo 1, con testo un pò più lungo</td>
+            <td>Paragrafo 2</td>
+
+        </tr>
+        <tr>
+
+
+            <td>Paragrafo 3</td>
+            <td>Paragrafo 4</td>
+
+        </tr>
+
+    </table>
+
+
+
+    <!--BOOTSTRAP, attraverso una elaborazione avanzata dei CSS per realizzare dei contenitori automodellanti
+        segue però la stessa logica delle tabelle
+    
+    -->
+    <div class="container">
+        <div class="row">
+          
+          <!--  In questa situazione, con l'utilizzo dei DIV, ciò non avviene tanto che verrà uniformato correttamente
+                possiamo modificare la lunghezza della colonna con la sintassi "col-n", basta che la somma delle due tabelle sia pari a 12.
+               
+                Attraverso la sintassi 'col-lg-n' oppure 'col-sm-n', andiamo a modificare la tabella in modo dad rendela RESPONSIVE, quindi
+                non andremo a modificare la corretta posizione delle righe della tabella, anche nel caso di pixel più ridotti.
+                 
+          -->
+          <div class="col-lg-3" style="background-color: red;">Paragrafo boot 1, testo più lungo</div>
+          <div class="col-lg-9" style="background-color: gray;">Paragrafo boot 2</div>
+           
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-10" style="background-color: blue;">Paragrafo boot 3</div>
+            <div class="col-lg-2" style="background-color: green;">Paragrafo boot 2</div>
+                <div class="row">
+                    <div class="col-1">aaa</div>
+                    <div class="col-1">aaa</div>
+                    <div class="col-1">aaa</div>
+                    <div class="col-1">aaa</div>
+                    <div class="col-1">aaa</div>
+                    <div class="col-1">aaa</div>
+                    <div class="col-1">aaa</div>
+                    <div class="col-1">aaa</div>
+                    <div class="col-1">aaa</div>
+                    <div class="col-1">aaa</div>
+                    <div class="col-1">aaa</div>
+                    <div class="col-1">aaa</div>
+                </div>
+          </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
+</body>
+</html>

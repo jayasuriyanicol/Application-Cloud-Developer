@@ -1,0 +1,65 @@
+<!--
+
+8. Dati Oggetto in Frase
+Richiesto: prendere un oggetto JS e mostrarne le proprietà in una frase strutturata.
+Usare: template literal, inserimento nel DOM.
+Risultato: frase leggibile es. "Modello: Fiat Panda (1990)".
+-->
+
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Generatore di Oggetto</title>
+    <style>
+
+        #risultato {
+            color: black;
+            font-weight: bold;
+        }
+        button {
+          
+            background-color: red;
+            color: white;
+    
+        }
+        button:hover { background-color: green; }
+    </style>
+</head>
+<body>
+
+    <h1>Generatore di Descrizione</h1>
+    <button id="bottone">Mostra Dettagli Auto</button>
+
+    <br>
+
+    <div class="card">
+        <span id="risultato">Clicca il bottone per scoprire i dati</span>
+    </div>
+
+    <script>
+
+        const automobile = {
+            marca: "Fiat",
+            modello: "Panda",
+            anno: 1990,
+            colore: "Rosso",
+            disponibile: true
+        };
+
+        const output = document.getElementById("risultato");
+        const bottone = document.getElementById("bottone");
+
+        bottone.addEventListener("click", function() {
+            
+            
+    
+            const frase = "Veicolo selezionato:" + automobile.marca + "-" + automobile.modello + "-" + automobile.anno + "-" + "Colore:" + "-" + automobile.colore;
+
+            output.innerText = frase;
+        });
+    </script>
+
+</body>
+</html>

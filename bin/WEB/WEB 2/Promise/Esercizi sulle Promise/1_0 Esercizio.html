@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio numero 1 - Promise</title>
+</head>
+<body>
+
+ <!--
+Esercizio Promise 1
+
+Facciamo un po' di pratica con un semplice esercizio. È necessario modificare il codice seguente in base alle seguenti regole:
+Il lavoro della funzione deve restituire un oggetto Promise(). La promise deve risolversi 2 secondi dopo la chiamata al job() e deve fornire «ciao mondo» nei dati.
+    
+-->
+
+<script>
+
+function job() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("ciao mondo");
+    }, 2000);
+  });
+}
+
+//Eseguiamo la Promise per vedere se dopo 2 secondi stampi effettivamente -> "ciao mondo"
+job().then(result => console.log(result)); 
+
+
+</script>
+    
+</body>
+</html>

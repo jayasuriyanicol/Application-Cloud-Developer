@@ -1,0 +1,179 @@
+
+                                    SPECIFICA DELLE CLASSI - Progetto TravelToTheMoon
+
+
+SPECIFICA DELLE CLASSI:
+
+
+1. SPECIFICA della classe  CROCIERA:
+
+ [V.Crociera.dateCongrue]
+
+ Sia c:Crociera 
+
+ Non può esistere c.dataInizio > c.dataFine oppure c.dataFine < c.dataInizio.
+
+
+
+ 2. SPECIFICA della classe ITINERARIO:
+
+
+ [V.Itinerario.dateCongrue]  
+
+ Sia i:Itinerario
+
+ Non può esistere i.dataPartenza > i.dataArrivo oppure i.dataArrivo < i.dataPartenza 
+
+  
+ [V.Itinerario.NoStessoItinerarioConStessaDestinazioneCrociera]
+
+ Non è possibile che esista una stessa crociera con un stesso itinerario nella stessa Destinazione
+
+
+ Sia c:Crociera e i:Itinerario tale che (c,i):prevede 
+ Sia d:Destinazione tale che (i,d):arrivare 
+ Sia cod = c.codice
+ Sia nItine = i.nome, il nome dell'Itinerario
+ Sia Idp = i.dataPartenza e Ida= i.dataArrivo, ovverro la data di partenza e quella dell'arrivo per l'itinerario
+ Sia Ddp = d.dataPartenza e Dda = d.dataArrivo, ovvero la data di partenza e quella dell'arrivo per la Destinazione 
+
+
+ Quindi:
+
+ Per ogni (c,i):prevede e (i,d):arrivare, con relativi cod,nItine,Idp,Ida,Dpd,Dda 
+ non è possibile che la stessa c preveda un i' che arriva a una d',con:
+  
+  nItine = nItine'
+  Idp = Idp'
+  Ida = Ida'
+  Ddp = Ddp'
+  Dda = Dda' 
+
+  Ovvero, che vi sia una stessa c che prevede lo stesso i alla stessa d per ben due volte nello stesso arco di tempo
+
+
+ 
+
+
+ 3. SPECIFICA della classe DESTINAZIONE:
+
+[V.Destinazione.dateCongrue]
+
+ Sia d:Destinazione
+ Non può esistere d.dataPartenza > d.dataArrivo oppure d.dataArrivo < d.dataPartenza 
+
+
+ 4. SPECIFICA della classe VISITA:
+    
+ [V.Visita.dateCongrue]
+  
+  Sia v:Visita
+  Sia data = v.fasciaOraria 
+
+  Quindi, dati gli elementi di data:
+
+    Sia elm1 = 'dal GG/MM/AAAA dalle ore HH:MM:SS'
+
+    Sia elm2= 'al GG/MM/AAAA alle ore HH:MM:SS'
+
+    Non può esistere elm1 > elm2 oppure elm2 < elm1
+
+ 
+5. SPECIFICA della classe CROCIERA:
+
+
+  numeroPostiLiberi(d:DataOra): Intero >= 0:
+
+  PreCondizioni:
+
+    nessuna 
+
+  PostCondizioni:
+
+    -Non modifica il livello estensionale dei dati 
+    -L'operazione di Result è così definita:
+
+      Sia c:Cliente e p:Prenotazione tale che (c,p):prenotare
+      Sia cr:Crociera tale che (p,cr):effettuare 
+      Sia n:Nave tale che (cr,n):utilizzare 
+
+      Sia CR l'insieme di cr:Crociera tale che:
+
+        cr.dataInizio <= d <= cr.dataFine
+      
+      Sia nav la n:Nave utilizzata per la crociera.
+
+      Sia PREN l'insieme delle p:Prenotazione tali che:
+
+      (p,cr):effettuare
+
+      p.istantePrenotazione <= d 
+
+      Con postiOccupati = |PREN|
+
+      Result = nav.maxPassegeri - postiOccupati
+
+    
+  isFull(d:DataOra): Boolean [0..1]
+
+
+    PreCondizioni:
+
+      nessuna 
+
+    PostCondizioni:
+
+      -Non modifica il livello estensionale dei dati 
+      - L'operazione Result è così definita:
+
+        Sia c:Cliente e p:Prenotazione tale che (c,p):prenotare
+        Sia cr:Crociera tale che (p,cr):effettuare 
+        Sia n:Nave tale che (cr,n):utilizzare
+
+        Sia CR l'insieme cr:Crociera, tale che :
+
+          cr.dataInizio <= d <= cr.dataFine
+        
+        Sia nav la n:Nave utilizzata da cr
+
+        Sia PREN l'insieme di p:Prenotazione tale che:
+
+           (p,cr):effettuare
+        
+        Sia postiOccupati = somma di p.numeroPostiPrenotati per ogni p in PREN
+
+          Postidisponibili = nav.maxPassegeri - postiOccupati
+
+        Quindi se:
+
+          1. Postidisponibili <= 0
+
+            Result = True 
+          Sennò:
+            Result = False
+
+
+
+
+
+ [V.Itinerario.NoStessaCrocieraStessoItinerario] 
+
+
+ Sia c:Crociera e i:Itinerario tale che (c,i):prevede 
+ Sia cod = c.codice, il codice della crociera
+ Sia nItine = i.nome, il nome dell'Itinerario
+ Sia dp = i.dataPartenza e da= i.dataArrivo, ovverro la data di partenza e quella dell'arrivo per l'itinerario
+ 
+ Quindi:
+
+ Per ogni c che prevede un i, con relativi cod,nItine,dp,da. 
+ Non è possibile che esista lo stesso c che prevede un i', con relativi cod',nItine',dp',da' 
+ tale che :
+ nItine= nItine  
+ dp = dp' e da = da'
+
+ Dato che significherebbe che la stessa crociera effettua lo stesso itinerario per due volte durante lo stesso lasso di tempo.
+
+
+
+ 
