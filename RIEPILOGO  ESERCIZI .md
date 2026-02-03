@@ -5,7 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **JAVA** | Svolgere l'esercitazione Biblioteca e Thread | *Lunedì 02 Febbraio*  | Maggiori informazioni sul relativo file |
+| **JAVA** | ND | *In aggiornamento*  | NULL |
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellare
