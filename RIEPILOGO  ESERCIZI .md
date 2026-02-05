@@ -5,7 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **JAVA** | ND | *In aggiornamento*  | NULL |
+| **JAVA** | Report Aziendale | *09 Febbraio*  | Moodle non funzionante, accedere su download |
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellare
