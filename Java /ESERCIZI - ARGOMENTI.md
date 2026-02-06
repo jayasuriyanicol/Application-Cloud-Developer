@@ -10,6 +10,9 @@ Svolgere l'esericizo di **REPORT AZIENDALE** presente sulla sezione *download* d
                 FireFox -> Download -> Report Aziendale (PDF)
 
 
+Per l'accesso alla Rubrica Telefonica andare sul gruppo **WhatsApp** e controllare anche il rpimo esempio Utenti.
+
+
 
 
 
