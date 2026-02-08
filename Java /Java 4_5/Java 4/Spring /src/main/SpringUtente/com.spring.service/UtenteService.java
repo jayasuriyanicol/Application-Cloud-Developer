@@ -1,11 +1,11 @@
-package com.spring.utenti.service;
+package com.spring.service;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-
-import com.spring.utenti.entity.Utente;
+import com.spring.dto.UtenteDTO;
+import com.spring.entity.Utente;
 
 import DAO.DAOUtenteMappa;
-
 
 /* * UtenteService - Business Logic Layer
     ? Represents the service layer responsible for managing User business logic, acting as an intermediary between external requests and the persistence layer (DAOUtenteMappa).
@@ -15,77 +15,78 @@ import DAO.DAOUtenteMappa;
     ! 3. CRUD Delegation, methods like cercaPerId, selectAll, and cancellaUtente primarily act as wrappers that forward calls directly to the underlying DAO implementation.
 */
 
+
 public class UtenteService {
-	
+
 	private DAOUtenteMappa dao = new DAOUtenteMappa();
+	
+	public boolean registra(UtenteDTO dto) {
+		
+		Utente utente = new Utente();
+		utente.setCognome(dto.getCognome());
+		utente.setIdUtente(dto.getIdUtente());
+		utente.setMail(dto.getMail());
+		utente.setNome(dto.getNome());
+		utente.setTelefono(dto.getTelefono());
 
-	
-	public UtenteService() {
-		
-		//TODO
-	}
-	
-	
-	//Method Sign - Up FAKE
-	public boolean registra(Utente utente) {
-		
-		System.out.println("SUCCESSO ! Registrazione avvenuta con successo " + utente.toString());
 		return dao.insert(utente);
-		
 	}
-	
-	
-	public Utente cercaPerId(int idUtente) {
-		
-		//return new Utente("Mario", "Mela", "marioApple@gmail.com", "0001", idUtente);
-		return dao.selectById(idUtente);
-		
-		
-	}
-	
-	//As exercise we create the SELECTALL and DELETE and updateEmail from DAO.
-	public ArrayList<Utente> selectAll() {
-		
-		return (ArrayList<Utente>) dao.selectAll();
-	
-	}
-	
-	public Utente cancellaUtente(Integer utente) {
-		
-		return dao.delete(null);
-	}
-	
-	public Utente modificaMail (int idUtente, String email) {
-		
-		 Utente utentenuovo =  dao.delete(idUtente); 
-		 utentenuovo.setMail(email);
-		 dao.insert(utentenuovo);
-		 
-		 return utentenuovo;
-		
-		
-	}
-	
-	
-	public int numeroUtenti () {
-		
-		return dao.numeroUtenti();		
-		
-	}
-	
-	
-   public List<String> getNomiUtenti() {
-		
-        return dao.getNomiUtenti();
-    }
 
-    
-    public List<Utente> cercaPerNome(String nomeDaCercare) {
-    	
-        return dao.cercaPerNome(nomeDaCercare);
-    }
+	public UtenteDTO cercaPerId(int idUtente) {
+		// return dao.selectById(idUtente);
+		Utente u = dao.selectById(idUtente);
+
+		return new UtenteDTO(u.getNome(), u.getCognome(), u.getMail(), u.getTelefono(), u.getIdUtente());
+	}
+
+	public List<Utente> listaUtenti() {
+		return dao.selectAll();
+	}
+
+	public Utente eliminaUtente(int idUtente) {
+		return dao.delete(idUtente);
+	}
+
+	public Utente aggiornaEmail(int idUtente, String nuovaEmail) {
+		if (cercaPerId(idUtente) == null)
+			return null;
+		Utente utenteCancellato = dao.delete(idUtente);
+		utenteCancellato.setMail(nuovaEmail);
+		dao.insert(utenteCancellato);
+		return utenteCancellato;
+	}
+
+	public int getNumeroUtenti() {
+		return dao.selectAll().size();
+	}
+
+	public List<String>  getNomiUtenti() {
+		ArrayList<String> res = new ArrayList<>();
+
+		for (Utente ut : dao.selectAll())
+			res.add(ut.getNome());
+
+		return res;
+	}
+
+	public List<Utente> cercaPerNome(String nome) {
+		ArrayList<Utente> res = new ArrayList<>();
+
+		for (Utente ut : dao.selectAll())
+			if (ut.getNome().equals(nome))
+				res.add(ut);
+
+		return res;
+	}
+
+	public List<String> getNomiUtenti() {
 		
-	
-	
+        List<String> nomi = new ArrayList<>();
+        
+        for (Utente u : mappa.values()) {
+            nomi.add(u.getNome());
+        }
+        return nomi;
+    }
 
 }
