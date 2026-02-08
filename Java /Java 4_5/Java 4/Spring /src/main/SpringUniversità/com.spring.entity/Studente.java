@@ -95,6 +95,14 @@ public class Studente {
 		
 		
 	}
+
+			
+	public void setMatricola(int matricola) {
+			
+			this.matricola = matricola;
+	}
+
+
 	public Integer getMatricola() {
 		return matricola;
 	}

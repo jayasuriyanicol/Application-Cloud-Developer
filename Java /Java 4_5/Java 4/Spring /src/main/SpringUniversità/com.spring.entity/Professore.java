@@ -56,6 +56,12 @@ public class Professore {
 		
 		
 	}
+
+	public void setId(int id) {
+			this.id = id;
+	}
+
+	
 	public int getId() {
 		return id;
 	}
