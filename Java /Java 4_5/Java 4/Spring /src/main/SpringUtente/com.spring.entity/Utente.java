@@ -1,4 +1,4 @@
-package com.spring.utenti.entity;
+package com.spring.entity;
 
 /* * Utente - Domain Entity / POJO
     ? Represents the core user data model containing personal details and contact information. It is designed with logging inside constructors and accessors to demonstrate the object lifecycle and property injection within the Spring context.
@@ -8,13 +8,13 @@ package com.spring.utenti.entity;
 */
 
 
+
 public class Utente {
 
 	private String nome,cognome,mail,telefono;
 	private int idUtente;
 	
 
-	
 	
 	public Utente(String nome, String cognome, String mail, String telefono, int idUtente) {
 		super();
@@ -41,7 +41,7 @@ public class Utente {
 	}
 
 	
-	public  String getNome() {
+	public String getNome() {
 		return nome;
 	}
 
