@@ -3,14 +3,12 @@
 
 ## REPORT AZIENDALE 
 
-Svolgere l'esericizo di **REPORT AZIENDALE** presente sulla sezione *download* di **FIREFOX**, dato il down di Moodle. 
+Svolgere l'esericizo di **RUBRICA TELEFONICA** presente sulla sezione *download* di **FIREFOX**, dato il down di Moodle. 
 
 
 
-                FireFox -> Download -> Report Aziendale (PDF)
+                FireFox -> Download -> Rubrica Telefonica (PDF)
 
-
-Per l'accesso alla Rubrica Telefonica andare sul gruppo **WhatsApp** e controllare anche il rpimo esempio Utenti.
 
 
 
