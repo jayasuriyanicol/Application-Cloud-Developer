@@ -59,9 +59,9 @@ public class StudentiController {
 		return stuService.tuttiStudenti();
 	}
 
-	@GetMapping(path = "/aggiornaStu/{idStu}", produces = "application/json")
-	public Studente aggiorna(@PathVariable int idStu, String nuovaEmail) {
-		return stuService.aggiornaEmail(idStu, nuovaEmail);
+	@GetMapping(path = "/aggiornaStu/{idStu}/{nuovoIndirizzo}", produces = "application/json")
+	public Studente aggiorna(@PathVariable int idStu,@PathVariable String nuovoIndirizzo) {
+		return stuService.aggiornaEmail(idStu, nuovoIndirizzo);
 	}
 
 	@GetMapping(path = "/elencoStu")

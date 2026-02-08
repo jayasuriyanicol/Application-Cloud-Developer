@@ -29,7 +29,6 @@ import com.spring.service.ProfessoriService;
     ! 3. @GetMapping, specifically maps HTTP GET requests to these methods. Note: In this implementation, GET is used for all actions (including creation and deletion), whereas standard REST conventions typically use POST for creation, DELETE for removal, and PUT/PATCH for updates.
 */
 
-
 @RestController
 @RequestMapping(path = "/professori")
 public class ProfessoriController {
@@ -56,13 +55,13 @@ public class ProfessoriController {
 		return profService.tuttiProfessori();
 	}
 
-	@GetMapping(path = "/aggiornaProf/{idProf}", produces = "application/json")
-	public Professore aggiornaMateria(@PathVariable int idProf, String nuovaMateria) {
+	@GetMapping(path = "/aggiornaProf/{idProf}/{nuovaMateria}", produces = "application/json")
+	public Professore aggiornaMateria(@PathVariable int idProf,@PathVariable String nuovaMateria) {
 		return profService.nuovaMateriaProfessore(idProf, nuovaMateria);
 	}
 
 	@GetMapping(path = "/materieProf/{materia}")
-	public List<Professore> materieProfInsegnate(String materia) {
+	public List<Professore> materieProfInsegnate(@PathVariable String materia) {
 		return profService.insegnamentoProfessoreMateria(materia);
 	}
 
