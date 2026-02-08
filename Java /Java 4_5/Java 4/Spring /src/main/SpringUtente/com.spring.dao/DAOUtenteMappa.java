@@ -1,12 +1,12 @@
-package DAO;
+
+package com.spring.dao;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.spring.utenti.entity.Utente;
-
+import com.spring.entity.Utente;
 
 
 /* * DAOUtenteMappa - In-Memory Data Access Object
@@ -42,40 +42,4 @@ public class DAOUtenteMappa {
 		Utente utente = mappa.remove(idUtente);
 		return utente;
 	}
-	
-	
-	public int numeroUtenti() {
-		
-		return mappa.size();
-	}
-	
-	
-	public List<String> getNomiUtenti() {
-		
-        List<String> nomi = new ArrayList<>();
-        
-        for (Utente u : mappa.values()) {
-            nomi.add(u.getNome());
-        }
-        return nomi;
-    }
-
-    
-    public List<Utente> cercaPerNome(String nomeDaCercare) {
-    	
-        List<Utente> risultati = new ArrayList<>();
-        
-        for (Utente u : mappa.values()) {
-            
-            //In this case, we add a method to ignore the case sensitive problem (Lower and Upper cases)
-            if (u.getNome().equalsIgnoreCase(nomeDaCercare)) {
-                risultati.add(u);
-            }
-        }
-        return risultati;
-    }
-		
-
 }
-	
-
