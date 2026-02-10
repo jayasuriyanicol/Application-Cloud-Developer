@@ -3,11 +3,11 @@
 
 ## REPORT AZIENDALE 
 
-Svolgere l'esericizo di **RUBRICA TELEFONICA** presente sulla sezione *download* di **FIREFOX**, dato il down di Moodle. 
+Svolgere l'esericizo di **RUBRICA TELEFONICA** e **STATISTICHE CALCOLO** presente sulla sezione *download* di **FIREFOX**, dato il down di Moodle. 
 
 
 
-                FireFox -> Download -> Rubrica Telefonica (PDF)
+                FireFox -> Download -> Rubrica Telefonica & Statistiche Calcolo (PDF)
 
 
 
