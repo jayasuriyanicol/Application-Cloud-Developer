@@ -5,7 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **JAVA** | Rubrica Telefonica & Statistiche Calcolo |  ND  | Moodle non funzionante, accedere su download |
+| **ND**         | NULL                               | *Null*               | NULL                      |
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellare
