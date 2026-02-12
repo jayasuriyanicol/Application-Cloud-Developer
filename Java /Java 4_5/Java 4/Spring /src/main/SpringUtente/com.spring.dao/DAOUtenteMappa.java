@@ -1,4 +1,3 @@
-
 package com.spring.dao;
 
 import java.util.ArrayList;
@@ -8,26 +7,23 @@ import java.util.Map;
 
 import com.spring.entity.Utente;
 
+/* * DAOUtenteMappa - In-Memory User Persistence
+    ? Acts as the data access layer for `Utente` entities, simulating a database environment using a Java Map. It manages the lifecycle of users with standard CRUD operations entirely in memory.
 
-/* * DAOUtenteMappa - In-Memory Data Access Object
-    ? Implements the persistence layer using a Java `HashMap` to simulate a database. It stores `Utente` entities in volatile memory, acting as a mock repository for rapid testing or prototyping without SQL overhead.
-
-    ! 1. insert(Utente utente), manages data entry by checking for key existence (ID collision) before committing the object to the internal map.
-    ! 2. cercaPerNome(String nomeDaCercare), performs a manual linear search over the collection values to filter results, handling case-insensitive string matching.
-    ! 3. selectAll() / selectById(), provides standard retrieval mechanisms by extracting values directly from the key-value store.
+    ! 1. Primary Key Simulation, the `insert` method enforces data integrity by manually checking for existing IDs (`containsKey`). It mimics a database constraint violation by throwing a `RuntimeException` if a duplicate ID is detected.
+    ! 2. Volatile Data Store, relies on a `HashMap` for storage. While this provides efficient O(1) lookups by ID, the data is transient and exists only for the duration of the application execution.
 */
-
 
 public class DAOUtenteMappa {
 
 	private Map<Integer, Utente> mappa = new HashMap<>();
 
-	public boolean insert(Utente utente) {
+	public void insert(Utente utente)  {
 		if(mappa.containsKey(utente.getIdUtente()))
-			return false;
-		
+			
+		throw new RuntimeException("ERRORE: Non è possibile creare due volte lo stesso utente con lo stesso ID !");
 		mappa.put(utente.getIdUtente(), utente);
-		return true;
+		
 
 	}
 	public List<Utente> selectAll(){
@@ -43,3 +39,4 @@ public class DAOUtenteMappa {
 		return utente;
 	}
 }
+
