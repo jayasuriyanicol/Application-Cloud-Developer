@@ -1,54 +1,41 @@
-package com.spring.utenti.controller;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.spring.utenti.entity.Utente;
-import com.spring.utenti.service.UtenteService;
-
-
-/* * UtenteController - REST API Controller
-    ? Acts as the entry point for web requests, mapping HTTP endpoints to Java methods and delegating business logic to the 'UtenteService'.
-
-    ! 1. salva(@RequestBody ...), deserializes the incoming JSON payload into an 'Utente' object to perform registration.
-    ! 2. visualizza(@PathVariable ...) / cercaPerNome(...), utilizes path variables to extract dynamic parameters directly from the URL for targeted search operations.
-    ! 3. lista() / getNomiUtenti(), exposes endpoints that return collections, which Spring automatically serializes into JSON arrays.
-    ! 4. cancella(...) / emailAggiorna(...), triggers state-changing operations via specific URL patterns (mapped here to GET for demonstration purposes).
-*/
-
-
-
-//Method used to initialize the web request handling components or bean after all bean properties have been set.
 package com.spring.controller;
 
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spring.dto.ErroreDTO;
 import com.spring.dto.UtenteDTO;
 import com.spring.entity.Utente;
 import com.spring.service.UtenteService;
 
 
+/* * UtenteController - User API & Global Error Handling
+    ? Acts as the RESTful interface for managing User entities. Unlike standard controllers, this class integrates a dedicated exception handler to intercept runtime errors and convert them into structured JSON responses.
+
+    ! 1. @ExceptionHandler, a crucial mechanism that acts as a safety net for this controller. Any `RuntimeException` thrown by the service layer (e.g., "User not found") is caught here, stopping the default 500 Internal Server Error and returning a clean `ErroreDTO` instead.
+    ! 2. ResponseEntity Wrapper, used within the exception handler to explicitly define the HTTP Status Code. By returning `HttpStatus.BAD_REQUEST` (400), it informs the client that the error was due to invalid input logic rather than a server crash.
+    ! 3. Unconventional Method Mapping, exclusively utilizes `@GetMapping` for all CRUD operations (Create, Update, Delete). While this deviates from standard REST principles (POST/PUT/DELETE), it allows for rapid testing of state-changing logic directly via a web browser's address bar.
+*/
+
+
+//Method used to initialize the web request handling components or bean after all bean properties have been set.
 @RestController
 @RequestMapping(path = "/utenti")
 public class UtenteController {
 	private UtenteService service = new UtenteService();
 
 	@GetMapping(path = "/salva", consumes = "application/json")
-	public boolean salva(@RequestBody UtenteDTO utente) {
-		return service.registra(utente);
+	public void salva(@RequestBody UtenteDTO utente) {
+	 service.registra(utente);
 	}
 
 	@GetMapping(path = "/cerca/{idUtente}", produces = "application/json")
@@ -90,11 +77,14 @@ public class UtenteController {
 	public int getNomiNumeroUtenti() {
 		return service.getNumeroUtenti();
 	}
-}
+	
+	//Adding the @ExcpetionHandler to manage the Exception cases through the application SprignUtente
+
+	@ExceptionHandler
+	public ResponseEntity<ErroreDTO>  handler(RuntimeException ex){
+			ErroreDTO errore = new ErroreDTO("");
+			errore.setMessaggioErrore(ex.getMessage());
 		
-	
-	
-
-	
-
+			return new ResponseEntity<ErroreDTO>(errore, HttpStatus.BAD_REQUEST);
+	} 
 }
