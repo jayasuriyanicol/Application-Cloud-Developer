@@ -3,12 +3,16 @@ package com.spring.rubrica.controller;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.spring.rubrica.entity.contattoTelefonico;
-import com.spring.rubrica.entity.rubrica;
+import com.spring.rubrica.dto.ContattoTelefonicoDTO;
+import com.spring.rubrica.dto.ErroreDTO;
+import com.spring.rubrica.dto.RubricaDTO;
+import com.spring.rubrica.entity.ContattoTelefonico;
+import com.spring.rubrica.entity.Rubrica;
 import com.spring.rubrica.service.RubricaService;
-
 
 
 /* * RubricaController - Phonebook REST API Endpoint
@@ -21,106 +25,158 @@ import com.spring.rubrica.service.RubricaService;
 
 
 @RestController
-@RequestMapping("/rubriche")
+@RequestMapping("/rubrica")
 public class RubricaController {
+	
+	
+	//To reduce the complexity and the creation of other types of CONTROLLER, we created only one CONTROLLER to manage all in.
+	
+	
+	//CONTROLLER of RubricaTelefonica sector
 
     @Autowired
     private RubricaService service;
 
- 
+    @GetMapping(path= "/nuova", consumes="application/json")
     
-    
-
-    @GetMapping("/nuova")
-    public rubrica nuova( String proprietario, String anno) {
-        return service.nuovaRubrica(proprietario, anno);
+    public void nuovaRubrica(@RequestBody RubricaDTO rubrica) {
+        service.nuovaRubrica(rubrica);
     }
 
-    @GetMapping("/get/{id}")
-    public rubrica get(@PathVariable int id) {
+    @GetMapping(path = "/get/{id}")
+    
+    public Rubrica getRubrica(@PathVariable int id) {
         return service.getRubrica(id);
     }
 
-    @GetMapping("/tutte")
-    public List<rubrica> tutte() {
+    @GetMapping(path = "/tutte")
+    
+    public List<Rubrica> tutteRubriche() {
         return service.tutteRubriche();
     }
 
-    @GetMapping("/cancella/{id}")
-    public rubrica cancella(@PathVariable int id) {
-        return service.cancellaRubrica(id);
+    @GetMapping(path = "/cancella/{id}", produces = "application/json")
+    
+    public Rubrica cancellaRubrica(@PathVariable int id) {
+        return service.cancellaRubrica(id); 
     }
 
-    @GetMapping("/info/{id}")
-    public String info(@PathVariable int id) {
+    @GetMapping(path =  "/info/{id}")
+    
+    public String proprietarioAnno (@PathVariable int id) {
         return service.proprietarioAnno(id);
     }
 
-    @GetMapping("/modificaProprietario/{id}/{nome}")
-    public rubrica modificaNome(@PathVariable int id,@PathVariable String nome) {
-        return service.modificaProprietario(id, nome);
+    @GetMapping(path = "/modificaProprietario/{id}/{nuovoNome}", produces = "application/json")
+    
+    public Rubrica modificaProprietarioNome(@PathVariable int id,@PathVariable String nuovoNome) {
+        return service.modificaProprietarioNome(id, nuovoNome);
     }
 
-    @GetMapping("/modificaAnno/{id}/{nome}")
-    public rubrica modificaAnno(@PathVariable int id, @PathVariable String anno) {
-        return service.modificaAnno(id, anno);
+    @GetMapping(path = "/modificaAnno/{id}/{nuovoAnno}", produces = "application/json")
+    
+    public Rubrica modificaAnno(@PathVariable int id, @PathVariable String nuovoAnno) {
+        return service.modificaAnno(id, nuovoAnno);
     }
 
-    @GetMapping("/proprietari")
-    public Map<String, Integer> proprietari() {
-        return service.nomiProprietariTotale();
+    @GetMapping(path = "/proprietari")
+    
+    public Map<String, Integer> nomiProprietariTotale() {
+        return service.nomiProprietariTotale(); 
     }
 
-    @GetMapping("/piuVecchia")
-    public rubrica piuVecchia() {
+    @GetMapping(path = "/piuVecchia")
+    
+    public Rubrica rubricaPiuVecchia() {
         return service.rubricaPiuVecchia();
     }
 
-    @GetMapping("/anni")
-    public List<String> anni() {
+    @GetMapping(path = "/anni")
+    
+    public List<String> anniCrescente() {
         return service.anniCrescente();
     }
 
-    @GetMapping("/numContatti/{id}")
-    public String numContatti(@PathVariable int id) {
+    @GetMapping(path = "/numContatti/{id}")
+    
+    public String proprietarioNumeroContatti(@PathVariable int id) {
         return service.proprietarioNumeroContatti(id);
     }
 
   
 
-    @GetMapping("/inserisciContatto")
-    public boolean inserisci( int id,String nome,String cognome,String numero, String data) {
-    	
-        return service.inserisciContatto(id,new contattoTelefonico(nome, cognome, numero, "default", data, false));
+    // CONTROLLER of contattoTelefonico
+    
+    
+    //Apply the PostMapping see it on lesson, REST level 2
+    @PostMapping(path = "/inserisciContatto/{idRubrica}", consumes = "application/json")
+    public ResponseEntity<ErroreDTO> inserisci(@PathVariable int idRubrica, @RequestBody ContattoTelefonicoDTO contattoDTO) {
+
+        try {
+            service.inserisciContatto(idRubrica, contattoDTO);
+            return new ResponseEntity<ErroreDTO>(HttpStatus.OK);
+
+   
+            
+        } catch (Exception e) {
+        
+        	return new ResponseEntity<ErroreDTO>(HttpStatus.BAD_REQUEST);
+           
+        }
     }
 
-    @GetMapping("/contatti/{id}")
-    public Set<contattoTelefonico> contatti(@PathVariable int id) {
+
+    
+    @GetMapping(path = "/contatti/{id}")
+    
+    public Set<ContattoTelefonico> contatti(@PathVariable int id) {
         return service.tuttiContatti(id);
     }
 
     @GetMapping("/numeroContatti/{id}")
+    
     public int numero(@PathVariable int id) {
         return service.numeroContatti(id);
     }
 
-    @GetMapping("/cercaNumero/{id}/{numero}")
-    public contattoTelefonico cerca (@PathVariable int id, @PathVariable String numero) {
+    @GetMapping(path = "/cercaNumero/{id}/{numero}")
+    
+    public ContattoTelefonico cerca (@PathVariable int id, @PathVariable String numero) {
         return service.cercaNumero(id, numero);
     }
 
-    @GetMapping("/gruppo/{id}/{gruppo}")
-    public List<contattoTelefonico> gruppo( int id, String gruppo) {
+    @GetMapping(path = "/gruppo/{id}/{gruppo}")
+    
+    public List<ContattoTelefonico> gruppo( int id, String gruppo) {
         return service.ricercaGruppo(id, gruppo);
     }
 
-    @GetMapping("/preferito/{id}/{nome}/{cognome}")
-    public contattoTelefonico preferito(@PathVariable int id,@PathVariable String nome,@PathVariable String cognome) {
+    @GetMapping(path = "/preferito/{id}/{nome}/{cognome}")
+    
+    public ContattoTelefonico preferito(@PathVariable int id, @PathVariable String nome, @PathVariable String cognome) {
         return service.setPreferito(id, nome, cognome);
     }
 
-    @GetMapping("/preferiti/{id}")
-    public List<contattoTelefonico> preferiti(@PathVariable int id) {
+    @GetMapping(path = "/preferiti/{id}")
+    
+    public List<ContattoTelefonico> preferiti(@PathVariable int id) {
         return service.preferiti(id);
     }
+    
+    
+   
+    
+    @ExceptionHandler
+    public ResponseEntity<ErroreDTO> handlerSearch(RuntimeException e) {
+    	
+    	ErroreDTO errore = new ErroreDTO("");
+    	
+    	errore.setMessaggioErrore(e.getMessage());
+
+    	return new ResponseEntity<ErroreDTO>(errore, HttpStatus.BAD_REQUEST);
+    	
+    	
+    	
+    }
 }
+	
