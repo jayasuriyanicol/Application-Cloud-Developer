@@ -15,8 +15,8 @@ public class ErrorDTO {
 	//We go to create 3 type of constructor in other to rapresent all the format JSON needed for the Errors
 	
 	
-	//Empty constructor as DTO need it
-	public ErrorDTO() {
+	//Giving the constructor as the ERROR we need it
+	public ErrorDTO(int i, String string) {
 		
 	}
 	
