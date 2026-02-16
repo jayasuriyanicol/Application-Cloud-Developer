@@ -1,19 +1,20 @@
 package com.spring.ecommerce.entity;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Order {
 	
 	private int id;
 	private double totalAmount;
 	private LocalDate createdAt;
-	private ArrayList<Product> orderItemList;
+	private Set<OrderItem> orderItemList;
 	
 	//Because is in the same folder, we can even do not import the enum class 'STATUS' in the class ORDER
 	private Status status;
 	
-	public Order(int id, double totalAmount, LocalDate createdAt, ArrayList<Product> orderItemList,Status status) {
+	public Order(int id, double totalAmount, LocalDate createdAt, Set<OrderItem> orderItemList,Status status) {
 	
 		this.id = id;
 		this.totalAmount = totalAmount;
@@ -23,6 +24,11 @@ public class Order {
 	}
 
 	
+	public Order(Set<OrderItem> setOrderItems) {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public int getId() {
 		return id;
 	}
@@ -47,12 +53,12 @@ public class Order {
 		this.createdAt = createdAt;
 	}
 
-	public ArrayList<Product> getOrderItemList() {
-		return orderItemList;
+	public Set<OrderItem> getOrderItemList() {
+		return new HashSet<> (orderItemList);
 	}
 
-	public void setOrderItemList(ArrayList<Product> orderItemList) {
-		this.orderItemList = orderItemList;
+	public void setOrderItemList(Set<OrderItem> orderItemList) {
+		this.orderItemList = new HashSet<>(orderItemList);
 	}
 	
     public Status getStatus() { 
