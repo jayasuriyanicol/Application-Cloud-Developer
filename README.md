@@ -5,7 +5,7 @@
 Welcome to the **Application Cloud Developer** course !
 
 This training program provides me *both theoretical knowledge and hands-on experience* in the environment of cloud application development.  
-It is mainly focused on coding and on the creation and organization of Software / Databases.
+It is mainly focused on coding and on the creation and organization of OPP , Application and Databases.
 
 # 🗂 Repository Structure  
 
@@ -16,25 +16,21 @@ It is mainly focused on coding and on the creation and organization of Software 
 # ✅ Key Features  
 
 - **Hands-on** practice mostly coding in **Python** and **Java**
-- *Software* and *Developer* approach  
-- <u>Cloud-Oriented</u>  
+- *OPP* and *Developing* approach    
 
 
 # 📅 Update Log Format
 
 Usally the updates to this repository follows the naming convention:
 
-
-Where:  
-
-- `DD` = Day  
-- `MM` = Month  
-- `YYYY` = Year  
-- `Comment` = Comment
+`Title of the commit` 
+`Comment to the ADD/UPDATE/REMOVE of the commit` 
 
 Example:  
 
-`UPDATE - 01_01_2025 | Add new features` or directly in some moments only **comments** `Add new features`
+**Updating missing '@repository`**
+*Fixing adding the annotation to have correctly association bean with the Spring App*
+
 
 
 Happy navigation! ➤
