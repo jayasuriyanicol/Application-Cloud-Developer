@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+
 import com.spring.ecommerce.entity.Status;
 
 public class OrderResponseDTO {
@@ -23,6 +24,7 @@ public class OrderResponseDTO {
 		this.totalAmount = totalAmount;
 		this.status = status;
 		this.createdAt = createdAt;
+
 	}
 	
 	public OrderResponseDTO() {
@@ -75,10 +77,12 @@ public class OrderResponseDTO {
 	public LocalDate getCreatedAt() {
 		return createdAt;
 	}
-
+	
+	
 	public void setCreatedAt(LocalDate createdAt) {
 		this.createdAt = createdAt;
 	}
+	
 	
 	
 	//Verifying all the data with HASH CODE and EQUALS to do not get identical product, to prevent incongruence in the HashSet
