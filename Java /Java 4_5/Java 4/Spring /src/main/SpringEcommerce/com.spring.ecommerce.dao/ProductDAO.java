@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.spring.ecommerce.entity.Product;
 import com.spring.ecommerce.exception.ProductNotFoundException;
 
-
+@Repository
 public class ProductDAO implements ProductInterfaceDAO{
 
 
