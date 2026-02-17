@@ -7,6 +7,7 @@ import com.spring.ecommerce.dto.OrderCreateRequestDTO;
 import com.spring.ecommerce.dto.OrderResponseDTO;
 
 
+
 /* * OrderServiceInterface - Service Contract
     ? Defines the abstract contract for the Order Management System. It outlines the essential business operations—creation, retrieval, and state transitions—without exposing underlying implementation details like database logic or validation rules.
 
@@ -14,8 +15,6 @@ import com.spring.ecommerce.dto.OrderResponseDTO;
     ! 2. Lifecycle Modeling, the method signatures explicitly map to the specific stages of an order's lifecycle (Create -> Confirm -> Ship -> Deliver/Cancel), effectively enforcing the business workflow at the interface level.
     ! 3. DTO Enforced Boundary, strictly utilizes Data Transfer Objects for all inputs and outputs. This ensures that internal domain entities are never directly exposed, maintaining a secure and clean separation between the API contract and the persistence layer.
 */
-
-
 
 public interface OrderServiceInterface {
 	

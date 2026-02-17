@@ -1,122 +1,89 @@
 package com.spring.ecommerce.dto;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.spring.ecommerce.entity.Status;
 
+
+/* * OrderResponseDTO - Client-Facing Order Summary
+    ? A Data Transfer Object used to send order details back to the client. It acts as a filtered view of the Order entity, ensuring that only relevant, formatted data is exposed through the API.
+
+    ! 1. JSON Presentation Control, utilizes the `@JsonFormat` annotation to transform the internal `LocalDateTime` into a human-readable string ("dd-MM-yyyy HH:mm:ss"). This ensures the API consumer receives a professional timestamp rather than a complex, machine-oriented ISO object.
+    ! 2. Null-Safe Collection Management, the `setItems` method implements a defensive check. By initializing an empty `HashSet` if the input is null, it prevents `NullPointerExceptions` during JSON serialization or when the UI attempts to iterate over the order items.
+    ! 3. Flat Hierarchy Integration, mirrors the structure of the Order entity but uses `OrderItemDTO` instead of the internal persistence model. This decoupling allows the backend to change its database schema without breaking the contract with the frontend.
+*/
+
+
 public class OrderResponseDTO {
-		
-	private int id;
-	private Set<OrderItemDTO> items;
-	private double totalAmount;
-	private Status status;
-	private LocalDate createdAt;
-	
-	
-	public OrderResponseDTO(int id, Set<OrderItemDTO> items, double totalAmount, Status status,
-			LocalDate createdAt) {
-		
-		this.id = id;
-		this.items = items;
-		this.totalAmount = totalAmount;
-		this.status = status;
-		this.createdAt = createdAt;
 
-	}
-	
-	public OrderResponseDTO() {
-		
-	}
+    private int id;
+    private Double totalAmount; 
+    private Status status;
+    
+    //Using this pattern associted to che variable createdAt, to have a good response on JSON output TIMESTAMP more good than the machine timestamp that is not clear
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
+    private LocalDateTime createdAt;
+    
+  
+    private Set<OrderItemDTO> items = new HashSet<>();
 
-	
-	public int getId() {
-		return id;
-	}
+    public OrderResponseDTO() {}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public Set<OrderItemDTO> getItems() {
-		return items;
-	}
-	
-	//Initialize a HashSet fot the ORDERED ITEMS in order to get a HashSet initialized with this params
-	@SuppressWarnings("null")
-	public void setItems(Set<OrderItemDTO> items) {
-		
-		this.id = (Integer)null;
-		this.items = new HashSet<>(items);
-		
-		//Using the STREAMS to get the TOTAL AMOUNT more easier linked to lambda expressions
-		this.totalAmount = items.stream().mapToDouble(it -> it.getUnitPrice() * it.getQuantity()).sum();
-		
-		this.status = Status.CREATED;
-		this.createdAt = LocalDate.now();		
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public double getTotalAmount() {
-		return totalAmount;
-	}
+    public Double getTotalAmount() {
+        return totalAmount;
+    }
 
-	public void setTotalAmount(double totalAmount) {
-		this.totalAmount = totalAmount;
-	}
+    public void setTotalAmount(Double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
 
-	public Status getStatus() {
-		return status;
-	}
+    public Status getStatus() {
+        return status;
+    }
 
-	public void setStatus(Status status) {
-		this.status = status;
-	}
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
-	public LocalDate getCreatedAt() {
-		return createdAt;
-	}
-	
-	
-	public void setCreatedAt(LocalDate createdAt) {
-		this.createdAt = createdAt;
-	}
-	
-	
-	
-	//Verifying all the data with HASH CODE and EQUALS to do not get identical product, to prevent incongruence in the HashSet
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
 
-	@Override
-	public int hashCode() {
-		
-		//For us we have to know only the id because is the identificator of the OBJ, the other params is nothing.
-		return Objects.hash(id);
-	}
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		
-		if (this == obj)
-			return true;
-		
-		if (obj == null)
-			return false;
-		
-		if (getClass() != obj.getClass())
-			return false;
-		
-		OrderResponseDTO other = (OrderResponseDTO) obj;
-		
-		return  Objects.equals(id, other.id);
-				
-	}
-	
+    public Set<OrderItemDTO> getItems() {
+        return items;
+    }
+
+    public void setItems(Set<OrderItemDTO> items) {
+    	
+        //To avoid type of Exception we always check if there are some type of null Objects
+        if (items == null) {
+            this.items = new HashSet<>();
+        } else {
+            this.items = items;
+        }
+    }
 	
 	@Override
 	public String toString() {
 		return "\n|PRODOTTO|\nID -> " + id + "\nTOTALE -> " + totalAmount + "€\nSTATUS -> " + status + "\nDATA CREAZIONE -> " + createdAt;
 	}
+
+}
 	
 	
 	

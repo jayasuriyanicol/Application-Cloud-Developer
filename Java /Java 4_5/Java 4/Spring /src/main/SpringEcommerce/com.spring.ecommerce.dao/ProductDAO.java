@@ -9,6 +9,15 @@ import org.springframework.stereotype.Repository;
 import com.spring.ecommerce.entity.Product;
 import com.spring.ecommerce.exception.ProductNotFoundException;
 
+/* * ProductDAO - In-Memory Product Catalog
+    ? An implementation of `ProductInterfaceDAO` that serves as the source of truth for the product inventory. It initializes a static catalog and provides methods to query and manipulate product availability.
+
+    ! 1. Mock Data Initialization, the constructor acts as a data seeder, populating the `HashMap` with twenty distinct products. This ensures the application is immediately functional for testing and demonstration purposes without requiring a connected database.
+    ! 2. Stock Mutation Logic, the `aggiornaIDStock` method provides a bridge for the `OrderService` to adjust inventory. By accepting the new stock as a `String` and leveraging the `Product` entity's internal parsing, it facilitates stock deductions when orders are confirmed.
+    ! 3. Fail-Fast Validation, the `selezionaID` method implements immediate validation. By checking for `null` and throwing a specialized `ProductNotFoundException`, it ensures that invalid IDs do not propagate through the service layer, preventing downstream `NullPointerExceptions`.
+*/
+
+
 @Repository
 public class ProductDAO implements ProductInterfaceDAO{
 
