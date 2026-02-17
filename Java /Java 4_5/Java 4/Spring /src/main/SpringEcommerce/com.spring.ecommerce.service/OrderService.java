@@ -1,5 +1,8 @@
 package com.spring.ecommerce.service;
 
+//Changing and adopt the LocalDateTime, to be more precise
+import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -31,10 +34,9 @@ import com.spring.ecommerce.exception.StockInsufficientException;
     ! 3. Inventory Integration, tightly coupled with `ProductDAO` to ensure data integrity. It validates stock availability before confirmation and executes logic to restore stock levels (rollback) if a confirmed order is subsequently cancelled.
 */
 
-
 @Repository
-public class OrderService implements OrderServiceInterface{
-
+public class OrderService implements OrderServiceInterface	{
+ 
     @SuppressWarnings("unused")
 	private final SpringECommerceApplication springECommerceApplication;
 	
@@ -154,7 +156,12 @@ public class OrderService implements OrderServiceInterface{
 	    OrderItem orderItem = new OrderItem(0, 0, 0);
 	    orderItem.setProductId(orderItemDTO.getProductId());
 	    orderItem.setQuantity(orderItemDTO.getQuantity());
-	    orderItem.setUnitPrice(orderItemDTO.getUnitPrice());
+	    
+	    if (orderItemDTO.getUnitPrice() != null) {
+	        orderItem.setUnitPrice(orderItemDTO.getUnitPrice());
+	    } else {
+	        orderItem.setUnitPrice(0.0); 
+	    }
 
 	    return orderItem;
 	}
@@ -165,27 +172,30 @@ public class OrderService implements OrderServiceInterface{
 
 	@Override
 	public OrderResponseDTO creaOrdine(OrderCreateRequestDTO ordine) {
-		
-		Set<OrderItem> setOrderItems = ordine.getListaProdottiOrdinati().stream().map(d -> itemOrderItemtoEntity(d)).collect(Collectors.toSet());
+	    
+	  
+	    Set<OrderItem> setOrderItems = ordine.getListaProdottiOrdinati().stream()
+	            .map(d -> itemOrderItemtoEntity(d))
+	            .collect(Collectors.toSet());
 
-		for (OrderItem ordinato : setOrderItems) {
-			
-			Product prodotto = prodottoDAO.selezionaID(ordinato.getProductId());
-		
-			int stock = Integer.parseInt(prodotto.getStock());
-			
-			if ( stock < ordinato.getQuantity())
-				throw new StockInsufficientException("ATTENZIONE ! Per il prodotto " + prodotto.getName() + " non vi è abbastanza disponibilità per avviare l'ordine !");
-		
-			ordinato.setUnitPrice(prodotto.getPrice());
-		}
+	    for (OrderItem ordinato : setOrderItems) {
+	        
+	        Product prodotto = prodottoDAO.selezionaID(ordinato.getProductId());
+	    
+	       
+	        int stock = prodotto.getStock(); 
+	        
+	        if (stock < ordinato.getQuantity())
+	            throw new StockInsufficientException("ATTENZIONE ! Prodotto " + prodotto.getName() + " esaurito o insufficiente!");
+	    
+	      
+	        ordinato.setUnitPrice(prodotto.getPrice());
+	    }
 
-		Order newOrder = new Order(0, 0, null, setOrderItems, null);
-		ordineDAO.aggiungiOrdine(newOrder);
-		return OrdertoDTO(newOrder);
-		
-		
-		
+	    //Initialize the order with given 'default' params
+	    Order newOrder = new Order(0, 0, LocalDateTime.now(), setOrderItems, Status.CREATED);
+	    ordineDAO.aggiungiOrdine(newOrder);
+	    return OrdertoDTO(newOrder);
 	}
 
 
@@ -261,16 +271,17 @@ public class OrderService implements OrderServiceInterface{
 			
 
 			Product prodotto = prodottoDAO.selezionaID(item.getProductId());
-
-			int stock = Integer.parseInt(prodotto.getStock());
-
-			if (stock  < item.getQuantity())
+			
+			int stockAttuale = prodotto.getStock(); 
+			int nuovaQuantita = stockAttuale - item.getQuantity();
+			
+			if (stockAttuale  < item.getQuantity())
+				
 				throw new StockInsufficientException("ATTENZIONE ! Per lo Stock del PRODOTTO " + prodotto.getName() + " NON è SUFFCIENTE per confermare l'ordine |");
 
+			prodottoDAO.aggiornaIDStock(prodotto.getId(),nuovaQuantita);
 			
-			String quantità = "" + (stock - item.getQuantity());
 			
-			prodottoDAO.aggiornaIDStock(prodotto.getId(), quantità);
 		}
 
 		ordine.setStatus(Status.CONFIRMED);
@@ -312,16 +323,21 @@ public class OrderService implements OrderServiceInterface{
 		Order ordine = ordineDAO.selezionaId(idOrdine);
 
 		if (ordine.getStatus().equals(Status.SHIPPED) || ordine.getStatus().equals(Status.DELIVERED) || ordine.getStatus().equals(Status.CANCELLED))
+			
 			throw new StateOrderdNotValide("ATTENZIONE ! Solo gli ordini CREATI possono essere effettivamente CANCELLATI !");
 
 		if (ordine.getStatus().equals(Status.CONFIRMED)) {
+			
 			for (OrderItem item : ordine.getOrderItemList()) {
+				
 				Product prodotto = prodottoDAO.selezionaID(item.getProductId());
 				
-				int stock = Integer.parseInt(prodotto.getStock());
-				String quantità = "" + (stock - item.getQuantity());
 				
-				prodottoDAO.aggiornaIDStock(prodotto.getId(), quantità);
+				int stockAttuale = prodotto.getStock();
+				int nuovaQuantita = stockAttuale + item.getQuantity();
+
+				
+				prodottoDAO.aggiornaIDStock(prodotto.getId(), nuovaQuantita);
 			}
 		}
 
