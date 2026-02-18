@@ -5,7 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **ND**         | NULL                               | *Null*               | NULL                      |
+| **JAVA 6**         | Svolgere esercizio Impiegati                               | *ND*               | Slide presenti su Teams                      |
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellare
