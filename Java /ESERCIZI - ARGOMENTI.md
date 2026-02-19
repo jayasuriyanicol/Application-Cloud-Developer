@@ -2,12 +2,16 @@
 
 ## IMPIEGATI - JAVA 6
 
-Svolgere l'esercizio **Impiegati** presente sulla piattaforma di *Teams*, livello avanzato esercizio con utilizzo delle **JPA**.
+Svolgere l'esercizio **Ecommerce** presente sulla piattaforma di *Teams*, livello avanzato esercizio con utilizzo delle **JPA**.
 
 
 *Cercare su:*
 
                           Teams -> Materiale Condiviso -> Java 6 -> Impiegati
+
+
+
+Inoltre concludere gli utlimi metodi extra dell'esercizio **Impiegati**.
 
 
 
