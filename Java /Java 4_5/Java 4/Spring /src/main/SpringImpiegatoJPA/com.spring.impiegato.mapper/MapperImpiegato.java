@@ -23,5 +23,17 @@ public class MapperImpiegato {
 		
 		return new ImpiegatoDTO(entity.getNome(), entity.getCognome(),entity.getMatricola(),entity.getSalarioMensile(),entity.getDataAssunzione());
 	}
+	
+	//Adding to convert any type of Collection in the service methods, same logic of the other
+	public static Collection<ImpiegatoDTO> CollectionImpiegatoEntityToDTO(Collection<Impiegato> entity) {
+		
+		if (entity == null)
+			return null;
+
+		return entity
+				.stream()
+				.map(e -> ImpiegatoEntityToDTO(e)).collect(Collectors.toList());
+			
+	}
 
 }
