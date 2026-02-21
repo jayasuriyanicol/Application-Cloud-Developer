@@ -5,7 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **JAVA 6**         | Svolgere esercizio Ecommerce e partial Impiegati   | *23 Febbraio 2026*               | Maggiori informazioni sul relativo file     |
+| **ND**         | NULL                               | *Null*               | NULL                      |
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellare
