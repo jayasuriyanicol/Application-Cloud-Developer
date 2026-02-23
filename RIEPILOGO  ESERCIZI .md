@@ -5,7 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **ND**         | NULL                               | *Null*               | NULL                      |
+| **JAVA 6**         | Azienda JPA                               | *Null*               | Fixare problemi service e controller                      |
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellare
