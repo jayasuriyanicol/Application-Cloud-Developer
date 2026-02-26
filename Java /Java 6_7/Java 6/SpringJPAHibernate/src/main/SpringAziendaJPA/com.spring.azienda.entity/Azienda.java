@@ -19,7 +19,7 @@ public class Azienda {
 	//Adding incremental value for the PK
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer IdAzienda;
+	private Integer idAzienda;
 	
 	private String intestazione;
 	private Double capitaleSociale;
@@ -45,12 +45,12 @@ public class Azienda {
 
 
 	public Integer getIdAzienda() {
-		return IdAzienda;
+		return idAzienda;
 	}
 
 
 	public void setIdAzienda(Integer idAzienda) {
-		IdAzienda = idAzienda;
+		this.idAzienda = idAzienda;
 	}
 
 
@@ -113,7 +113,7 @@ public class Azienda {
 
 	@Override
 	public String toString() {
-		return "Azienda [IdAzienda=" + IdAzienda + ", intestazione=" + intestazione + ", capitaleSociale="
+		return "Azienda [IdAzienda=" + idAzienda + ", intestazione=" + intestazione + ", capitaleSociale="
 				+ capitaleSociale;
 	}
 	

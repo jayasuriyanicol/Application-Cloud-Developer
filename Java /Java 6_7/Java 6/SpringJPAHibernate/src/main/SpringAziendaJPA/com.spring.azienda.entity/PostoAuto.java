@@ -12,7 +12,7 @@ public class PostoAuto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer IdPostoAuto;
+	private Integer idPostoAuto;
 	
 	
 	@OneToOne(mappedBy= "postoAuto", cascade = CascadeType.ALL)
@@ -30,11 +30,11 @@ public class PostoAuto {
 	}
 
 	public Integer getIdPostoAuto() {
-		return IdPostoAuto;
+		return idPostoAuto;
 	}
 
 	public void setIdPostoAuto(Integer idPostoAuto) {
-		IdPostoAuto = idPostoAuto;
+		this.idPostoAuto = idPostoAuto;
 	}
 
 	public Dipendente getDipendenteAzienda() {
@@ -55,7 +55,7 @@ public class PostoAuto {
 
 	@Override
 	public String toString() {
-		return "PostoAuto [IdPostoAuto=" + IdPostoAuto + ", dipendenteAzienda=" + dipendenteAzienda + ", posizione="
+		return "PostoAuto [IdPostoAuto=" + idPostoAuto + ", dipendenteAzienda=" + dipendenteAzienda + ", posizione="
 				+ posizione + "]";
 	}
 	
