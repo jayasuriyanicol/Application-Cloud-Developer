@@ -74,7 +74,7 @@ public class DipendenteServiceImpl implements DipendenteService {
 
 		Dipendente dip = MapperAzienda.DipendenteDTOToEntity(dipendente);
 		dip.setAziendaRiferimento(az);
-		dip.setPostoAuto(null);
+		dip.setPostoAuto(pa);
 		dipendenteDAO.save(dip);
 		
 	}
@@ -113,7 +113,7 @@ public class DipendenteServiceImpl implements DipendenteService {
 	}
 	
 	@Override
-	public DipendenteDTO cancellaImpiegato(Integer IdMatricola) {
+	public DipendenteDTO cancellaImpiegato(String IdMatricola) {
 		
 		Optional<Dipendente> dip = dipendenteDAO.findByMatricola(IdMatricola);
 		
@@ -129,42 +129,48 @@ public class DipendenteServiceImpl implements DipendenteService {
 		
 		}
 		
-		return null;
+		throw new RuntimeException("ATTENZIONE ! L'impiegato con matricola " + IdMatricola + " non trovato.");
 	}
 	
 	
 	@Override
-	public DipendenteDTO cancellaImpiegatoMatricola(Integer IdMatricola) {
+	public DipendenteDTO cancellaImpiegatoMatricola(String IdMatricola) {
 		
 		Optional<Dipendente> dip = dipendenteDAO.findByMatricola(IdMatricola);
 		
 		if(dip.isPresent()) {
 			
 			Dipendente dipendente  = dip.get();
+			dipendente.setAziendaRiferimento(null);
+	        dipendente.setPostoAuto(null);
+	        
 			DipendenteDTO dto = new DipendenteDTO();
 			
 			dto.setNome(dipendente.getNome());
 			dto.setCognome(dipendente.getCognome());
+			dto.setMatricola(dipendente.getMatricola());
 			
 			dipendenteDAO.delete(dipendente);
+			dipendenteDAO.flush();
 			
 			return dto;
 		
 		
 		}
 		
-		return null;
+		throw new RuntimeException("ATTENZIONE ! L'impiegato con matricola " + IdMatricola + " non trovato.");
 	}
+
 	
 	@Override
-	public DipendenteDTO spostaImpiegatoAzienda(Integer matricola, Integer IdAzienda) {
+	public DipendenteDTO spostaImpiegatoAzienda(String matricola, Integer IdAzienda) {
 	    
 	    Dipendente dipendente = dipendenteDAO.findByMatricola(matricola)
-	            .orElseThrow(() -> new RuntimeException("Impiegato con matricola " + matricola + " non trovato"));
+	            .orElseThrow(() -> new RuntimeException("ATTENZIONE ! L'impiegato con matricola " + matricola + " non trovato"));
 
 	    
 	    Azienda nuovaAzienda = aziendaDAO.findById(IdAzienda)
-	            .orElseThrow(() -> new RuntimeException("Azienda di destinazione non trovata"));
+	            .orElseThrow(() -> new RuntimeException("ATTENZIONE ! Azienda di riferimento non è stata trovata"));
 
 	   
 	    dipendente.setAziendaRiferimento(nuovaAzienda);
@@ -177,10 +183,10 @@ public class DipendenteServiceImpl implements DipendenteService {
 	
 	
 	@Override
-	public DipendenteDTO modificaSalarioDipendente(Integer IdMatricola, Double salarioNuovo) {
+	public DipendenteDTO modificaSalarioDipendente(String IdMatricola, Double salarioNuovo) {
 		
 		Dipendente dip = dipendenteDAO.findByMatricola(IdMatricola)
-	            .orElseThrow(() -> new RuntimeException("Impiegato non trovato"));
+	            .orElseThrow(() -> new RuntimeException("ATTENZIONE ! L'impiegato con matricola " + IdMatricola + " non trovato"));
 
 	    dip.setSalarioDipendente(salarioNuovo);
 
@@ -192,14 +198,14 @@ public class DipendenteServiceImpl implements DipendenteService {
 		
 	}
 	@Override
-	public DipendenteDTO modificaPostoAuto(Integer IdMatricola, Integer postoAutoNuovo) {
+	public DipendenteDTO modificaPostoAuto(String IdMatricola, Integer postoAutoNuovo) {
 		
 		Dipendente dip = dipendenteDAO.findByMatricola(IdMatricola)
-	            .orElseThrow(() -> new RuntimeException("Dipendente non trovato"));
+	            .orElseThrow(() -> new RuntimeException("ATTENZIONE ! L'impiegato con matricola " + IdMatricola + " non trovato"));
 
 	   
 	    PostoAuto nuovoPosto = (PostoAuto) postoAutoDAO.findById(postoAutoNuovo)
-	            .orElseThrow(() -> new RuntimeException("Posto auto non trovato"));
+	            .orElseThrow(() -> new RuntimeException("ATTENZIONE ! Il Posto Auto con codice " + postoAutoNuovo + " non trovato"));
 
 	  
 	    dip.setPostoAuto(nuovoPosto);
@@ -210,19 +216,21 @@ public class DipendenteServiceImpl implements DipendenteService {
 	}
 	
 	@Override
-	public DipendenteDTO visualizzaSeEsistePostoAuto(Integer IdMatricola) {
+	public DipendenteDTO visualizzaSeEsistePostoAuto(String IdMatricola) {
 		Dipendente dip = dipendenteDAO.findByMatricola(IdMatricola)
 				
-	            .orElseThrow(() -> new RuntimeException("Dipendente non trovato"));
+	            .orElseThrow(() -> new RuntimeException("ATTENZIONE ! L'impiegato con matricola " + IdMatricola + " non trovato");
 
 	  
 	    if (dip.getPostoAuto() == null) {
-	        throw new RuntimeException("L'impiegato non possiede un posto auto.");
+	        throw new RuntimeException("ATTENZIONE ! L'impiegato con matricola " + IdMatricola + " NON POSSIEDE un posto auto !");
 	    }
 
 	 
 	    return MapperAzienda.DipendenteToDTO(dip);
 	}
+
+	
 	
 	
 
