@@ -1,0 +1,12 @@
+C:\Users\doria\workspace2024\MM_quiz_WR\src\main\java\it\demo\quiz\controller\DomandaController.java
+C:\Users\doria\workspace2024\MM_quiz_WR\src\main\java\it\demo\quiz\dto\DomandaConRisposteDTO.java
+C:\Users\doria\workspace2024\MM_quiz_WR\src\main\java\it\demo\quiz\dto\DomandaDTO.java
+C:\Users\doria\workspace2024\MM_quiz_WR\src\main\java\it\demo\quiz\dto\RispostaDTO.java
+C:\Users\doria\workspace2024\MM_quiz_WR\src\main\java\it\demo\quiz\entity\Domanda.java
+C:\Users\doria\workspace2024\MM_quiz_WR\src\main\java\it\demo\quiz\entity\Risposta.java
+C:\Users\doria\workspace2024\MM_quiz_WR\src\main\java\it\demo\quiz\entity\TipoDomanda.java
+C:\Users\doria\workspace2024\MM_quiz_WR\src\main\java\it\demo\quiz\MmQuizRdApplication.java
+C:\Users\doria\workspace2024\MM_quiz_WR\src\main\java\it\demo\quiz\repository\DomandaRepository.java
+C:\Users\doria\workspace2024\MM_quiz_WR\src\main\java\it\demo\quiz\service\DomandaService.java
+C:\Users\doria\workspace2024\MM_quiz_WR\src\main\java\it\demo\quiz\service\DomandaServiceImpl.java
+C:\Users\doria\workspace2024\MM_quiz_WR\src\main\java\it\demo\quiz\utility\DomandaUtility.java
