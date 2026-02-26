@@ -17,17 +17,17 @@ public interface DipendenteService  {
 	public List<DipendenteDTO> visualizzaDipendenti();
 	public List<DipendenteDTO> visualizzaNomiCognDipendenti();
 	public List<DipendenteDTO> visualizzaDipeDatoSalario(Double salario);
-	public DipendenteDTO cancellaImpiegato(Integer IdMatricola);
-	public DipendenteDTO cancellaImpiegatoMatricola(Integer IdMatricola);
+	public DipendenteDTO cancellaImpiegato(String IdMatricola);
+	public DipendenteDTO cancellaImpiegatoMatricola(String IdMatricola);
 	
 	//Method EXTRA
-	public DipendenteDTO spostaImpiegatoAzienda(Integer IdMatricola, Integer IdAzienda);
+	public DipendenteDTO spostaImpiegatoAzienda(String IdMatricola, Integer IdAzienda);
 	
 	
 	//Service Impiegato 
-	public DipendenteDTO modificaSalarioDipendente(Integer IdMatricola, Double salarioNuovo);
-	public DipendenteDTO modificaPostoAuto(Integer IdMatricola, Integer postoAutoNuovo);
-	public DipendenteDTO visualizzaSeEsistePostoAuto(Integer IdMatricola);
+	public DipendenteDTO modificaSalarioDipendente(String IdMatricola, Double salarioNuovo);
+	public DipendenteDTO modificaPostoAuto(String IdMatricola, Integer postoAutoNuovo);
+	public DipendenteDTO visualizzaSeEsistePostoAuto(String IdMatricola);
 	
 
 }
