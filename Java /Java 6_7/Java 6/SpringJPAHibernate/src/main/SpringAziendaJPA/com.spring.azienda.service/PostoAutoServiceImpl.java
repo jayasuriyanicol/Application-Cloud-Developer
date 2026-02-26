@@ -36,17 +36,17 @@ public class PostoAutoServiceImpl implements PostoAutoService {
 	    @Override
 	    public PostoAutoDTO visualizzaPostoAuto(Integer idPostoAuto) {
 	        PostoAuto entity = postoAutoDao.findById(idPostoAuto)
-	                .orElseThrow(() -> new RuntimeException("Posto auto non trovato"));
+	                .orElseThrow(() -> new RuntimeException("ATTENZIONE ! Posto auto non trovato"));
 	        return MapperAzienda.PostoAutoToDTO(entity);
 	    }
 
 	    @Override
 	    public PostoAutoDTO cancellaPostoAutoSeDipendenteExist(Integer idPostoAuto) {
 	        PostoAuto entity = postoAutoDao.findById(idPostoAuto) 
-	                .orElseThrow(() -> new RuntimeException("Posto auto non trovato"));
+	                .orElseThrow(() -> new RuntimeException("ATTENZIONE ! Posto auto non trovato"));
 
 	        if (entity.getDipendenteAzienda() != null) { 
-	            throw new RuntimeException("Impossibile cancellare: il posto auto è assegnato"); 
+	            throw new RuntimeException("ATTENZIONE ! Non è possibile cancellare il Dipendente dall'azienda: il posto auto è assegnato"); 
 	        
 	        }
 	        PostoAutoDTO dto = MapperAzienda.PostoAutoToDTO(entity); 
