@@ -14,6 +14,6 @@ public interface DipendenteDAO extends JpaRepository<Dipendente, Integer> {
 	
 	List<Dipendente> findBySalarioDipendente(Double salario);
 
-    Optional<Dipendente> findByMatricola(Integer matricola);
+    Optional<Dipendente> findByMatricola(String idMatricola);
 
 }
