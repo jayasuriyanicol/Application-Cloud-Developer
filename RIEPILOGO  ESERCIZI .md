@@ -5,7 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **JAVA 6**         | Azienda JPA                               | *Null*               | Fixare problemi service e controller                      |
+| **JAVA 6**         | Azienda JPA & Pattern Observer             | *Null*      | Fixare problemi service e controller + Esercizio Observer |
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellare
