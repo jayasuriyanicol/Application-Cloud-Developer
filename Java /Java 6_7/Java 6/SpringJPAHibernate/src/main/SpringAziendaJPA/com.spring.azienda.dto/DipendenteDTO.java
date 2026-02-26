@@ -22,7 +22,7 @@ public class DipendenteDTO {
 
 		public DipendenteDTO(String matricola, String nome, String cognome, Double salarioDipendente, PostoAuto postoAuto, Azienda aziendaRiferimento) {
 			
-		
+			this.matricola = matricola;
 			this.nome = nome;
 			this.cognome = cognome;
 			this.salarioDipendente = salarioDipendente;
