@@ -20,10 +20,10 @@ public class DipendenteController {
 	    }
 	    
 	    @PostMapping(path = {"/nuovoDipendente/{idAzienda}/{idPosto}", "/nuovoDipendente/{idAzienda}"})
-	    public void inserisciDipendente(@RequestBody DipendenteDTO dto,
-	            @PathVariable Integer idAzienda,
-	            @PathVariable(required = false) Integer idPosto) {
+	    public void inserisciDipendente(@RequestBody DipendenteDTO dto,@PathVariable Integer idAzienda,@PathVariable(required = false) Integer idPosto) {
 	        
+
+			//If the idPosto is provided and valid, assign the parking spot to the emplyee, otherwise insert the employee without that
 	        if (idPosto != null && idPosto > 0) {
 	            dipendenteService.inserisciDipendenteAssegnaPostoAuto(idAzienda, idPosto, dto);
 	        } else {
