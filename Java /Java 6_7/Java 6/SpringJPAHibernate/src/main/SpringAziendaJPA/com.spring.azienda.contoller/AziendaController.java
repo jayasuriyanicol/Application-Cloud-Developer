@@ -8,6 +8,14 @@ import com.spring.azienda.dto.AziendaDTO;
 import com.spring.azienda.dto.AziendaInfoDTO;
 import com.spring.azienda.service.AziendaService;
 
+/* * AziendaController - Enterprise Management Gateway
+    ? This REST controller serves as the primary entry point for managing the "Azienda" (Company) ecosystem. It provides a comprehensive set of endpoints to handle administrative tasks, from company registration to complex analytical queries regarding capital and employee distribution.
+
+    ! 1. Granular Data Exposure, offers multiple GET strategies to optimize performance. By separating 'visualizzaDatiCompleti' from 'visualizzaDatiBase', the controller allows the client to choose between a full object graph (including employees) and a lightweight metadata view, reducing unnecessary network payload.
+    ! 2. Specialized DTO Projections, utilizes the 'AziendaInfoDTO' for specific analytical endpoints like 'visualizzaAziendaTopCapitale'. This design pattern ensures that sensitive or complex calculations performed at the service layer are delivered in a simplified, flattened format tailored for dashboard-style views.
+    ! 3. Resource Lifecycle Orchestration, implements a full suite of HTTP verbs (POST, GET, PUT, DELETE) to manage company state. This includes targeted updates for capital and headings, as well as a conditional deletion strategy that ensures data integrity by preventing the removal of companies with active employees.
+*/
+
 @RestController
 @RequestMapping(path="/azienda")
 public class AziendaController {

@@ -12,7 +12,14 @@ import com.spring.azienda.repository.PostoAutoDAO;
 
 import jakarta.transaction.Transactional;
 
- 
+ /* * PostoAutoServiceImpl - Physical Asset Governance
+    ? This class manages the operational lifecycle of the company's parking infrastructure. It acts as a safety controller, ensuring that physical assets are created, queried, and retired without disrupting the relational links to the employees who utilize them.
+
+    ! 1. Protected Resource Deletion, implements a critical "Guard Clause" in 'cancellaPostoAutoSeDipendenteExist'. By checking the 'dipendenteAzienda' reference before proceeding with a delete, the service prevents the accidental removal of a parking spot that is currently in use, thereby upholding the business rule that resources must be vacated before they are decommissioned.
+    ! 2. Unified State Management, utilizes the '@Transactional' annotation to ensure that all asset operations are atomic. This is particularly vital for the consistency of the 'PostoAuto' table, ensuring that any failed operation during a batch update or deletion results in a complete rollback, keeping the physical inventory records accurate.
+    ! 3. Standardized Error Propagation, employs the '.orElseThrow()' pattern for all ID-based lookups. This approach standardizes how the system handles missing assets, providing clear, descriptive feedback through 'RuntimeExceptions' that can be easily captured by a global exception handler to inform the end user.
+*/
+
 @Service
 @Transactional
 public class PostoAutoServiceImpl implements PostoAutoService {

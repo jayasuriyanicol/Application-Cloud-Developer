@@ -16,6 +16,15 @@ import com.spring.azienda.repository.AziendaDAO;
 
 import jakarta.transaction.Transactional;
 
+/* * AziendaServiceImpl - Business Logic Engine
+    ? This class is the operational heart of the company management system. It implements the 'AziendaService' contract, orchestrating the interaction between the persistence layer (AziendaDAO) and the data transport layer (MapperAzienda) to execute complex corporate workflows and analytical calculations.
+
+    ! 1. Transactional State Integrity, utilizes the '@Transactional' annotation at the class level. This ensures that every method execution—especially operations like 'cancellaAziendaNoDipendenti'—is atomic; if any database error occurs mid-process, the system automatically rolls back changes to prevent data corruption.
+    ! 2. Functional Analytics & Streams, implements 'visualizzaMaggioreCapitaleAzienda' using the Java Stream API. By leveraging 'Comparator.comparing' on the list of entities, the service identifies the company with the highest social capital in a single pass, demonstrating efficient in-memory processing of business intelligence.
+    ! 3. Conditional Logic & Validation, enforces strict business rules such as the "Safe Delete" policy. In 'cancellaAziendaNoDipendenti', the service verifies that the company's employee roster is empty before calling the repository delete method, providing a critical safety net that prevents accidental deletion of active organizational structures.
+*/
+
+
 @Service
 @Transactional 
 public class AziendaServiceImpl implements AziendaService {

@@ -20,6 +20,15 @@ import com.spring.azienda.repository.PostoAutoDAO;
 
 import jakarta.transaction.Transactional;
 
+
+/* * DipendenteServiceImpl - Workforce Operational Logic
+    ? The core implementation of the employee management service. This class orchestrates high-level business rules by coordinating three distinct repositories (Azienda, PostoAuto, and Dipendente), handling the delicate relational balancing act required for hiring, transferring, and resource allocation.
+
+    ! 1. Relational Integrity Safeguards, utilizes 'orElseThrow' patterns to ensure that an employee is never assigned to a non-existent Company or Parking Spot. By validating these associations before calling '.save()', the service prevents "Foreign Key" constraint violations and ensures the database remains a consistent reflection of the corporate structure.
+    ! 2. Atomic Resource Reassignment, implements complex logic in 'spostaImpiegatoAzienda' and 'modificaPostoAuto'. Because the class is marked with '@Transactional', these multi-step operations (fetching a record, updating a reference, and persisting) are executed as a single unit of work, guaranteeing that an employee doesn't end up "orphaned" if a part of the process fails.
+    ! 3. Clean-Up & Flush Orchestration, demonstrates advanced JPA management in 'cancellaImpiegatoMatricola'. By manually nullifying references before deletion and calling '.flush()', the service ensures that the persistence context immediately synchronizes with the database, safely removing the employee record even if it was previously linked to other complex entities.
+*/
+
 @Service 
 @Transactional
 public class DipendenteServiceImpl implements DipendenteService {

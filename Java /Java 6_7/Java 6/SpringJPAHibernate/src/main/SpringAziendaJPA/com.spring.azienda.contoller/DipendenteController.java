@@ -6,6 +6,14 @@ import org.springframework.web.bind.annotation.*;
 import com.spring.azienda.dto.DipendenteDTO;
 import com.spring.azienda.service.DipendenteService;
 
+/* * DipendenteController - Workforce & Resource Orchestration
+    ? A complex REST controller that manages the lifecycle of employees (Dipendenti) and their associated corporate assets, such as parking spots (Posti Auto) and company affiliations. It acts as the operational hub for human resources logic within the "Azienda" ecosystem.
+
+    ! 1. Polymorphic Registration Strategy, provides multiple entry points for employee onboarding. By utilizing optional path variables and conditional logic in 'inserisciDipendente', the controller gracefully handles three distinct scenarios: basic hiring, hiring with a pre-assigned parking spot, or hiring without specific resource allocation.
+    ! 2. Corporate Mobility Management, implements the 'spostaImpiegato' method to handle internal transfers. This logic ensures that when an employee moves between companies, the relational foreign keys are updated correctly through the service layer, maintaining organizational integrity across the database.
+    ! 3. Resource Linkage & Querying, features specialized endpoints like 'visualizzaPosto' and 'modificaPosto'. These methods demonstrate the controller's role in managing auxiliary relationships, allowing for the dynamic reassignment of physical company resources based on an employee's unique identification (matricola).
+*/
+
 @RestController
 @RequestMapping(path="/dipendente")
 public class DipendenteController {

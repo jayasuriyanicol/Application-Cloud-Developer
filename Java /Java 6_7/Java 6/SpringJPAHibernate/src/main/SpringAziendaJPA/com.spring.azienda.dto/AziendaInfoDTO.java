@@ -6,6 +6,15 @@ import java.util.Set;
 
 import com.spring.azienda.entity.Dipendente;
 
+
+/* * AziendaInfoDTO - Analytical Data Projection
+    ? A specialized version of the company DTO designed specifically for reporting and statistical views. Unlike the standard DTO, this object includes aggregated metadata—such as the total count of employees—allowing the frontend to display key performance indicators (KPIs) without performing manual calculations on the client side.
+
+    ! 1. Calculated Field Integration, introduces the 'numeroDipendenti' attribute. This field is essential for summary dashboards, as it provides an immediate numerical snapshot of the workforce size that can be populated directly via a JPA constructor expression or a specialized service method, optimizing data delivery for overview screens.
+    ! 2. Comprehensive State Representation, maintains the core identity of the company ('intestazione', 'capitaleSociale') while grouping it with the detailed 'listaDipendenti'. This makes the DTO a "one-stop-shop" for UI components that need to show a header with company stats followed by a detailed list of personnel.
+    ! 3. Robust Identity Management, inherits the same 'hashCode' and 'equals' logic focused on the employee set. This ensures that even when used in complex UI frameworks or caching layers, the object maintains its integrity based on the unique collection of people it represents, preventing duplicate rendering in analytical views.
+*/
+
 public class AziendaInfoDTO {
 
 		

@@ -12,6 +12,13 @@ import jakarta.persistence.Id;
 
 import jakarta.persistence.OneToMany;
 
+/* * Azienda - Core Persistent Entity
+    ? The foundational blueprint of the database schema representing a corporate organization. This class utilizes Jakarta Persistence (JPA) to map Java objects directly to the relational database, serving as the "Owner" of the corporate structure and managing the financial and personnel state of the enterprise.
+
+    ! 1. Automated Lifecycle Orchestration, uses the '@OneToMany' relationship with 'CascadeType.ALL' and 'orphanRemoval = true'. This ensures that the life of the employee records is strictly bound to the company; if a company is deleted, its entire roster is cleaned up automatically, maintaining referential integrity without manual SQL scripts.
+    ! 2. Identity & Sequence Management, employs '@GeneratedValue' with 'IDENTITY' strategy to delegate primary key creation to the database's auto-increment feature. This prevents ID collisions in a multi-user environment and allows the application to focus on business data while the DB handles the low-level row identification.
+    ! 3. Bidirectional Association Mapping, establishes the 'mappedBy' link to 'aziendaRiferimento' in the Employee entity. This creates a "mirror" effect where Spring Data JPA can efficiently navigate from a Company to its list of Employees, providing a high-performance path for building organizational charts and calculating total payroll.
+*/
 
 @Entity
 public class Azienda {

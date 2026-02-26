@@ -13,6 +13,15 @@ import com.spring.azienda.entity.Dipendente;
 import com.spring.azienda.entity.PostoAuto;
 
 
+/* * MapperAzienda - Object Transformation Layer
+    ? A dedicated translation utility that bridge the gap between persistent Entities and Data Transfer Objects (DTOs). It ensures a clean separation of concerns by manually handling the mapping of complex corporate hierarchies, allowing the service layer to interact with data without exposing the underlying database structure.
+
+    ! 1. Bi-Directional Conversion Logic, provides a complete suite of 'ToEntity' and 'ToDTO' methods for all domain objects (Azienda, Dipendente, PostoAuto). This manual mapping approach offers total control over which fields are exposed to the API, preventing sensitive persistence details from leaking into the presentation layer.
+    ! 2. Functional Stream Processing, implements specialized collection mappers using Java Streams. By leveraging '.stream().map().collect()', the utility efficiently transforms entire lists of records in a single pass, which is essential for bulk operations like 'visualizzaTutteAziende' where performance is critical.
+    ! 3. Multi-View DTO Support, features targeted methods like 'AziendaInfoToDTO' to hydrate specialized analytical objects. This flexibility allows the application to reuse the same 'Azienda' entity to populate different DTO variations—such as a simple profile or a data-heavy info view—depending on the specific business requirement.
+*/
+
+
 public class MapperAzienda {
 	
 	public static Azienda AziendaDTOToEntity(AziendaDTO dto) {
