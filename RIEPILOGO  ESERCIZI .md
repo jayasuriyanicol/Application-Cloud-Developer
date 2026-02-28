@@ -5,7 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **JAVA 6**         |  Pattern Observer             | *Null*      | Svolgere l'esercizio Observer |
+| **ND**         | NULL                               | *Null*               | NULL                    
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellare
