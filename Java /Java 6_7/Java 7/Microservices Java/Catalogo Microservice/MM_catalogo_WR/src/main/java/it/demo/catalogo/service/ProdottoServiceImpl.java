@@ -95,7 +95,7 @@ public class ProdottoServiceImpl implements ProdottoService {
 				
 			 Prodotto prodottoTrovato = prod.get();
 			
-			 prodottoTrovato.setVersione(nuovaQuantita);
+			 prodottoTrovato.setQuantitàProdotto(nuovaQuantita);
 			 
 			 return MapperProdotto.ProdottoEntityToDTO(prodottoTrovato) ;
 			
