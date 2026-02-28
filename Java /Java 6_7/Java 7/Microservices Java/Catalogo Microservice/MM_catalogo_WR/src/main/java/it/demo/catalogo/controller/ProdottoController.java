@@ -69,7 +69,7 @@ public class ProdottoController {
 	 
 	 //Insertion of GONE to clarify the process of Deleted Successfully, but in common uses we can do .NO_CONTENT
 	 @ResponseStatus(code = HttpStatus.GONE)
-	 ProdottoDTO eliminaProdotto(Integer idProdotto) {
+	 ProdottoDTO eliminaProdotto(@PathVariable Integer idProdotto) {
 		 
 		 return service.eliminaProdotto(idProdotto);
 	 }
