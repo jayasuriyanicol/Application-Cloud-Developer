@@ -1,64 +1,17 @@
 package PatternComposite;
 
-import java.util.ArrayList;
-import java.util.List;
+/* * ComponenteTeatro - The Composite Pattern Base
+    ? This interface serves as the "Uniform Contract" for the Composite design pattern. It defines a common set of operations that both individual objects (Leafs, like a single Seat) and groups of objects (Composites, like a Gallery or a Whole Theater) must implement.
 
-//Comune interface the CLASS COMPONENT 'ComponenteTeatro' 
-public abstract class ComponenteTeatro {
+    ! 1. Hierarchical Recursive Structure, defines the 'mostraDettagli' method with an 'indentazione' parameter. This allows the system to print the entire theater's tree-like structure (e.g., Theater -> Floor -> Row -> Seat) while visually representing the depth of each component through incremental spacing.
+    ! 2. Aggregate Calculation Signature, includes 'getNumeroPostiTotali'. This is the core strength of the pattern: a client can call this method on a single row or the entire building without needing to know the difference. The composite objects will internally sum the values of their children, while leaf objects return their own value.
+    ! 3. Polymorphic Transparency, ensures that the business logic can treat a single architectural unit and a complex collection of units identically. This decoupling simplifies the client code, as it doesn't need to perform 'instanceof' checks to determine if it is dealing with a simple 'Posto' or a complex 'Settore'.
+*/
+
+//Interface of the component Teatro, the comune INTERFACE 
+public interface ComponenteTeatro {
 	
-	
-    protected String nome;
-
-    public ComponenteTeatro(String nome) {
-        this.nome = nome;
-    }
-
-    public abstract String getDettagli(String specificaPiantina);
-}
-
-//Creating the LEAF CLASS 'Zona'
-public class Zona extends ComponenteTeatro {
-	
-    private int numeroPosti;
-
-    public Zona(String nome, int numeroPosti) {
-    	
-    	//Calling the protected name, not need it 
-        super(nome);
-        this.numeroPosti = numeroPosti;
-    }
-
-    @Override
-    public String getDettagli(String specificaPiantina) {
-        return specificaPiantina + "\n|ZONA TEATRO|: " + nome + "\nNUMERO POSTI TOTALE -> " + numeroPosti + " POSTI";
-    }
-}
-
-//Creating the COMPOSITE CLASS 'SottoSettore' 
-public class SottoSettore extends ComponenteTeatro {
-	
-	//Containg as quite often tht list of father class abstract
-    private List<ComponenteTeatro> listaDettagli = new ArrayList<>();
-
-    public SottoSettore(String nome) {
-        super(nome);
-    }
-
-    public void aggiungi(ComponenteTeatro componente) {
-    	listaDettagli.add(componente);
-    }
-
-    @Override
-    public String getDettagli(String specificaPiantina) {
-    	
-    	//Creating a StringBuilder to concanate the details of the Teatro
-        StringBuilder specifica = new StringBuilder();
-        specifica.append(specificaPiantina).append("\n|SOTTOSETTORE| ").append(nome).append("\n");
-        
-        //Recorsive for each printing the details of the list 
-        for (ComponenteTeatro c : listaDettagli) {
-        	specifica.append(c.getDettagli(listaDettagli + "  "));
-        }
-        return specifica.toString();
-    }
+    void mostraDettagli(String indentazione);
+    
+    int getNumeroPostiTotali();
 }
