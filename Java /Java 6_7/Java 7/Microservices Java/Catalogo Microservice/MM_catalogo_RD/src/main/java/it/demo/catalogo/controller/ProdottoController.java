@@ -23,8 +23,8 @@ public class ProdottoController {
 	
 	@GetMapping(path="/mostraProd/{idProdotto}", produces="application/json", consumes="application/json")
 	
-	//Insertion of CREATED to clarify the registration of the Product Successfully,
-	@ResponseStatus(code = HttpStatus.CREATED)
+	//Insertion of OK to clarify the SUCCESS of GETTING the product.
+	@ResponseStatus(code = HttpStatus.OK)
 	public ProdottoDTO mostraProdottoId(@PathVariable Integer idProdotto) {
 		
 		return service.mostraProdottoId(idProdotto);
