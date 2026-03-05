@@ -59,6 +59,13 @@ public class ProdottoController {
 		
 	}
 	 
+	@PatchMapping(path="/modificaVersProd/{idProdotto}/{versioneProdotto}", produces="application/json")
+	public void setVersionProdotto(@PathVariable Integer idProdotto, Integer versioneProdotto) {
+		
+	
+		   service.setVersionProdotto(idProdotto, versioneProdotto);
+	}
+
 	 @PatchMapping(path="/modificaQuanProd/{idProdotto}/{nuovaQuantita}",  produces="application/json")
 	 public ProdottoDTO modificaQuantita(@PathVariable Integer idProdotto, @PathVariable Integer nuovaQuantita) {
 		 
