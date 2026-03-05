@@ -85,6 +85,26 @@ public class ProdottoServiceImpl implements ProdottoService {
 		
 	}
 
+
+	@Override
+	public void setVersionProdotto(Integer idProdotto, Integer versioneProdotto) {
+		
+		Optional<Prodotto> prod = dao.findById(idProdotto);
+		
+		if(prod.isPresent()) {
+			
+			Prodotto prodottoTrovato = prod.get();
+			
+			prodottoTrovato.setVersione(versioneProdotto);
+			
+		}
+		
+		throw new RuntimeException("ATTENZIONE ! Non vi è un prodotto con il seguente ID " + idProdotto);
+		
+	}
+	
+    
+
 	@Override
 	public ProdottoDTO modificaQuantita(Integer idProdotto, Integer nuovaQuantita) {
 		
