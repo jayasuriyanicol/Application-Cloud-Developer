@@ -5,7 +5,7 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **ND**         | NULL                               | *Null*               | NULL                    
+| **JAVA 7**         |  Queue Kafka & REST Exercise               | *In aggiornamento*    |  Maggiori informazioni sul relativo file |                    
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellare
