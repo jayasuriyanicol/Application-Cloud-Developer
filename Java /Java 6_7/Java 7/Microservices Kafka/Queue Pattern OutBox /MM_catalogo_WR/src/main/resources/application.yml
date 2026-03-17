@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: MM_quiz-WR 
+    
+  config:
+    import: optional:configserver:http://localhost:8071 
+    
+  profiles:
+    active: dev 
+
+  # Configurazione Database e JPA
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_catalogo_wr_dev
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  # Configurazione Kafka per lo Scheduler 
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+# Configurazione Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
