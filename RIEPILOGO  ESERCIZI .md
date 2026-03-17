@@ -5,7 +5,8 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **JAVA 7**         |  Queue Kafka & REST Exercise               | *In aggiornamento*    |  Maggiori informazioni sul relativo file |                    
+| **JAVA 7**         |  Pattern OutBox Test               | *Venerdì 20 Marzo*    |  Maggiori informazioni sul relativo file |                    
+| **JAVA 7**         |  Queue Kafka & REST Exercise               | *ND*    |  Maggiori informazioni sul relativo file |                    
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellare
