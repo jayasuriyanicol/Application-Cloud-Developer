@@ -13,6 +13,11 @@ Struttura da seguire:
 
 
                 Queue Kafka & REST Exercise > Task 2 > tutta la logica ASICRONA con i vari server
+
+## Pattern OutBox 
+
+Testare l'esercizio del *Pattern Outbox* così da testare la funzionalità con l'utilizzo di **Kafka**
+
                  
 
 
