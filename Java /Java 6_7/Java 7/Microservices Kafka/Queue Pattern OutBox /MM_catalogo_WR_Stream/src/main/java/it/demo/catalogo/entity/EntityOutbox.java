@@ -33,10 +33,10 @@ public class EntityOutbox {
    }
 
 
-	@Enumerated 
+	@Enumerated(EnumType.STRING)
 	private TipoEvento tipoEvento;
-	
-    @Enumerated 
+
+	@Enumerated(EnumType.STRING) 
     private TipoStato stato;
 
 	private LocalDateTime dataCreazione;
