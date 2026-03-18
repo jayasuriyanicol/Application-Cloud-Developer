@@ -36,14 +36,14 @@ public class ProdottoController {
     } 
      
 
-    @PostMapping(path="/registraProd", produces ="application/json", consumes="application/json") 
+    @PostMapping(path="/product", produces ="application/json", consumes="application/json") 
     @ResponseStatus(code = HttpStatus.CREATED) 
     public void registraProdotto(@RequestBody ProdottoDTO prodotto) { 
         service.registraProdotto(prodotto); 
     } 
      
    
-    @GetMapping(path="/visualizzaProd/{idProdotto}", produces="application/json") 
+    @GetMapping(path="/{idProdotto}", produces="application/json") 
     public ProdottoDTO getProdotto(@PathVariable Integer idProdotto) { 
         return service.getProdotto(idProdotto); 
     } 
@@ -51,13 +51,13 @@ public class ProdottoController {
     
      
   
-    @PatchMapping(path="/modificaQuanProd/{idProdotto}/{nuovaQuantita}",  produces="application/json") 
+    @PatchMapping(path="/{idProdotto}/{nuovaQuantita}",  produces="application/json") 
     public ProdottoDTO modificaQuantita(@PathVariable Integer idProdotto, @PathVariable Integer nuovaQuantita) { 
         return service.modificaQuantita(idProdotto, nuovaQuantita); 
     } 
       
  
-    @DeleteMapping(path="/eliminaProd/{idProdotto}", produces="application/json") 
+    @DeleteMapping(path="/{idProdotto}", produces="application/json") 
     @ResponseStatus(code = HttpStatus.GONE) 
     public ProdottoDTO eliminaProdotto(@PathVariable Integer idProdotto) { 
         return service.eliminaProdotto(idProdotto); 
