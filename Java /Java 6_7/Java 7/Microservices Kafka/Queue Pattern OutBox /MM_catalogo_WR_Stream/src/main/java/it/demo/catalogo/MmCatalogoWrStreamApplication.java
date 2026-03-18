@@ -9,10 +9,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 @SpringBootApplication
 @RefreshScope
-public class MmCatalogoWrApplication {
+public class MmCatalogoWrStreamApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MmCatalogoWrApplication.class, args);
+		SpringApplication.run(MmCatalogoWrStreamApplication.class, args);
 	}
 
 }

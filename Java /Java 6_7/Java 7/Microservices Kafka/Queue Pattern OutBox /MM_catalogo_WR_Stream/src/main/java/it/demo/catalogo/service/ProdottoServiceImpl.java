@@ -87,7 +87,12 @@ public class ProdottoServiceImpl implements ProdottoService {
 
 	@Override
 	public ProdottoDTO getProdotto(Integer idProdotto) {
+
+	Prodotto p = prodottoDao.findById(idProdotto)
+		        .orElseThrow(() -> new RuntimeException("ATTENZIONE ! Prodotto con ID " + idProdotto + " non trovato"));
+		    
+		    
+		    return MapperProdotto.ProdottoEntityToDTO(p);
 		
-		return null;
 	}
 }

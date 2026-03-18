@@ -15,9 +15,9 @@ import jakarta.transaction.Transactional;
 import org.springframework.kafka.core.KafkaTemplate;
 
 @Service
+@Transactional
 public class SchedulerService {
 	
-
 
 	    @Autowired
 	     EntityOutboxRepository outboxRepo;
@@ -28,27 +28,32 @@ public class SchedulerService {
 	    @Scheduled(fixedDelay = 5000) 
 	    @Transactional
 	    public void inviaMessaggi() {
-	      
-	        List<EntityOutbox> eventi = outboxRepo.findPendingForUpdate();
+	        
+	        List<EntityOutbox> eventi = outboxRepo.findByStato(EntityOutbox.TipoStato.PENDING);
 
 	        for (EntityOutbox evento : eventi) {
-	           
-	            if (evento.getNumeroTentativi() > 5) {
+	            
+	            
+	            if (evento.getNumeroTentativi() >= 5) {
 	                evento.setStato(EntityOutbox.TipoStato.FAIL); 
+	                evento.setDataUltimaModifica(LocalDateTime.now());
 	                outboxRepo.save(evento);
 	                continue;
 	            }
 
+				//In this case will be always TRUE, to check the MAX insertion times do it external from the Try - Catch
 	            try {
 	               
-	                kafkaTemplate.send("topic_prodotti", evento.getPayload()).get(); 
+	                kafkaTemplate.send("prodotto-stream-catalog", evento.getPayload()).get(); 
 
-	                
+	            
 	                evento.setStato(EntityOutbox.TipoStato.SEND); 
-	                evento.setNumeroTentativi(evento.getNumeroTentativi() + 1); 
+	                
 	            } catch (Exception e) {
 	                
-	                evento.setNumeroTentativi(evento.getNumeroTentativi() + 1); 
+	                evento.setNumeroTentativi(evento.getNumeroTentativi() + 1);
+	                
+	                System.err.println("ATTENZIONE !  Errore nell'invio Kafka per l'evento con ID -> " + evento.getIdEvento() + ":\nERRORE: " + e.getMessage());
 	            }
 	            
 	            evento.setDataUltimaModifica(LocalDateTime.now()); 
@@ -56,4 +61,3 @@ public class SchedulerService {
 	        }
 	    }
 	}
-
