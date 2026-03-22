@@ -29,6 +29,9 @@ public class SchedulerService {
 	    @Transactional
 	    public void inviaMessaggi() {
 	        
+			//Adding a syso to have into console the massage of ACTIVE SCHEDULER
+			System.out.println(">>> SCHEDULER ATTIVO: Searching PENDING state ...");
+
 	        List<EntityOutbox> eventi = outboxRepo.findByStato(EntityOutbox.TipoStato.PENDING);
 
 	        for (EntityOutbox evento : eventi) {
@@ -53,7 +56,7 @@ public class SchedulerService {
 	                
 	                evento.setNumeroTentativi(evento.getNumeroTentativi() + 1);
 	                
-	                System.err.println("ATTENZIONE !  Errore nell'invio Kafka per l'evento con ID -> " + evento.getIdEvento() + ":\nERRORE: " + e.getMessage());
+	                System.err.println("ATTENZIONE ! Errore nell'invio Kafka per l'evento con ID -> " + evento.getIdEvento() + ":\nERRORE: " + e.getMessage());
 	            }
 	            
 	            evento.setDataUltimaModifica(LocalDateTime.now()); 
