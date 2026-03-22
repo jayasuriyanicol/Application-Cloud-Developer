@@ -8,10 +8,13 @@ spring:
     import: "optional:configserver:http://localhost:8071"
   cloud:
     config:
-      enabled: false # Impedisce il blocco se il Config Server non risponde subito
+      enabled: false 
+    
+    #Configuration of Kafka RD from the Kafka WR
     stream:
       bindings:
-        # Questo deve corrispondere al Bean Consumer<String> input() nel tuo codice
+       
+        #NB: The input Bean have to adapt exactly to the WR one : destination
         input-in-0:
           destination: "prodotto-stream-catalog"
           group: "catalogo-group"
@@ -24,6 +27,7 @@ spring:
   profiles:
     active: dev
 
+  #Adapting the DB RD to reiceve the message -> "db_catalogo_rd_dev"
   datasource:
     url: "jdbc:postgresql://localhost:5432/db_catalogo_rd_dev" 
     username: "postgres"
