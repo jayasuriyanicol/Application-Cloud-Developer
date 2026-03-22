@@ -10,7 +10,7 @@ import it.demo.catalogo.entity.EntityOutbox;
 public interface EntityOutboxRepository extends JpaRepository<EntityOutbox, Integer> {
     
     
-    @Query(value = "SELECT * FROM event_outbox WHERE stato = 'PENDING' FOR UPDATE", nativeQuery = true)
+    @Query(value = "SELECT * FROM entity_outbox WHERE stato = 'PENDING' FOR UPDATE", nativeQuery = true)
     List<EntityOutbox> findPendingForUpdate();
     
 }
