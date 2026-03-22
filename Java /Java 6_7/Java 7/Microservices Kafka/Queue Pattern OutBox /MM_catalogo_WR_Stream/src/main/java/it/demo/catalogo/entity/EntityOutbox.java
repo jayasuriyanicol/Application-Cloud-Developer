@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Version;
 
 @Entity
+@Table(name = "entity_outbox")
 public class EntityOutbox {
 	
 	@Id
