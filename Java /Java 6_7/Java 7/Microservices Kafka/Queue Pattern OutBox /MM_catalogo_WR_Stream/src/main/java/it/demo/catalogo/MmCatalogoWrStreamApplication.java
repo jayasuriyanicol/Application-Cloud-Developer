@@ -8,7 +8,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnableScheduling
 @SpringBootApplication
-@RefreshScope
 public class MmCatalogoWrStreamApplication {
 
 	public static void main(String[] args) {
