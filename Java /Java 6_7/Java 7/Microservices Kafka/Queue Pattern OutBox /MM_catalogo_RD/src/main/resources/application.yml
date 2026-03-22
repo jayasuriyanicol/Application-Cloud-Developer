@@ -1,0 +1,39 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: "MM-catalogo-RD"
+  config:
+    import: "optional:configserver:http://localhost:8071"
+  cloud:
+    config:
+      enabled: false # Impedisce il blocco se il Config Server non risponde subito
+    stream:
+      bindings:
+        # Questo deve corrispondere al Bean Consumer<String> input() nel tuo codice
+        input-in-0:
+          destination: "prodotto-stream-catalog"
+          group: "catalogo-group"
+          content-type: "application/json"
+      kafka:
+        binder:
+          brokers: "localhost:9092"
+          auto-create-topics: true
+
+  profiles:
+    active: dev
+
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/db_catalogo_rd_dev" 
+    username: "postgres"
+    password: "postgres"
+    driver-class-name: "org.postgresql.Driver"
+
+  jpa:
+    hibernate:
+      ddl-auto: "update"
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: "org.hibernate.dialect.PostgreSQLDialect"
