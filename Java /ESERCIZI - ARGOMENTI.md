@@ -16,7 +16,7 @@ Struttura da seguire:
 
 ## Pattern OutBox 
 
-Testare l'esercizio del *Pattern Outbox* così da testare la funzionalità con l'utilizzo di **Kafka**
+Testare l'esercizio del *Pattern Outbox* nella sola parte mancante RD, così da completare l'esercizio con l'utilizzo di **Kafka**.
 
                  
 
