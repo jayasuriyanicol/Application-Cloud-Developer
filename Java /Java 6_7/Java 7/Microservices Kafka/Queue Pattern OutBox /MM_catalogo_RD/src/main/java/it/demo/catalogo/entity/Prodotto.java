@@ -10,15 +10,17 @@ import jakarta.persistence.Version;
 @Entity
 public class Prodotto {
 
+	// ? Commenting the @GeneratedValue and @Version annotation to avoid any potential issue with the synchronization of the message received from Kafka on RD DB Catalogo, in fact we set the version to 0 on the MessageConsumer class, on the other hand if we want to use these annotations we need to set the version to 1 and not 0 because of the @Version annotation, but in this way we can have some issue with the synchronization of the message received from Kafka on RD DB Catalogo.  
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idProdotto;
 	private Double prezzoUnitario;
 	private Integer quantitàProdotto;
 	private String categoria;
 	
 	
-	@Version
+	//@Version
 	private int versione;
 	
 	public Prodotto() {}
