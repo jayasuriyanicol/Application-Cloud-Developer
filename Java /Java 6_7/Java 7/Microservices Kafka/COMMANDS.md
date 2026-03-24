@@ -25,7 +25,7 @@ Rispetto gli altri esercizi ci sono stati dei cambi in questi file
 
 ## Configurazione Database  (SQL)
 
-> * ATTENZIONE: Se presente già il DB `db_catalogo_wr_dev` creare solo la tabella **entity_outbox** non considerando nient'altro dato che è presente già tutto quanto come un copia incolla.
+> *ATTENZIONE: Se presente già il DB `db_catalogo_wr_dev` creare solo la tabella **entity_outbox** non considerando nient'altro dato che è presente già tutto quanto come un copia incolla.
 
 ### 1. Database di Scrittura (WR)
 ```sql
@@ -53,7 +53,7 @@ CREATE TABLE entity_outbox (
 );
 ```
 
-> * ATTENZIONE: Stessa cosa del **WR** `db_catalogo_rd_dev`, non ricreare se già presente dato che si tratterebbe di un copia e incolla e creerebbe un conflitto.
+> *ATTENZIONE: Stessa cosa del **WR** `db_catalogo_rd_dev`, non ricreare se già presente dato che si tratterebbe di un copia e incolla e creerebbe un conflitto.
 
 
 ### 2. Database di Lettura (RD)
