@@ -14,9 +14,27 @@ Struttura da seguire:
 
                 Queue Kafka & REST Exercise > Task 2 > tutta la logica ASICRONA con i vari server
 
-## Pattern OutBox 
+## PROGETTO JPA BANCA
 
-Testare l'esercizio del *Pattern Outbox* nella sola parte mancante RD, così da completare l'esercizio con l'utilizzo di **Kafka**.
+Iniziare l'esercizio **JPA della BANCA**, prima concludere l'esercizio antecedente.
+L'esercizio è presente su Teams, più in specifico: 
+
+
+               
+            Teams > Materiale Didattico > Java 6-7 > esercitazioni
+
+
+Suddivisi su un file *PPT* che è l'esercizio e il *Diagramma UML*, respettivamente:
+            
+                
+                
+                Progetto SpringJPA_Banca_final
+                Diagramma JPA Banca final.pdf
+
+
+
+
+            
 
                  
 
