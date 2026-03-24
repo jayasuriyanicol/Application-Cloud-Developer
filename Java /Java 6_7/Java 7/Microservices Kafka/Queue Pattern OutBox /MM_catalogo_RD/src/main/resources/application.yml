@@ -6,15 +6,17 @@ spring:
     name: "MM-catalogo-RD"
   config:
     import: "optional:configserver:http://localhost:8071"
+  
   cloud:
     config:
       enabled: false 
-    
-    #Configuration of Kafka RD from the Kafka WR
+    #Here, we specificy the "input" need it to avoid any types of conflicts. The "input" is present also in the WR as bridge.
+    function:
+      definition: input
+    discovery:
+      enabled: false
     stream:
       bindings:
-       
-        #NB: The input Bean have to adapt exactly to the WR one : destination
         input-in-0:
           destination: "prodotto-stream-catalog"
           group: "catalogo-group"
@@ -24,10 +26,16 @@ spring:
           brokers: "localhost:9092"
           auto-create-topics: true
 
+#Command used to avoid the message of EUREKA SERVER.
+  netflix:
+    eureka:
+      client:
+        register-with-eureka: false
+        fetch-registry: false
+
   profiles:
     active: dev
 
-  #Adapting the DB RD to reiceve the message -> "db_catalogo_rd_dev"
   datasource:
     url: "jdbc:postgresql://localhost:5432/db_catalogo_rd_dev" 
     username: "postgres"
