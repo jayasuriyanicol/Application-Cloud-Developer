@@ -5,8 +5,9 @@
 
 | Materia         | Esercizio                                     | Scadenza    | Note                                    |
 | --------------- | --------------------------------------------- | ----------- | --------------------------------------- |
-| **JAVA 7**         |  Pattern OutBox Test RD              | *In aggiornamento*    |  Testare la parte RD  |                    
-| **JAVA 7**         |  Queue Kafka & REST Exercise               | *ND*    |  Maggiori informazioni sul relativo file |                    
+                   
+| **JAVA 7**         |  Queue Kafka & REST Exercise               | *ND*    |  Maggiori informazioni sul relativo file |       
+| **JAVA 7**         |  Progetto JPA Banca                        | *In aggiornamento*    |  Iniziare l'esercitazione assegnata |              
 ---
 
 ## 🔁 Argomenti da Rivedere e Specifica Tabellare
