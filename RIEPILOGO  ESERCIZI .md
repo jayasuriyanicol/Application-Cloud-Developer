@@ -3,8 +3,7 @@
 
 | Materia | Esercizio | Scadenza | Note |
 | :--- | :--- | :--- | :--- |
-| **JAVA 7** | Queue Kafka & REST Exercise | *ND* | Maggiori informazioni sul relativo file |
-| **JAVA 7** | Progetto JPA Banca | *In aggiornamento* | Iniziare l'esercitazione assegnata |
+| **JAVA 7** | Progetto JPA Banca | *ND* | Iniziare l'esercitazione assegnata |
 
 ---
 
