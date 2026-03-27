@@ -1,0 +1,51 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: "MM-catalogo-RD"
+  config:
+    import: "optional:configserver:http://localhost:8071"
+  
+  cloud:
+    config:
+      enabled: false 
+    #Here, we specificy the "input" need it to avoid any types of conflicts. The "input" is present also in the WR as bridge.
+    function:
+      definition: input
+    discovery:
+      enabled: false
+    stream:
+      bindings:
+        input-in-0:
+          destination: "prodotto-stream-catalog"
+          group: "catalogo-group"
+          content-type: "application/json"
+      kafka:
+        binder:
+          brokers: "localhost:9092"
+          auto-create-topics: true
+
+#Command used to avoid the message of EUREKA SERVER.
+  netflix:
+    eureka:
+      client:
+        register-with-eureka: false
+        fetch-registry: false
+
+  profiles:
+    active: dev
+
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/db_catalogo_rd_dev" 
+    username: "postgres"
+    password: "postgres"
+    driver-class-name: "org.postgresql.Driver"
+
+  jpa:
+    hibernate:
+      ddl-auto: "update"
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: "org.hibernate.dialect.PostgreSQLDialect"
