@@ -5,7 +5,7 @@
 public class CatalogService {
 
     @Autowired 
-    private ProdottoRepossitory repossitory;
+    private ProdottoRepossitory repository;
 
     @Autowired 
     private StreamBridge bridge;
