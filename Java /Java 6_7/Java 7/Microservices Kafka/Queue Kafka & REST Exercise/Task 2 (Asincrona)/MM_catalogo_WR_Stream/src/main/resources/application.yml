@@ -1,0 +1,37 @@
+server:
+  port: 8075
+
+spring:
+  application:
+    name: "MM_catalogo_WR_Stream"
+  
+ 
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+# Through this conversion we can convert the string with raw bytes for Kafka
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  
+  cloud:
+    config:
+      enabled: false
+    stream:
+      bindings:
+     # Through this, is the exit to send the message to KAFKA, WR destination is the name of the topic.
+        prodotto-stream-catalog:
+          destination: "prodotto-stream-catalog"
+          content-type: "application/json"
+      kafka:
+        binder:
+          brokers: "localhost:9092"
+          auto-create-topics: true
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/db_catalogo_wr_dev"
+    username: "postgres"
+    password: "postgres"
+    driver-class-name: "org.postgresql.Driver"
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: "update"
