@@ -3,15 +3,9 @@
                         
 ## PROGETTO JPA BANCA
 
-Iniziare l'esercizio **JPA della BANCA**, prima concludere l'esercizio antecedente.
-L'esercizio è presente su Teams, più in specifico: 
+Continuare l'esercizio **JPA della BANCA**, *riprendere con la realizzazione dell repository con JPA/Hibernate*.
 
-
-               
-            Teams > Materiale Didattico > Java 6-7 > esercitazioni
-
-
-Suddivisi su un file *PPT* che è l'esercizio e il *Diagramma UML*, respettivamente:
+Su Teams, vi sono i file *PPT* che è l'esercizio e il *Diagramma UML*, respettivamente:
             
                 
                 
