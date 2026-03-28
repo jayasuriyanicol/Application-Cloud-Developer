@@ -3,7 +3,7 @@
 
 | Materia | Esercizio | Scadenza | Note |
 | :--- | :--- | :--- | :--- |
-| **JAVA 7** | Progetto JPA Banca | *ND* | Iniziare l'esercitazione assegnata |
+| **JAVA 7** | Progetto JPA Banca | *08 Aprile* | Continuare con l'implentazione dell'APP |
 
 ---
 
