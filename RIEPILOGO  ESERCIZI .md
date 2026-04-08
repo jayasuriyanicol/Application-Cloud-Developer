@@ -3,7 +3,7 @@
 
 | Materia | Esercizio | Scadenza | Note |
 | :--- | :--- | :--- | :--- |
-| **JAVA 7** | Progetto JPA Banca | *08 Aprile* | Continuare con l'implentazione dell'APP |
+| **JAVA 7** | Progetto JPA Banca | *In aggiornamento* | Continuare con l'implentazione dell'APP |
 
 ---
 
