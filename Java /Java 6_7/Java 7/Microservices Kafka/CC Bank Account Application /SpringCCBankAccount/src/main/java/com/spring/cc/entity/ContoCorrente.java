@@ -145,6 +145,31 @@ public class ContoCorrente {
 	public void setDataApertura(LocalDateTime dataApertura) {
 		this.dataApertura = dataApertura;
 	}
+    
+
+	public Utente getIntestatario() {
+		return intestatario;
+	}
+
+	public void setIntestatario(Utente intestatario) {
+		this.intestatario = intestatario;
+	}
+
+	public Utente getCointestatario() {
+		return cointestatario;
+	}
+
+	public void setCointestatario(Utente cointestatario) {
+		this.cointestatario = cointestatario;
+	}
+	
+	public List<Movimento> getListaMovimenti() {
+		return listaMovimenti;
+	}
+
+	public void setListaMovimenti(List<Movimento> listaMovimenti) {
+		this.listaMovimenti = listaMovimenti;
+	}
 
 	
 	
