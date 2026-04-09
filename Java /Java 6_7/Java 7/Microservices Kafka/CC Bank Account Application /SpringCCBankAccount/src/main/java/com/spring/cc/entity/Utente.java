@@ -83,9 +83,18 @@ public class Utente {
 
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
+	} 
+
+
+	public Indirizzo getIndirizzo() {
+		return indirizzo;
 	}
 
+	public void setIndirizzo(Indirizzo indirizzo) {
+		this.indirizzo = indirizzo;
+	}
 
+	
 	public String getMail() {
 		return mail;
 	}
@@ -104,6 +113,24 @@ public class Utente {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
+
+
+	public List<ContoCorrente> getListaContiIntestati() {
+		return listaContiIntestati;
+	}
+
+	public void setListaContiIntestati(List<ContoCorrente> listaContiIntestati) {
+		this.listaContiIntestati = listaContiIntestati;
+	}
+
+	public List<ContoCorrente> getListaContiCointestati() {
+		return listaContiCointestati;
+	}
+
+	public void setListaContiCointestati(List<ContoCorrente> listaContiCointestati) {
+		this.listaContiCointestati = listaContiCointestati;
+	}
+	
 	
 	
 	
