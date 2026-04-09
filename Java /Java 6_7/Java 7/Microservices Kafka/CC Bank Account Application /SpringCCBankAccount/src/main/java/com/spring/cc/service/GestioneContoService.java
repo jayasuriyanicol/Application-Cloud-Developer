@@ -125,9 +125,9 @@ public class GestioneContoService {
     }
 
     
-    public ContoCorrente sganciaCointestatario(Integer numeroConto, Integer idCointestatario) {
+    public ContoCorrente sganciaCointestatario(Integer numeroCC, Integer idCointestatario) {
     	
-        ContoCorrente conto = cc.findById(numeroConto)
+        ContoCorrente conto = cc.findById(numeroCC)
                 .orElseThrow(() -> new RuntimeException("ATTENZIONE ! Non è stato possibile individuare il CC."));
 
         if (conto.getCointestatario() == null || !conto.getCointestatario().getIdUtente().equals(idCointestatario)) {
@@ -145,6 +145,20 @@ public class GestioneContoService {
         // ! In this case we are going to set it as null and not delete it
         conto.setCointestatario(null); 
         return cc.save(conto);
+    }
+
+    public void eliminaCC(Integer numeroCC) {
+    	
+        ContoCorrente conto = cc.findById(numeroCC)
+                .orElseThrow(() -> new RuntimeException("ATTENZIONE ! Non risulta esserci nessun CC con numero -> " + numeroCC));
+
+        // ? Business Logic to security, in fact the balance must be zero to close the account.
+        if (conto.getSaldo() != 0) {
+            throw new RuntimeException("ERRORE ! È Impossibile cancellare il conto, il saldo deve essere esattamente 0.00 euro.\nMentre il SALDO attuale corrisponde ad: " + conto.getSaldo() + " EURO");
+        }
+
+        // * If the balance is zero, we proceed with the removal, thanks to CascadeType.ALL on the entities, the associated transactions (orphanRemoval) will be automatically deleted.
+        cc.delete(conto);
     }
 }
 
