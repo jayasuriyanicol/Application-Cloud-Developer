@@ -107,17 +107,25 @@ public class Movimento {
 	}
 	
 	
-	//SETTER of the values linked to the CC account, data of Operatore and ContoAssociato
-	
+	//SETTER & GETTER of the values linked to the CC account, data of Operatore and ContoAssociato
+
 	public void setOperatoreBanca(Utente operatoreBanca) {
 		this.operatoreBanca = operatoreBanca;
 	}
 
-
-
+	public Utente getOperatoreBanca() {
+		return operatoreBanca;
+	}
+	
 	public void setContoAssociato(ContoCorrente contoAssociato) {
 		this.contoAssociato = contoAssociato;
 	}
+	
+	public ContoCorrente getContoAssociato() {
+		return contoAssociato;
+	}
+
+
 
 
 	
