@@ -3,7 +3,7 @@
                         
 ## PROGETTO JPA BANCA
 
-Continuare l'esercizio **JPA della BANCA**, *riprendere con la realizzazione della **CONTROLLER** *.
+Continuare l'esercizio  la parte di *TEST e FRONTEND* di **JPA della BANCA**, riprendere con la fase di TESTING con l'utilizzo di **POSTMAN**.
 
 
 

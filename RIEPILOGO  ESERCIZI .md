@@ -3,7 +3,7 @@
 
 | Materia | Esercizio | Scadenza | Note |
 | :--- | :--- | :--- | :--- |
-| **JAVA 7** | Progetto JPA Banca | *-* | Continuare con la creazione della **CONTROLLER** |
+| **JAVA 7** | Progetto JPA Banca | *-* | Iniziare la fase di TESTING e Frontend |
 
 ---
 
