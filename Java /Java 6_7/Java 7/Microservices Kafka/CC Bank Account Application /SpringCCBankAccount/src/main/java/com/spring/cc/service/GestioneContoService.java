@@ -44,6 +44,33 @@ public class GestioneContoService {
 	
 	}
 	
+
+
+    public Utente modificaDatiUtente(Integer idUtente, Utente nuoviDati) {
+    	
+        
+        Utente utenteEsistente = utente.findById(idUtente)
+                .orElseThrow(() -> new RuntimeException("ATTENZIONE ! Impossibile modificare l'utente dato che non è stato trovato"));
+
+        // ?  Check if the new email is already used by ANOTHER user to avoid duplicates
+        if (!utenteEsistente.getMail().equals(nuoviDati.getMail()) && 
+            utente.existsByMail(nuoviDati.getMail())) {
+            throw new RuntimeException("ERRORE ! La nuova mail inserita è già associata a un altro account.");
+        }
+
+        // * After the all process I can proceed updating allowed fields
+        utenteEsistente.setNome(nuoviDati.getNome());
+        utenteEsistente.setCognome(nuoviDati.getCognome());
+        utenteEsistente.setMail(nuoviDati.getMail());
+        utenteEsistente.setTelefono(nuoviDati.getTelefono());
+
+        
+        return utente.save(utenteEsistente);
+
+        // TODO (Note) : The address and ID remain unchanged as per security practices. If we wanted to update the address, we would need dedicated logic or a proper cascade.
+    }
+	
+	
 	
 	
 	public void cancellaUtente(Integer idUtente) {
@@ -62,7 +89,7 @@ public class GestioneContoService {
 		
 		}
 	
-	
+    
 	
 	
 	public ContoCorrente registraNuovoConto(Double saldoIniziale, Integer IdIntestatario, Integer IdCointestatario) {
