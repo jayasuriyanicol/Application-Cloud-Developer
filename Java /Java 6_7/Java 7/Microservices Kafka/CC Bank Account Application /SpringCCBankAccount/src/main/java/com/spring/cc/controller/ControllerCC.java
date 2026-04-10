@@ -73,6 +73,23 @@ public class ControllerCC {
 	            return new ResponseEntity<> (e.getMessage(), HttpStatus.NOT_FOUND);
 	        }
 	    }
+
+
+//  ? Unhook joint account holder from bank account
+	    
+ @DeleteMapping(path = "/{numeroConto}/eliminaCointestatario/{idCointestatario}", produces = "application/json")
+ public ResponseEntity<?> eliminaCoinCC (@PathVariable Integer numeroCC, @PathVariable Integer idCointestatario) {
+	       
+	       try {
+	            ContoCorrente CCModificato = gestione.sganciaCointestatario(numeroCC, idCointestatario);
+	            
+	            return new  ResponseEntity<> (CCModificato, HttpStatus.OK);
+	            
+	        } catch (RuntimeException e) {
+	        	
+	            return new ResponseEntity<> (e.getMessage(), HttpStatus.NOT_FOUND);
+	        }
+	    }
 	
 
 // ? Deleting a current account, only if the balance is zero, here no produces because the task dosen't ask to return anything
