@@ -26,11 +26,15 @@ public class GestioneContoService {
 	
 	public Utente registraUtente(Utente u) {
 		
-		if(utente.existsById(u.getIdUtente()) || utente.existsByMail(u.getMail())){
-			
-			throw new RuntimeException("ATTENZIONE ! Errore l'utente o email risultano già esistenti !");
+		if (u.getIdUtente() != null && utente.existsById(u.getIdUtente())) {
+	        throw new RuntimeException("ATTENZIONE ! L'ID utente risulta già esistente !");
+	    }
 
-		}
+	   
+	    if (u.getMail() != null && utente.existsByMail(u.getMail())) {
+	        throw new RuntimeException("ATTENZIONE ! Questa email è già associata a un altro utente !");
+	    }
+	    
 		
 		if(u.getIndirizzo() == null ) {
 			

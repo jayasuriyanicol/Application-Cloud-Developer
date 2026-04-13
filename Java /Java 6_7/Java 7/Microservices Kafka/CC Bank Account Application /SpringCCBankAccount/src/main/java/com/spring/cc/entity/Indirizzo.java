@@ -21,7 +21,7 @@ public class Indirizzo {
 	private String cap; 
 	
 	@Column(nullable = false)
-	private String città;
+	private String citta;
 	
 	@Column(nullable = false)
 	private String provincia;
@@ -29,12 +29,12 @@ public class Indirizzo {
 	
 	public Indirizzo() {}
 	
-	public Indirizzo(Integer idIndirizzo, String via, String cap, String città, String provincia) {
+	public Indirizzo(Integer idIndirizzo, String via, String cap, String citta, String provincia) {
 
 		this.idIndirizzo = idIndirizzo;
 		this.via = via;
 		this.cap = cap;
-		this.città = città;
+		this.citta = citta;
 		this.provincia = provincia;
 	}
 
@@ -66,12 +66,12 @@ public class Indirizzo {
 		this.cap = cap;
 	}
 	
-	public String getCittà() {
-		return città;
+	public String getCitta() {
+		return citta;
 	}
 	
-	public void setCittà(String città) {
-		this.città = città;
+	public void setCitta(String citta) {
+		this.citta = citta;
 	}
 	
 	public String getProvincia() {
