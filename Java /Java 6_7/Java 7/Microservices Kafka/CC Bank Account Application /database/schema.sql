@@ -26,10 +26,10 @@ CREATE TABLE conto_corrente (
     numero_conto SERIAL PRIMARY KEY,
     saldo DOUBLE PRECISION DEFAULT 0.0,
     data_apertura TIMESTAMP NOT NULL,
-    intestatario_id_utente INTEGER NOT NULL,
-    cointestatario_id_utente INTEGER,
-    CONSTRAINT fk_intestatario FOREIGN KEY (intestatario_id_utente) REFERENCES utente(id_utente),
-    CONSTRAINT fk_cointestatario FOREIGN KEY (cointestatario_id_utente) REFERENCES utente(id_utente)
+    id_intestatario INTEGER NOT NULL,
+    id_cointestatario INTEGER,
+    CONSTRAINT fk_intestatario FOREIGN KEY (id_intestatario) REFERENCES utente(id_utente),
+    CONSTRAINT fk_cointestatario FOREIGN KEY (id_cointestatario) REFERENCES utente(id_utente)
 );
 
 -- 4. Creazione Tabella Movimento
@@ -37,9 +37,9 @@ CREATE TABLE movimento (
     id_movimento SERIAL PRIMARY KEY,
     data_movimento TIMESTAMP NOT NULL,
     importo DOUBLE PRECISION NOT NULL,
-    operazione VARCHAR(20) CHECK (operazione IN ('versamento', 'prelievo')),
-    conto_associato_numero_conto INTEGER NOT NULL,
-    operatore_banca_id_utente INTEGER NOT NULL,
-    CONSTRAINT fk_conto FOREIGN KEY (conto_associato_numero_conto) REFERENCES conto_corrente(numero_conto) ON DELETE CASCADE,
-    CONSTRAINT fk_operatore FOREIGN KEY (operatore_banca_id_utente) REFERENCES utente(id_utente)
+    operazione VARCHAR(255),
+    id_conto INTEGER NOT NULL,
+    id_operatore INTEGER NOT NULL,
+    CONSTRAINT fk_conto FOREIGN KEY (id_conto) REFERENCES conto_corrente(numero_conto),
+    CONSTRAINT fk_operatore FOREIGN KEY (id_operatore) REFERENCES utente(id_utente)
 );
