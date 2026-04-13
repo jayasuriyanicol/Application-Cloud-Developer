@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 // * This is an only service dedicated as lecture as validator of the CC Bank
+@Service
 @Transactional(readOnly = true)
 public class GestioneValiditaService {
 	
