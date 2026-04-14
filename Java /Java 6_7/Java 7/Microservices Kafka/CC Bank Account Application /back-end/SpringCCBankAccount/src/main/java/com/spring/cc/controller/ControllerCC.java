@@ -41,7 +41,7 @@ public class ControllerCC {
 	   
  //  ? Deposit or Withdrawal (Change Balance) using the CC bank
  @PutMapping(path= "/{numeroConto}", consumes = "application/json", produces = "application/json")
- public ResponseEntity<?> aggiornaCC( @PathVariable Integer numeroCC, @RequestBody CCAggiornaSaldoDTO richiesta) {
+ public ResponseEntity<?> aggiornaCC(  @PathVariable("numeroConto") Integer numeroCC, @RequestBody CCAggiornaSaldoDTO richiesta) {
 	        
 	         try {
 	            ContoCorrente CCAggiornato = gestione.aggiornaSaldo(
