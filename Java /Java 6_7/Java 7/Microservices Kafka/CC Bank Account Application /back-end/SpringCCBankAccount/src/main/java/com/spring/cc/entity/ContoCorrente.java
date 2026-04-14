@@ -82,7 +82,7 @@ public class ContoCorrente {
     	
     	
     	//Calculating the ImportoMora of CC
-    	if (this.saldo < 0) {
+    	if (tipologiaOperazione == tipoMovimento.prelievo && this.saldo < 0) {
     		
     		//Calculate with the 5%
             double importoMora = Math.abs(calcoloSaldo) * 0.05;  
