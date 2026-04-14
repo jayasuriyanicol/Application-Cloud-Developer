@@ -3,9 +3,9 @@ package com.spring.cc.dataTypes;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
-public final class RealGEZ {
+public class RealGEZ {
 	
-	    private final double value;
+	    private  double value;
 
 	    public RealGEZ(double value) {
 	    	
@@ -21,6 +21,14 @@ public final class RealGEZ {
 	    public double getValue() {
 	        return value;
 	    }
+
+		// ! Adding the setter method to update if Hibernate need it.
+		public void setValue(double value) {
+	        if (value < 0) {
+	            throw new IllegalArgumentException("Valore negativo non ammesso.");
+	        }
+	        this.value = value;
+		}
 	}
 
 

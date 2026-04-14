@@ -105,7 +105,7 @@ public class GestioneContoService {
 		}
 		
 		Utente intestatario = utente.findById(IdIntestatario)
-				.orElseThrow(() -> new RuntimeException("ERRORE ! Non risulta essere presente nessun intestatario con ID -> " + IdCointestatario));
+				.orElseThrow(() -> new RuntimeException("ERRORE ! Non risulta essere presente nessun intestatario con ID -> " + idIntestatario));
 		
 		
 		// ! Only after this verification do we proceed with the opening of the actual CC
@@ -122,13 +122,17 @@ public class GestioneContoService {
                     .orElseThrow(() -> new RuntimeException("ERRORE ! Non risulta essere presente nessun Cointestatario."));
             nuovoCC.setCointestatario(cointestatario);
         }
+        
+        // ? Primaly I save it to prevent any types of errors, and after i returning it
+        nuovoCC = cc.save(nuovoCC);
 
         //  ? Once the ACCOUNT has been generated, we can give "permission" to make changes to the balance.
         if (initial balance > 0) {
             nuovoCC.modificaSaldoCC(saldoIniziale, intestatario);
+            return cc.save(nuovoCC);
         }
 
-        return cc.save(nuovoCC);
+        return nuovoCC;
 		
 	}
 	
