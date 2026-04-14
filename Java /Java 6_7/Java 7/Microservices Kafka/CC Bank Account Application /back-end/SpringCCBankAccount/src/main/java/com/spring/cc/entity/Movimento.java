@@ -2,6 +2,8 @@ package com.spring.cc.entity;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.spring.cc.dataTypes.RealGEZ;
 
 import jakarta.persistence.AttributeOverride;
@@ -34,17 +36,23 @@ public class Movimento {
 	@Embedded
 	@AttributeOverride(name = "value", column = @Column (name = "importo"))
 	private RealGEZ importo;
+
+	@Column(name = "data_movimento", nullable = false)
 	private LocalDateTime dataOperazione;
 	
 	
 	//Creation of the values linked to the CC account, data of Operatore and ContoAssociato and Suppress because no GETTER
 	
-	@SuppressWarnings("unused")
-	@ManyToOne(optional = false)
-	private Utente operatoreBanca;
 	
 	@ManyToOne(optional = false)
-	@SuppressWarnings("unused")
+	@JoinColumn(name = "id_conto", nullable = false)
+	@JoinColumn(name = "id_operatore", nullable = false)
+	private Utente operatoreBanca;
+	
+
+	// ? Using the '@JsonIgnore' to avoid infinite recursion on TEST in PostMan.
+	@ManyToOne(optional = false)
+	@JsonIgnore
 	private ContoCorrente contoAssociato;
 	
 	

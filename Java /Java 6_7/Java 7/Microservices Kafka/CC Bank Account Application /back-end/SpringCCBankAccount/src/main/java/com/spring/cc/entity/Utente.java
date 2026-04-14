@@ -2,6 +2,9 @@ package com.spring.cc.entity;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -37,10 +40,14 @@ public class Utente {
 	//Attribute not need it
 	private String telefono;
 	
+
+	// ? Using the '@JsonIgnore' to avoid infinite recursion on TEST in PostMan.
 	@OneToMany(mappedBy="intestatario")
+	@JsonIgnore
 	private List<ContoCorrente> listaContiIntestati;
 	
 	@OneToMany(mappedBy="cointestatario")
+	@JsonIgnore
 	private List<ContoCorrente> listaContiCointestati;
 	
 	public Utente () {}
