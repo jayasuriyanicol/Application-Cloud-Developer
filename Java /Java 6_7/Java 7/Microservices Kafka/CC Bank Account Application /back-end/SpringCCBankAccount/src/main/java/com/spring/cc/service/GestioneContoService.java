@@ -158,7 +158,30 @@ public class GestioneContoService {
         
         return cc.save(conto);
     }
+    
 
+   // ? Manage the GET of the CC accounts ( all and one by one with the numeroConto)
+    
+    @GetMapping(produces="application/json")
+    public ResponseEntity<Iterable<ContoCorrente>> getTuttiConti() {
+	
+	 return new ResponseEntity<>(gestione.getTuttiConti(), HttpStatus.OK);
+    }
+
+
+    @GetMapping(path = "/{numeroConto}",produces="application/json")
+    public ResponseEntity<?> getConto(@PathVariable("numeroConto") Integer numeroCC){
+	
+	 try {
+		ContoCorrente cc = gestione.getConto(numeroCC);
+		return new ResponseEntity<>(cc,HttpStatus.OK);
+		
+	 } catch (RuntimeException err) {
+		
+		return new ResponseEntity<>(err.getMessage(), HttpStatus.NOT_FOUND);
+	}
+   }
+    
     
     public ContoCorrente sganciaCointestatario(Integer numeroCC, Integer idCointestatario) {
     	
