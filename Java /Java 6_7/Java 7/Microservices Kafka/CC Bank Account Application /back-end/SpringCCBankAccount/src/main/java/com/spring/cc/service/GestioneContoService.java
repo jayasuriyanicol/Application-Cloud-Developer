@@ -167,7 +167,7 @@ public class GestioneContoService {
     }
     
     
-    // ! Returning the CC account avaible on the system bu the id -> numeroConto
+    // ! Returning the CC account avaible on the system by the id -> numeroConto
     public ContoCorrente getConto(Integer numeroConto) {
     	
     	return cc.findById(numeroConto)
