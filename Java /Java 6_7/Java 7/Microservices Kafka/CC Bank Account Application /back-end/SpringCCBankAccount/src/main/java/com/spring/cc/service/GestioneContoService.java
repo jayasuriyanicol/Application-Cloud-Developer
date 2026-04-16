@@ -174,8 +174,7 @@ public class GestioneContoService {
     		  .orElseThrow(() -> new RuntimeException("ATTENZIONE !\nIl conto inserito non risulta essere valido o presente nel sistema"));
     }
     
-    
-    
+
     public ContoCorrente sganciaCointestatario(Integer numeroCC, Integer idCointestatario) {
     	
         ContoCorrente conto = cc.findById(numeroCC)
