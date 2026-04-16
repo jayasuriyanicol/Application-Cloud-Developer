@@ -3,7 +3,7 @@
 
 | Materia | Esercizio | Scadenza | Note |
 | :--- | :--- | :--- | :--- |
-| **JAVA 7** | Progetto JPA Banca | *-* | Iniziare la fase di TESTING e Frontend |
+| **JAVA 7** | Progetto JPA Banca | *Venerdì 17 Aprile* | Conclusione progetto Frontend |
 
 ---
 
