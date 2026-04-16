@@ -39,7 +39,7 @@ public class ControllerCC {
 	    }
 
 	   
- //  ? Deposit or Withdrawal (Change Balance) using the CC bank
+ // ? Deposit or Withdrawal (Change Balance) using the CC bank
  @PutMapping(path= "/{numeroConto}", consumes = "application/json", produces = "application/json")
  public ResponseEntity<?> aggiornaCC(  @PathVariable("numeroConto") Integer numeroCC, @RequestBody CCAggiornaSaldoDTO richiesta) {
 	        
@@ -58,7 +58,31 @@ public class ControllerCC {
 		        }
 	    }
 
-//  ? Unhook joint account holder from bank account
+
+
+ // ? Manage the GET of the CC accounts ( all and one by one with the numeroConto)
+ @GetMapping(produces="application/json")
+ public ResponseEntity<Iterable<ContoCorrente>> getTuttiConti() {
+	
+	return new ResponseEntity<>(gestione.getTuttiConti(), HttpStatus.OK);
+ }
+
+ @GetMapping(path = "/{numeroConto}",produces="application/json")
+ public ResponseEntity<?> getConto(@PathVariable("numeroConto") Integer numeroCC){
+	
+	try {
+		
+		ContoCorrente cc = gestione.getConto(numeroCC);
+		return new ResponseEntity<>(cc,HttpStatus.OK);
+		
+	} catch (RuntimeException err) {
+		
+		return new ResponseEntity<>(err.getMessage(), HttpStatus.NOT_FOUND);
+	}
+ }
+
+
+// ? Unhook joint account holder from bank account
 	    
  @DeleteMapping(path = "/{numeroConto}/eliminaCointestatario/{idCointestatario}", produces = "application/json")
  public ResponseEntity<?> eliminaCoinCC (@PathVariable Integer numeroCC, @PathVariable Integer idCointestatario) {
@@ -75,7 +99,7 @@ public class ControllerCC {
 	    }
 
 
-//  ? Unhook joint account holder from bank account
+// ? Unhook joint account holder from bank account
 	    
  @DeleteMapping(path = "/{numeroConto}/eliminaCointestatario/{idCointestatario}", produces = "application/json")
  public ResponseEntity<?> eliminaCoinCC (@PathVariable Integer numeroCC, @PathVariable Integer idCointestatario) {
