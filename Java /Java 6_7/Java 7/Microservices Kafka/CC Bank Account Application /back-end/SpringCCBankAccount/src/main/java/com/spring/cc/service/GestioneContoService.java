@@ -175,6 +175,7 @@ public class GestioneContoService {
     }
     
     
+    
     public ContoCorrente sganciaCointestatario(Integer numeroCC, Integer idCointestatario) {
     	
         ContoCorrente conto = cc.findById(numeroCC)
