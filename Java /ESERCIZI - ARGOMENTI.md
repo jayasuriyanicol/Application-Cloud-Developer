@@ -3,7 +3,9 @@
                         
 ## PROGETTO JPA BANCA
 
-Continuare l'esercizio  la parte di *TEST e FRONTEND* di **JPA della BANCA**, riprendere con la fase di TESTING con l'utilizzo di **POSTMAN**.
+Concludere il progetto aggiungendo la parte in **frontend** e eventuali indicazioni su come avviare il progetto con **file MD**.
+
+
 
 
 
