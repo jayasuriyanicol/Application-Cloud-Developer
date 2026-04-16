@@ -160,27 +160,19 @@ public class GestioneContoService {
     }
     
 
-   // ? Manage the GET of the CC accounts ( all and one by one with the numeroConto)
-    
-    @GetMapping(produces="application/json")
-    public ResponseEntity<Iterable<ContoCorrente>> getTuttiConti() {
-	
-	 return new ResponseEntity<>(gestione.getTuttiConti(), HttpStatus.OK);
+    // ! Returning all the CC account avaible on the system 
+    public Iterable<ContoCorrente> getTuttiConti() {
+    	
+    	return cc.findAll();
     }
-
-
-    @GetMapping(path = "/{numeroConto}",produces="application/json")
-    public ResponseEntity<?> getConto(@PathVariable("numeroConto") Integer numeroCC){
-	
-	 try {
-		ContoCorrente cc = gestione.getConto(numeroCC);
-		return new ResponseEntity<>(cc,HttpStatus.OK);
-		
-	 } catch (RuntimeException err) {
-		
-		return new ResponseEntity<>(err.getMessage(), HttpStatus.NOT_FOUND);
-	}
-   }
+    
+    
+    // ! Returning the CC account avaible on the system bu the id -> numeroConto
+    public ContoCorrente getConto(Integer numeroConto) {
+    	
+    	return cc.findById(numeroConto)
+    		  .orElseThrow(() -> new RuntimeException("ATTENZIONE !\nIl conto inserito non risulta essere valido o presente nel sistema"));
+    }
     
     
     public ContoCorrente sganciaCointestatario(Integer numeroCC, Integer idCointestatario) {
