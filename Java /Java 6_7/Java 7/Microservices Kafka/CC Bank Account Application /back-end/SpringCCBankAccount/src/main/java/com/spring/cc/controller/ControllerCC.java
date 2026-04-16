@@ -67,6 +67,7 @@ public class ControllerCC {
 	return new ResponseEntity<>(gestione.getTuttiConti(), HttpStatus.OK);
  }
 
+
  @GetMapping(path = "/{numeroConto}",produces="application/json")
  public ResponseEntity<?> getConto(@PathVariable("numeroConto") Integer numeroCC){
 	
