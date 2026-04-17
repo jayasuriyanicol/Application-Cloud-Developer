@@ -1,1 +1,0 @@
-Read the chapter 8 from Higher - order - functions (slide 21) until the end 
