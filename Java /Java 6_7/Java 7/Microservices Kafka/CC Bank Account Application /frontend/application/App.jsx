@@ -1,5 +1,6 @@
 
 // * The APPLICATION REACT/VITE : Implement main routing and restricted access logic" -m "- Add React Router navigation for Dashboard, Registration, and Account Opening.
+
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import DashboardConti from './components/DashboardConti';
@@ -17,14 +18,14 @@ function App() {
   useEffect(() => {
     api.get('gestioneCC/conti')
       .then(res => setConti(res.data))
-      .catch(err => console.error("Errore caricamento dati", err));
+      .catch(err => console.error(" ATTENZIONE ! Errore nel caricamento dei dati", err));
   }, []);
 
   const handleLogin = () => {
     if (password === "admin123") {
       setIsAuthenticated(true);
     } else {
-      alert("Password Errata!");
+      alert("ATTENZIONE ! La PASSWORD risulta errrata!");
     }
   };
 
@@ -37,12 +38,17 @@ function App() {
 
   return (
     <Router>
+
+      // * Navigation bar with links to different routes and a special link for the admin area.
+
       <nav style={{ padding: '20px', backgroundColor: '#f4f4f4', marginBottom: '20px', display: 'flex', gap: '15px' }}>
         <Link to="/">Dashboard Conti</Link>
         <Link to="/registra">Registra Utente</Link>
         <Link to="/AperturaConto">Apri CC</Link>
         <Link to="/admin" style={{ marginLeft: 'auto', fontWeight: 'bold', color: 'red' }}>🔒 Area Root</Link>
       </nav>
+       
+       // * Main content area where different components are rendered based on the route.
 
       <div className="container" style={{ padding: '0 20px' }}>
         <Routes>
@@ -50,10 +56,12 @@ function App() {
           <Route path="/registra" element={<RegistrazioneUtente />} />
           <Route path="/AperturaConto" element={<AperturaConto />} />
           
+
+          // ? Route for the admin area that checks if the user is authenticated. If not, it shows a password input form. If authenticated, it renders the PanoramicaBanca component with the list of accounts.
           <Route path="/admin" element={
             !isAuthenticated ? (
               <div style={{ textAlign: 'center', marginTop: '50px', padding: '30px', border: '1px solid #ccc', borderRadius: '10px' }}>
-                <h2>Accesso Riservato Root</h2>
+                <h2>Dashboard BankCC - ROOT</h2>
                 <div style={{ position: 'relative', display: 'inline-block' }}>
                   <input 
                     type={showPassword ? "text" : "password"} 
