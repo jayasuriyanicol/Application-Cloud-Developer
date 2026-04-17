@@ -3,8 +3,7 @@
 
 | Materia | Esercizio | Scadenza | Note |
 | :--- | :--- | :--- | :--- |
-| **JAVA 7** | Progetto JPA Banca | *Venerdì 17 Aprile* | Conclusione progetto Frontend |
-
+| **ND**         | NULL                               | *Null*               | NULL                      |
 ---
 
 
