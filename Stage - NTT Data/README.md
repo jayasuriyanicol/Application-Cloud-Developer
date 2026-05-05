@@ -6,14 +6,3 @@
 
 
 
-
-                        "Dedicated section for the internship phase is planned. This area is currently under development, awaiting final details and structural guidelines before the official start."
-
-
-
-
-
-
-
-
-
