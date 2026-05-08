@@ -1,0 +1,35 @@
+1. 
+In questo caso non andimao a mettere il tipo di riotrno per il compilatore, dato che 
+sarebbe inutile dato che stiamo andando a inilizzare i parametri/attributi all'interno della classe in questione.
+In caso di potrebbe generare il suddetto errore: 
+
+ERRORE: 
+
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	The constructor Libro(String, String, int, double) is undefined
+
+	at Lezione_04.MainLibro.main(MainLibro.java:7)
+
+
+2. 
+Nella seconda parte, se associamo un valore null ad un oggetto questo giustamnete come prima cosa non farebbe la 
+new, con la creazione dell'oggetto quindi non verrebbe nemmeno salvata nella 'java.heap'. 
+
+Quindi creando un'eccezzione che sarebbe quella della NullPointerException;
+
+
+3.
+Nel caso cambiassimo visibilità degli attributi di una classe, sarebbero accessibili e sopratutto visibili all'esterno,
+causando problematiche di gestione della sicurezza sugli attributi
+
+
+4. 
+Nell'ultimo e quarto caso, se andiamao a togliere il this, ovvero il riferimento della variabile per il salvataggio
+della variabile, questo non andrebbe a salvare e quindi associare il dato presso il costruttore, causando quindi un associazione incorretta
+della classe che non riceverà i suoi attributi, con il seguente errore:
+
+ERRORE:  
+
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.lang.Double.doubleValue()" because "this.prezzo" is null
+	at Lezione_04.Libro.isCostoso(Libro.java:94)
+	at Lezione_04.MainLibro.main(MainLibro.java:16)
