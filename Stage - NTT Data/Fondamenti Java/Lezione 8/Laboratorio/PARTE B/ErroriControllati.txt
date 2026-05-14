@@ -1,0 +1,28 @@
+RISPOSTE ERRORI CONTROLLATI PARTE B:
+
+
+1. Leggere un indice inesistente in una list genera un errore che è quello dell'IndexError
+   Infatti accedere ad un indice se non presente è la stessa prova di puntare ad un oggetto 
+   che non esiste
+
+2. Nelle List è possibile inserire duplicati infatti non sono come i SET che non accettano 
+   parametri duplicati. Nelle list non esiste l'unicità- In caso vogliamo eliminare un occorrenza
+   dalla lista verrà eliminata la prima occorrenza.
+
+3. Associare una chiave ad una mappa, sovrascrivendola genererà l'associazione ad nuovo parametro
+   quindi non ci saranno errori dal punto di vista sintattico o di compilazione.
+
+4. Può generare un NullPointException se la chiave non esiste restituendo null, questo crea un'ambigutità
+   dato che effettivamente non sappiamo dell'esistenza effettiva della chiave.
+
+
+5. Usare == al posto di equals, genera due situazioni diverse.
+
+    A. == : va a confrontare se l'oggetto in memoria
+    B. equals : va a confrontare la logica, se è identico in entrambi esempio due stringhe
+
+
+6. Utilizzare equals senza hashCode() non è possibile farlo dato che sono strettamente correllate fra di loro.
+   
+   A. equals riconosce l'indirizzo in memoria
+   B. hash trova in maniera veloce il dato, ma se non correlato con equals fallisce.
