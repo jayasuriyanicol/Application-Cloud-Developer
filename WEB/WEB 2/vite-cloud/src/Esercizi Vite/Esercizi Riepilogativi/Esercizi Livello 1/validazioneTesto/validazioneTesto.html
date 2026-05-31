@@ -1,0 +1,49 @@
+<!--
+10. Validazione Lunghezza Testo
+Richiesto: se il testo è più corto di una soglia, mostrare un messaggio di errore sotto l’input.
+Usare: controllo lunghezza stringa, manipolazione visibilità del messaggio.
+Risultato: indicazione chiara quando il testo non rispetta i requisiti.
+
+-->
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Validazione Input</title>
+
+</head>
+<body>
+
+    <h2>Scelta User</h2>
+    <p>Deve avere almeno 5 caratteri.</p>
+
+    <input type="text" id="username" placeholder="Inserisci username...">
+    
+    <div id="messaggioErrore"> ATTENZIONE ! Il testo è troppo corto (minimo 5 caratteri)</div>
+
+    <script>
+        const inputUser = document.getElementById("username");
+        const errore = document.getElementById("messaggioErrore");
+        const caratteri = 5;
+
+        
+        inputUser.addEventListener("input", function() {
+            
+            
+            const lunghezzaAttuale = inputUser.value.length;
+
+            if (lunghezzaAttuale < caratteri) {
+                
+                errore.style.display = "block";
+                inputUser.classList.add("erroreInput");
+            } else {
+        
+                errore.style.display = "none";
+                inputUser.classList.remove("erroreInput"); 
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+        
+spring:
+  application:
+    name: MM-quiz-WR-Stream
+    
+  config:
+    import: optional:configserver:http://localhost:8071 
+    
+  profiles:
+    active: dev
+
+  cloud:
+    stream:
+      bindings:
+        myProducer-out-0:
+          destination: my-topic
+      kafka:
+        binder:
+          brokers: localhost:9092
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.stream: debug
+    org.springframework.messaging: debug
+    org.apache.kafka: DEBUG   # Per Kafka
+
+#attiva l'end point dell'actuator per il refresh delle proprietà di configurazione
+#lette dal server di configurazione
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh

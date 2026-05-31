@@ -1,0 +1,51 @@
+
+
+VINCOLI VOLI AEREI
+
+
+
+1. 'Arrivo e partenza non sono uguali'
+
+   Un Volo non può avere lo stesso arrivo e <la stessa partenza dallo stesso Aeroporto, dato che il volo è univoco, ciò significherebbe
+   che lo stesso volo atterra e riparte dallo stesso aeroporto,impossibile dato che il volo ha un id univoco da un'aeroporto di partenza a quello di arrivo.
+   
+   
+   [V.ArrivoPartenza.Volo]
+   
+   Sia v:Volo e A:aeroporto tali che (v,a):partenza e (v,a):arrivo
+   
+   Quindi, analogamente: (v,a):partenza != (v,a):arrivo oppure (v,a):arrivo != (v,a):partenza
+   
+   
+  
+  
+ 2. 'Arrivo > Partenza'
+ 
+    Un volo che è in arrivo deve avere un DataOra differente e maggiore rispetto a una DataOra in cui è partito. 
+    
+    [V.ArrivoMaggiorePartenza.Volo]
+    
+    Sia v:Volo e a:Aeroporto tali che (v,a):partenza e (v,a):arrivo
+    
+    Sia part = (v,a):partenza e arr = (v,a):arrivo 
+    
+    Quindi in maniera analoga, assumiamo che: arr.istante >= part.istante
+     
+ 
+ 
+ 3. 'Aereo non può essere contemporaneamente in due voli diversi'
+ 
+    Un Aereo non può essere contemporaneamente in due voli differenti, dato che un Aereo effettua un volo con un determinato codice (id) e volo (id)
+    
+    
+    [V.VoloDifferenteAereo.Aereo]
+    
+    Sia v:Volo e a:Aereo tali che (v,a):aer_vol 
+    
+    sia v1 = v:Volo e v2 = v:Volo e ae = a:Aereo
+      
+    Quindi possiamo assumere che non esistano due voli diffenti con lo stesso aereo, quindi analogamente: 
+    
+    	non può esistere 'link' (v,a):aer_vol sia per v1 che v2 con lo stesso ae    
+	
+	

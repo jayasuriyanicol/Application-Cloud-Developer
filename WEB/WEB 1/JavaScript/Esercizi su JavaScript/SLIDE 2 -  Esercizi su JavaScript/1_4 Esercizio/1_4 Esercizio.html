@@ -1,0 +1,54 @@
+<!--Esercizio 1.5 Creare un progetto Javascript che memorizza all’interno di una variabile i giorni della settimana separati dalla virgola
+ e stampare a video tramite console.log() il risultato. Scrivere il codice in modo che, facendo la modifica ad un solo valore, i giorni
+della settimana vengono visualizzati uno sotto l’altro senza la virgola. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Esercizio 1.5 - HTML con utilizzo di JavaScript</title>
+</head>
+<body>
+
+  <h1>ESERCIZIO 1_4</h1>
+
+  <h3>CONSEGNA:</h3>
+
+  <p>Esercizio 1.4 Creare un progetto Javascript che dichiara una variabile di tipo stringa con valore ‘50’, stampare
+  a video il valore ed il tipo. Verificare tramite una funzione globale se il valore è di tipo numerico oppure no e stampare a video l’esito 
+  (true o false). Successivamente convertire la stringa in un numero e stampare a video il valore con il tipo (che ora è cambiato).</p>
+
+<h2><br>SVOLGIMENTO DELL'ESERCIZIO:</h2>
+
+<!--Sezione output del valore iniziale, del controllo numerico e del valore convertito-->
+<h3>Valori e tipi delle variabili:<br></h3>
+
+<p id="valoreIniziale"></p>
+<p id="controlloNumerico"></p>
+<p id="valoreConvertito"></p>
+
+<!--Script JavaScript per svolgere l’esercizio-->
+<script>
+
+  // Dichiariamo una variabile stringa con valore '50'
+  let valore = "50";
+
+  // Mostriamo valore e tipo iniziale
+  document.getElementById("valoreIniziale").textContent = "Valore iniziale: " + valore + " - Tipo: " + typeof valore;
+
+  // Verifichiamo se è numerico tramite la funzione isNaN (restituisce true se NON è un numero)
+  let èValoreNumerico = !isNaN(valore);
+
+  // Stampiamo il risultato del controllo numerico
+  document.getElementById("controlloNumerico").textContent = "È un valore numerico? " +  èValoreNumerico;
+
+  // Convertiamo la stringa in numero
+  let valoreConvertito = Number(valore);
+
+  // Stampiamo valore convertito e tipo
+  document.getElementById("valoreConvertito").textContent = "Valore convertito: " + valoreConvertito + " - Tipo: " + typeof valoreConvertito;
+</script>
+
+</body>
+</html>
+
+

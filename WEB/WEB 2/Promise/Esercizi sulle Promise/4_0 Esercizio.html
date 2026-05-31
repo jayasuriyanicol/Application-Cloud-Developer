@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio numero 4 - Promise</title>
+</head>
+<body>
+
+    <!--
+    Esercizio Promise 4
+    
+    Il frammento di codice seguente è sincrono. Chiama  callback1 una volta e callback2 tre volte. È necessario modificare questo codice per renderlo asincrono con le seguenti regole:
+    
+    1. "callback1" deve essere chiamato per primo, una sola volta, dopo 2 secondi.
+
+    2. "callback2" deve essere chiamato per secondo, tre volte, con un intervallo di 1 secondo.
+    
+    Modificare il codice in modo che la sequenza sia:
+
+
+     • Sono nella callback1 (dopo 2 secondi)
+     • Sono nella callback2 (dopo 1 secondo)
+     • Sono nella callback2 (dopo 1 secondo)
+     • Sono nella callback2 (dopo 1 secondo)
+    
+    Suggerimenti esercizio 4
+        
+    • Fare in modo che nella funzione il codice venga eseguito dopo N millisecondi;
+    • Fatto questo ci rendiamo conto che il nostro engine esegue ora chiamate asincrone, e… domanda… come posso gestire le chiamate asincrone in un modo sincrono? 
+    
+    Altro suggerimento… far tornare dalle funzioni una Promise().
+    
+    • Ora nella funzione job dobbiamo gestire le chiamate alla funzione a «cascata» della sequenza richiesta dall’esercizio
+   
+    -->
+
+
+ <script>
+
+  function callback1() {
+    console.log("Sono nella callback1");
+    }
+
+  function callback2() {
+   console.log("Sono nella callback2");
+   }
+
+  function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+   }
+ 
+    
+  // La funzione job esegue una sequenza asincrona in cui, dopo 2 secondi, viene chiamata la callback1, seguita da tre chiamate alla callback2, ciascuna con un intervallo di 1 secondo l'una dall'altra.
+  function job() {
+  delay(2000) 
+    .then(() => {
+      callback1()
+      return delay(1000);
+    })
+    .then(() => {
+      callback2(); 
+      return delay(1000);
+    })
+    .then(() => {
+      callback2(); 
+      return delay(1000);
+    })
+    .then(() => {
+      callback2(); 
+    });  
+  }
+
+
+
+
+ </script>
+    
+</body>
+</html>

@@ -1,0 +1,200 @@
+ANSWERS TO THE LAST REVIEW TEST - BEFORE THE FINAL EXAM
+
+
+
+Answers of QUESTION PART: 
+
+1. What is computational thinking, and how does it differ from computer science and programming?
+
+Computational thinking (CT) is defined as the process of formulating problems and expressing solutions in forms that can be effectively carried out by a computer. It
+emphasizes abstraction, decomposition, algorithmic thinking, pattern recognition, modelling, and evaluation. CT is positioned as distinct from, though related to, both programming and
+computer science, with applicability across disciplines. The main difference from computer science and programming are:  
+
+ * Computational Thinking: Is the resolution of a problem through problem solving, and it not only use in CT, but is connected also with Mathematic, but also other fields.
+ * Computer Science: The subject that studies algorithms, data structures, hardware, software systems, theory of computation, etc. It includes but is broader than computational thinking.
+ * Programming:  Is the practical activity of writing code to implement algorithms and solve problems using computer languages. Programming is often used to express solutions developed via     
+computational thinking 
+
+
+2. Why is computational thinking considered relevant beyond the field of computer science? Provide examples of other disciplines where it applies.
+
+Computational Thinking is considered revelant in CS field, because  it's a huge problem-solving skill. It teaches to us to think critically and after that to break down some solution even with complex tasks. The CT is also used in some fields:
+
+1. First of all is used on Mathematics area, to solve and break down complex equations such as decomposition and solve it step by step.
+
+2. Secondly we have the Biology, Science and Medicine fields, for example to analyze and modelling the grow and spread of disease. So algorithm thinking and recostrution 
+
+
+
+3. What are the core components of computational thinking as identified by Karl Beecher, and how do they interact in problem-solving?
+
+The core components of CT by in according to Karl Beecher are: 
+1. DECOMPOSITION 
+2. PATTERN RECOGNITION
+3. ABSTRACTION
+4. ALGORTITHMS 
+
+All these four components are linked ot help to analyse, think and break down a solution logically.
+
+
+4. What is the difference between deductive and inductive reasoning? Provide examples of each in a computational context.
+
+The difference between deductive and inductive reasoning are:
+
+1. The DEDUCTIVE REASONING it always start with a general rule that is applied to a specific case that give a certain solution
+2. The INDUCTIVE REASONING it start with a specific observation of a case and terminate with a general solution.
+
+Some example linked with the computational context:
+
+A. In the deductive form all algrotithms organize data from the smallest to the largest rule, and finally give a sorted list of the cases that is SPECIFIC. (specific case).
+B. With the inductive form, for example after we test several programs that crash for a specific test, for example a negative input, we can assume and conclude that all the negative input causes error  (general rule from specific cases).
+
+
+
+5.How does Boolean logic support computational decision-making? Explain the function of each major logical operator.
+
+  The Boolean logic helps computers make decisions by using simple true or false values. It tells the computer what to do based on conditions. The main logical operators are:
+* AND – True only if *both* conditions are true (e.g., “I’ll go out for a picnic if it’s sunny AND warm”).
+* OR – True if *at least one* condition is true (e.g., “I’ll go out for a picnic if it’s sunny OR warm”).
+* NOT – Flips the condition (e.g., NOT raining means it’s not raining, so I might go out for a picnic).
+
+
+
+
+
+6. What is symbolic logic, and why is it used instead of natural language in computational contexts?
+
+  The Symbolic logic is a way of representing ideas and reasoning using symbols and rules instead of everyday language. It's used in computing because it is clear, precise, unlike natural    language, which can be vague or have multiple meanings.
+
+1. We can give a ecxample for eexmaple, instead of tell, “If it’s raining and I don’t have an umbrella, I’ll stay inside." 
+
+2. We can write in logial operators "If Raining AND NOT Umbrella → Stay Inside"
+
+This makes it easier for computers to understand and follow exact instructions.
+
+
+
+
+7. What are the essential characteristics of an algorithm? How do sequence,selection, and iteration contribute to algorithmic structure?
+
+The essential characteristics of an algorithm is a clear, step-by-step set of instructions for solving a problem or for completing a task. 
+The essential characteristics are many:
+
+* Clear – each step is easy to understand
+* Fit – it ends after a number of steps
+* Effective – each step can actually be done
+* Input and Output – it takes input and produces output
+
+Key structural parts that work together to make algorithm good:
+
+
+* **Sequence** – steps are done in order, one after another
+* **Selection** – choices are made based on conditions (e.g., “if… then…”)
+* **Iteration** – steps are repeated (loops), like “repeat until done”
+
+
+8. Explain the concept of program state. Why is managing state crucial in algorithm execution?
+   
+   The Program State is the the current condition or a values of all variables and data during the execution moment. Managing state is crucial because all algoritms depends on change and track of the values with the scope of work and make correct decision.
+
+
+
+9. What is decomposition, and why is it a valuable problem-solving strategy? Provide an example of a decomposed problem.
+   
+   The Decomposition is simply break a big problem into smaller part, so have some pieces to understand. Mostly, it help to handle the problem in a easy way. For example we want to build up a Website, but first of all we have to make a project and break down it in small tasks.
+
+
+
+10. What role does pattern recognition play in computational thinking? How does it assist with generalization?
+    
+    The Pattern recognition, play the role of help to identify similarities in a task or some data. This give a big help to make easier to generalize a solution, so applying one method to  many situations, saving time and effort.	
+
+
+
+11. Define abstraction. How is it used to manage complexity in both problem-solving and programming?
+    
+    The meaning of Abstraction mean focus on the important details and ignoring the rest. In programming, it hides complex code behind simpler interfaces (like using a function without knowing its internal steps). This keeps solutions simpler and easier to understand
+
+
+
+
+12. What is modelling in the context of computational thinking? Distinguish between static and dynamic models.
+
+    The Modelling in CT, is to create a simplyfied version of a real system due to solve or studying a task. 
+    The difference between static and dynamic models are:
+
+    *Static models: is not chanching over the time, for example scheme or diagrams
+    *Dynamic models: it have the scope of simulating the real world, for example the weather condition
+
+
+13. What strategies can be used to anticipate, detect, and fix errors in a computational solution?
+
+    
+    
+    *Anticipate: Used for planning, code reviews, and test cases.
+    *Detect: Run the program and use debugging tools to find bugs.
+    *Fix: Analyze error messages, trace code logic, and correct mistakes step by step.
+
+
+14. What is the role of testing in program development? Explain the difference between verification and validation.
+    
+    The role of testing in program development in validation and veridication are (asking version):
+    
+    *Verification asks: Did we build the program right? (meets specs)
+    *Validation asks: Did we build the right program?(solves the real problem)
+
+15. How can a computational solution be evaluated in terms of correctness, efficiency, usability, and elegance?
+
+    The Computational solution can be evaluated in this way (asking version):
+    
+    *Correctness: Does it give the right result?
+    *Efficiency:** Does it run quickly and use resources well?
+    *Usability:** Is it easy for people to use?
+    *Elegance:** Is it simple, clean, and well-designed?
+
+
+
+16. What are some typical trade-offs encountered when designing a computational solution?
+    
+    The typical trade - offs encountered when we design a computational solution are:
+  
+    *Speed vs. accuracy
+    *Ease of use vs. power
+    *Memory use vs. performance
+    *Development time vs. program complexity
+
+
+17. How do variables and data types function in Python, and how are they aligned with the concepts of state and assignment?
+    
+    The variables and the data types function in Python, have the scope of:
+    
+    -> variables store data, and data types define what kind of data, for example text or Numbers
+    -> Assigning a value to a variable changes the **state** of the program.
+       Example: `x = 5` sets a value and updates the program's state.
+
+ 
+18. What are the differences between mutable and immutable data types in Python, and why do they matter in programming?
+    
+    The differences between that matter in programming of mutable and immutable data types in Python are:
+   
+    -> Mutable types: (like lists, dictionaries) can change after creation.
+    -> Immutable types: (like strings, tuples) cannot.
+    ATTENTION ! -> This matters for memory use, function behavior, and debugging.
+
+
+19. How do modules and packages help in organizing code? What are the benefits of separating concerns in program structure?
+
+    The modules and packeges help organize code are:
+     -> Modules (individual files) 
+     -> packages (folders of modules) help keep code organized and reusable. 
+    About the Separating concerns in program structure: 
+     -> means dividing tasks example: the user interface vs. data processing so each part is easier to manage and update.
+
+20. What is object-oriented programming, and how do abstractions like classes and instances support pattern reuse in software design?
+  
+    The Object-oriented programming (OOP) is a way to structure code using classes and instances. These abstractions make it easier to reuse patterns, 
+    like creating many similar but separate objects for example multiple user profiles.
+
+
+
+

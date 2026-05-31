@@ -1,0 +1,78 @@
+<!-- 28. Lista Utenti da API
+Richiesto: ottenere elenco utenti remoto e mostrarlo come lista.
+Usare: fetch, cicli, creazione nodi DOM.
+Risultato: lista di nomi completa ordinata. -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Utenti da API</title>
+</head>
+<body>
+
+
+    <div id="risultato"></div>
+
+    <script>
+
+        let risultato = document.getElementById("risultato");
+
+
+        const fetchDati = async () =>{
+
+            try{
+
+                const ris = await fetch ("https://jsonplaceholder.typicode.com/users");
+
+                if(!ris.ok){
+
+                    throw new Error ("ATTENZIONE ! Il fetch dei dati non è andato come previsto !. CODICE ERRORE: " + ris.status);
+                }
+
+                else{
+
+                    const utenti = await ris.json();
+
+                    let listaUtenti = [];
+                    
+                    
+                    for (let i=0 ; i < utenti.length; i++){
+
+                        listaUtenti[i] = `NOME: <b>${utenti[i].name}</b> | EMAIL : <b>${utenti[i].email}</b>`;
+        
+                };
+
+                //Ordiniamo la lista dei utenti in maniera alfabetica
+                listaUtenti.sort();
+
+
+                for(let u of listaUtenti){
+
+                    let riga = document.createElement("li");
+                    riga.innerHTML = u;
+
+                    risultato.append(riga);
+
+            }
+          }  
+       } catch(error){
+
+        risultato.innerHTML = error;
+
+       }
+
+
+        }
+
+
+        fetchDati();
+
+    </script>
+    
+</body>
+</html>

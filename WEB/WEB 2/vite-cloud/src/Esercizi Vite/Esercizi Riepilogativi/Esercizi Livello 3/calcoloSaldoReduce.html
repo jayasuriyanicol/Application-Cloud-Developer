@@ -1,0 +1,64 @@
+<!--
+
+
+23. Calcolo Saldo con Reduce
+Richiesto: calcolare un saldo da entrate e uscite.
+Usare: reduce su array di movimenti.
+Risultato: valore totale come risultato finale.
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolo Saldo con Reduce</title>
+</head>
+
+    <p>Benvenuto <b>Giacomo Mortadellini</b>,<br><br>Riepilogo mese di <b>DICEMBRE 2025</b> <br><br></p>
+
+    <b>Entrate & Uscite</b>
+    <div id="risultato"></div>
+
+    <br>Lista Movimenti dal <b>01/12/2025 al 31/12/2025 <br></b>
+
+    <br>
+
+    <div id="movimentiConto"></div>
+
+<body>
+
+    <script>
+
+        let saldo = document.getElementById ("risultato");
+        let movimenti = document.getElementById("movimentiConto");
+        const movimentiConto =[
+
+          1033.85, 121.00, -600.00, 15.20, -123.42,
+          131.23, -20.31, -53.61, 10.00, 11.21, -99.99,
+          1033.85, 812.20, -21.44, 131.32, -133.33
+
+        ] ;
+        
+        saldo.innerHTML =  movimentiConto.reduce((entr,usc) =>{
+
+            return entr + usc;
+           },0);
+
+
+        let movimento = movimentiConto.map(m =>`${m}<br / >` );
+
+        let stampa = "";
+
+        for(m of movimento){
+            stampa += m
+        };
+        
+        movimenti.innerHTML = stampa;
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+    "JYSNP...": {
+        "name": "Nicol",
+        "surname": "Jayasuriya",
+        "age": 20
+    },
+    "MRSWE...": {
+        "name": "Mario",
+        "surname": "Rossi",
+        "age": 29
+    },
+    "LBFRD...": {
+        "name": "Luigi",
+        "surname": "Bianchi",
+        "age": 32
+    },
+    "features": [
+        "LOGIN",
+        "REGISTRATI"
+    ]
+}

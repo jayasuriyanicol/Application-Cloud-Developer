@@ -1,0 +1,55 @@
+SPECIFICA DEI TIPI DI DATO - Progetto TravelPlan
+
+
+SPECIFICA DEI DATI:
+
+
+1. Email : 
+
+    stringa secondo standard che segue la seguente sintassi REGEX:
+    
+         ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$
+
+
+2. DataOra :
+
+    stringa che utilizza la sintassi nel formato GG/MM/AAAA OO:MM:SS  
+    ovvero -> G = giorno, M = mese, A = anno, O = ora, M = minuto, S = secondo
+
+
+3. Stato:
+
+    valore enumerico che comprende lo stato della partecipazione in attività di un utente che partecipa ad un viaggio su una determinata attività.
+
+    Con i seguenti valori ENUMERICI -> Stato = {iscritto non partecipante, iscritto partecipante}
+
+
+4. Durata  :
+
+    stringa alfanumerica che indica la durata in maniera stimata di un'attività in minuti con la sintassi di:
+
+    Durata : numero minuti (esempio: Durata : 175 min)
+
+    dove numero è il numero di minuti stimato dell'attività.
+
+
+5. Indirizzo
+
+    stringa alfanumerica che segue il formato standard d'identificazione univoca la posizione secondo la sintassi:
+
+    Via NumeroCivico, CAP Città (SiglaProvincia), Nazione
+
+    dove:
+
+    Via: solo lettere, numeri e caratteri speciali ammessi (', ., -, spazio)
+
+    NumeroCivico: numerico o alfanumerico (es. “12A”)
+
+    CAP: 5 cifre numeriche (es. 00184)
+
+    Città: solo lettere e spazi (iniziale maiuscola)
+
+    SiglaProvincia: due lettere maiuscole opzionali racchiuse tra parentesi
+
+    Nazione: nome completo della nazione (iniziale maiuscola)
+

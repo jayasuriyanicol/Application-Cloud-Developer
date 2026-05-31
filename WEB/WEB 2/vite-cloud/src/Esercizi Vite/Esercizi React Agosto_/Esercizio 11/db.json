@@ -1,0 +1,14 @@
+{
+  "task": [
+    {
+      "id": "1",
+      "text": "Imparare le basi di React",
+      "completed": true
+    },
+    {
+      "id": "2",
+      "text": "Fare questo esercizio",
+      "completed": true
+    }
+  ]
+}

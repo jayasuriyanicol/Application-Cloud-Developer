@@ -1,0 +1,53 @@
+             RAFFINAMENTO REQUISITI - Progetto Out !
+
+
+
+
+RAFFINAMENTO REQUISITI
+
+
+1. REQUISITI sulle Sedi:
+
+    1.1 Ogni sede è provvista di sale distinte , nella quale si può effettuare uno spettacolo
+    1.2 nome: stringa
+    1.3 indirizzo: indirizzo
+
+2. REQUISITI sulle Sale:
+
+    2.1 Ogni sala distinta è appartenenete ad una sede, nella quale si può effettuare uno spettacolo
+    2.2 posti: int>=0
+
+3. REQUISITI sui Posti:
+
+    3.1 Ogni posto p associato ad una sala distinta
+    3.2 numerofila: stringa
+    3.3 colonna: stringa
+
+4. REQUISITI sugli Spettacoli:
+    4.1 Uno o più di uno spettacolo viene tenuto nella stessa sala o in più sale per più volte nella stessa sede
+    4.2 titolo: stringa
+    4.3 tipologia = Tipologia ={ concerto, rappresentazione teatrale, film}
+    4.4 genere: stringa
+    4.5 è di interesse conoscere gli artisti che effettuano la performance 
+    4.6 conoscere oltre le date,gli orari e le sedi con la sala in cui viene rappresentato
+    4.7. si deve anche modellare la possibilità di avere degli 'SPETTACOLI ITINERANTI'
+
+5. REQUISITI sugli ARTISTI:
+    5.1 
+
+
+6. REQUISITI sugli UTENTI:
+   6.1 nome : stringa
+   6.2 cognome : stringa
+   6.3 cf: CodiceFiscale {id}
+
+7. REQUISITI sulle PRENOTAZIONI:
+
+    7.1 una prenotazione deve essere associata ad un dato spettacolo
+    7.2 numeroPosti : int>=0 
+        7.2.1 i posti non sono liberi, quindi il sistema deve assegnarli durante la prenotazione
+         7.2.1.1 i posti prima di essere assegnati vanno verificati, ovvero se ci sono posti disponibili a sufficienza
+
+    
+   
+   

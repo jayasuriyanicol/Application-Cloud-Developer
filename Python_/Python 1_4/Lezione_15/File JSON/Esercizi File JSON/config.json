@@ -1,0 +1,18 @@
+{
+    "JYSNP...": {
+        "name": "Nicol",
+        "surname": "Jayasuriya",
+        "age": 20
+    },
+    "CRCOA...": {
+        "name": "Cristiano",
+        "surname": "Coccia",
+        "age": 25
+    },
+    "FAIPR...": {
+        "name": "Filippo",
+        "surname": "Rossi",
+        "age": 53
+    },
+    "features": "0.0.0 Grapich Feature"
+}

@@ -1,0 +1,3 @@
+openssl genrsa -out FAprivkey.pem -3 2048
+openssl prime -generate -bits 100
+openssl rsa -in FAprivkey.pem -text -noout 

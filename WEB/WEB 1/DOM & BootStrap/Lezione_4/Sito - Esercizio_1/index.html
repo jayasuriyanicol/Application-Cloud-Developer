@@ -1,0 +1,114 @@
+<!--Partiamo con il sito che ci richiede la CONSEGNA-->
+
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Modulo - Esercizio 1</title>
+
+
+   <!--Andiamo con l'inserimento delo SCRIPT tramite DOM con qualche funzionalità di JAVASCRIPT, che ci chiede di inserire i dati senza l'uso di REQUIRED, ma con l'utilizzo di:
+   
+   1.  "TRIM" -> per far si che non ci siano dei campi vuoti all'interno dei nostri campi
+   2.  "ALERT"-> in modo che ci dia un messaggio di allerta che non è basso come con REQUIRED, ma ben si come finestra con JAVASCRIPT
+   
+   -->
+    <script>
+        function verificaForm() {
+            var nome = document.getElementById("nome").value.trim();
+            var cognome = document.getElementById("cognome").value.trim();
+            var matricola = document.getElementById("matricola").value.trim();
+            var regione = document.getElementById("regione").value;
+            var email = document.getElementById("email").value.trim();
+            var telefono = document.getElementById("telefono").value.trim();
+
+            if (cognome === "") {
+                alert("ATTENZIONE ! Inserisci il campo COGNOME !");
+                return false;
+            }
+
+            if (nome === "") {
+                alert("ATTENZIONE ! Inserisci il campo NOME !");
+                return false;
+            }
+
+            if (matricola === "") {
+                alert("ATTENZIONE ! La MATRICOLA deve essere un NUMERO !");
+                return false;
+            }
+
+            if (regione === "") {
+                alert("ATTENZIONE ! seleziona una REGIONE !");
+                return false;
+            }
+
+            if (email === "" && telefono === "") {
+                alert("ATTENZIONE ! Inserire una EMAIL o un TELEFONO !");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <!--Contenuto del SITO, dove è presente il BENVENUTO e il campo form per l'inserimento dei DATI che sono tutti allineati per dare una visione più pulita della pagina-->
+
+    <h1 style="text-align: center;">Benvenuto!</h1>
+    <p style="text-align: center;">Tramite questo sito andiamo con l'implementazione di <b>DOM</b> con <b>JAVASCRIPT</b>.<br><br><br>Prego, per continuare compila il form:</p>
+
+
+    <br><br><br><br><br>
+    <div style ="text-align: center";>
+    
+        <form style="align-self:center;" onsubmit="return verificaForm()",align ="center">
+        <label for="cognome">Cognome:</label>
+        <input type="text" id="cognome" name="cognome" maxlength="40"><br><br>
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" maxlength="30"><br><br>
+
+        <label for="matricola">Matricola:</label>
+        <input type="number" id="matricola" name="matricola" maxlength="12"><br><br>
+
+        <label for="regione">Regione di residenza:</label>
+        <select id="regione" name="regione">
+            <option value="">- Seleziona Regione -</option>
+            <option value="Piemonte">Piemonte</option>
+            <option value="Valle d'Aosta">Valle d'Aosta</option>
+            <option value="Lombardia">Lombardia</option>
+            <option value="Trentino-Alto Adige">Trentino-Alto Adige</option>
+            <option value="Veneto">Veneto</option>
+            <option value="Friuli Venezia Giulia">Friuli Venezia Giulia</option>
+            <option value="Liguria">Liguria</option>
+            <option value="Emilia-Romagna">Emilia-Romagna</option>
+            <option value="Toscana">Toscana</option>
+            <option value="Umbria">Umbria</option>
+            <option value="Marche">Marche</option>
+            <option value="Lazio">Lazio</option>
+            <option value="Abruzzo">Abruzzo</option>
+            <option value="Molise">Molise</option>
+            <option value="Campania">Campania</option>
+            <option value="Puglia">Puglia</option>
+            <option value="Basilicata">Basilicata</option>
+            <option value="Calabria">Calabria</option>
+            <option value="Sicilia">Sicilia</option>
+            <option value="Sardegna">Sardegna</option>
+        </select><br><br>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" maxlength="30"><br><br>
+
+        <label for="telefono">Telefono:</label>
+        <input type="text" id="telefono" name="telefono" maxlength="15"><br><br>
+
+        <label for="richieste">Richieste particolari:</label><br>
+        <textarea id="richieste" name="richieste" rows="12" cols="60"></textarea><br><br>
+
+        <input type="submit" value="Invio">
+        <input type="reset" value="Cancella campi">
+    </form>
+</div>
+</body>
+</html>

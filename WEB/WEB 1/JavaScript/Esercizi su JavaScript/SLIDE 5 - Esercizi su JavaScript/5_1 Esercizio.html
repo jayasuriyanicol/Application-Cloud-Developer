@@ -1,0 +1,34 @@
+<!--Esercizio 5.1: Scrivi una funzione di uguaglianza che prenda in input due argomenti e restituisca TRUE se i due argomenti sono IDENTICI, altrimenti FALSE-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio numero 5.1</title>
+</head>
+<body>
+
+<!-- Script JavaScript per verificare se due valori inseriti sono identici -->
+<script>
+
+    //Creiamo una funzione che prende due argomenti e restituisce TRUE se sono identici, altrimenti FALSE
+    function verificaUguaglianza(primoArgomento, secondoArgomento){ 
+        return primoArgomento == secondoArgomento; //Controllo con "==" (uguaglianza non stretta)
+    }
+
+    //Chiediamo all'utente di inserire i due valori da confrontare tramite prompt
+    let primoArgomento = prompt("Inserisci il primo argomento: ");
+    let secondoArgomento = prompt("Inserisci il secondo argomento: ");
+
+    //Controlliamo se i due argomenti sono uguali, e mostriamo un messaggio corrispondente
+    if (verificaUguaglianza(primoArgomento, secondoArgomento)){ 
+        alert("I due argomenti sono IDENTICI !");
+    } else { 
+        alert("I due argomenti sono DIVERSI !");
+    }
+
+</script>
+    
+</body>
+</html>

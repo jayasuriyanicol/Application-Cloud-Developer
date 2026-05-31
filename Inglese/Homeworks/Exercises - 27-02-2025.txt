@@ -1,0 +1,69 @@
+	SUMMARY OF CHARAPTERS
+
+As far as Iam concerned, the charapter talking about the Computational Thinking looking closely to the idea applied in many field, not only to the CS one. Also, it give a focus on Critical Thinking / Algorithms. Firstly giving some history, and after talking about the core idea of CT, giving some solution. It focus mostly in special important details or example, showing how these ideas have evolved and what they mean in practice.  
+
+
+On the other hand, it shifts to Problem Solving and Decomposition examining how these concepts apply in real-world situations and discussing different vision on mathmathical and logic part. It highlights ad repeat the tipologies of algoritms, such as:Sequential,Iteration,ecc.
+
+Finally, this charapters, give a bright and clear idea of CT and Algorithms as problem solving guide to the reader. But also, give a good interaction between the logical and pratical part, help who is reading to keep in mind the core ideas to understand and solve a problem on daily problems.
+
+
+EXERCISE:
+
+**Chapter 3 - Comprehension Questions**
+
+### **Vocabulary Matching Exercise**
+Match the words on the left with their correct definitions on the right:
+
+1. **Decomposition** - B. The process of improving a solution to make it more efficient or effective.
+2. **Heuristic** - C. A problem-solving approach that involves breaking a complex issue into smaller parts.
+3. **Computational Thinking** - E. A systematic way of approaching problems using logical thinking techniques.
+4. **Algorithm** - G. A step-by-step procedure for performing a task or solving a problem.
+5. **Iteration** - F. The process of solving an issue by going through repeated cycles of improvement.
+6. **Generalisation** - I. The process of deriving general principles from specific cases to create broader solutions.
+7. **Problem-Solving** - J. The act of finding solutions to difficult or complex issues.
+8. **Abstraction** - D. The process of simplifying complex information by focusing on relevant details.
+9. **Optimisation** - A. The process of improving a solution to make it more efficient or effective.
+10. **Critical Thinking** - H. The ability to analyze and evaluate ideas to form a reasoned judgment.
+
+### **Comprehension Questions**
+
+#### **Section: Where to Start**
+**True or False**
+
+1. False - Real-world problems are usually simple and straightforward.
+2. False - Problem-solving can be completely systematized without any creativity.
+3. True - A systematic approach can help break down complex problems.
+4. True - George Pólya introduced a widely used problem-solving method.
+5. False - The scientific method and Pólya's approach are unrelated.
+6. True - Understanding the problem is the first step in solving it.
+7. False - It is always best to jump directly into solving a problem without planning.
+8. True - Large problems often consist of smaller, interconnected problems.
+9. False - Problem-solving is never a creative process.
+10. True - Good problem-solvers learn from strategies used by others in the past.
+
+#### **Section: Defining the Problem**
+**True or False**
+
+1. True - A well-defined problem always includes a clear goal.
+2. True - Problem definitions should include specific and measurable goals.
+3. False - Visual representations do not help in understanding problems.
+4. True - A problem statement should define what to do, not how to do it.
+5. False - It is okay to start solving a problem without fully understanding it.
+6. True - A problem definition should be clear enough for someone else to verify.
+7. False - Missing information does not affect problem-solving.
+8. True - Efficient problem-solving requires identifying unknowns.
+9. False - Goals should always be broad and non-specific.
+10. True - Reviewing problem definitions can help refine the solution.
+
+#### **Multiple Choice**
+
+1. **What does a problem definition specify?**
+   - **B) What needs to be done**
+
+2. **Why is a clear goal important in problem-solving?**
+   - **B) It provides direction and focus**
+
+3. **What is a key aspect of defining a problem?**
+   - **C) Identifying what is undesirable in the current state**
+

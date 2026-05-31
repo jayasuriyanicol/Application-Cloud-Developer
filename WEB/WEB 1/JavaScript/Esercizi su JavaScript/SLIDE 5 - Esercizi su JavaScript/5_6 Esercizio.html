@@ -1,0 +1,76 @@
+<!--Esercizio 5.6 Calcolatrice : Scrivere una pagina html con 2 input di tipo number e far scegliere tramite una select il tipo ti operazione ( + - / *) ed un
+bottone calcola che, in base all’opzione scelta chiama una funzione javascript che calcola e visualizza a video il risultato. -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizo 5.6 - Calcolatrice</title>
+</head>
+<body>
+
+    <h1>Calcolatrice</h1><br>
+
+    <p>Questa calcolatrice effettua operazioni di <b>SOMMA, DIFFERENZA, DIVISIONE E MOLTLIPICAZIONE</b></p><br>
+
+  <input type="number" id="num1" placeholder="Numero 1" />
+  <select id="operazione">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+
+  <input type="number" id="num2" placeholder="Numero 2" />
+
+  <button onclick="calcola()">Calcola</button>
+
+  <p>Risultato: <span id="risultato"></span></p>
+
+
+  <!--Dopo aver inserito tutte le label e la select per l'operatore di operazione procediamo con il calcolo con lo script.-->
+  <script>
+    function calcola() {
+
+      //Andiamo a dichiarare i nostri valori n1,n2 come -> FLOAT operatore e output
+      const n1 = parseFloat(document.getElementById('num1').value);
+      const n2 = parseFloat(document.getElementById('num2').value);
+      const op = document.getElementById('operazione').value;
+      const output = document.getElementById('risultato');
+      
+
+      //Nel caso i valori non sono congruii lanciamo "un'eccezzione"
+      if (isNaN(n1) || isNaN(n2)) {
+        output.textContent = 'Inserisci due numeri validi!';
+        return;
+      }
+
+      let result;
+
+
+      //Infine procediamo con il calcolo effettivo, che tramite la condizione IF-ELIF-ELSE va a calcolare l'operazione richiesta fra i due numeri
+      if (op === '+') {
+        result = n1 + n2;
+      } else if (op === '-') {
+        result = n1 - n2;
+      } else if (op === '*') {
+        result = n1 * n2;
+      } else if (op === '/') {
+
+        //Zero division ERROR
+        if (n2 === 0) {
+          output.textContent = 'Errore: divisione per zero!';
+          return;
+        }
+        result = n1 / n2;
+      }
+      
+      //Riportiamo in OUTPUT il risultato oppure relativi messsaggi di errore / eccezzione
+      output.textContent = result;
+    }
+</script>  
+</body>
+</html>

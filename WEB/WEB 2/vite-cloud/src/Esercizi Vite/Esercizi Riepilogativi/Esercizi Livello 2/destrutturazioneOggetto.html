@@ -1,0 +1,61 @@
+<!--
+16. Destrutturazione Oggetto Annidato
+Richiesto: estrarre valori da un oggetto con proprietà interne.
+Usare: destrutturazione oggetto con proprietà annidate.
+Risultato: variabili pronte all’uso contenenti dati estratti.
+
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destrutturazione Oggetto Annidato</title>
+</head>
+
+<body>
+
+
+    <h4>Apri, la console per vedere il <b>La Destrutturazione della Persona in tutti i modi: annidata, non annidata e tutta la Persona</b></h4>
+     <br>
+     <p>Analizza -> Console -> Log</p>
+
+    
+
+    <script>
+        
+
+        const Persona = {
+
+            nome: "Cristiano",
+            cognome: "Foggia",
+            dettagli:{
+
+                eta: 22,
+                citta: "Napoli",
+                lavoro: "Macchinista Treno"
+
+        }
+
+    };
+
+
+    const {dettagli: {citta,lavoro}} = Persona;
+    const {nome} = Persona;
+    const {...individuo} = Persona;
+
+    console.log("All'interno dell'annidamento: ")
+    console.log(citta);
+    console.log(lavoro);
+
+    console.log("Fuori dall'annidamento: ", nome)
+    console.log("Tutta la persona: ", individuo)
+
+
+
+    </script>
+</body>
+</html>

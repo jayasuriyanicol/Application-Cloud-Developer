@@ -1,0 +1,289 @@
+
+<!--Inizio parte HTML e codice SITO - Esercizi Tabelle-->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio Sito Tabelle</title>
+
+
+    <!--Sezione Modellazione in CSS, delle varie scritte e parti, in particolare:
+    
+    1. * -> Definiamo il font delle scritte della descrizione dell'attività, creando un border-box della descrizione.
+    
+    
+    2. .pagina ->  Andiamo a definire la parte centrale del nostro contenuto, dove abbiamo come contenuto uno sfondo bianco:
+    con proporzioni di 1110 px circa quanto l'immagine allegata, margine = 0 e dimensione della box 0x20x40
+    
+
+    3. body -> andiamo a definire il colore del background che è colore verde acqua
+
+    4. .top img -> andiamo a definire l'immagine top con larghezza: 100% e altezza massima di: 120px
+
+    5. nav e nav a -> vado a definire la navigation bar dove inserisco come sfondo grigio con definizione dello stile utilizzato
+    
+    6. .contenitore -> definisco il contenitore "bianco" dove troviamo sia le immagini che le scritte con le sue dimensioni e stili.
+    
+    7. .contenitore-sinistra img -> andiamo a richiamare la parte sinistra con le foto dando una dimensione alle immagini
+
+    8. .contenuto-principale -> Richiamo il contenuto e vado a definire la dimensione
+    
+    9. .sezione-servizi -> vado a definire i servizi erogati dal sito, con le dimensioni e stili adeguati
+
+    10. .sezione-libri -> vado a definire i libri erogati dal sito, con le dimensioni e stili adeguati
+
+    11. .sezione-libri img -> vado a definire la dimensioni dei libri nei vari contenitori
+
+    12. .info-libro -> vado a definire le varie informazioni per ogni libro, con le dimensioni e stili adeguati
+
+    13. .titolo-libro -> vado a definire il titolo di ogni libro, con le dimensioni e stili adeguati
+    
+    14. .disponibilità -> vado a definire la disponibilità del libro, con le dimensioni e stili adeguati
+
+    15. .più-info -> vado a definire i maggiori informazioni di ogni libro, con le dimensioni e stili adeguati
+    
+    -->
+    <style>
+
+
+    
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+
+        .pagina {
+          background-color: white;
+          max-width: 1110px;
+          margin: auto;
+          padding: 4 20px 40px;
+           
+        }
+           
+
+        body {
+            background-color: #ccffd9;
+        }
+
+       
+        .top img {
+            width: 100%;
+            max-height: 120px;
+
+        }
+
+        nav {
+            background-color: #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .contenitore{
+            display: flex;
+            max-width: 1100px;
+            margin: 20px auto;
+            gap: 20px;
+        }
+
+        .contenitore-sinistra {
+            width: 280px;
+            padding: 10px;
+        }
+
+        .contenitore-sinistra img {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+    
+
+        .contenuto-principale {
+            flex: 1;
+        }
+
+        .sezione-servizi {
+            background-color: white;
+            padding: 15px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .sezione-libri{
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .sezione-libri img {
+            width: 150px;
+            height: auto;
+        }
+
+        .info-libro {
+            flex: 1;
+        }
+
+        .titolo-libro {
+            font-weight: bold;
+            color: #000;
+            
+        }
+
+        .disponibilità {
+            color: green;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .più-info {
+            color: black;
+            font-style: italic;
+            margin-top: 5px;
+        }
+    </style>
+
+
+
+<!--Struttura scheletro del sito in HTML-->
+
+</head>
+    <body>
+
+    <!--Pagina e Navigation Bar-->
+        <div class="pagina">
+    
+            <div class="top img">
+                <img src="top.jpg" alt="Top Image">
+            </div>
+    
+            <nav>
+                | <a href="#">HOME</a> |
+                <a href="#">LA NOSTRA AZIENDA</a> |
+                <a href="#">I PRODOTTI</a> |
+                <a href="#">I SERVIZI</a> |
+                <a href="#">CARRELLO</a> |
+                <a href="#">CONTATTI</a> |
+            </nav>
+    
+            <div class="contenitore">
+                
+                <div class="contenitore-sinistra">
+                    <img src="registrati-ora.jpg" alt="Registrati ora">
+        
+                    
+                    <img src="login.jpg">
+                    
+        
+
+                        <img src="catalogo.jpg">
+            
+                </div>
+        
+                <div class="contenuto-principale">
+                    <div class="sezione-servizi">
+                        <strong>L’attività della Edit Service offre i seguenti servizi :</strong><br><br>
+                        Visita periodica al vostro studio consegnandovi direttamente in conto visione le ultime novità editoriali senza obbligo di acquisto. La possibilità di richiedere sempre in visione tutti i libri che volete o che troverete elencati nel sito. Ricevere le Banche Dati di vostra utilità in demo. Ricevere periodicamente le news via E-mail e il catalogo di tutte le novità facendone semplicemente richiesta.
+                    </div>
+        
+                    <!-- Sezione Libri -->
+                    <div class="sezione-libri">
+                        <img src="libro1.jpg" alt="Le frodi carosello">
+                        <div class="info-libro">
+                            <div class="titolo-libro" style="background-color: #f2f2f2; padding: 5px;">Le frodi carosello</div>
+                    
+                            <div style="background-color: #f2f2f2; padding: 5px;margin-top: 5px;">
+                                <strong>Categoria :</strong> Fiscale
+                            </div>
+                            <div style="background-color: #f2f2f2; padding: 5px; margin-top: 5px;">
+                                <strong>Editore :</strong> MAGGIOLI
+                            </div>
+                            <div style="background-color: #f2f2f2; padding: 5px;margin-top: 5px;">
+                                <strong>Codice :</strong> 9788891619204
+                            </div>
+                            <div style="background-color: #f2f2f2; padding: 5px;margin-top: 5px;">
+                                <strong>Prezzo :</strong> 22,00
+                            </div>
+                    
+                            <div class="disponibilità" style="background-color: #f2f2f2; padding: 5px;">
+                                *** Articolo Disponibile ***
+                            </div>
+                    
+                            <div class="più-info" style="background-color: #f2f2f2; text-align: right; padding: 5px;">
+                                <strong>..... maggiori informazioni</strong>
+                            </div>
+                        </div>
+                    </div>
+                    
+        
+                    <div class="sezione-libri">
+                        <img src="libro2.jpg" alt="La cartella di pagamento">
+                        <div class="info-libro">
+                            <div class="titolo-libro" style="background-color: #f2f2f2; padding: 5px;">La cartella di pagamento</div>
+                    
+                            <div style="background-color: #f2f2f2; padding: 5px;margin-top: 5px;">
+                                <strong>Categoria :</strong> Fiscale
+                            </div>
+                            <div style="background-color: #f2f2f2; padding: 5px; margin-top: 5px;">
+                                <strong>Editore :</strong> MAGGIOLI
+                            </div>
+                            <div style="background-color: #f2f2f2; padding: 5px;margin-top: 5px;">
+                                <strong>Codice :</strong> 9788891621115
+                            </div>
+                            <div style="background-color: #f2f2f2; padding: 5px;margin-top: 5px;">
+                                <strong>Prezzo :</strong> 54,00
+                            </div>
+                    
+                            <div class="disponibilità" style="background-color: #f2f2f2; padding: 5px;">
+                                *** Articolo Disponibile ***
+                            </div>
+                    
+                            <div class="più-info" style="background-color: #f2f2f2; text-align: right; padding: 5px;">
+                                <strong>..... maggiori informazioni</strong>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="sezione-libri">
+                        <img src="libro2.jpg" alt="Azienda agricola e fisco">
+                        <div class="info-libro">
+                            <div class="titolo-libro" style="background-color: #f2f2f2; padding: 5px;">Azienda agricola e fisco</div>
+                    
+                            <div style="background-color: #f2f2f2; padding: 5px;margin-top: 5px;">
+                                <strong>Categoria :</strong> Fiscale
+                            </div>
+                            <div style="background-color: #f2f2f2; padding: 5px; margin-top: 5px;">
+                                <strong>Editore :</strong> MAGGIOLI
+                            </div>
+                            <div style="background-color: #f2f2f2; padding: 5px;margin-top: 5px;">
+                                <strong>Codice :</strong> 9788891619815
+                            </div>
+                            <div style="background-color: #f2f2f2; padding: 5px;margin-top: 5px;">
+                                <strong>Prezzo :</strong> 42,00
+                            </div>
+                    
+                            <div class="disponibilità" style="background-color: #f2f2f2; padding: 5px;">
+                                *** Articolo Disponibile ***
+                            </div>
+                    
+                            <div class="più-info" style="background-color: #f2f2f2; text-align: right; padding: 5px;">
+                                <strong>..... maggiori informazioni</strong>
+                            </div>
+                        </div>
+                    </div>
+    </body>
+</html>

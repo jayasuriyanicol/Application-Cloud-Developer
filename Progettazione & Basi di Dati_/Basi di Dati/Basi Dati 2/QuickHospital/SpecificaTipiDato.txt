@@ -1,0 +1,58 @@
+SPECIFICA DEI TIPI DI DATO - Progetto TravelPlan
+
+
+SPECIFICA DEI DATI:
+
+
+1. Email : 
+
+    stringa secondo standard che segue la seguente sintassi REGEX:
+    
+         ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$
+
+
+2. DataOra :
+
+    stringa che utilizza la sintassi nel formato GG/MM/AAAA OO:MM:SS  
+    ovvero -> G = giorno, M = mese, A = anno, O = ora, M = minuto, S = secondo
+
+
+3. Numero:
+
+    stringa secondo standard che ha valori numerici, che segue il formato di:
+
+    '+ prefisso ' 'numeroCelluare'
+
+        prefisso: formato dopo il '+' da 2 o 4 cifre massimo (+0039 oppure +39)
+        numeroCelluare: formato da 7 cifre per i numeri fissi e per i numeri telefonici 10 cifre
+
+4. dataNascita  :
+
+    stringa secondo standard che indica la dataNascita di una determinato individuo, con la seguente sintassi:
+
+        GG/MM/AAAA
+
+        -> G = giorno, M = mese, A = anno,
+        
+
+
+5. Indirizzo
+
+    stringa alfanumerica che segue il formato standard d'identificazione univoca la posizione secondo la sintassi:
+
+    Via NumeroCivico, CAP Città (SiglaProvincia), Nazione
+
+    dove:
+
+    Via: solo lettere, numeri e caratteri speciali ammessi (', ., -, spazio)
+
+    NumeroCivico: numerico o alfanumerico (es. “12A”)
+
+    CAP: 5 cifre numeriche (es. 00184)
+
+    Città: solo lettere e spazi (iniziale maiuscola)
+
+    SiglaProvincia: due lettere maiuscole opzionali racchiuse tra parentesi
+
+    Nazione: nome completo della nazione (iniziale maiuscola)
+

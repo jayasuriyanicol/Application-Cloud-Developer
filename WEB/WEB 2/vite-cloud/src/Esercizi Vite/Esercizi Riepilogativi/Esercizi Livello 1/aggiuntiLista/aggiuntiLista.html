@@ -1,0 +1,57 @@
+<!--
+
+9. Aggiunta Elementi Lista
+Richiesto: campo di testo + pulsante; ad ogni invio aggiungere una voce alla lista.
+Usare: createElement, append; input text per contenuto.
+Risultato: lista che cresce dinamicamente
+
+-->
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Riepilogo Spesa</title>
+</head>
+<body>
+
+    <h3>La mia Lista della Spesa</h3>
+    
+    <input type="text" placeholder="Scrivi la tua spesa">
+    <button id="aggiungiElemento">Aggiungi alla Spesa</button>
+
+    <ul id="listaSpesa"></ul>
+
+    <script>
+        const input = document.getElementById("prodotto");
+        const bottone = document.getElementById("aggiungiElemento");
+        const lista = document.getElementById("listaSpesa");
+
+        bottone.addEventListener("click", function() {
+
+            const testo = input.value;
+
+            if (testo === "") {
+                alert("ATTENZIONE, elemento NULLO !");
+                return; 
+            }
+
+            const nuovoElemento = document.createElement("li");
+
+
+            nuovoElemento.innerText = testo;
+
+            
+            lista.appendChild(nuovoElemento);
+
+            
+            input.value = ""; 
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+

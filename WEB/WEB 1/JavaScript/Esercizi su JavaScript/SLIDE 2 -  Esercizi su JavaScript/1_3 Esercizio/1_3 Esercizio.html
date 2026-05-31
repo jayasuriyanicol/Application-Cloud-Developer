@@ -1,0 +1,53 @@
+<!--Creare un progetto Javascript che dichiari e contestualmente inizializzi una variabile x = 10; che dichiari la variabile y e successivamente 
+assegni ad y il valore di x; che dichiari e contestualmente inizializzi la variabile z e gli assegna un nome di persona a proprio piacimento e tramite 
+output stampa il valore delle variabili ed il tipo. Eseguire l’esercizio nelle due modalità : lato client e lato server. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Esercizio 1.3 - JavaScript + HTML</title>
+</head>
+<body>
+
+  <h1>ESERCIZIO 1_3</h1>
+
+  <h3>CONSEGNA:</h3>
+
+  <p>Esercizio 1.3 Creare un progetto Javascript che dichiari e contestualmente inizializzi una variabile x = 10; che dichiari la variabile y e successivamente 
+assegni ad y il valore di x; che dichiari e contestualmente inizializzi la variabile z e gli assegna un nome di persona a proprio piacimento e tramite 
+output stampa il valore delle variabili ed il tipo. Eseguire l’esercizio nelle due modalità : lato client e lato server.<b>(AL MOMENTO SU LATO SERVER NON VERRÀ SVOLTO DATO CHE NON È STATO ANCORA AFFRONTATO NodeJS)</b></p>
+
+<h2><br>SVOLGIMENTO DELL'ESERCIZIO:</h2>
+
+<!--Dopo aver scritto la consegna e che non lavoriamo in lato SERVER possiamo procedere con lo svolgimento dell'esercizio--> 
+<h3>Valori delle variabili e tipo:<br></h3>
+
+<!--Punti in cui andremo ad inserire i risultati dello script-->
+<p id="variabileX"></p>
+<p id="variabileY"></p>
+<p id="variabileZ"></p>
+
+<!--Script JavaScript per dichiarare e mostrare le variabili-->
+<script>
+
+  // Dichiariamo e inizializziamo x
+  let x = 10;
+
+  // Dichiariamo y e assegniamo ad essa il valore di x
+  let y;
+  y = x;
+
+  // Dichiariamo e inizializziamo z con un nome a piacere
+  let z = "Fabio";
+
+  // Stampiamo i valori e i tipi delle variabili
+  document.getElementById("variabileX").textContent = "Variabile x: " + x + " - Tipo: " + typeof x;
+  document.getElementById("variabileY").textContent = "Variabile y: " + y + " - Tipo: " + typeof y;
+  document.getElementById("variabileZ").textContent = "Variabile z: " + z + " - Tipo: " + typeof z;
+</script>
+
+</body>
+</html>
+
+
+

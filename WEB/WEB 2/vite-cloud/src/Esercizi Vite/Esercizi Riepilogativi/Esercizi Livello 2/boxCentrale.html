@@ -1,0 +1,53 @@
+<!--14. Box Centrato Assolutamente
+Richiesto: un box posizionato al centro perfetto della viewport.
+Usare: flexbox sul contenitore che occupa tutta l’altezza.
+Risultato: elemento in posizione centrale in ogni condizione.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Centrato Assolutamente</title>
+
+    <style>
+        body { margin: 0; font-family: sans-serif; background-color: black; }
+
+        .container{
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+
+        }
+
+        .box{
+
+            background-color: white;
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="box">
+
+            <h2>Box Centrata</h2>
+
+            <p>Questa box sarà centrata nonostente cambi di dimensione lo schermo o la finestra.</p>
+        </div>
+    </div>
+    
+</body>
+</html>

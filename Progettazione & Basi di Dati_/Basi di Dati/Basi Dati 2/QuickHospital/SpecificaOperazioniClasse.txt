@@ -1,0 +1,107 @@
+SPECIFICA DELLE OPERAZIONI DI CLASSE  - Progetto QuickHospital:
+
+
+SPECIFICA DELLE OPERAZIONI DI CLASSE:
+
+
+
+1. Specifica della classe Ricovero:
+
+
+[V.Ricovero.dataRicovero] 
+
+    Precondizioni:
+
+        - deve esistere un dataRicovero
+    
+    Postcondizioni:
+
+        -Non modifca il livello estensionale dei dati
+
+        -Sia da:dataRicovero e dm:dataDimissione, da non può essere maggiore della rispetto la data di dm 
+        
+         per ogni dataRicovero di un paziente deve essere vero che:
+
+         dataRicovero <  dataDimissione
+
+
+[V.Ricovero.dataDimissione]
+
+    Precondizioni:
+        nessuna
+    
+    Postcondizioni:
+
+        
+        La data di dimissione può essere facoltativa, ovvero un pazine può essere dimesso o meno nonostante
+        sia ricoverato.
+
+        Quindi una dataDimissione di un paziente può essere avvenuta o meno che, indichiamo come facoltativa con [0..1]:
+
+
+    dataDimissione:DataOra [0..1] 
+
+
+
+2. Specifica della classe SpecificaSpecializzazione:
+
+    [V.SpecificaSpecializzazione.specializzazionePrimaria] 
+
+
+    Una specializzazione di tipologia primaria, può avere una sola specializzazione
+
+    Quindi con vincolo 1..1 sul specializzazionePrimaria: 1..1
+
+    [V.SpecificaSpecializzazione.specializzazioneSecondaria]
+
+    Una specializzazione di tipologia secondaria, può avere da zero a più di una specializzazione
+    però che siano uniche e che non vadano ad interferire con la specifica della specializzazione 
+    di tipologia primaria:
+
+    Quindi analogamente:
+
+    specializzazionePrimaria != specializzazioneSecondaria
+
+
+
+
+
+3. Specifica della classe PrestazioneRichiesta:
+
+
+   [V.PrestazioneRichiesta.PrestazioneMedico]
+
+    Sia prs: PrestazioneRichiesta,m:medico, sp: SpecificaSpecializzazione
+
+
+    Dato l'insieme prs, esista un elemento m:PrestazioneMedico e un elemento sp:PrestazioniSpecializzazione, che abbia in comune  un link
+    spi:specializzazionePrimaria e sps:specializzazioneSecondaria.
+
+    Così tale d'avere una sp collegata con prs che abbia un m in comune tramite il link spi o sps.
+
+
+
+
+
+4. Specifica della classe PostoLetto:
+
+
+    disponibilitàStanza(s:Stanza) -> bool:
+
+        Precondizioni:
+        nessuna
+
+        Postcondizioni:
+
+        -Non modifca il livello estensionale dei dati
+        - Result è così definita:
+
+            Sia s:Stanza e pl:PostoLetto tale che (s,pl):presente
+            Ogni s può avere un numero n posti letto, con condizione: 1 <= n<= 8
+            Sia d = (s,pl):presente, ovvero il link fra s e pl
+
+            Quindi, possiamo definire come segue Result:
+            
+            - L'operazione darà True: se esiste almeno un pl associato a s che risulta 'disponibile' (ovvero non occupata), con l'esistenza di almeno un d
+            - L'operazione darà False: in caso non ci sia nessun pl associato a s che risulta analogamente 'non disponibile' (ovvero occupato), con nessuna esista di un d.
+

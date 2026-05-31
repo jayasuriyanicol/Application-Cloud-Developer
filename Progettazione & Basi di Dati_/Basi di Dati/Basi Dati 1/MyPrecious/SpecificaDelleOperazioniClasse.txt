@@ -1,0 +1,252 @@
+SPECIFICA DELLE OPERAZIONI DI CLASSE  - Progetto MyPrecious
+
+
+SPECIFICA DELLE OPERAZIONI DI CLASSE:
+
+
+
+1. Specifica della classe ExtendedAccess
+
+
+calcolaPrezzo(): Prezzo
+	precondizioni: nessuna.
+	postcondizioni:
+		- L’operazione non modifica il livello estensionale dei dati.
+		- Sia T l’insieme delle esposizioni t:Temporanea tali che (this,t):accede.
+		- result = this.tariffa.prezzoBase + (t.prezzoAccesso) per ogni t appartiene a T.
+
+[V.ExtendedAccess.calcoloPrezzo]  
+Il prezzo di un biglietto ExtendedAccess deve essere pari al prezzo base della tariffa selezionata più la somma dei prezzi di tutte le esposizioni temporanee scelte.
+
+Per ogni oggetto della classe ExtendedAccess deve essere vero che:
+prezzoBiglietto = tariffa.prezzoBase + (Temporanea.prezzoAccesso)
+per ogni t:Temporanea tale che (this, t) : accede.
+
+
+
+
+
+2. Specifica della classe Temporanea
+
+
+[V.Temporanea.dateCoerenti]  
+Le date di inizio e fine di una esposizione temporanea devono essere coerenti.
+
+Per ogni oggetto della classe Temporanea deve essere vero che
+intervalloTempo.dataInizio <= intervalloTempo.dataFine, in caso non lo siano non sono coerenti.
+
+in modo equivalente:
+Non esiste t:Temporanea tale che t.intervalloTempo.dataInizio > t.intervalloTempo.dataFine.
+
+
+calcolaIntroiti(periodo: IntervalloDate): Prezzo
+
+	precondizioni: nessuna.
+	postcondizioni:
+		- L’operazione non modifica il livello estensionale dei dati.
+		- Sia B l’insieme dei biglietti b:ExtendedAccess tali che(b, this): accede e b.dataValidita che appartiene a periodo.
+		- Sia N = B (numero di biglietti venduti nel periodo appartenente).
+		- result = N * this.prezzoAccesso (quindi il numero di biglietti totali * il prezzo d'accesso)
+
+
+contaBigliettiVenduti(data: Data): Intero
+
+	precondizioni: nessuna.
+	postcondizioni:
+		- L’operazione non modifica il livello estensionale dei dati.
+		- Sia B l’insieme dei biglietti b:ExtendedAccess tali che (b, this): accede e b.dataValidita = data (validità del biglietto)
+		- result = B (biglietti validi per quella determinata data)
+	
+	[V.ExtendedAccess.calcoloPrezzo]  
+	Il prezzo di un biglietto ExtendedAccess deve essere pari al prezzo base della tariffa selezionata più la somma dei prezzi di tutte le esposizioni temporanee scelte.
+
+	Per ogni oggetto della classe ExtendedAccess deve essere vero che:
+	prezzoBiglietto = tariffa.prezzoBase + (Temporanea.prezzoAccesso)
+	per ogni t:Temporanea tale che (this, t) : accede.
+
+
+
+[V.Temporanea.prezzoPositivo]  
+Il prezzo di accesso deve essere maggiore o uguale a zero.
+
+Per ogni t:Temporanea deve essere vero che
+t.prezzoAccesso >= 0.
+
+Equivalentemente:
+Non esiste t:Temporanea tale che t.prezzoAccesso < 0.
+
+
+
+Specifica della classe Museo
+----------------------------
+
+[V.Museo.coerenzaBiglietti]  
+Ogni biglietto venduto deve essere associato a una tariffa esistente e a un visitatore.
+
+Per ogni b:Biglietto deve essere vero che:
+b.tariffa sia diversa da NULL e che b.visitatore sia diversa da NULL.
+
+Equivalentemente:
+Non esiste b:Biglietto tale che b.tariffa = NULL e b.visitatore = NULL.
+
+
+
+trovaEsposizionePiuVisitata(periodo: IntervalloDate): Temporanea
+
+	precondizioni:
+		- Deve esistere almeno una esposizione temporanea attiva nel periodo.
+
+	postcondizioni:
+		- L’operazione non modifica il livello estensionale dei dati.
+		- Sia E l’insieme di tutte le esposizioni t:Temporanea.
+		- Per ogni t appartenente a E:Esposizione, si consideri Num_t = B_t, con B_t = insieme dei biglietti b:ExtendedAccess tali che (b, t):accede e b.dataValidita appartenente al periodo.
+		- result è uguale alla t in E tale che Num_t è massimo.
+		
+
+
+
+Specifica della classe Autore
+-----------------------------
+
+[V.Autore.dateCoerenti]  
+La data di nascita di un autore deve essere antecedente alla data di morte (se esiste).
+
+Per ogni a:Autore deve essere vero che
+a.dataMorte = NULL oppure che a.dataNascita < a.dataMorte.
+
+In maniera equivalente:
+Non esiste a:Autore tale che
+a.dataMorte sia diversa da NULL oppure a.dataNascita ≥ a.dataMorte.
+
+
+
+trovaOpereNonEsposte(periodo: IntervalloDate): Opere
+
+	precondizioni: nessuna.
+
+	postcondizioni:
+		- L’operazione non modifica il livello estensionale dei dati.
+		- Sia O l’insieme delle opere o:Opera tali che (this, o): realizzare.
+		- Sia E l’insieme delle esposizioni e:Esposizione tali che (e, o): esporre e e.periodoEsposizione si sia svoltsa (anche in maniera non completa/parziale) nel periodo indicato.
+		- result = insieme delle opere dell’autore che non risultano esposte in alcuna esposizione svoltasi nel periodo fornito.
+
+
+
+Specifica della classe Esposizione
+----------------------------------
+
+[V.Esposizione.operePresenti]  
+Ogni esposizione deve esporre almeno un’opera.
+
+Per ogni e:Esposizione deve essere vero che
+ o:Opera tale che (e,o):esporre sia >= 1.
+
+In maniera equivalente:
+Non esiste e:Esposizione tale che non esista alcuna o:Opera con (e,o):esporre.
+
+
+
+
+Specifica della classe Biglietto
+--------------------------------
+
+[V.Biglietto.coerenzaDate]  
+La data di validità del biglietto deve essere uguale o successiva alla data di vendita.
+
+Per ogni b:Biglietto deve essere vero che:
+dataValidita >= b.istanteVendita.
+
+Equivalentemente:
+Non esiste b:Biglietto tale che b.dataValidita <= b.istanteVendita.
+
+
+
+getPermanenti(): EsposizionePermanente [0..*]:
+
+	precondizioni: 
+			
+			nessuna
+
+	postcondizioni:
+		-L'operazione non modifica il livello estensionale dei dati
+		- Sia P l'insieme delle espozioni p:Permanente,
+		- Sia E l'insieme delle esposizioni e:Esposizione.
+		- result = insieme p appartenente a P , ovvero tutte le esposizioni permanenti a cui il biglietto 'Standard' da accesso
+
+
+	In modo equivalente:
+
+	Poiché nel sistema possono esserci zero o più esposizioni permanenti, il risultato può contenere nessuna o più istanze [0 .. *].
+
+
+prezzoBiglietto(): Reale >=0 :
+
+	precondizioni:
+
+	nessuna
+
+	postcondizioni:
+
+
+		sia t: Triffa tale che esite il link (this,t): associare
+
+		sia E l'insieme degli oggetti e: Temporanea tali che esiste il link (this,e): temp_scelta
+		
+		sia tot la somma di e.prezzo di ogni elemento e dell'insieme e
+
+		result = tot + t.prezzoBase
+
+
+Specifica della classe Opera
+--------------------------------
+
+Per ogni o:Opera:
+
+Per ogni link(o,e): esporre (e: esposisione in cui è esposta o (opera))
+
+	Siano io,fo,rispettivamente, i valori degli attributi inizio e fine del link (o,e)
+
+	 
+
+- Deve essere vero che io >= e.inizio
+
+	- Se e:Temporanea, allora io <= e.fine
+
+- Se fo ha un valore, allora fo >= e.inizio
+	- Se e:Temporanea,allora,fo<= e.fine
+
+
+
+Operazione ausiliaria:
+sovrapposti(i1: DataOra, f1: DataOra, i2: DataOra, f2: DataOra): Booleano
+	precondizioni: i1 <= f1 e i2 <= f2
+	Postcondizioni
+		Il risultato result è definito come segue:
+			- result = True se e solo se vale la seguente condizione:
+
+			- Esiste un t: DataOra tale che
+				i1 <= t <= f1 AND i2 <= t <= f2
+
+Oppure in forma differente:
+	[V.Esptemp.op.NonContemporanee] La stessa opera non può essere in due esposizioni temporanee contemporaneamente-
+		o:Opera
+		e1:Esptemp
+		e2:Esptemp
+		- e1 != e2
+		- e2.fine < e1.inizio oppure e1.fine < e2.inizio
+    Per ogni o:OPera sia e1:ETEMP e e2: ETEMP tale che :
+
+		(0,e1):op_esp e (o,e2): op_esp 
+		
+		Deve essere e1 != e2  e(AND LOGICO) (e2 fine <e1.inizio oppure e1 fine<e2.inizio)
+
+
+[V.Opera.no_esposizioni_contemporanea]
+
+Per ogni o: Opera:
+	Per ogni coppia di esposizioni e1, e2: Temporanea, e1 != e2
+		Tali che esistono i link
+			(o, e1): op_esp   e   (o, e2): op_esp
+
+	sovrapposti(e1.inizio, e1.fine, e2.inizio, e2.fine) = False
+

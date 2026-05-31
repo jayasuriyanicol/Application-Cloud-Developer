@@ -1,0 +1,76 @@
+<!--
+13. Layout Sidebar + Contenuto
+Richiesto: struttura a due colonne, sidebar fissa e area contenuti flessibile.
+Usare: flexbox, larghezza fissa per sidebar, flessibilità per main.
+Risultato: layout tipico da pannello admin con menu laterale.
+
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Sidebar + Contenuto</title>
+    <style>
+        .layout-sidebar{
+            
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar{
+
+            width: 250px ;
+            background-color: blue;
+            color:white;
+            padding: 20px;
+        }
+
+        .content{
+
+            flex:1;
+            background-color: lightgrey;
+            padding: 30px;
+
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <h3>Layout Sidebar + Contenuto</h3>
+
+    <br>
+
+    <div class ="layout-sidebar">
+
+    <nav class = "sidebar">
+
+    
+    <ul>
+        
+        <li>Dashboard</li>
+        <li>Utenti</li>
+        <li>Impostazioni</li>
+    
+    </ul>
+
+    </nav>
+
+    <main class="content">
+
+        <h1>Pannello Amministrazione</h1>
+        <p>Benvenuto nel pannello ceh si adegua alle dimensioni, ridimensionadosi nei casi di rimpicciolimento della pagina</p>
+
+    </main>
+
+   </div>
+</body>
+</html>

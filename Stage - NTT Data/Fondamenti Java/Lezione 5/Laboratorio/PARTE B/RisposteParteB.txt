@@ -1,0 +1,22 @@
+RISPOSTE PARTE B:
+
+
+1. Nel caso ci dimentichiamo di inserire il super all'interno del costruttore della classe da cui effettiamo extend
+   questo andrà a generare un errore sul compilatore dicendo che il tipo è indedfinito 
+   dato che comunque mancano i dati del padre.
+
+
+2. Nel secondo caso in cui andiamo a inserire parametri differenti in un metodo @Override, questo 
+   andrà a generare da parte del compilatore che non stiamo definendo correttamente il metodo del padre.
+
+
+
+3. Non possiamo istanziare un oggetto generico direttamente una classe astratta, dato che esso rappresenta un modello
+   quindi in realtà non rappresenta una classe concreta
+
+
+4. Nel ultimo caso, non possiamo fare l'implements in una classe concreta senza andar a richiamare tutti i metodi presenti
+   nell'interfaccia. Infatti quando andiamo a richiamare un'interfaccia, dobbiamo necessariamente andare e richiamare tutti
+   i metodi in esso creati. Possiamo utilizzare delle strategie evitando di scrivere tutti i metodi, per esempio andando ad 
+   impostare di default in metodi che non ci interessano oppure quella di utilizzare un design pattern (Adapter) creando una classe astratta
+   intermedia che prenderà solo i metodi che serviranno effettivamente. 

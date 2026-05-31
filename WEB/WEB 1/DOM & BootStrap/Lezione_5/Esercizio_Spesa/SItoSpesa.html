@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esercizio - Sito Spesa</title>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      background-color:black;
+      color: white;
+      padding: 20px;
+      margin:0
+    }
+
+
+
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+      border: 1px solid red;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    input[type="submit"],
+    input[type="button"] {
+      padding: 10px 20px;
+      font-size: 1;
+      margin: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: grey;
+      color: white;
+    
+    }
+
+    ul {
+      padding-left: 40px;
+      text-align: left;
+      max-width: 400px;
+      margin: 0 auto;
+      font-size: 16px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      color: black;
+    }
+  </style>
+
+  <!--  ANALISI DELLO SCRIPT - DOM & JAVASCRIPT:
+  
+  
+      Definisco lo SCRIPT, dove a differenza dell'esercizio precedente andiamo a inserire un valore di DEFAULT che impedisce la pagina di essere "REFRESHATA".
+      Dopo di che aggiungiamo anche ter varibiali (var) nelle quali andiamo come primo caso a inseire i valori di:
+      
+      1. VAR PRODOTTO -> dove andiamo a indicare che esso è il prodotto che noi inseriamo nella casella del form
+      2. VAR ELEMENTO -> dove andiamo a indicare che sarà una variabile di passaggio dove andiamo a salvare la variabile appena inserita all'interno di PRODOTTO
+      3. VAR LISTA_SPESA -> dove andiamo a indicare la avariabile che verrrà inserita all'interno della lista.
+
+      All'interno sempre dello SCRIPT troviamo due funzioni quella della SPESA che riguarda la maggior parte del sito in questione e la funzione RESET, 
+      che riguarda la parte del reset della lista dai prodotti inseriti all'interno della casella FORM
+   
+  -->
+
+  <script>
+
+    function Spesa(event) {
+
+      event.preventDefault(); 
+
+      var prodotto = document.getElementById("prodotto").value.trim();
+
+      if (prodotto === "") {
+        alert("ATTENZIONE! Inserisci un PRODOTTO");
+        return;
+      }
+
+      var elemento = document.createElement("li");
+      elemento.innerText = prodotto;
+
+      var lista_spesa = document.getElementById("lista_spesa");
+      lista_spesa.appendChild(elemento);
+
+      document.getElementById("prodotto").value = ""; 
+    }
+
+    function Reset() {
+      var lista_spesa = document.getElementById("lista_spesa");
+      lista_spesa.innerHTML = ""; 
+    }
+  </script>
+
+
+</head>
+
+
+<!--All'interno del sito come anticipato precedentemente andiamo a definire un messagggio di Benvenuto dovbe spieghiamo il funzionmaneto del programma
+    successivamente andiamo con l'inserimento di una FORM che al suo interno ha una variabile per l'inserimento del prodotto nella "LISTA" spesa, al di sotto
+    ci sarà una "LISTA" ordinata in ordine numerico di tutti gli elementi inseriti dal più vecchio fino al più recente. 
+    Sotto al form, troviamo due pulsanti uno per l'inserimento del prodotto e l'altro per fare il reset della lista da noi creata con i prodotti precedentemente. -->
+
+<body>
+
+  <h1 style="text-align: center;">Benvenuto!</h1>
+  <p style="text-align: center;">
+    Questo sito ti permette di inserire i <b>PRODOTTI DESIDERATI</b> all'interno del "CARRELLO" per effettuare l'acquisto.<br><br>
+    Prego, per continuare inserire il campo con <b>IL PRODOTTO DESIDERATO</b>
+  </p>
+
+  <br><br><br>
+  <div style="text-align: center;">
+    <form onsubmit="Spesa(event)">
+      <label for="prodotto">Inserisci qui il tuo <b>PRODOTTO →</b></label>
+      <input type="text" id="prodotto" name="prodotto" maxlength="50">
+
+      <br><br>
+      <input type="submit" value="Aggiungi al Carrello">
+      <input type="button" onclick="Reset()" value="Svuota il Carrello">
+    </form>
+
+    <br><br><br>
+    <h2>Carrello:</h2>
+    <ul id="lista_spesa"></ul>
+  </div>
+
+</body>
+</html>

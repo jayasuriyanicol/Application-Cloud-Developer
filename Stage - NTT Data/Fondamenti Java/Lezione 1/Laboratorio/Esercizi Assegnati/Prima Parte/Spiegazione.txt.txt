@@ -1,0 +1,10 @@
+SPIEGAZIONE:
+
+Nella prima fase abbiamo creato la classe con il nome del file, poter poi procedere con il passo successivo con il richiamo della funzione main (senza di essa non può funzionare) nella quale andiamo a eseguire il nostro System.out.println con la scritta personalizzata che avevamo in mente. 
+
+
+Infine avremmo il nostro risultato sulla console, naturlmente utilizziamo i campi:
+
+
+- javac nomeFile per poter compilare 
+- java.exe nomeFile per poter eseguire (se il comando prima non ha generato errori) e vedere il risultato via console

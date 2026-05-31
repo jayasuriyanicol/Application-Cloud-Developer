@@ -1,0 +1,45 @@
+RISTRUTTURAZIONE – MyPrecious
+
+
+Vincoli Esterni:
+
+
+Classe Biglietto:
+
+Per ogni istanza di b di Biglietto:
+
+1. b.is_standard = TRUE solo se il b è di categoria is_standard  e b.is_extendes_access = FALSE
+2. b.is_extended_access = TRUE solo se il b è di categoria is_extended_access e b.is_standard = FALSE
+3.  b.is_standard = TRUE oppure b. is_extended_access = TRUE
+
+
+
+Classe Esposizione:
+
+Per ogni istanza di  e di Esposizione:
+
+1. e.is_permante = TRUE solo se il e è di tipo: is_permanente  e e.is_temporanea = FALSE
+2. e.is_temporanea = TRUE solo se : e.fine,e.tema ed e.prezzo_accesso sono valorizzati.Ed e.is_permante = FALSE.
+3. e.is_permanente = TRUE oppure e. is_temporanea= TRUE
+
+
+
+
+[V.Extended_Acces.ext_temp]
+
+
+Sia b:Biglietto e sia e:Esposizione tale che (b,e):ext_temp
+Sia l = (b,e):ext_temp, il link ‘collegante’
+
+Quindi, per ogni link coinvolto in l, “l” può essere coinvolto se e solo se:
+
+      b.is_extended_access = TRUE e contemporaneamente anche e..is_permanente = TRUE 
+
+
+
+
+
+
+
+
+

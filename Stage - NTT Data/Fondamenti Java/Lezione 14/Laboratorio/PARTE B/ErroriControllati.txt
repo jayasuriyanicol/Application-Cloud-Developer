@@ -1,0 +1,19 @@
+ERORRI CONTROLLATI - LEZIONE 14
+
+
+
+1. Main: Mantiene solo l'avvio e la configurazione iniziale dell'applicazione.
+Controller/API: Gestisce le richieste esterne e i parametri di input.
+Service: Riceve i dati elaborati ed esegue la logica di business.
+
+2.  Service: Restituisce dati puri (oggetti o liste) senza fare operazioni di I/O.
+ Main (o Controller): Riceve i dati dal Service e si occupa della visualizzazione (System.out.println).
+
+3.  Main/Controller: Effettua solo un controllo formale preliminare dei parametri ricevuti.
+ Model (o Record/Entity): Applica le regole di business stringenti direttamente nel costruttore per impedire la creazione di oggetti con dati non validi.
+
+ 4. Conversioni DTO sparse ➔ centralizzare nel Mapper
+Service/Controller: Smettono di convertire manualmente i campi uno a uno.
+Mapper: Una classe dedicata isola tutta la logica di conversione (es. da Entity a DTO e viceversa) in metodi statici riutilizzabili.
+
+5. Main: Interrompe l'accesso diretto alla collezione dei dati. Repository: Incapsula la lista e fornisce metodi specifici (findAll(), save()) per manipolarla in sicurezza.

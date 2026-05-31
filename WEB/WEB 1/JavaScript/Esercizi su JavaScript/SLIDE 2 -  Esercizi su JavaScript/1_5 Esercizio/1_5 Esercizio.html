@@ -1,0 +1,48 @@
+<!--Esercizio 1.5 Creare un progetto Javascript che memorizza all’interno di una variabile i giorni della settimana separati dalla virgola
+e stampare a video tramite console.log() il risultato. Scrivere il codice in modo che, facendo la modifica ad un solo valore, i giorni
+della settimana vengono visualizzati uno sotto l’altro senza la virgola. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Esercizio 1.5 - JavaScript + HTML</title>
+</head>
+<body>
+
+  <h1>ESERCIZIO 1_5</h1>
+
+  <h3>CONSEGNA:</h3>
+
+  <p>Esercizio 1.5 Creare un progetto Javascript che memorizza all’interno di una variabile i giorni della settimana separati dalla virgola
+  e stampare a video tramite console.log() il risultato. Scrivere il codice in modo che, facendo la modifica ad un solo valore, i giorni
+  della settimana vengono visualizzati uno sotto l’altro senza la virgola.</p>
+
+  <h2><br>SVOLGIMENTO DELL'ESERCIZIO:</h2>
+
+  <h3>Visualizzazione dei giorni della settimana:<br></h3>
+
+  <!-- Sezioni dove visualizzeremo i giorni -->
+  <p id="giorniOutput"></p>
+
+  <script>
+    // Dichiariamo una stringa con i giorni separati da virgole
+    let giorniSettimana = "Lunedì,Martedì,Mercoledì,Giovedì,Venerdì,Sabato,Domenica";
+
+    // Valore modificabile per cambiare il tipo di visualizzazione: "," oppure "<br>"
+    let separatoreOutput = "<br>"; // Cambia questo valore in ", " per visualizzarli in linea
+
+    // Splittiamo la stringa in un array
+    let giorniArray = giorniSettimana.split(",");
+
+    // Uniamo l'array in base al separatore scelto
+    let outputFinale = giorniArray.join(separatoreOutput);
+
+    // Mostriamo il risultato nell'HTML
+    document.getElementById("giorniOutput").innerHTML = outputFinale;
+
+    // Mostriamo anche in console per verifica
+    console.log(giorniArray.join(separatoreOutput === "<br>" ? "\n" : ", "));
+  </script>
+
+</body>
+</html>

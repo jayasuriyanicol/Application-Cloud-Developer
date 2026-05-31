@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Esercizio 3_6 - Assegnamento e operazioni combinate</title>
+</head>
+<body>
+
+  <h1>ESERCIZIO 3_6</h1>
+
+  <h3>CONSEGNA:</h3>
+  <p>
+    Quale sarà il valore finale delle variabili <code>a</code> e <code>x</code> dopo l’esecuzione del codice seguente?
+  </p>
+
+  <h2>SVOLGIMENTO:</h2>
+
+  <p id="output"></p>
+
+  <script>
+    let a = 2;
+    // a = a * 2 = 4, quindi x = 1 + 4 = 5
+    let x = 1 + (a *= 2); 
+
+    // Output in console
+    console.log("a =", a);
+    console.log("x =", x);
+
+    // Output nella pagina
+    document.getElementById("output").innerHTML = 
+      "Valori finali delle variabili:<br>" +
+      "a = " + a + "<br>" +
+      "x = " + x;
+  </script>
+
+</body>
+</html>

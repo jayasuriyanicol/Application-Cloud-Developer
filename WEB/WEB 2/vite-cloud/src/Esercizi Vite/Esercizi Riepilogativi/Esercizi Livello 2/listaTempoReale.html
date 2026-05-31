@@ -1,0 +1,88 @@
+<!--
+
+20. Filtro Lista in Tempo Reale
+Richiesto: un campo input che filtra una lista di nomi mentre si digita.
+Usare: metodo filter, aggiornamento DOM.
+Risultato: elenco che si aggiorna istantaneamente con i risultati corrispondenti.
+
+
+
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Tempo Reale</title>
+</head>
+
+<body>
+
+    <h3>Lista <b>TEMPO REALE</b></h3>
+
+
+    <input type="text", id="testo" placeholder="Scrivi qualcosa"> </input>
+    
+    <ul id="listaNomi">
+    </ul>
+
+
+    <script>
+
+
+        const nomi =["Franco", "Giacomo", "Gippitina", "Bruno", "Sara", "Francesca"];
+        
+        
+        const inputFiltro = document.getElementById("testo");
+        const lista = document.getElementById("listaNomi")
+
+
+        function renderList(arrayNomi){
+
+            lista.innerHTML = "";
+            if (arrayNomi.length === 0){
+                lista.innerHTML = "<li>Nessun elemento trovato </li>";
+                return;                
+
+            }
+
+
+            arrayNomi.forEach(nome => {
+
+                const li = document.createElement('li')
+                li.textContent = nome;
+                lista.appendChild(li);
+                
+            });
+
+
+        }
+
+
+        function filtraLista(){
+
+            const terminato = inputFiltro.value.toLowerCase();
+            const risultati = nomi.filter(nome =>{
+                return nome.toLowerCase().includes(terminato);
+           });
+
+
+
+           renderList(risultati);
+            
+          
+        }
+
+         renderList(nomi);
+           inputFiltro.addEventListener('input', filtraLista);
+
+
+        
+    </script>
+
+    
+</body>
+</html>

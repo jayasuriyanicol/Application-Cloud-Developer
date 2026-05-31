@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lezione 3</title>
+    
+     <!--Qui importo tramite il l'operatore "link" il mio foglio CSS, deve stare sempre sopra dato che potrebbe causare conflitto-->
+    
+      <link href ="StileCSS.css" rel="stylesheet"> </link>
+
+    <!-- All'interno dello STYLE andiamo a definireil nostro CSS, con la sintassi ".nameClass" creo la mia classe-->
+    <style>
+        
+        h1{
+            color : green;
+            background-color : black;
+               
+        
+        
+        }
+
+        .colore{
+
+            color : blue
+        }
+
+        h3{
+            color : white
+        }
+      
+
+    </style>
+</head>
+<body>   
+         <!--linguaggio HTML 1993-->
+        <p>HTML: cotenitore, per stabilire la posizione della mia pagina<p>
+
+        <!--linguaggio CSS 1996 folgio di stile a cascata -->
+        <br>
+        <br>
+
+
+        <!-- 2 attrubuti : style e class-:
+
+        style -> solo per il codice inline
+        class -> richiamare le classi incorporate o esterne
+         
+         CSS può essere scritto in 3 modi: 
+         1. inline -> bel tag HTML (dentro)
+         2. incorporato -> nella pagina (head)
+         3. esterno -> in file esterno (import nell'head
+         
+         
+        -->
+
+        <!--Versione 1993 senza l'utilizzo doi CSS-->
+        <h1><font color="red">Titolo 1993</font></h1>
+
+
+        <!--Versione 1996 con l'utilizzo di CSS-->
+        <h3 style="color: red">Titolo 1996 </h3>
+
+
+        <h4 class="colore">Test della classe colore in CSS</h4>
+
+        <!--Tramite:
+        
+        padding -> creo una cornice 
+        margin -> modello la mia cornice con le misure volute
+        border-radius -> modello i bordi della mia cornice
+        -->
+
+       <h3 style="padding: 20px; margin: 30px; border-radius: 40px" >Clica qui per entrare nel sito</h3>
+
+</body>
+</html>

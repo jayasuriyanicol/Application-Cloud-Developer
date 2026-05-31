@@ -1,0 +1,93 @@
+                                                RAFFINAMENTO REQUISITI - Progetto TravelToTheMoon
+
+
+                        
+RAFFINAMENTO REQUISITI:
+
+
+1. REQUISITI SULLE CROCIERE:
+
+  1.1 codice : stringa
+  1.2 dataInizio: DataOra
+  1.3 dataFine : DataOra
+  1.4 Interessa la nave utilizzata per la crociera
+  1.5 Le crociere sono classificate in 
+    1.5.1 Luna di miele
+        1.5.1.1 sono ulteriormente classificat, secondo le tendenze in
+              1.5.1.1.1 Tradizionali
+                      1.5.1.1.1.1 sono definite Tradizionali quelle che prevedono un num di dest rom >= al num di dest divertenti alternative ad altre  
+              1.5.1.1.2 Alternative
+    1.5.2 crociere per la famiglia
+        1.5.2.1 interesse se adatte o meno ai bambini 
+    
+
+
+2. REQUISITI SULLE NAVI:
+
+   2.0 Le navi da crociera sono, associate a delle crociere
+   2.1 nome: stringa
+   2.2 gradoComfort: Comfort[3..5]
+   2.3 MaxPasseggeri : Intero >=0
+
+
+3. REQUISITI SUI ITINERARI:
+  
+   3.1 nome: stringa
+     3.1.1. il nome itinerario, prevede una sequenza ordinata di destinazioni
+   3.2 nomeLuogo: stringa
+   3.3 continenteNome : stringa
+
+   3.4 Gli itinerari, fissano anche la relativa dataOra di arrivo e partenza 
+     3.4.1 dato che ogni itinerario può essere previsto su più di una crociera 
+     3.4.2 le date di pèartenza e di arrivo vengono espresse come differenze 
+    
+
+4. REQUISITI SULLE VISITE:
+
+   4.1 nome: stringa
+   4.2 descrizione: stringa
+   4.3 fasciaOraria : fasciaOraria
+     4.3.1 la fasciaOraria è una fascia consigliata non obbligatoria da seguire 
+    
+5. REQUISITI SULLE DESTINAZIONI:
+   
+   5.1 le destinazioni hanno un insieme di visite 
+   5.2 le destinazioni sono ulteriormente suddivise in 
+      5.2.1 Romantiche
+      5.2.2 Divertenti 
+
+
+6. REQUISITI SULLE PRENOTAZIONI:
+
+   6.1 Il sistema deve gestire inoltre le PRENOTAZIONI delle crociere effettuate dai clienti 
+   6.2 istantePrenotazione: DataOra
+   6.3 numeroPostiPrenotati: Intero >= 0
+
+7. REQUISITI SUI CLIENTI :
+
+    7.1 nome: stringa 
+    7.2 cognome : stringa 
+    7.3 età: intero >= 0
+    7.3 indirizzo : indirizzo
+
+
+
+
+
+FUNZIONALITÀ DEL SISTEMA :
+
+
+999.1  Dato un cliente che desidera prenotare un certo numero di posti per una crociera
+c, il personale dell’Ufficio Prenotazioni deve poter effettuare la relativa prenota-
+zione. La richiesta di prenotazione deve essere rifiutata nel caso il numero di posti
+disponibili, all’istante corrente, per la crociera c non sia sufficiente.
+
+999.2 L’Ufficio Marketing deve poter calcolare l’età media dei clienti che hanno prenotato,
+in un dato periodo, almeno una crociera che prevede una destinazione esotica
+(ovvero che si trova in un continente diverso dall’Europa).
+
+999.3 L’Ufficio Marketing deve poter calcolare la percentuale delle destinazioni da con-
+siderarsi gettonate in un periodo dato. Una destinazione va considerata gettonata
+in un certo periodo se è stata raggiunta, in quel periodo, da almeno dieci crociere
+di luna di miele, oppure da almeno quindici crociere per famiglie.
+

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ita">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lezione 2 - TABELLE</title>
+</head>
+<body>
+     
+    <!-- ELENCHI IN HTML, vediamo qui sotto la struttura -->
+    <h1>Elenchi</h1>
+    <ul>
+        <li>Lunedì</li>
+        <li>Martedì</li>
+        <li>Mercoledì</li>
+        <li>Giovedì</li>
+        <li>Venerdì</li>
+        <li>Sabato</li>
+        <li>Domenica</li>
+    </ul>
+
+
+   <!-- Tabelle 
+    all'inizio 1990, si usavano SOLO le tabelle.
+    Negli anni 2000 sono entrate in vigore gli SMARTPHONE
+    con l'introduzione di DIV, che utilizzano la stessa alogca delle tabelle.
+
+    Andiamo con la CREAZIONE DELLA STRUTTURA DELLA TABELLA, un esempio di tabella ANNIDATA
+    -->
+      
+    <!--Andiamo a creare la TABELLA, con BORDO = 1-->
+    <br>
+    <table border="1">
+        <!--Di seguito la PRIMA RIGA DELLA TABdELLA-->
+        <tr>
+            <!-- In questa situazione stiamo creando nella stessa linea 3 caselle-->
+            <td><div>A1</div></td>
+            <td><div>BANNER DEL MIO SITO</div></td>
+            <td><div>C1</div></td>
+        </tr>
+        
+
+        <!--Di seguito la SECONDA RIGA DELLA TABELLA-->
+        <tr>
+            
+            <!--Creiamo una casella VUOTA-->
+            <td></td>
+            <td>
+                 <!--Creo una seconda TABELLA sempre con il BORDO e la larghezza al 100% -->
+                <table border="1" width="100%">
+                    <tr>
+                        <td>Titolo</td>
+                        <td align = "right">Descrizione</td>
+                    </tr>
+                </table>
+
+            </td>
+            <td>C2</td>
+
+        </tr>
+    </table>
+
+
+
+                      <!-- FORM: servono per l'inserimento dei dati, rendendola interattiva -->
+      
+    <form>
+        <!-- nel tag form:
+             ACTION =  destinatario
+             METHOD =  GET / POST
+             NAME =  Nome del FORM
+
+             INVIO dei dati:
+
+             CHIARO -> get  (dati non sensibili)
+
+             NASCOSTI -> post 
+
+             
+        -->
+    <form action ="" method="get"  ></form>
+        <br>
+        <input type="text" name ="NOME"><br>
+        <br><br>
+        <input type="file" name ="CV"><br> <br>
+        <input type="checkbox" value ="Presa Visione" name="PRIVACY"> Presa Visione</input>
+        <br><input type="radio" value="MASCHIO"name="sesso"> Maschio </input>
+        <br><input type="radio" value="DONNA" name="sesso"> Femmina </input>
+        <br><input type="radio" value="ALTRO" name="sesso"> Altro </input>
+        
+        <br>
+        <br>
+
+        <select>
+            <option>Gennaio</option>
+            <option >Febbraio</option>
+        </select>
+        <br>
+        <br>
+        <textarea>Inserisci qualcosa</textarea>
+        <!-- INVIARE IL FORM, tutti i valori e li spedisce al destinatario-->
+        <input type="submit" value="INVIA"> 
+
+    </form>
+
+
+
+    
+    
+</body>
+</html>
+
+

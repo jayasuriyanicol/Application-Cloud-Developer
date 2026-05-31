@@ -1,0 +1,32 @@
+
+<!--- Esercizio 4.7 Scrivere un programma che dichiara e valorizza un array di 7 numeri a proprio piacimento e restituisca in output solamente il numero più
+grande (utilizzare il ciclo for).
+--->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Esercizio 4.7 - Array 7 numeri con numero più grande</title>
+</head>
+<body>
+    <h1>Esercizio 4.7 - Array 7 numeri con numero più grande<</h1>
+    <script>
+var numeri = [15, 8, 22, 34, 2, 19, 27];
+var massimo = numeri[0];
+
+for (var i = 1; i < numeri.length; i++) {
+    if (numeri[i] > massimo) {
+        massimo = numeri[i];
+    }
+}
+
+console.log("Numero più grande: " + massimo);
+
+    </script>
+</body>
+</html>
+
+
+
+

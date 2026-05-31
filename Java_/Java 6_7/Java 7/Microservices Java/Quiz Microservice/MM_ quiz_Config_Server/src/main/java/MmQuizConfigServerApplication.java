@@ -1,0 +1,15 @@
+package it.demo.config;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.config.server.EnableConfigServer;
+
+@SpringBootApplication
+@EnableConfigServer //in spring boot spesso non serve l'attivatore
+public class MmQuizConfigServerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MmQuizConfigServerApplication.class, args);
+	}
+
+}

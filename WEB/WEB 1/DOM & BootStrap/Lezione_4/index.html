@@ -1,0 +1,72 @@
+<!--LEZIONE NUMERO 4:
+
+1. HTML  -> Linguaggio WEB scheletro
+2. CSS   -> Linguaggio WEB stile
+3. DOM   -> Libreria Browser, utilizzato per modificare HTML
+4. JAVASCRIPT -> Linguaggio di SCRIPT
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lezione 4 - DOM</title>
+
+
+    <!--Tramite l'operatore "<script>"  andiamo a inserie i nostri script, come per esempio JAVASCRIPT, andiamo a richiamarlo-->
+    <script>
+
+        function test(){
+
+            var x = 15;
+            var mioelemento = document.getElementById("elemento");  // tramite "getElementById" -> recuperiamo l'elemento (TAG)
+
+            if (x<10){
+                
+                
+                
+                mioelemento.innerHTML = "X è minore di 10"; // tramite INNER -> sovrascriamo il TAG
+                mioelemento.style.color = "red" ; // CSS
+           }
+            else {
+
+                mioelemento.innerHTML = "X è maggiore di 10";
+                mioelemento.style.color = "orange";
+
+                 
+            }
+        }
+    </script>
+
+
+</head>
+<body>
+
+    <h1 onclick="document.body.style.backgroundColor = 'red'">Titolo della pagina</h1>
+    
+    
+    <!-- DOM (non è JAVASRIPT ... browser): una libreria che viene utilizzata nel browser ( NO JAVASCRIPT ) -> document
+     
+    
+    1- gestione eventi : tastiera mouse, HTML mi mette a disposizione degli eventi che possono eseguire DOM
+     
+       A) document  (ESEMPIO:document.body.style.backgroundColor), permette di fare tre cose principali:
+
+         A.1) individuare l'elemento (TAG)
+         A.2) inbdividuare l'attributo
+         A.3) individuare l'evento e il style
+
+
+
+
+    2- Tramire JAVASCRIPT 
+    
+
+-->
+    <h1 id="elemento">Scritta Personalizzata</h1>
+    <h2 onclick="test()">Clicca qui per cambiare il contenuto</h2>
+</body>
+</html>

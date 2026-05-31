@@ -1,0 +1,198 @@
+EXERCISE FOR 11/03/2025
+
+Read chapter 5 from page 83(number 8) until the end, make a sum up of every part because she will ask us about the text:
+
+
+Summary of Pages 83 to 91:
+Testing Individual Parts (Page 83-84)
+Unit Testing: Testing individual parts of a solution is called unit testing. Since these parts usually depend on other components, you need to simulate their behavior during testing.
+
+Equivalence Classes: Inputs can be divided into equivalence classes, where each class represents a set of inputs that should elicit the same response. By testing one representative from each class, you can infer the behavior for all inputs in that class.
+
+Example (FizzBuzz): The FizzBuzz game is used to illustrate how to test a subroutine by dividing inputs into classes (e.g., numbers divisible by 3, 5, both, or neither) and testing representative values from each class.
+
+Debugging (Page 85-87)
+Debugging Strategies: Debugging is a systematic process to find and fix errors. Strategies include:
+
+Be Ruthless with Hunches: Test your hunches but discard them if they’re wrong.
+
+Respect Occam’s Razor: Prefer simpler explanations over complex ones.
+
+Divide and Conquer: Narrow down the problem by eliminating parts of the system that are not causing the issue.
+
+Change One Thing at a Time: Make one change at a time to isolate the cause of the error.
+
+Logging and Tracing: Use logging to track the execution of instructions and tracing to step through the code line by line to understand what the computer is doing.
+
+Deciding Which Errors to Fix (Page 88-89)
+Error Severity and Priority: Not all bugs can be fixed, so it’s important to prioritize them based on:
+
+Severity: How much the error impacts the system (e.g., critical, major, moderate, minor).
+
+Priority: How urgently the error needs to be fixed, considering factors like frequency, feature value, and the time required to fix it.
+
+Priority-Severity Matrix: Bugs are categorized into high/low priority and severity to decide which ones to address first.
+
+Summary (Page 90)
+Bug Prevention and Mitigation: Bugs are inevitable, but careful design and defensive programming can minimize their impact.
+
+Testing and Debugging: Systematic testing (top-down and bottom-up) and debugging (using logs, tracing, etc.) are essential for finding and fixing errors.
+
+Prioritization: Not all bugs need to be fixed immediately; prioritize based on severity and impact.
+
+Exercises (Page 90-91)
+The exercises include questions on identifying errors, understanding debugging techniques, and writing algorithms (e.g., for the FizzBuzz game).
+
+This summary covers the key points from pages 83 to 91, focusing on testing, debugging, and error management strategies.
+
+
+EXERCISE: 
+
+Exercise Summary and Answers:
+Exercise 1: True or False
+A. Errors can result from statements that are grammatically valid.
+
+True: Grammatically valid statements can still have logical or semantic errors.
+
+B. The exit condition of a loop is evaluated after each statement inside the loop is executed.
+
+False: The exit condition is evaluated at the start or end of each loop iteration, not after every statement inside the loop.
+
+C. Defensive programming assumes that code is safe until proven otherwise.
+
+False: Defensive programming assumes that errors can occur and proactively checks for them.
+
+D. Bottom-up testing is an effective way of finding design flaws.
+
+False: Bottom-up testing is more effective for verifying individual components, while top-down testing is better for finding design flaws.
+
+E. An equivalence class groups all inputs to an algorithm that elicit the same type of response.
+
+True: Equivalence classes group inputs that produce the same kind of output.
+
+Exercise 2: Difference Between a Bug and an Error
+Bug: A fault in the solution (e.g., a mistake in the code or design) that can cause incorrect behavior.
+
+Error: The actual incorrect behavior observed when the solution is executed, caused by a bug.
+
+Exercise 3: Modifying an 'If-Then' Conditional
+To modify an "if-then" conditional to carry out instructions if the condition is not met, you can use an else clause:
+
+plaintext
+Copy
+if (condition) then
+    do something
+else
+    do something else
+Exercise 4: Debugging the Minesweeper Algorithm
+Error: The algorithm in Figure 5.2 may fail to correctly count mines in certain configurations, especially near the edges of the board or when mines are placed in specific patterns.
+
+Fix: Ensure the algorithm correctly handles edge cases, such as squares on the border of the board, and verify that it counts mines in all eight adjacent squares (not just some).
+
+Exercise 5: FizzBuzz Algorithm
+Here’s an algorithm for the FizzBuzz game:
+
+plaintext
+Copy
+1. Input: number (n)
+2. If n is not in the expected range (e.g., less than 1), return "Error: Invalid input."
+3. If n is divisible by both 3 and 5, return "FizzBuzz."
+4. Else if n is divisible by 3, return "Fizz."
+5. Else if n is divisible by 5, return "Buzz."
+6. Else, return the number itself.
+This covers all the exercises from the PDF, providing concise answers and explanations.
+
+
+
+
+
+ESERCIZI - CAPITOLO NUMERO 5:
+
+
+Vocabulary Matching Exercise:
+
+Bug → J (Any behavior observed that does not match expected results.)
+
+Error → C (A fault in a solution that can cause incorrect behavior.)
+
+Debugging → A (The process of systematically identifying and fixing errors in a program.)
+
+Testing → D (A method of verifying that a solution performs as expected.)
+
+Defensive Programming → E (A technique used to anticipate potential problems and prevent failures.)
+
+Equivalence Class → F (A group of inputs that elicit the same response in an algorithm.) 
+
+Logical Error → G (A mistake in reasoning that causes a program to produce incorrect results.)
+
+Loop Exit Condition → I (A condition checked to determine when a loop should terminate.)
+
+Precondition → B (A condition that must be met before a certain operation is executed.)
+
+Mitigation → H (A strategy to reduce the effects of errors after they occur.)
+
+
+
+Comprehension Questions
+
+True or False
+
+False (Bugs are not always caused by syntax errors; logical and runtime errors can also introduce bugs.)
+
+True (A bug is any unexpected fault in a system.)
+
+False (Finding and fixing bugs is an unavoidable part of programming.)
+
+True (Bugs can be introduced at any stage of development.)
+
+False (Not all bugs immediately reveal themselves; some may appear only under specific conditions.)
+
+True (The earlier a bug is found, the easier and cheaper it is to fix.)
+
+False (A bug is not necessarily the same as an error; an error may cause a bug.)
+
+True (Typing mistakes in code, like missing semicolons or incorrect variable names, are common sources of bugs.)
+
+False (Even well-designed systems can contain bugs; no system is perfect.)
+
+True (Fixing a bug in the planning stage is more cost-effective than fixing it after implementation.)
+
+
+Multiple Choice Answers
+
+Coming to Terms with Bugs
+
+B (Incorrect logic is a common cause of bugs in a program.)
+
+B (Identifying bugs early makes fixing them easier and cheaper.)
+
+B (A misinterpretation of a problem requirement is an example of a bug.)
+
+
+Designing Out the Bugs
+
+
+B (Poor grammar in problem definitions causes ambiguities in problem interpretation.)
+
+C (Keeping a glossary of key terms is an effective way to avoid inconsistencies.)
+
+
+Mitigating Errors
+
+A (The goal of defensive programming is to anticipate potential errors and prevent failures.)
+
+B (A good practice when handling user input is implementing input validation checks.)
+
+
+
+Testing
+
+A (The purpose of testing is to confirm the system works as expected.)
+
+B (Bottom-up testing focuses on verifying individual components first.)
+
+Debugging
+
+A (Logging assists in debugging by recording system events for analysis.)
+
+B (The "divide and conquer" technique involves breaking a problem into smaller parts.)

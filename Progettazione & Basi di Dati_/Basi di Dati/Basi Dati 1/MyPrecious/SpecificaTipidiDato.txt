@@ -1,0 +1,138 @@
+SPECIFICA DEI TIPI DI DATO - Progetto MyPrecious
+
+
+SPECIFICA DEI DATI:
+
+
+1. Data  
+Utilizzato per rappresentare: 
+
+- date di nascita e morte di un autore  
+- anno di realizzazione di un’opera  
+- intervalli temporali delle esposizioni  
+- date di validità dei biglietti  
+
+SINTASSI:  
+stringa numerica, che segue il formato GG/MM/AAAA  
+ovvero → G = giorno, M = mese, A = anno
+
+
+2. Ora  
+Utilizzato per rappresentare:  
+
+- l’istante di vendita del biglietto  
+- eventuali orari di apertura o chiusura (se previsti)
+
+SINTASSI:  
+stringa numerica, che segue il formato OO:MM:SS  
+ovvero → O = ora, M = minuto, S = secondo
+
+
+3. DataOra  
+Utilizzato per rappresentare:  
+
+- timestamp completi (es. istante di vendita biglietto)
+
+SINTASSI:  
+stringa, che segue il formato GG/MM/AAAA OO:MM:SS  
+ovvero → G = giorno, M = mese, A = anno, O = ora, M = minuto, S = secondo
+
+
+4. Nome  
+Utilizzato per rappresentare:  
+
+- nome di autori, esposizioni, tariffe, tecniche, città, regioni, paesi, correnti artistiche
+
+SINTASSI:  
+stringa alfanumerica, con massimo 50 caratteri NOT NULL
+
+
+5. Categoria  
+Utilizzato per rappresentare la categoria dell’opera (tipologia artistica).
+
+
+SINTASSI:  
+valore stringa enumerica  
+Categoria = {Dipinto, Scultura, Mosaico, Manoscritto, Installazione, Altro}
+
+
+6. Tecnica  
+Utilizzato per rappresentare la tecnica utilizzata nella realizzazione di un’opera (es. olio su tela, affresco, marmo, bronzo, ecc.).
+
+SINTASSI:  
+stringa alfanumerica, con massimo 50 caratteri, possibile NULL
+
+
+7. TemaParticolare  
+Utilizzato per rappresentare il tema di una esposizione temporanea (es. “Impressionismo”, “Leonardo e il Rinascimento”).
+
+SINTASSI:  
+stringa alfanumerica, con massimo 100 caratteri, possibile NULL
+
+
+8. IntervalloDate  
+Utilizzato per rappresentare un intervallo temporale (inizio e fine).
+
+SINTASSI:  
+coppia di valori ordinati di tipologia Data, che seguono il formato:
+( dataInizio : Data , dataFine : Data )
+
+Vincolo: dataInizio ≤ dataFine
+
+
+9. Prezzo  
+Utilizzato per rappresentare un valore monetario positivo (es. prezzoAccesso a una esposizione temporanea).
+
+SINTASSI:  
+valore numerico reale ≥ 0
+
+
+10. PrezzoBase  
+Utilizzato per rappresentare il prezzo base associato a una tariffa.
+
+SINTASSI:  
+valore numerico reale ≥ 0
+
+
+11. PrezzoExt  
+Utilizzato per rappresentare il prezzo finale del biglietto Extended Access, calcolato come somma di PrezzoBase + prezzi delle Temporanee selezionate.
+
+SINTASSI:  
+valore numerico reale ≥ 0
+
+
+12. IstanteVendita  
+Utilizzato per rappresentare il momento esatto di acquisto di un biglietto.
+
+SINTASSI:  
+valore di tipologia DataOra con valore 'timestamp'
+
+
+13. ValiditaVisita  
+Utilizzato per rappresentare la data per cui il biglietto è valido per l’accesso.
+
+SINTASSI:  
+valore di tipologia Data
+
+
+14. CorrenteArtistica  
+Utilizzato per rappresentare la corrente o il movimento artistico di un’opera.
+
+SINTASSI:  
+valore stringa enumerica  
+CorrenteArtistica = {Rinascimento, Barocco, Impressionismo, Cubismo, Surrealismo, Contemporaneo, Altro}
+
+
+15. TariffaScelta  
+Utilizzato per rappresentare il nome della tariffa selezionata al momento dell’acquisto del biglietto.
+
+SINTASSI:  
+stringa alfanumerica, corrispondente a una tariffa esistente
+TariffaScelta = Tariffa.nome
+
+
+16. PeriodoEsposizione  
+Utilizzato per rappresentare il periodo durante il quale un’opera è esposta.
+
+SINTASSI:  
+tipologia IntervalloDate

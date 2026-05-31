@@ -1,0 +1,78 @@
+                            RAFFINAMENTO REQUISITI Progetto SIMULAZIONE D'ESAME TuTubi 
+
+
+
+RAFFINAMENTO DEI REQUISITI:
+
+
+1. REQUISITI SUI UTENTI:
+
+    1.1. nome: stringa
+    1.2  dataIscrizione: DataOra
+    1.3. gli utenti registrati
+      1.3.1 hanno la facoltà di pubblicare un video,visualizzare video disponibili e valutazioni e commenti
+
+2. REQUISITI SUI VIDEO:
+
+    2.1 titolo: stringa
+    2.2 durata: Durata 
+    2.3 descrizione: stringa
+    2.4 nomeFile: nomeFile
+      2.4.1. il nome del file verrà memorizzata in un'altra parte del sistema
+    2.5 videoRisposta: Video 
+      2.5.1 necessario per avviare delle "discussioni" su un determinato argomento
+      2.5.2 un utente che pubblica un video però non può "replicare" ad un video pubblicto da se stesso
+    2.6. numeroVisualizzazioni : intero >= 0
+
+3. REQUISITI SULLE CATEGORIE:
+
+    3.1 nomeCategoria: stringa {id}
+       3.1.1. il nome di una categoria che appartiene ad un video è unica nel suo genere 
+    
+4. REQUISITI SUI TAG:
+
+    4.1 tagVideo: nome 
+         4.1.1 il nome di un tag che appartiene ad un video e che la descrive in maniera strutturata
+         4.1.2 per ogni video deve esistere almeno un tag, nell'insieme dei tag per ogni video.
+
+5.REQUISITI SULLE CRONOLOGIE:
+   
+   5.1 utenteVisualizzatore: stringa
+     5.1.1 serve impostare in maniera cronologica i video visualizzati da ogni singolo utente
+   5.2. informativaVisual: DataOra
+     5.2.1. collegato per comprendere quando e in quale ora sono stati visualizzati determinati video
+
+6. REQUISITI SULLE VALUTAZIONI:
+
+    6.1 valutazioneVideo: valutazioneVideo[0..5] 
+      6.1.1. la valutazione va inserita in maniera facoltativa quando si visualizza un determinato video
+      6.2.1. un utente che pubblica un determinato video non può votare quel video
+      6.3.1. un utente che visualizza un video (che non sia quello che pubblica) può votare massimo una volta
+             vincolo[0..1], indipendente dal numero delle visualizzazioni effettuati in quel determinato video.
+      6.4.1. un utente NON PUÒ/DEVE votare un video che non hanno mai visualizzato 
+
+
+7. REQUISITI SUI COMMENTI:
+
+    7.1. infoCommento: DataOra
+      7.1.1. è possibile inserire più commenti per lo stesso video 
+      7.2.1  non deve essere possibile ad un utente inserire un commento ad un video che non ha mai visualizzato--
+
+
+8. REQUISITI DELLE PLAYIST:
+
+   8.1 nome: stringa
+   8.2 dataCrazione: DataOra
+   8.3. Le PLAYIST possono essere di due tipologie
+    8.3.1. PLAYIST Private
+    8.3.2  PLAYIST pubbliche
+        8.3.2.1 solo le PLAYIST pubbliche possono essere visualizzate dai utenti
+        8.3.2.2 il sistema deve permettere di ottenere le PLAYIST di un altro utente a sua scelta
+
+
+9. REQUISITI SULLE CENSURE:
+
+    9.1 un video censurato non può essere: visualizzato,votato,commentato,aggiunto alle PLAYIST nè come risultato 
+        di ricerca.
+    9.2 motivoCensura: stringa 
+        9.2.1 il motivo della censura deve rimanere nel sistema per usi interni

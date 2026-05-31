@@ -1,0 +1,110 @@
+ itineriarioPazienti(med:Medico) -> (Intero >= 0, Intero>= 0)
+
+        Precondizioni:
+
+            - med non deve essere NULL
+
+        Postcondizioni:
+
+            -Non modifica il lovello estensionale dei dati
+            -L'operazione Result è csoì definita:
+
+                Sia S:Stanza l'insieme di Stanza
+                Sia R:Ricovero l'insieme di Ricovero
+                Sia P:postoLetto l'insieme di PostoLetto
+
+
+                Esista un r elemento di R, con un link (med,r): medicoRicovero 
+                Esista un s elemento di S, con un link (r,s) : ricoverare
+                Ed esista un p elemento  di P, con link(s,p):presente
+                
+                L'operazione result sarà l'insieme dei elementi interi di s:
+
+                (p,st)
+
+                p: l'elemento piano di s 
+                st : l'elemento settore di s 
+
+
+
+
+InsiemeMediciIdonei(s:stringa) -> Insieme(specializzazionePrimaria)| Insieme(specializzazioneSecondaria)
+
+        Precondizioni:
+
+            - s non deve essere NULL
+
+        Postcondizioni:
+
+            -Non modifica il livello estensionale dei dati
+            -L'operazione Result è così definita:
+
+                - Sia s:specializzazionePrimaria e m:medico
+                
+                - Se esiste un m:specializzazionePrimaria in s, il valore viene aggiunto all'interno dell'insieme
+                di specializzazionePrimaria risultante per ogni medico fino a completare i m 'idonei' 
+                alla ruolo di specializzazionePrimaria.
+               
+                - Altrimenti il risultato è pari all'insieme delle specializzazioneSecondaria che hanno come specializzazione
+                  la medesima specializzazione presente nella specializzazionePrimaria. 
+
+                 -Aggiungendo però l'elemento inerente all'Insieme(specializzazioneSecondaria)
+
+
+
+registrazione(paz:Paziente) -> None:
+
+        Precondizioni:
+            
+            - paz non deve essere NULL
+        
+        Postcondizioni:
+
+            - Non modifca il livello estensionale dei dati 
+            - L'operazione Result è così definita:
+
+             Sia p:Persona isa di pz:paziente
+             Sia r:Ricovero tale che (p,r):ricoverare
+
+             Sia r.dataRicovero valorizzata 
+    
+
+
+
+
+dimissione(paz:Paziente) -> None:
+
+
+        Precondizioni:
+
+            nessuna
+
+        PostCondizioni:
+
+            -Non modifica il livello estensionale dei dati
+            -L'operazione di result è così definita:
+
+                Sia pz:paziente isa di p:persona 
+                Sia r:ricovero tale che (pz,r):ricoverare 
+
+                Sia r.dataDimissione valorizzata
+
+
+
+ordinamentoItinerarioPazienti(s1:Stanza,s2:Stanza)-> Insieme(Tuple):
+
+        Precondizioni:
+            nessuna
+
+        PostCondizioni:
+
+            Non modifica il livello estensionale dei dati 
+
+            Il result è così deinito:
+
+            Se s1.piano < s2.piano, result = True 
+            Se s1.piano = s2.piano e s1.settore <= s2.settore, allora result = True 
+
+            Altrimenti, result = True
+
+        

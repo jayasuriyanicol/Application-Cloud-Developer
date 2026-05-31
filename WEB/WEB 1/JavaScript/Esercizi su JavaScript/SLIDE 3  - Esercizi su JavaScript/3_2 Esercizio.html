@@ -1,0 +1,49 @@
+<!--Esercizio 3.2 Scrivere un programma che dichiara e valorizza una variabile con l'anno corrente e un’altra variabile con il proprio anno di nascita e
+determini:
+• l’età della persona
+• quanti anni sono necessari per raggiungere i 100
+Restituisca in output entrambi i risultati. 
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Esercizio 3_2 - JavaScript Calcoli</title>
+</head>
+<body>
+
+  <h1>ESERCIZIO 3_2</h1>
+
+  <h3>CONSEGNA:</h3>
+
+  <p>Esercizio 3.2: Scrivere un programma che dichiara e valorizza una variabile con l'anno corrente e un’altra variabile con il proprio anno di nascita e
+  determini:
+  <br>• l’età della persona
+  <br>• quanti anni sono necessari per raggiungere i 100.
+  <br>Restituisca in output entrambi i risultati.</p>
+
+  <h2><br>SVOLGIMENTO DELL'ESERCIZIO:</h2>
+
+  <p id="outputEtaPersona"></p>
+  <p id="outputAnniNecessari"></p>
+
+  <script>
+    // Dati
+    var annoCorrente = 2025;
+    var annoDiNascita = 2004;
+
+    // Calcoli
+    var etaCorrente = annoCorrente - annoDiNascita;
+    var anniPerCento = 100 - etaCorrente;
+
+    // Output in console
+    console.log("Età corrente della persona:", etaCorrente);
+    console.log("Anni necessari per raggiungere i 100:", anniPerCento);
+
+    // Output in pagina
+    document.getElementById("outputEtaPersona").innerHTML = "Età corrente della persona: " + etaCorrente + " anni";
+    document.getElementById("outputAnniNecessari").innerHTML = "Anni necessari per raggiungere i 100: " + anniPerCento + " anni";
+  </script>
+
+</body>
+</html>

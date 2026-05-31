@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio numero 2 - Promise</title>
+</head>
+<body>
+
+    <!--
+    Esercizio Promise 2
+     In questo codice, la tua funzione riceve i dati di un parametro. È necessario modificare il codice seguente in base alle seguenti regole:
+     La tua funzione deve sempre restituire una promise
+      
+      • Se i dati non sono un numero, restituisci una promise respinta all'istante e dai i dati "errore" (in una stringa)
+      
+      • Se i dati sono un numero dispari, restituisci una promise risolta 1 secondo dopo e dai i dati "dispari" (in una stringa)
+       
+      • Se i dati sono un numero pari, restituisci una promise risolta 2 secondi dopo e dai i dati "pari" (in una stringa)
+
+    Suggerimenti esercizio 2
+
+      • usa isNaN(data) per controllare se data non è un numero
+    
+    -->
+
+
+    <script>
+        
+    function job(data) {
+      return new Promise((resolve, reject) => {
+            if (isNaN(data)) {
+                  reject("errore");
+                } else if (data % 2 !== 0) {
+                setTimeout(() => resolve("dispari"), 1000);
+                } else {
+                setTimeout(() => resolve("pari"), 2000);
+                }
+         });
+    }
+
+//Verifichiamo la concretezza della nostra soluzione, verificando per ogni caso la funzione: 1. ERRORE, 2. 1sec => DISPARI, 3. 2sec =>PARI
+job("ciao").catch(console.log);    
+job(3).then(console.log);           
+job(4).then(console.log);           
+
+
+    </script>
+    
+</body>
+</html>
