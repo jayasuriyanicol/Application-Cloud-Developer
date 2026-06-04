@@ -34,6 +34,14 @@ public class LibroController {
     }
 
 
+    @GetMapping("/trovaPerPrezzoMax/{prezzo}")
+    public LibroResponse trovaId(@PathVariable BigDecimal prezzo) {
+
+        return service.trovaPerPrezzoMaggiore(prezzo);
+    }
+
+
+
     @PostMapping("/creaLibro")
     public LibroResponse creaLibro(@RequestBody LibroRequest request) {
 

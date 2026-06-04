@@ -107,6 +107,13 @@ public class LibroService {
 
     }
 
+    public List<LibroResponse> trovaPerPrezzoMaggiore(BigDecimal prezzo)	{
+
+        return mapper.toResponseList(repository.findByPrezzoGreaterThan(cl));
+
+    }
+
+
 
     public List<LibroResponse> trovaLibriCostosi(double c){
 
