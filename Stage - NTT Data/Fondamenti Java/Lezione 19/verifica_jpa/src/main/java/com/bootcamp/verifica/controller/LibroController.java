@@ -19,6 +19,7 @@ public class LibroController {
     private final LibroService service;
 
     public LibroController(LibroService service){
+
         this.service = service;
     }
 
@@ -61,7 +62,7 @@ public class LibroController {
     }
 
 
-    @GetMapping("/trovaPerCategoria/{categoria}")
+    @GetMapping("/trovaPerCategoria/{c}")
     public ResponseEntity<List<LibroResponse>> trovaPerCategoria(@PathVariable CategoriaLibro c) {
 
         List<LibroResponse> l = service.trovaPerCategoria(c);
@@ -74,8 +75,8 @@ public class LibroController {
 
         LibroResponse re = service.aggiornaLibro(id, r);
 
-        // Here we can manage with two cases or return a HttpStatus -> OK or a adapt GONE
-        return new ResponseEntity<>(re,HttpStatus.GONE);
+        // Here we can manage with two cases or return a HttpStatus -> GONE or a more correct OK
+        return new ResponseEntity<>(re,HttpStatus.OK);
     }
 
 
