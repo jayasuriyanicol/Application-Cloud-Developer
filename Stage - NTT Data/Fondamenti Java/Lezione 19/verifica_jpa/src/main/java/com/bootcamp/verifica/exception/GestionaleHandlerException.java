@@ -42,8 +42,49 @@ public class GestionaleHandlerException {
     }
 
 
+    @ExceptionHandler(AutoreNonEsistenteException.class)
+    public ResponseEntity<ErroreDTO> AutoreNonEsistente(AutoreNonEsistenteException exc) {
+
+        ErroreDTO err = new ErroreDTO(
+                HttpStatus.NOT_FOUND.value(),
+                exc.getMessage(),
+                "ERRORE: L'autore non è stato trovato all'interno del sistema\nDETTAGLI:\n"
+        );
+
+        return new ResponseEntity<>(err, HttpStatus.NOT_FOUND);
+
+    }
 
 
+
+    @ExceptionHandler(CategoriaNonIdoneaException.class)
+    public ResponseEntity<ErroreDTO> CategoriaNonIdonea(CategoriaNonIdoneaException exc) {
+
+        ErroreDTO err = new ErroreDTO(
+                HttpStatus.BAD_REQUEST.value(),
+                exc.getMessage(),
+                "ERRORE: Non è stato possibile associare la categoria a quelli presenti nel sistema\nDETTAGLI:\n"
+        );
+
+        return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
+
+    }
+
+    @ExceptionHandler(PrezzoNonIdoneoException.class)
+    public ResponseEntity<ErroreDTO> PrezzoNonIdoneo(PrezzoNonIdoneoException exc) {
+
+        ErroreDTO err = new ErroreDTO(
+                HttpStatus..value(),
+                exc.getMessage(),
+                "ERRORE: Non è stato possibile procedere, il formato del prezzo non è accettato dal sistema\nDETTAGLI:\n"
+        );
+
+        return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
+
+    }
+
+
+    // Manage a generic case if any cases do not match
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErroreDTO> gestioneErroreGenerico(Exception exc) {
 
