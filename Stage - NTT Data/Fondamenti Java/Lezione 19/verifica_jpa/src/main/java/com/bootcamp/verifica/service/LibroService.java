@@ -30,11 +30,31 @@ public class LibroService {
 
     public LibroResponse creaLibro(LibroRequest r){
 
+        // If the ID is DB-generated, it MUST be null, or at least a positive number if validated
+        if (r.getId() == null || r.getId() <= 0) {
+            throw new IdNonValidoException("ATTENZIONE! L'ID del Libro deve essere coerente e non può essere inserito manualmente !");
+        }
+
+
         if(r.getTitolo() == null || r.getTitolo().trim().isEmpty()){
 
             throw new TitoloVuotoException("ATTENZIONE! il titolo risulta mancante !");
         }
 
+        if(r.getAutore() == null || r.getAutore().trim().isEmpty()){
+
+            throw new AutoreNonEsistenteException("ATTENZIONE! l'autore risulta mancante !");
+        }
+        if(r.getPrezzo() < 0.00){
+
+            throw new PrezzoNonIdoneoException("ATTENZIONE! il prezzo deve essere positivo !");
+        }
+
+        if(r.getCategoria() == null || r.getCategoria().trim().isEmpty()){
+
+            throw new CategoriaNonIdoneaException("ATTENZIONE! la categoria risulta mancante o non è idonea quelle registrate !");
+        }
+-
 
         Libro l = new Libro(
 
