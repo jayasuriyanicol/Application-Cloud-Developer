@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c04115d1-f3e2-4d23-be98-1b0eb96503c4" name="Changes" comment="TEST: Temporary file &#10;&#10;Temporary file added to mantain the folder, to upload the projects" />
+    <list default="true" id="c04115d1-f3e2-4d23-be98-1b0eb96503c4" name="Changes" comment="MERGE: Formazione folder with Fondamenti Java &amp; MySQL | PSQL&#10;&#10;Merging into a unique file the training into job, to distinguish the training part and the Progetti one">
+      <change afterPath="$PROJECT_DIR$/Stage - NTT Data/Progetti/ScriptAvvio/run.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +89,7 @@
       <workItem from="1780654991134" duration="1817000" />
       <workItem from="1780768282413" duration="2893000" />
       <workItem from="1781103909247" duration="849000" />
-      <workItem from="1781168769927" duration="770000" />
+      <workItem from="1781168769927" duration="3223000" />
     </task>
     <task id="LOCAL-00001" summary="BATCH: Resolved migration conflicts with repo&#10;&#10;1. Fixed the problem with the name's of the folder that they prevented the correct resolution&#10;&#10;2. Now allow the possibility to clone the repo correctly with no more mistakes&#10;&#10;&#10;3. Finally solved any issues between the systems: Linux (Ubuntu) and Windows">
       <option name="closed" value="true" />
@@ -296,7 +299,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781169345062</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="MERGE: Formazione folder with Fondamenti Java &amp; MySQL | PSQL&#10;&#10;Merging into a unique file the training into job, to distinguish the training part and the Progetti one">
+      <option name="closed" value="true" />
+      <created>1781169605780</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1781169605780</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,8 +360,8 @@
     <MESSAGE value="FIX: Including the new Exception to be Handled from the Master &amp; Minor Fix&#10;&#10;In one hand included the Exception to be managed into the GestionaleHandlerException, on the other hand fixed the HttpStatus and the @PathVariable correctly in the controller.&#10;&#10;Sum up of what we add:&#10;&#10;1.  PrezzoNonIdoneoException&#10;2.  AutoreNonEsistenteException&#10;3.  CategoriaNonIdoneaException&#10;4.  HttpStatus from GONE to OK&#10;5.  @PathVariable changed from 'categoria' to correct name 'c'" />
     <MESSAGE value="FIX: Including the new Exception to be Handled from the Master&#10;&#10;&#10;Including the Exception to be managed into the GestionaleHandlerException, here the new add:&#10;&#10;1.  PrezzoNonIdoneoException &#10;2.  AutoreNonEsistenteException&#10;3.  CategoriaNonIdoneaException" />
     <MESSAGE value="FIX: Including the manage cases Validation with new Exception&#10;&#10;&#10;Including the validation of Exception to be managed into the LibroService" />
-    <MESSAGE value="MERGE: Formazione folder with Fondamenti Java &amp; MySQL | PSQL&#10;&#10;Merging into a unique file the training into job, to distinguish the training part and the Progetti one" />
     <MESSAGE value="TEST: Temporary file &#10;&#10;Temporary file added to mantain the folder, to upload the projects" />
-    <option name="LAST_COMMIT_MESSAGE" value="TEST: Temporary file &#10;&#10;Temporary file added to mantain the folder, to upload the projects" />
+    <MESSAGE value="MERGE: Formazione folder with Fondamenti Java &amp; MySQL | PSQL&#10;&#10;Merging into a unique file the training into job, to distinguish the training part and the Progetti one" />
+    <option name="LAST_COMMIT_MESSAGE" value="MERGE: Formazione folder with Fondamenti Java &amp; MySQL | PSQL&#10;&#10;Merging into a unique file the training into job, to distinguish the training part and the Progetti one" />
   </component>
 </project>
