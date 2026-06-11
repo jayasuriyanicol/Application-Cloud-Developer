@@ -1,0 +1,26 @@
+PARTE B - Lezione 07 ERRORI CONTROLLATI
+
+
+1. Cancellando l'input.txt come parametro di inizio questo genererà 
+   un tipo di eccezzione FileNotFoundException, derivato da java.nio.
+
+
+2. Usare un percorso inesistente, genera un IOException, che porta poi a
+   a essere gestita proprio per evitare un fallback.
+
+
+3. Lasciare un catch vuoto alla fine del try, è una cattiva pratica di programmazione.
+   In questo caso lo ignorerà non lanciando niente, dato che non vi è logica.
+
+
+4. Questo è sbagliato dato che andremo a richiamare la classe madre Exception e non in maniera
+   specifica quello che ci interessa realmente che in questo caso è per l'appunto il IOException.
+
+
+5. Prima di lanciare l'eccezzione questa deve essere seguita con una condizione if
+   onde evitare possibili gestioni errate sul prezzo negativo. dopodichè lanciare 
+   l'eccezzione che avevamo in mente.
+
+
+6. Non ha seno leggere lo stacktrace di una NullPointerException, dato che l'eccezione ci dice già
+   che non c'è un pggetto a cui puntiamo in memoria.

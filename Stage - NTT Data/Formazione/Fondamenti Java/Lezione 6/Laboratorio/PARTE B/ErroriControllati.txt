@@ -1,0 +1,15 @@
+Risposte PARTE B:
+
+1.  Utilizzare il getNome() per un record è sbagliato perchè il record instanzia tutti i metodi get e set
+    dove vengono anche inclusi eventuali hash e equals()
+
+2. Non sarà possibile creare un prodotto con il prezzo negativo, dato che a causa della gestione delle variabili, 
+   effettuata nel costruttore verrà impedito.
+
+
+3. Non è possibile accedere a una sottoclasse con permits senza che essa abbia specificato la firma del metodo come permits,
+   ma comunque è possibile accedere ad una che ha non-permits.
+
+
+4. Il compilatore non farà girare il codice dando immediatamente errore, dato che una classe sealed ha bisogno
+   di rimanere chiusa e dare la preferenza con permits.

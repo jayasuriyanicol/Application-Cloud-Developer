@@ -1,0 +1,16 @@
+ERRORI CONTROLLATI - LEZIONE 15 Spring Boot
+
+
+
+1. Togiere il @Service dalla classe Service porta il compilatore a non trovare la classe in questione 
+
+2. Spostare l'applicazione main di lancio .run fuoriu dal package causa un errore di tipo 404 NOT FOUND
+
+3. Due @GetMapping con stesso percorso porta ad una incoerenza nell'utilizzo, sopratutto dovuto alla duplicazione  
+
+4. Creare una service con new nella classe controller andrebbe anche bene, ma con l'utilizzo in Spring Boot si usa proprio
+   l'annotation @Service per evitare di istanziare un nuovo oggetto, dato che viene svolto per IoC 
+
+5. Configurare una porta già occupata per esempio da un'altra appplicazione porta di fatto ad un errore di porta occupata
+   dato che vi è già un'altro listener attivo e nel caso volessimo utilizzare quest'ultima dovremmo 'killare' il listener attivo.
+

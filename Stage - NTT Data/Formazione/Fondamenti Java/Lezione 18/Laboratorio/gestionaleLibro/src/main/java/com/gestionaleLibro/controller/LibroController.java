@@ -1,0 +1,61 @@
+package com.gestionaleLibro.controller;
+
+import com.gestionaleLibro.dto.LibroRequest;
+import com.gestionaleLibro.dto.LibroResponse;
+import com.gestionaleLibro.service.LibroService;
+import org.springframework.web.bind.annotation.*;
+
+
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api")
+public class LibroController {
+
+    private final LibroService service;
+
+    public LibroController(LibroService service) {
+        this.service = service;
+    }
+
+
+    @GetMapping("/restituisci")
+    public List<LibroResponse> restituisci() {
+
+        return service.trovaTutti();
+    }
+
+
+    @GetMapping("/trovaperId/{id}")
+    public LibroResponse trovaId(@PathVariable Long id) {
+
+        return service.trovaPerId(id);
+    }
+
+
+    @GetMapping("/trovaPerPrezzoMax/{prezzo}")
+    public LibroResponse trovaId(@PathVariable BigDecimal prezzo) {
+
+        return service.trovaPerPrezzoMaggiore(prezzo);
+    }
+
+
+
+    @PostMapping("/creaLibro")
+    public LibroResponse creaLibro(@RequestBody LibroRequest request) {
+
+        return service.creaLibro(request);
+    }
+
+
+    @DeleteMapping("/eliminaperId/{id}")
+    public void eliminaLibro(@PathVariable Long id) {
+
+        service.rimuoviPerId(id);
+    }
+
+
+
+
+}

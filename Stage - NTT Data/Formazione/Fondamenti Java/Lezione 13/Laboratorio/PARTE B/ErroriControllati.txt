@@ -1,0 +1,32 @@
+ERRORI CONTROLLATI PARTE B - Lezione 13
+
+1. In un TEST se andiamo a inserire le classi con l'annotation @TEST non in src/test/java ma bensì in src/main/java. 
+   darà errore prorpiro per il fatto che tutte le classi test per poi essere testate devo essere inserite nella folder corretta
+
+
+
+2. La dipendenza JUnit mancante nel pom.xml creerà un problema dal punto di vista di TESTING. Senza il motore che aziona e controlla i 
+   test di fatto non abbiamo la macchina ma non il motore di TESTING
+
+
+3. Senza il @Test o un import sbagliato JUnit in fase di compilazione non riuscirà a distinguere i metodi che effettivamente sono 
+   per il test
+
+
+4. Un valore errato su AssertEquals genera automaticamente il messaggio di errore (sempre se presente nella funzione come messaggio) andando quindi 
+   automaticamente in errore durante la fase di testing.
+
+
+5. Nessun test per input non validi, devono essere coerenti secondo le assertion.
+
+
+6. Bisogna utilizzare bene i LocalDateTime dato che restituiscono la data effettiva come un TIMESTAMP, mentre
+   i LocalDate restituiscono la data effettiva con un formato (lo stesso vale per il LocalDateTime) diversificabile con la 
+   formattazione del campo 
+
+7. Il Period rappresenta l'effettiva durata in giorni,mesi, anni comprensibili dall'uomo. Mentre per quanto riguarda la Duration
+   essa rappresenta sempre una forma comprensibile dall'uomo con l'unico fatto che stampa il tutto in 'linguaggio macchina' ovverro 
+   compreso di ore,min,secondi.
+
+
+   

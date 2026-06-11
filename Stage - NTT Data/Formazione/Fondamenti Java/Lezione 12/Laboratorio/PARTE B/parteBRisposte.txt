@@ -1,0 +1,15 @@
+
+
+RISPOSTE ALLA PARTE B del LABORATORIO
+
+
+1. Utilizzando il MAP al posto del filter, andremo ad ottenere un errore dato che MAP non svolge la funzione di 
+   filtraggio ma bensì nella trasformazione di ogni elemento in bool 
+
+
+2. Dimenticando il toList compilerà ma non produrrà nessun output dato che non vi è nessuna 'chiusura' che 
+   permette di terminare il nostro stream, non è errore perchè compila ma non ci sarà nulla in output
+
+
+3. Utilizzare il sorted senza comparator comporterà una ClassCastException, dato che devono essere passati 
+   due parametru: param1 e param2 affichè ci sia una comparazione ai fini di gestione
