@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c04115d1-f3e2-4d23-be98-1b0eb96503c4" name="Changes" comment="MERGE: Formazione folder with Fondamenti Java &amp; MySQL | PSQL&#10;&#10;Merging into a unique file the training into job, to distinguish the training part and the Progetti one">
-      <change afterPath="$PROJECT_DIR$/Stage - NTT Data/Progetti/ScriptAvvio/run.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="c04115d1-f3e2-4d23-be98-1b0eb96503c4" name="Changes" comment="DOCS: Document local environment setup and automation workflows&#10;&#10;Updated the root repository documentation to provide comprehensive instructions on managing the local development stack.&#10;&#10;- Outlined necessary system prerequisites (Java JDK 17, Maven, Node.js, Docker).&#10;- Documented expected project directory topology for seamless path resolution.&#10;- Added usage instructions for the new start/stop automation capabilities.&#10;- Included reference commands for real-time log monitoring and inspection via tail." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +86,7 @@
       <workItem from="1780654991134" duration="1817000" />
       <workItem from="1780768282413" duration="2893000" />
       <workItem from="1781103909247" duration="849000" />
-      <workItem from="1781168769927" duration="3223000" />
+      <workItem from="1781168769927" duration="3575000" />
     </task>
     <task id="LOCAL-00001" summary="BATCH: Resolved migration conflicts with repo&#10;&#10;1. Fixed the problem with the name's of the folder that they prevented the correct resolution&#10;&#10;2. Now allow the possibility to clone the repo correctly with no more mistakes&#10;&#10;&#10;3. Finally solved any issues between the systems: Linux (Ubuntu) and Windows">
       <option name="closed" value="true" />
@@ -307,7 +304,31 @@
       <option name="project" value="LOCAL" />
       <updated>1781169605780</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="FEAT: Optimized local environment orchestration script&#10;      &#10;      Introduced an automated startup and teardown shell script (`run.sh`) optimized for Windows environments (Git Bash/PowerShell).&#10;      &#10;      - Implemented asynchronous, detached process execution for both backend and frontend services to prevent terminal locking.&#10;      - Re-routed active runtime log streams to dedicated `backend.log` and `frontend.log` files.&#10;      - Added dynamic container polling using Docker healthchecks instead of static time delays.&#10;      - Integrated automated process termination (`taskkill`) for orphaned Java and Node workers during teardown.">
+      <option name="closed" value="true" />
+      <created>1781172746014</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1781172746014</updated>
+    </task>
+    <task id="LOCAL-00029" summary="DOCS: Document local environment setup and automation workflows&#10;&#10;Updated the root repository documentation to provide comprehensive instructions on managing the local development stack.&#10;&#10;- Outlined necessary system prerequisites (Java JDK 17, Maven, Node.js, Docker).&#10;- Documented expected project directory topology for seamless path resolution.&#10;- Added usage instructions for the new start/stop automation capabilities.&#10;- Included reference commands for real-time log monitoring and inspection via tail.">
+      <option name="closed" value="true" />
+      <created>1781172784271</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1781172784271</updated>
+    </task>
+    <task id="LOCAL-00030" summary="DOCS: Document local environment setup and automation workflows&#10;&#10;Updated the root repository documentation to provide comprehensive instructions on managing the local development stack.&#10;&#10;- Outlined necessary system prerequisites (Java JDK 17, Maven, Node.js, Docker).&#10;- Documented expected project directory topology for seamless path resolution.&#10;- Added usage instructions for the new start/stop automation capabilities.&#10;- Included reference commands for real-time log monitoring and inspection via tail.">
+      <option name="closed" value="true" />
+      <created>1781172854236</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1781172854236</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,8 +358,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="REMOVE: Deleting the '.idea' file not need it" />
-    <MESSAGE value="TEST: working branch correctly" />
     <MESSAGE value="DELETE: Deleting the TEST's" />
     <MESSAGE value="DELETE: Deleting more file and .idea file" />
     <MESSAGE value="FEAT: Spring Boot - GestionaleLibreria&#10;&#10;- Included all the packages wiht the application logic&#10;&#10;- Refactor of the previous maven project using Spring Boot, allocated a new package 'controller'" />
@@ -362,6 +381,8 @@
     <MESSAGE value="FIX: Including the manage cases Validation with new Exception&#10;&#10;&#10;Including the validation of Exception to be managed into the LibroService" />
     <MESSAGE value="TEST: Temporary file &#10;&#10;Temporary file added to mantain the folder, to upload the projects" />
     <MESSAGE value="MERGE: Formazione folder with Fondamenti Java &amp; MySQL | PSQL&#10;&#10;Merging into a unique file the training into job, to distinguish the training part and the Progetti one" />
-    <option name="LAST_COMMIT_MESSAGE" value="MERGE: Formazione folder with Fondamenti Java &amp; MySQL | PSQL&#10;&#10;Merging into a unique file the training into job, to distinguish the training part and the Progetti one" />
+    <MESSAGE value="FEAT: Optimized local environment orchestration script&#10;      &#10;      Introduced an automated startup and teardown shell script (`run.sh`) optimized for Windows environments (Git Bash/PowerShell).&#10;      &#10;      - Implemented asynchronous, detached process execution for both backend and frontend services to prevent terminal locking.&#10;      - Re-routed active runtime log streams to dedicated `backend.log` and `frontend.log` files.&#10;      - Added dynamic container polling using Docker healthchecks instead of static time delays.&#10;      - Integrated automated process termination (`taskkill`) for orphaned Java and Node workers during teardown." />
+    <MESSAGE value="DOCS: Document local environment setup and automation workflows&#10;&#10;Updated the root repository documentation to provide comprehensive instructions on managing the local development stack.&#10;&#10;- Outlined necessary system prerequisites (Java JDK 17, Maven, Node.js, Docker).&#10;- Documented expected project directory topology for seamless path resolution.&#10;- Added usage instructions for the new start/stop automation capabilities.&#10;- Included reference commands for real-time log monitoring and inspection via tail." />
+    <option name="LAST_COMMIT_MESSAGE" value="DOCS: Document local environment setup and automation workflows&#10;&#10;Updated the root repository documentation to provide comprehensive instructions on managing the local development stack.&#10;&#10;- Outlined necessary system prerequisites (Java JDK 17, Maven, Node.js, Docker).&#10;- Documented expected project directory topology for seamless path resolution.&#10;- Added usage instructions for the new start/stop automation capabilities.&#10;- Included reference commands for real-time log monitoring and inspection via tail." />
   </component>
 </project>
