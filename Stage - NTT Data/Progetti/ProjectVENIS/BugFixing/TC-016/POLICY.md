@@ -1,7 +1,7 @@
 # Java Spring Data JPA – Date Range Overlapping Bug Fix
 
 <p align="center">
-  <img src="./assets/nttdata-logo.png" alt="NTT DATA Logo" width="300"/>
+  <img src="https://mc-8afc6902-e56c-432c-8c3f-3991-cdn-endpoint.azureedge.net/-/media/project/emea/shared/global-logo/globallogo_nttdata_white.png?hash=" alt="NTT DATA Logo" width="300"/>
 </p>
 
 ---
