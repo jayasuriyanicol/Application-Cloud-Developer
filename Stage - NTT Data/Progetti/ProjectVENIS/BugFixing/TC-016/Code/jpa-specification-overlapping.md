@@ -70,7 +70,7 @@ The implementation evaluated whether a record was **fully contained** within the
 <img src="https://mc-8afc6902-e56c-432c-8c3f-3991-cdn-endpoint.azureedge.net/-/media/project/emea/shared/global-logo/globallogo_nttdata_white.png?hash=" alt="NTT DATA Logo" width="300"/>
 </p>
 
-Although the record remained active during January 2026, it was excluded because its start date (`15/12/2025`) occurred before the filter start date (`01/01/2026`).
+Although the record remained active during January 2026, it was excluded because its start date (`15/12/2025`) occurred before the filter start date (`01/01/2026`), failing the strict condition inside the legacy `dataInizioFrom` method.
 
 ### Limitation Analysis
 
