@@ -1,8 +1,8 @@
-# 🛠️ Solution: Dynamic Attribute Correlation Logic
+# Solution: Dynamic Attribute Correlation Logic
 
 To resolve the issue, a conditional subquery block was manually structured and injected into the `@Query` fields of the data repository layer.
 
-## 🌟 Boundary Logic Explained
+## Boundary Logic Explained
 
 The custom filter block intercepts the incoming parameter using an `OR` bypass short-circuit condition, ensuring that filtering triggers only when explicitly requested.
 
@@ -31,7 +31,7 @@ When activated, the condition forces a lookup into the dynamic mapping table (`I
 
 ---
 
-## 🧪 Validation Tests & Regression Matrix
+## Validation Tests 
 
 Following parameter cleanups and subquery injection, Hibernate compiled and executed the updated query parameters correctly:
 
