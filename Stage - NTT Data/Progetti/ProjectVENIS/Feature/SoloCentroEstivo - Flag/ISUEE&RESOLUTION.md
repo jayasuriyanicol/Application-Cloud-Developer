@@ -58,7 +58,7 @@ The solution was verified against a real sandbox record setup (Target Record ID:
 
 ### Result on the FE
 
-![Flag Centro Estivo Visible](../../assets/images/FlagCentroEstivo.png)
+![Flag Centro Estivo Visible](https://github.com/jayasuriyanicol/Application-Cloud-Developer/blob/main/Stage%20-%20NTT%20Data/assets/images/FlagCentroEstivo.png?raw=true)
 
 
 ## ✅ Outcome
