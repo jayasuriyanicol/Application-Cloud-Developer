@@ -58,7 +58,8 @@ The solution was verified against a real sandbox record setup (Target Record ID:
 
 ### Result on the FE
 
-![Flag Centro Estivo Visible](../../Stage%20-%20NTT%20Data/assets/images/FlagCentroEstivo.png)
+<img src="../../Stage - NTT Data/assets/images/FlagCentroEstivo.png" alt="Flag Centro Estivo Visible" width="600"/>
+
 ## ✅ Outcome
 
 The software architecture now cleanly bridges state changes from the user view down to relational entity attributes. It preserves full consistency across text filters, pagination counts, and dynamic flag parameters without breaking Hibernate's startup verification routines.
