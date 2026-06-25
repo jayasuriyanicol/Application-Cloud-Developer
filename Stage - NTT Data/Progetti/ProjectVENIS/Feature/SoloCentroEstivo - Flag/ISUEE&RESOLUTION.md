@@ -56,6 +56,11 @@ The solution was verified against a real sandbox record setup (Target Record ID:
 | **ENABLED** | "Costa" | Display Isolated Record | Display Isolated Record | ✅ PASSED | Combining text search with dynamic flag works |
 | **ENABLED** | "Esposito" | Empty Result Set | Empty Result Set | ✅ PASSED | Record safely excluded (missing EAV 'SI' value) |
 
+### Result on the FE
+
+![Flag Centro Estivo Visible](/assets/images/FlagCentroEstivo.png)
+
+
 ## ✅ Outcome
 
 The software architecture now cleanly bridges state changes from the user view down to relational entity attributes. It preserves full consistency across text filters, pagination counts, and dynamic flag parameters without breaking Hibernate's startup verification routines.
