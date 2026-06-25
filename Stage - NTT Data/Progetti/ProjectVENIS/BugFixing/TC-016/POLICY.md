@@ -20,7 +20,7 @@
 
 ---
 
-## 📌 Problem Description (Bug Report: TC-016)
+## Problem Description (Bug Report: TC-016)
 
 A defect was identified in the date-range filtering functionality used within the search and listing views.
 
@@ -88,7 +88,7 @@ Although the record was clearly active during January 2026, it was discarded bec
 
 ---
 
-## 🔍 Root Cause Analysis
+## Root Cause Analysis
 
 The implementation incorrectly evaluated **full containment** rather than **period overlap**.
 
@@ -98,7 +98,7 @@ This mismatch between business requirements and query implementation led to the 
 
 ---
 
-## 🎯 Expected Behavior
+## Expected Behavior
 
 A record should be considered valid whenever its validity period overlaps the user's requested interval by at least one day.
 
@@ -120,7 +120,7 @@ This rule correctly identifies all overlapping scenarios, including:
 
 ---
 
-## ✅ Resolution Overview
+## Resolution Overview
 
 The filtering logic was redesigned using Spring Data JPA Specifications to evaluate temporal intersections instead of strict containment.
 
@@ -130,7 +130,7 @@ This solution aligns the implementation with the intended business behavior whil
 
 ---
 
-## 📚 Technologies
+## Technologies
 
 * Java
 * Spring Boot
@@ -141,7 +141,7 @@ This solution aligns the implementation with the intended business behavior whil
 
 ---
 
-## 🏁 Conclusion
+## Conclusion
 
 The issue was successfully resolved by replacing the restrictive containment-based filter with a robust period-overlap strategy.
 

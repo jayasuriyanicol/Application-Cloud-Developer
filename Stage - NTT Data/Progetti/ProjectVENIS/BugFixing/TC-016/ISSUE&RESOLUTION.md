@@ -1,10 +1,10 @@
-# 🛠️ Solution: Period Overlapping Logic
+# Solution: Period Overlapping Logic
 
 To resolve the issue, the filtering logic was refactored to evaluate the **intersection of time periods** rather than relying on strict containment criteria.
 
 A record is now considered **active and valid** within a given filter range whenever its validity period overlaps the user's requested period by **at least one day**.
 
-## 🌟 Boundary Logic Explained
+## Boundary Logic Explained
 
 ### Filter Start Date (`dataInizio`)
 
@@ -32,7 +32,7 @@ This guarantees that only records whose validity begins before or on the filter 
 
 ---
 
-## 🧪 Validation Tests & Regression Matrix
+## Validation Tests & Regression Matrix
 
 After implementing the fix using **Spring Data Specifications**, Hibernate generated the expected dynamic query:
 
