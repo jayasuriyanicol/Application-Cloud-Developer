@@ -1,4 +1,4 @@
-## 💻 File: `Repository_BEFORE.java`
+## File: `Repository_BEFORE.java`
 
 ### Purpose
 
@@ -66,8 +66,8 @@ public interface CustomRegistryRepository extends JpaRepository<CustomRegistry, 
             @Param("tipoScuolaId") Long tipoScuolaId,
             @Param("searchText") String searchText,
             @Param("soloConvocabili") boolean soloConvocabili,
-            // MISSING PARAMETER: The interface method was also desynchronized 
-            // with the total argument count requested by the invocation stack
+
+            // *MISSING PARAMETER: The interface method was also desynchronized with the total argument count requested by the invocation stack
             @Param("applyStatusFilter") boolean applyStatusFilter,
             Pageable pageable
     );
