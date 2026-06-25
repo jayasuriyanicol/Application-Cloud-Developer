@@ -58,7 +58,7 @@ The solution was verified against a real sandbox record setup (Target Record ID:
 
 ### Result on the FE
 
-<img src="../../assets/images/FlagCentroEstivo.png" alt="Flag Centro Estivo Visible" width="600"/>
+![Flag Centro Estivo Visible](./assets/images/FlagCentroEstivo.png))
 
 ## ✅ Outcome
 
