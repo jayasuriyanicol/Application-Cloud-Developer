@@ -21,7 +21,7 @@
 
 ---
 
-## 📌 Problem Description (FEATURE filter 'Solo Centro Estivo')
+## Problem Description (FEATURE filter 'Solo Centro Estivo')
 
 A defect was identified in the advanced filtering panel within the teacher listing and availability views.
 
@@ -57,7 +57,7 @@ Under this logic, a record was returned regardless of the filter state because t
 
 ---
 
-## 🔍 Root Cause Analysis
+## Root Cause Analysis
 
 The implementation issue stemmed from three distinct layers of the application stack:
 
@@ -71,7 +71,7 @@ This lack of structural intersection between the interface methods and the JPQL/
 
 ---
 
-## 🎯 Expected Behavior
+## Expected Behavior
 
 A record should be filtered dynamically based on the checkbox status:
 
@@ -95,7 +95,7 @@ This solution completely aligns the frontend state changes with dynamic backend 
 
 ---
 
-## 📚 Technologies
+## Technologies
 
 * Angular (TypeScript)
 * Java
@@ -107,7 +107,7 @@ This solution completely aligns the frontend state changes with dynamic backend 
 
 ---
 
-## 🏁 Conclusion
+## Conclusion
 
 The issue was successfully resolved by introducing an isolation strategy via subqueries for the dynamic dynamic attribute mapping layer.
 
