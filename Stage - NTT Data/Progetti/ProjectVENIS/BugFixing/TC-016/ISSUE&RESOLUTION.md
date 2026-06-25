@@ -32,7 +32,7 @@ This guarantees that only records whose validity begins before or on the filter 
 
 ---
 
-## Validation Tests & Regression Matrix
+## Validation Tests 
 
 After implementing the fix using **Spring Data Specifications**, Hibernate generated the expected dynamic query:
 
@@ -46,6 +46,12 @@ The solution was validated using a test record with the following validity perio
 | Record Start Date | Record End Date |
 | ----------------- | --------------- |
 | 01/01/2026        | 31/01/2026      |
+
+
+### Result on the FE
+
+![Blocco Inline Warning](https://github.com/jayasuriyanicol/Application-Cloud-Developer/blob/main/Stage%20-%20NTT%20Data/assets/images/GraduatoriaFilterByDate.png?raw=true)
+
 
 ### Test Results
 
