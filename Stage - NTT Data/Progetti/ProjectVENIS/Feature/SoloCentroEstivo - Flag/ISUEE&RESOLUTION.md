@@ -58,8 +58,7 @@ The solution was verified against a real sandbox record setup (Target Record ID:
 
 ### Result on the FE
 
-![Flag Centro Estivo Visible](/assets/images/FlagCentroEstivo.png)
-
+![Flag Centro Estivo Visible](assets/images/FlagCentroEstivo.png)
 
 ## ✅ Outcome
 
