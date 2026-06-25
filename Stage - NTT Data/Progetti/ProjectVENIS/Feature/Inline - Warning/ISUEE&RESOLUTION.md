@@ -56,6 +56,10 @@ The reactive behavior was verified against a set of live data mock scenarios wit
 | **Invalid String Input** | Any | Sparsed/Null Result | Sparsed/Null Result | ✅ PASSED | System gracefully waits for standard date format resolution |
 
 
+### Result on the FE
+
+![Blocco Inline Warning](https://github.com/jayasuriyanicol/Application-Cloud-Developer/blob/main/Stage%20-%20NTT%20Data/assets/images/WarningInline.png?raw=true)
+
 
 ## ✅ Outcome
 
