@@ -8,8 +8,7 @@
 
 ## ⚠️ Corporate Disclaimer & Privacy Policy
 
-> **PROPERTY OF NTT DATA Italia - Gov&Tech**
-> This repository is strictly **private** and intended exclusively for internal knowledge sharing, technical documentation, and personal educational tracking.
+> **PROPERTY OF NTT DATA Italia - Gov&Tech** > This repository is strictly **private** and intended exclusively for internal knowledge sharing, technical documentation, and personal educational tracking.
 
 > All code snippets and examples contained herein have been deliberately **anonymized, de-contextualized, and sanitized** to remove any proprietary business logic, domain-specific entities, package structures, client references, or sensitive implementation details.
 
@@ -25,7 +24,7 @@ A desynchronization defect was identified in the reactive validation flow of the
 
 The business requirement states that when a specific contract date triggers an out-of-bounds condition, the system must immediately query the backend and show an inline contextual warning banner (`visualizzaWarningCE = true`). This alert informs the operator that the selected teacher has denied or not expressed availability for the Summer Camp (*Centro Estivo*).
 
-The application failed to trigger this warning dynamically. Furthermore, a legacy codebase update left behind orphaned code artifacts and duplicated listeners, resulting in critical TypeScript compilation errors (`TS2339`) that blocked local development server builds.
+The application failed and it didn't exist until now to trigger this warning dynamically. Furthermore, a legacy codebase update left behind orphaned code artifacts and duplicated listeners, resulting in critical TypeScript compilation errors (`TS2339`) that blocked local development server builds.
 
 ### Impact
 
@@ -35,11 +34,11 @@ The application failed to trigger this warning dynamically. Furthermore, a legac
 
 ---
 
-##  Initial Erroneous Logic (Orphaned Handlers & Stream Duplication)
+## Initial Erroneous Logic (Orphaned Handlers & Stream Duplication)
 
 The original implementation suffered from event handling redundancy. 
 
-The HTML template called event bindings that were missing from the TypeScript class, causing the Angular compiler to halt the build process. Additionally, recursive value-change listeners were attached to the same reactive form control without memory-leak protection, leading to stream collisions and build-time schema errors.
+The HTML template called event bindings that were missing from the TypeScript class, causing the Angular compiler to halt the build process. Additionally, recursive value-change listeners were attached to the same reactive form control without memory-leak protection, leading to stream collisions, schema errors, and heavy database roundtrips caused by passing a redundant unique teacher identifier (`insegnanteId`).
 
 ### Conceptual Representation
 
@@ -57,4 +56,4 @@ missing inside component           causes race condition conflicts
         │                                   │
         └─────────────────┬─────────────────┘
                           ▼
-            ❌ BUILD COMPILATION FAILURE
+               ❌ BUILD COMPILATION FAILURE
