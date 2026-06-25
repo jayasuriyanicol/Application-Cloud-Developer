@@ -11,6 +11,89 @@ The logic was based on an **unoptimized event-binding approach**. The component 
 
 
 ```typescript
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
+/**
+ * NTT DATA - ANONYMIZED KNOWLEDGE BASE
+ * LEGACY IMPLEMENTATION (BROKEN & UNOPTIMIZED)
+ * * This file demonstrates the orphaned handlers and stream duplication leading to TS2339 compiler errors.
+ */
+@Component({
+  selector: 'app-contratto-create-legacy',
+  template: ``
+})
+export class ContrattoCreateComponentLegacy implements OnInit, OnDestroy {
+  private readonly destroy$ = new Subject<void>();
+  visualizzaWarningCE: boolean = false;
+  convocazione: any = { id: 1, insegnanteId: 120 };
+
+  form = this.fb.group({
+    mainData: this.fb.group({
+      dataInizio: [null, Validators.required]
+    })
+  });
+
+  constructor(private fb: UntypedFormBuilder, private contractsService: any) {}
+
+  ngOnInit(): void {
+
+    // ❌ ERROR: Stream duplication without performance constraints or parameter synchronization
+    this.form.get('mainData.dataInizio')?.valueChanges.subscribe(() => {
+      this.valutaWarningCentroEstivoRealTime();
+    });
+
+    // ❌ ERROR: Second concurrent subscription onto the same control creates race conditions
+    this.form.get('mainData.dataInizio')?.valueChanges.pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(() => {
+      // Missing contract parsing logic
+    });
+  }
+
+  valutaWarningCentroEstivoRealTime(): void {
+    const dataInizio = this.form.get('mainData.dataInizio')?.value;
+    
+    // ❌ ERROR: Legacy signature mismatch. Passing old redundant identifier 'insegnanteId'
+    // directly down to an endpoint that was refactored to handle boolean triggers.
+    this.contractsService.checkCentroEstivoWarning(dataInizio, this.convocazione.insegnanteId).subscribe({
+      next: (ris: any) => {
+        this.visualizzaWarningCE = ris.warningCE;
+      }
+    });
+  }
+
+  // ❌ ERROR: The HTML template binds to 'intercettaModificheDate($event)' but it's completely missing here,
+  // throwing critical signature compilation errors (TS2339) during development builds.
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+}
+```
+
+
+
+This joint refactoring between the Frontend and Backend addresses a parameter desynchronization issue (commonly known as the *Ghost-Filter* anomaly) within a data architecture based on the **Entity-Attribute-Value (EAV)** model.
+
+Initially, user interactions with the *"Solo Centro Estivo"* (Summer Camp Only) checkbox on the Frontend were completely ignored. This update synchronizes the entire application call chain through three primary interventions:
+
+1. **In the Angular Frontend (`CustomRegistryListComponent`):** A new reactive control is mapped within the form block, capturing the boolean state of the checkbox in real-time and embedding it into the REST API request payload.
+
+2. **In the Java Spring Boot Service Layer (`CustomRegistryServiceImpl`):** The method signature is realigned to handle the exact structural sequence of 14 execution parameters, extracting the flag as a primitive boolean to safely forward it down to the data access tier.
+
+3. **In the JPA Repository (`CustomRegistryRepository`):** An inline conditional subquery with *short-circuit* evaluation is injected. If the filter is disabled, the database engine bypasses the lookup entirely to preserve runtime performance; if enabled, it strictly isolates only the profiles that possess the specific `DISPONIBILITA_CENTRO_ESTIVO` key matched with a value of `'SI'` within the dynamic EAV relational table.
+
+
+
+
+
+
+
+```java
 package com.nttdata.portfolio.repository;
 
 import com.nttdata.portfolio.dto.AnonymizedRowDTO;
@@ -21,13 +104,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
-import java.util.List;
 
 /**
  * NTT DATA - ANONYMIZED KNOWLEDGE BASE
- * * UPDATED LOGIC (FIXED & REFACTORED):
- * Dynamic Attribute Correlation via Short-Circuit Subquery Isolation.
- * Cleans up positional signature sfasement and links the custom checkboxes to the dynamic EAV structure.
+ * LEGACY DATA ACCESS LAYER (BROKEN & UNOPTIMIZED)
+ * * ❌ BUG: Ghost-Filter Anomaly.
+ * The 'soloCentroEstivo' parameter is completely missing from the query logic.
+ * Relational EAV attributes are ignored, causing user interactions on the UI 
+ * checkbox to have zero impact on the persistence state evaluation.
  */
 @Repository
 public interface CustomRegistryRepository extends JpaRepository<CustomRegistry, Long> {
@@ -46,17 +130,6 @@ public interface CustomRegistryRepository extends JpaRepository<CustomRegistry, 
                         or lower(i.nome) like lower(concat('%', :searchText, '%'))
                         or lower(i.cognome) like lower(concat('%', :searchText, '%'))
                     )
-                    
-                    // *FIXED: Dynamic EAV short-circuit subquery intersection
-                    and (
-                        :soloCentroEstivo = false
-                        or exists (
-                            select 1 from ProfileAttributeValue pav
-                            where pav.profile.id = i.id
-                            and pav.attributeDefinition.code = 'DISPONIBILITA_CENTRO_ESTIVO'
-                            and pav.stringVal = 'SI'
-                        )
-                    )
                     """,
             countQuery = """
                     select count(r.id)
@@ -69,17 +142,6 @@ public interface CustomRegistryRepository extends JpaRepository<CustomRegistry, 
                         or lower(i.nome) like lower(concat('%', :searchText, '%'))
                         or lower(i.cognome) like lower(concat('%', :searchText, '%'))
                     )
-                    
-                    // *FIXED: Count query alignment prevents structural dynamic calculation mismatches
-                    and (
-                        :soloCentroEstivo = false
-                        or exists (
-                            select 1 from ProfileAttributeValue pav
-                            where pav.profile.id = i.id
-                            and pav.attributeDefinition.code = 'DISPONIBILITA_CENTRO_ESTIVO'
-                            and pav.stringVal = 'SI'
-                        )
-                    )
                     """
     )
     Page<AnonymizedRowDTO> searchRegistryRecords(
@@ -89,92 +151,12 @@ public interface CustomRegistryRepository extends JpaRepository<CustomRegistry, 
             @Param("searchText") String searchText,
             @Param("soloConvocabili") boolean soloConvocabili,
             
-            // *FIXED: Parameter structurally linked into the argument chain
-            @Param("soloCentroEstivo") boolean soloCentroEstivo,
+            // ❌ ERROR: The parameter stack is truncated. It does not accept 'soloCentroEstivo'
+            // causing signature sfasement and failing to map dynamic EAV relational values.
             
             @Param("applyStatusFilter") boolean applyStatusFilter,
             Pageable pageable
     );
-}
-```
-
-
-
-
-
-This joint refactoring between the Frontend and Backend addresses a parameter desynchronization issue (commonly known as the *Ghost-Filter* anomaly) within a data architecture based on the **Entity-Attribute-Value (EAV)** model.
-
-Initially, user interactions with the *"Solo Centro Estivo"* (Summer Camp Only) checkbox on the Frontend were completely ignored. This update synchronizes the entire application call chain through three primary interventions:
-
-1. **In the Angular Frontend (`CustomRegistryListComponent`):** A new reactive control is mapped within the form block, capturing the boolean state of the checkbox in real-time and embedding it into the REST API request payload.
-2. **In the Java Spring Boot Service Layer (`CustomRegistryServiceImpl`):** The method signature is realigned to handle the exact structural sequence of 14 execution parameters, extracting the flag as a primitive boolean to safely forward it down to the data access tier.
-3. **In the JPA Repository (`CustomRegistryRepository`):** An inline conditional subquery with *short-circuit* evaluation is injected. If the filter is disabled, the database engine bypasses the lookup entirely to preserve runtime performance; if enabled, it strictly isolates only the profiles that possess the specific `DISPONIBILITA_CENTRO_ESTIVO` key matched with a value of `'SI'` within the dynamic EAV relational table.
-
-
-
-
-
-
-
-```java
-package com.nttdata.portfolio.service.impl; // Logical portfolio context tracker
-
-import com.nttdata.portfolio.dto.AnonymizedRowDTO;
-import com.nttdata.portfolio.dto.SafeRequestDTO;
-import com.nttdata.portfolio.repository.CustomRegistryRepository;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import java.time.LocalDate;
-
-/**
- * NTT DATA - ANONYMIZED KNOWLEDGE BASE
- * * UPDATED LOGIC (FIXED & REFACTORED):
- * Service Layer Parameter Alignment and Safe Primitive Extraction.
- * Synchronizes the internal transaction pipeline to intercept the structural 14-parameter stack
- * and explicitly forwards the evaluated payload states directly down to the JPQL/HQL query layer.
- */
-@Service
-@Transactional(readOnly = true)
-public class CustomRegistryServiceImpl implements CustomRegistryService {
-
-    private final CustomRegistryRepository customRegistryRepository;
-
-    public CustomRegistryServiceImpl(CustomRegistryRepository customRegistryRepository) {
-        this.customRegistryRepository = customRegistryRepository;
-    }
-
-    @Override
-    public Page<AnonymizedRowDTO> getPaginatedRecords(SafeRequestDTO safeRequest, Pageable pageable) {
-        
-        // *FIXED: Local variables extraction setup correctly to comply with data model query boundaries
-        LocalDate dataDa = safeRequest.getDataDa() != null ? safeRequest.getDataDa() : LocalDate.now();
-        LocalDate dataA = safeRequest.getDataA();
-        boolean applyStatusFilter = safeRequest.getApplyStatusFilter() != null ? safeRequest.getApplyStatusFilter() : true;
-
-        // ? The calling pipeline method argument layer is refactored to exactly match the 14-attribute repository signature
-        return customRegistryRepository.searchRegistryRecords(
-                dataDa,
-                dataA,
-                safeRequest.getTipoScuolaId(),
-                this.trimToNull(safeRequest.getSearchText()),
-                Boolean.TRUE.equals(safeRequest.getSoloConvocabili()),
-
-                // *FIXED: Explicit validation passed as a structural primitive boolean to defeat the ghost-filter anomaly
-                Boolean.TRUE.equals(safeRequest.getSoloCentroEstivo()),
-                
-                applyStatusFilter,
-                pageable
-        );
-    }
-
-    private String trimToNull(String text) {
-        if (text == null || text.trim().isEmpty()) {
-            return null;
-        }
-        return text.trim();
-    }
 }
 ```
 
