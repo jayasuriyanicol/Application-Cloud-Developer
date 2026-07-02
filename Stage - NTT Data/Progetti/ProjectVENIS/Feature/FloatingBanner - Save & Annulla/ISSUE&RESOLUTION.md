@@ -1,4 +1,4 @@
-## ✅ Solution: Floating Action Banner & Dynamic Subquery Injection
+## Solution: Floating Action Banner & Dynamic Subquery Injection
 
 ### 1. Frontend: Implementation of the Global Floating Action Banner
 
@@ -31,7 +31,7 @@ AND (
 
 ---
 
-## 🧪 Validation Tests
+## Validation Tests
 
 The architecture patch was thoroughly verified against a real database sandbox environment setup (Target Record ID: 14 / Custom Attribute configured as 'SI').
 
@@ -46,12 +46,11 @@ The architecture patch was thoroughly verified against a real database sandbox e
 
 ### Visual Feedback on FE
 
-                    FE PHOTO WILL BE UPLOAD LATER
+![Floating Banner](https://github.com/jayasuriyanicol/Application-Cloud-Developer/blob/main/Stage%20-%20NTT%20Data/assets/images/FloatingBanner.png?raw=true)
 
 The Floating Action Banner displays dynamically when modifications are present, and the main dataset renders in full alignment with the custom EAV flag state:
 
-                    FE PHOTO WILL BE UPLOAD LATER
-
+![Floating Banner Page](https://github.com/jayasuriyanicol/Application-Cloud-Developer/blob/main/Stage%20-%20NTT%20Data/assets/images/FloatingBannerPage.png?raw=true)
 ---
 
 ## Technologies
