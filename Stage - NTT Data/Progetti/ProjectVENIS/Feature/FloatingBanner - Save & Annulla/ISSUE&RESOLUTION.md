@@ -13,6 +13,8 @@ A modern, sticky action bar component (`position: fixed`) was engineered to acti
 
 The component view hooks straight into an active reactive change detection stream (`valueChanges`). Rather than auto-committing input field data or hiding operation controls across static layout extremes, mutations trigger a structural state transformation that animates the overlay banner smoothly into the user's active viewport view.
 
+---
+
 ```typescript
 // Architectural implementation concept for dynamic banner visibility tracking
 this.searchForm.valueChanges
@@ -24,10 +26,15 @@ this.searchForm.valueChanges
 
 ```
 
+---
+
 * **Baseline State Tracking:** Stores a deep snapshot copy of the initial matrix configuration data upon component initialization.
+
 * **Viewport Preservation:** Ensures primary administrative validation boundaries remain fully visible to the operator at all times, regardless of the active vertical scroll position across long data rows.
 
 ---
+
+
 
 ## Validation Tests
 
@@ -46,16 +53,15 @@ The updated layout architecture was thoroughly validated across various browser 
 
 
 
----
 The Floating Action Banner displays dynamically when modifications are present, ensuring action elements track the user's focus seamlessly without forcing continuous wheel navigation:
----
+
 
 ![Floating Banner](https://github.com/jayasuriyanicol/Application-Cloud-Developer/blob/main/Stage%20-%20NTT%20Data/assets/images/FloatingBanner.png?raw=true)
+
 
 ---
 
 The system isolates actions inside a modern viewport-relative overlay layout, keeping primary operational triggers within reachable boundaries:
----
 
 ![Floating Banner Page](https://github.com/jayasuriyanicol/Application-Cloud-Developer/blob/main/Stage%20-%20NTT%20Data/assets/images/FloatingBannerPage.png?raw=true)
 
