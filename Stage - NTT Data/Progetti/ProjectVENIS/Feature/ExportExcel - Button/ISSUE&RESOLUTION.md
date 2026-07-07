@@ -77,9 +77,13 @@ The solution was fully verified against multiple views and data states to test e
 
 ---
 
-# Result on the FE
+# Results
 
-## Tested structural button design with icon and native font label matching the application specifications, here the **GESTIONE SCUOLE**:
+## Result on the FE
+
+### Implementation UX of the botton aligned in the 'FILTRA' form
+
+#### 1. Tested structural button design with icon and native font label matching the application specifications, here the **GESTIONE SCUOLE**:
 
 
 
@@ -90,8 +94,7 @@ The solution was fully verified against multiple views and data states to test e
 ---
 
 
-
-## Toolbar filter container with the button perfectly aligned horizontally next to the text input fields, here the **GESTIONE TITOLI STUDIO**:
+#### 2. Toolbar filter container with the button perfectly aligned horizontally next to the text input fields, here the **GESTIONE TITOLI STUDIO**:
 
 
 
@@ -101,6 +104,29 @@ The solution was fully verified against multiple views and data states to test e
 
 ---
 
-## ✅ Outcome
+# Result given from the FE
+
+### After clicked the button the FE give to us the Excel files based on data on FE.
+
+
+#### 1. Here the result of the click the button in the section **GESTIONE SCUOLE**, generated excel:
+
+
+
+![Excel Gestione Scuole](https://raw.githubusercontent.com/jayasuriyanicol/Application-Cloud-Developer/7b56a6ab901d9c833ba29a60c5d4aeb593a5d946/Stage%20-%20NTT%20Data/assets/images/Excel_GestioneScuole.png)
+
+--- 
+
+#### 2. Here the result of the click the button in the section **GESTIONE TITOLI STUDIO**, generated excel:
+
+![Excel Gestione Titoli Studio](https://raw.githubusercontent.com/jayasuriyanicol/Application-Cloud-Developer/7b56a6ab901d9c833ba29a60c5d4aeb593a5d946/Stage%20-%20NTT%20Data/assets/images/Excel_GestioneTitoliStudio.png)
+
+
+
+
+
+
+
+## Outcome
 
 The software architecture now cleanly handles client-side reporting utilities without overloading the core component files. It completely eliminates duplicated code by switching to a shared, reusable service strategy, while ensuring a premium user experience across all configuration modules by neutralizing design alignment offsets and balancing the template structure.
