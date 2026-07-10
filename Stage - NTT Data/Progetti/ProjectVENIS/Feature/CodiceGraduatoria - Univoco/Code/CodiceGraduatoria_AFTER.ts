@@ -30,7 +30,7 @@ goNextStep1(stepper: any): void {
     },
     error: () => {
       this.isCheckingCodice = false;
-      alert('SERVICE TEMPORARILY UNAVAILABLE. PLEASE TRY AGAIN.');
+      snackBar('SERVICE TEMPORARILY UNAVAILABLE. PLEASE TRY AGAIN.');
     }
   });
 }
