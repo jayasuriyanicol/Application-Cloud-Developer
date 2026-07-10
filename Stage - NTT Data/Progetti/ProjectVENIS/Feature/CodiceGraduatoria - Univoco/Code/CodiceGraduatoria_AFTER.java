@@ -28,18 +28,21 @@ public interface GraduatoriaInfoRepository extends JpaRepository<GraduatoriaInfo
 
 /* 2. Business Logic Layer (`GraduatoriaService.java`)
 
-Before saving the final payload, the service invokes the repository check as a backend safety guard, throwing a dedicated business exception if an invalid code tries to bypass the UI layer.
+Before saving the final payload, check the existing of a CodiceGraduatoria triming the spaces
 */
 
 
-public GraduatoriaDTO save(GraduatoriaDTO graduatoriaDTO) {
-    if (graduatoriaDTO.getCodice() != null) {
-        String sanitizedCode = graduatoriaDTO.getCodice().toUpperCase().replaceAll("\\s+", "");
-        
-        if (graduatoriaInfoRepository.existsByCodice(sanitizedCode)) {
-            throw new BusinessException("The ranking code is already in use within the system.");
+
+    // ?CHECK: check the existing of a CodiceGraduatoria triming the spaces
+    @Transactional(readOnly = true)
+    public boolean existsByCodice(String codiceGraduatoria) {
+        if (codiceGraduatoria == null) {
+            return false;
         }
+
+        String sanitizedCode = codiceGraduatoria.toUpperCase().replaceAll(" ", "");
+
+        return graduatoriaInfoRepository.existsByCodice(sanitizedCode);
     }
-    return proceedWithSave(graduatoriaDTO);
-}
+
 
