@@ -6,7 +6,7 @@
 public class ContrattoProrogaDomainService {
     private final SchoolCalendarRepository schoolCalendarRepository;
 
-    public ProrogaCalculationResult calculate(...) {
+    public ProrogaCalculationResult calculate(data:Data) {
         // ?Refactored: O(1) indexed lookup retrieving a single target record from the database
         SchoolCalendar publishedCalendar = schoolCalendarRepository
             .findFirstByStatusOrderByEndDateDesc(SchoolCalendarStatus.PUBLISHED)
