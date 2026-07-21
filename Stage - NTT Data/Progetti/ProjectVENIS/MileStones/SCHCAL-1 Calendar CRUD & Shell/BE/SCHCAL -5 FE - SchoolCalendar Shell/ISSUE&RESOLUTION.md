@@ -181,13 +181,39 @@ Following the implementation we verified the process in order to process correct
 
 Impact tests, with green:
 
-                            "Photo will be upload later"
-![SchCalShell IMPACT]()
+![SchCalShell IMPACT](https://github.com/jayasuriyanicol/Application-Cloud-Developer/blob/main/Stage%20-%20NTT%20Data/assets/images/SchoolCalendarList%20-%20ImpactFE.png?raw=true)
+
+---
 
 Result on FE, of the dedicated PAGE
 
-![SchCalShell FE]()
-                            "Photo will be upload later"
+![SchCalShell FE](https://github.com/jayasuriyanicol/Application-Cloud-Developer/blob/main/Stage%20-%20NTT%20Data/assets/images/SchoolCalendarShell%20-%20ResultFE.png?raw=true)
+
+---
+
+Tested also the functionalities of validation:
+
+1. Empty field in  `Nome calendario`, that generate a warning inline:
+
+![SchCalShell TEST1 ](https://github.com/jayasuriyanicol/Application-Cloud-Developer/blob/main/Stage%20-%20NTT%20Data/assets/images/SchoolCalendaShell%20-%20TEST1.png?raw=true)
+
+---
+
+2. Testata calendar form search in `SchoolCalendarDetail` here the good research
+
+![SchCalShell TEST3 ](https://github.com/jayasuriyanicol/Application-Cloud-Developer/blob/main/Stage%20-%20NTT%20Data/assets/images/SchoolCalendarShell%20-%20TEST3.png?raw=true)
+
+
+---
+
+3. Button calendar form search in `Salva Bozza`, if there are some errors like: date incongrunce, empty fields. Prevent the send of message
+
+![SchCalShell TEST2 ](https://github.com/jayasuriyanicol/Application-Cloud-Developer/blob/main/Stage%20-%20NTT%20Data/assets/images/SchoolCalendarShell%20-%20TEST2.png?raw=true)
+
+
+---
+
+                            
 
 ### Test Results
 
