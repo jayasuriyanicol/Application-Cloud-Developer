@@ -1,4 +1,4 @@
-## Solution; Creation dedicated page 
+## Solution: Creation dedicated page 
 
 To resolve the problem we created a dedicated page to manage the update and visualization of data calendar, as here the 
 structure in *HTML* to divide the browser page into div classes.
