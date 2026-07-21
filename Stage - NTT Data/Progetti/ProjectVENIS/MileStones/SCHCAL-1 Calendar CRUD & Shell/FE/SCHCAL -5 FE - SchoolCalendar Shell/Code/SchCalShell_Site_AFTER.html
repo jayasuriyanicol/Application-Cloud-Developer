@@ -1,0 +1,113 @@
+<!--PAGE SITE : SchoolCalendarDetailComponent: This component is responsible for displaying the details of a specific school calendar. 
+    It fetches the calendar data from the backend using the provided calendar ID and displays various sections such as the weekly pattern, 
+    rules, generated days, and available actions.
+-->
+    
+<div class="calendar-detail-container container-fluid p-4">
+
+  <!-- CARICAMENTO PAGE -->
+  <div *ngIf="isLoading" class="d-flex justify-content-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">CARICAMENTO IN CORSO ...</span>
+    </div>
+  </div>
+
+  <!-- MESSAGGIO NOT FOUND O ERROR -->
+  <div *ngIf="hasError && !isLoading"
+       class="d-flex justify-content-center align-items-center"
+       style="min-height: 60vh; width: 100%;">
+
+    <div class="alert alert-danger text-center" role="alert" style="max-width: 500px; width: 100%;">
+      <h4 class="alert-heading">ATTENZIONE NESSUN CALENDARIO TROVATO!</h4>
+      <hr>
+      <p>{{ errorMessage }}</p>
+      <hr>
+      <button class="btn btn-outline-danger btn-sm" (click)="loadCalendarDetails()">Riprova</button>
+    </div>
+
+  </div>
+
+  <!-- TEMPLATE VISTA CALENDARIO -->
+  <div *ngIf="calendar && !isLoading && !hasError" class="calendar-content animate-fade-in">
+
+    <!-- PRIMA SEZIONE: TESTATA CALENDARIO-->
+    <header class="calendar-header mb-4 p-3 bg-white border rounded shadow-sm">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <span class="badge bg-secondary mb-1">{{ calendar.status }}</span>
+          <h1 class="h3 mb-0">{{ calendar.name }}</h1>
+          <p class="text-muted mb-0">Anno Scolastico: {{ calendar.schoolYear }}</p>
+        </div>
+        <div class="calendar-dates text-end">
+          <span class="d-block"><strong>Inizio:</strong> {{ calendar.startDate | date:'dd/MM/yyyy' }}</span>
+          <span class="d-block"><strong>Fine:</strong> {{ calendar.endDate | date:'dd/MM/yyyy' }}</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="row">
+      <div class="col-md-8">
+
+        <!-- SECONDA SEZIONE: PATTERN SETTIMANALE -->
+        <section class="calendar-section mb-4 p-3 bg-white border rounded shadow-sm">
+          <h2 class="h5 border-bottom pb-2 mb-3">Pattern Settimanale (Giorni Lavorativi)</h2>
+          <div class="d-flex gap-2 flex-wrap">
+            <span class="badge" [ngClass]="calendar.pattern.monday ? 'bg-success' : 'bg-light text-muted'">Lunedì</span>
+            <span class="badge" [ngClass]="calendar.pattern.tuesday ? 'bg-success' : 'bg-light text-muted'">Martedì</span>
+            <span class="badge" [ngClass]="calendar.pattern.wednesday ? 'bg-success' : 'bg-light text-muted'">Mercoledì</span>
+            <span class="badge" [ngClass]="calendar.pattern.thursday ? 'bg-success' : 'bg-light text-muted'">Giovedì</span>
+            <span class="badge" [ngClass]="calendar.pattern.friday ? 'bg-success' : 'bg-light text-muted'">Venerdì</span>
+            <span class="badge" [ngClass]="calendar.pattern.saturday ? 'bg-success' : 'bg-light text-muted'">Sabato</span>
+            <span class="badge" [ngClass]="calendar.pattern.sunday ? 'bg-success' : 'bg-light text-muted'">Domenica</span>
+          </div>
+        </section>
+
+        <!-- TERZA SEZIONE: REGOLE / FESTIVITÀ -->
+        <section class="calendar-section mb-4 p-3 bg-white border rounded shadow-sm">
+          <h2 class="h5 border-bottom pb-2 mb-3">Regole e Festività ({{ calendar.rules.length }})</h2>
+          <p *ngIf="calendar.rules.length === 0" class="text-muted">ATTENZIONE ! Non risulta nessuna regola configurata per questo calendario.</p>
+
+          <ul *ngIf="calendar.rules.length > 0" class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let rule of calendar.rules">
+              <div>
+                <strong>{{ rule.reason }}</strong>
+                <span class="text-muted ms-2">({{ rule.ruleType }})</span>
+              </div>
+              <span class="badge bg-primary rounded-pill">Ordine: {{ rule.ruleOrder }}</span>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+
+      <div class="col-md-4">
+
+        <!-- QUARTA SEZIONE: PREVIEW (Giorni Generati) -->
+        <section class="calendar-section mb-4 p-3 bg-white border rounded shadow-sm">
+          <h2 class="h5 border-bottom pb-2 mb-3">Preview Giorni Generati ({{ calendar.generatedDays.length }})</h2>
+          <p *ngIf="calendar.generatedDays.length === 0" class="text-muted">I giorni per questo calendario non sono ancora stati generati.</p>
+          <div *ngIf="calendar.generatedDays.length > 0" class="preview-box" style="max-height: 250px; overflow-y: auto;">
+            <div class="d-flex justify-content-between p-2 border-bottom" *ngFor="let day of calendar.generatedDays">
+              <span>{{ day.calendarDate | date:'dd/MM/yyyy' }}</span>
+              <span class="badge" [ngClass]="day.workingDay ? 'bg-success' : 'bg-danger'">
+                 {{ day.workingDay ? 'Lavorativo' : 'Festivo' }}
+               </span>
+            </div>
+          </div>
+        </section>
+
+        <!-- TODO: SEZIONE BOTTONI ANCORA DA AGGANCIARE -->
+        <section class="calendar-section mb-4 p-3 bg-white border rounded shadow-sm">
+          <h2 class="h5 border-bottom pb-2 mb-3">Azioni Disponibili</h2>
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" [disabled]="calendar.status !== 'DRAFT'">Genera Giorni</button>
+            <button class="btn btn-outline-success" [disabled]="calendar.status !== 'DRAFT'">Pubblica Calendario</button>
+            <button class="btn btn-outline-danger" [disabled]="calendar.status !== 'DRAFT'">Elimina Bozza</button>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+  </div>
+</div>
