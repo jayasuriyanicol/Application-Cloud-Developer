@@ -32,7 +32,9 @@ Angular UI Shell ──> GateService (Bearer Token) ──> Gateway / API ──
 ### Business Rules & Constraints
 
 * **DRAFT Creation Endpoint:** Creation requests must be processed under `/api/supplenti-bo/school-calendars`, protected by `@Valid` annotations, and returned within the standard `ServiceResponse.success()` payload.
+
 * **Gateway & Bearer Authentication:** All detail retrieval calls (`GET /{id}`) originating from Angular must pass through `GateService` using dynamic environment configurations to enforce automated Bearer Token injection without altering `WebSecurityConfig`.
+
 * **Standardized Payload Alignment:** Pure DTOs returned directly by Hibernate persistence queries must be safely wrapped on the frontend to match the application's generic `ServiceResponse` contract.
 
 ---
@@ -42,7 +44,9 @@ Angular UI Shell ──> GateService (Bearer Token) ──> Gateway / API ──
 During the initial integration of the frontend calendar shell with the Backoffice backend, three critical architectural blockers were identified:
 
 1. **401 UNAUTHORIZED ERRORS:** `SchoolCalendarService` in Angular was invoking direct backend URLs instead of routing through `GateService`, bypassing automatic Bearer Token injection.
+
 2. **DATA MAPPING MISMATCH:** The backend `GET /{id}` endpoint returned a pure DTO entity directly from Hibernate, whereas the Angular service expected a wrapped `ServiceResponse<T>` object, causing runtime parsing errors.
+
 3. **MISSING BACKOFFICE ROUTE:** The Angular routing module lacked dedicated mappings for the new Backoffice endpoints under `/api/supplenti-bo/school-calendars`.
 
 ---
@@ -52,7 +56,9 @@ During the initial integration of the frontend calendar shell with the Backoffic
 An inspection across the API Gateway and Angular service layers highlighted the need for structural alignment:
 
 1. **Hardcoded Service URLs:** Bypassing environment-driven gateway routing meant credentials and tokens were not attached to HTTP request headers.
+
 2. **Contract Asymmetry:** The `POST` endpoint returned a `ServiceResponse` wrapper, but the `GET` detail endpoint returned a unwrapped DTO. Enforcing a unified UI model required handling this asymmetry on the client side.
+
 3. **UI Layout Prototype Status:** The shell view required an initial implementation to support navigation and data fetching, while remaining modular for upcoming UI/UX pattern refinements.
 
 ---
@@ -172,7 +178,9 @@ export class SchoolCalendarShellComponent implements OnInit {
 To guarantee zero-regression and confirm successful end-to-end integration, the following validation steps were completed:
 
 * **Frontend Unit Tests:** Executed test suites across all created and modified components (`ng test` via Vitest) to ensure complete component instantiation and service coverage.
+
 * **Console & Security Diagnostics:** Verified in browser developer tools that requests pass through `GateService`, injecting dynamic Bearer Tokens without requiring modifications to backend `WebSecurityConfig`.
+
 * **Shell Verification:** Confirmed that the preliminary UI Shell renders correctly when bound to active routes, safely transforming pure backend DTOs into expected frontend models.
 
 ---
@@ -180,7 +188,6 @@ To guarantee zero-regression and confirm successful end-to-end integration, the 
 ## Technologies Used
 
 * Java 17 / Spring Boot 3
-* Spring Data JPA / Hibernate
 * Jakarta Validation API (JSR-380)
 * Angular 17+ / RxJS
 * API Gateway Integration (`GateService`)

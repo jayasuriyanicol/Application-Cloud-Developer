@@ -1,6 +1,6 @@
-## Solution: UI Integration Calendar SHELL & Gateway Adaptation
+## Solution: UI Creation & Integration Calendar Header SHELL
 
-To resolve the authorization blocks (`401 Unauthorized`), eliminate payload mapping mismatches, and establish the Angular UI Shell integration, dedicated Backoffice endpoints were exposed and client-side communication adapters were introduced.
+In order to create and resolve the authorization blocks (`401 Unauthorized`), eliminate payload mapping mismatches, and establish the Angular UI Shell integration, dedicated Backoffice endpoints were exposed and client-side communication adapters were introduced.
 
 ```typescript
 // *Architectural highlight of the GateService dynamic token injection & RxJS data mapping adapter
@@ -98,7 +98,48 @@ export class SchoolCalendarShellComponent implements OnInit {
 
 ## TEST
 
-Following the completion of the GateService integration and RxJS adapter implementation, a suite of automated frontend tests, browser console security checks, and shell route validations was executed.
+1. Here the sum-up of the IMPACT test **ALL PASSED:** 
+
+![SchCalShe IMPACT](https://raw.githubusercontent.com/jayasuriyanicol/Application-Cloud-Developer/b7d7adca0cac17499994b19d934863eb70af5b37/Sistemi%20Digitali_/SchoolCalendarShell%20Header%20-%20ImpactFE.png)
+
+---
+
+2. Here the Correct Test's of Header Insertion, to TEST the **ERRORE INLINE:**
+
+![SchCalShe Err1](https://raw.githubusercontent.com/jayasuriyanicol/Application-Cloud-Developer/b7d7adca0cac17499994b19d934863eb70af5b37/Stage%20-%20NTT%20Data/assets/images/SchoolCalendarShell%20Header%20-%20Error1.png)
+
+
+---
+
+3. The second error inlinem to check the insertion of **NO CALENDAR NAME:**
+
+![SchCalShe Err2](https://raw.githubusercontent.com/jayasuriyanicol/Application-Cloud-Developer/b7d7adca0cac17499994b19d934863eb70af5b37/Stage%20-%20NTT%20Data/assets/images/SchoolCalendarShell%20Header%20-%20Error2.png)
+
+---
+
+4. In all this cases, we have the **BUTTON UNTOGGLED**, to prevent any type of incorrect INSERTION:
+
+![SchCalShe Button](https://raw.githubusercontent.com/jayasuriyanicol/Application-Cloud-Developer/b7d7adca0cac17499994b19d934863eb70af5b37/Stage%20-%20NTT%20Data/assets/images/SchoolCalendarShell%20Header%20-%20UnToggle%20Button.png)
+
+---
+
+5. Result of passed data, **PAYLOAD passed CORRECTLY:**
+
+![SchCalShe ResPayload](https://raw.githubusercontent.com/jayasuriyanicol/Application-Cloud-Developer/b7d7adca0cac17499994b19d934863eb70af5b37/Stage%20-%20NTT%20Data/assets/images/SchoolCalendarShell%20Header%20-%20ResultPayLoad.png)
+
+---
+
+6. UX Header calendar show up, **FEATURE HEADER INFO:**
+
+![SchCalShe ResHeadUx](https://raw.githubusercontent.com/jayasuriyanicol/Application-Cloud-Developer/b7d7adca0cac17499994b19d934863eb70af5b37/Stage%20-%20NTT%20Data/assets/images/SchoolCalendarShell%20Header%20-%20Result%20UX.png)
+
+--- 
+
+7. UX/UI In the SchoolCalendarShell, showed up in the page: 
+
+![SchCalShe CalShell](https://raw.githubusercontent.com/jayasuriyanicol/Application-Cloud-Developer/b7d7adca0cac17499994b19d934863eb70af5b37/Stage%20-%20NTT%20Data/assets/images/SchoolCalendarShell%20Header%20-%20ResultShell.png)
+
+---
 
 ### Result on the FE & Security Gateway
 
