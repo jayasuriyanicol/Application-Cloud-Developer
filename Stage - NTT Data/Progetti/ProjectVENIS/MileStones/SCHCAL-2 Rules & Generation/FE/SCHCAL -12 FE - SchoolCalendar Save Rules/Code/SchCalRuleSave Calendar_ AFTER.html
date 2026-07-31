@@ -1,0 +1,8 @@
+  <!-- TEMPLATE VISTA CALENDARIO ESISTENTE -->
+  <div *ngIf="calendar && !isLoading && !isNotFound" class="calendar-content animate-fade-in">
+
+    <!-- ERROR WARNING SALVATAGGIO NON ANDATO A BUON FINE -->
+    <div *ngIf="hasError && errorMessage" class="alert alert-danger alert-dismissible fade show mb-4 shadow-sm" role="alert">
+      <strong>ERRORE NEL CARICAMENTO DEL DATO</strong> {{ errorMessage }}
+      <button type="button" class="btn-close" (click)="hasError = false" aria-label="Close"></button>
+    </div>
