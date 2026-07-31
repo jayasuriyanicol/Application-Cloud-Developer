@@ -1,0 +1,90 @@
+
+  <!-- Vista Calendario Esistente -->
+  @if (calendar && !isLoading && !isNotFound) {
+    <div class="calendar-content animate-fade-in">
+
+      <!-- Notifica errore salvataggio o rigenerazione -->
+      @if (hasError && errorMessage) {
+        <div class="alert alert-danger alert-dismissible fade show mb-4 shadow-sm" role="alert">
+          <strong>Errore:</strong> {{ errorMessage }}
+          <button type="button" class="btn-close" (click)="hasError = false" aria-label="Close"></button>
+        </div>
+      }
+
+      <!-- Prima Sezione: Testata Calendario -->
+      <header class="calendar-header mb-4 p-3 bg-white border rounded shadow-sm">
+        <app-school-calendar-header-form
+          [calendarData]="calendar"
+          (onSave)="handleHeaderSave($event)">
+        </app-school-calendar-header-form>
+      </header>
+
+      <div class="row">
+        <div class="col-md-8">
+
+          <!-- Seconda Sezione: Pattern Settimanale -->
+          <section class="calendar-section mb-4 p-3 bg-white border rounded shadow-sm">
+            <app-weekly-pattern-editor
+              [pattern]="calendar.pattern"
+              [isReadOnly]="calendar.status === 'PUBLISHED'"
+              (onPatternSave)="handlePatternSave($event)">
+            </app-weekly-pattern-editor>
+          </section>
+
+          <!-- Terza Sezione: Regole e Festività -->
+          <section class="calendar-section mb-4 p-3 bg-white border rounded shadow-sm">
+            <app-calendar-rules-table
+              [rules]="calendar.rules || []"
+              [isReadOnly]="calendar.status === 'PUBLISHED'"
+              [isSaving]="isSaving"
+              (rulesChange)="handleRulesChange($event)">
+            </app-calendar-rules-table>
+          </section>
+
+        </div>
+
+        <div class="col-md-4">
+
+          <!-- Quarta Sezione: Anteprima Giorni Generati -->
+          <section class="calendar-section mb-4 p-3 bg-white border rounded shadow-sm">
+            <h2 class="h5 border-bottom pb-2 mb-3">Preview Giorni Generati ({{ calendar.generatedDays?.length || 0 }})</h2>
+
+            @if (!calendar.generatedDays || calendar.generatedDays.length === 0) {
+              <p class="text-muted">
+                Attenzione! I giorni per questo calendario non sono ancora stati generati.
+              </p>
+            } @else {
+              <div class="preview-box" style="max-height: 250px; overflow-y: auto;">
+                @for (day of calendar.generatedDays; track day.date) {
+                  <div class="d-flex justify-content-between p-2 border-bottom">
+                    <span>{{ day.date | date:'dd/MM/yyyy' }}</span>
+                    <span class="badge" [ngClass]="day.workingDay ? 'bg-success' : 'bg-danger'">
+                      {{ day.workingDay ? 'Lavorativo' : 'Festivo' }}
+                    </span>
+                  </div>
+                }
+              </div>
+            }
+          </section>
+
+          <!-- Sezione Azioni -->
+          <section class="calendar-section mb-4 p-3 bg-white border rounded shadow-sm">
+            <h2 class="h5 border-bottom pb-2 mb-3">Azioni Disponibili</h2>
+            <div class="d-grid gap-2">
+
+              <button
+                type="button"
+                class="btn btn-primary"
+                [disabled]="isGenerating || calendar.status === 'PUBLISHED' || !isCalendarValidForGeneration"
+                (click)="onGenerateCalendar()">
+
+                @if (isGenerating) {
+                  <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+                } @else {
+                  <i class="bi bi-arrow-repeat me-1"></i>
+                }
+                Rigenera calendario
+              </button>
+
+              <button class="btn btn-outline-success" [disabled]="calendar.status !== 'DRAFT'">Pubblica Calendario</button>
+              <button class="btn btn-outline-danger" [disabled]="calendar.status !== 'DRAFT'">Elimina Bozza</button>
