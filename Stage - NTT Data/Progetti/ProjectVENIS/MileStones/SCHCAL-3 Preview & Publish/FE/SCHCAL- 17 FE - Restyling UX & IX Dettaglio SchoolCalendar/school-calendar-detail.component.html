@@ -1,0 +1,50 @@
+<div class="container-fluid py-4">
+  <!-- Header of the page -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Dettaglio Calendario Scolastico</h2>
+    
+    <!-- Action buttons, 'Elimina Bozza' removed on refactoring -->
+    <div class="action-buttons" *ngIf="calendar && !isLoading">
+      <button class="btn btn-outline-secondary me-2" routerLink="/calendari">
+        <i class="bi bi-arrow-left"></i> Torna alla lista
+      </button>
+      <button class="btn btn-primary" *ngIf="calendar.status === 'DRAFT'">
+        <i class="bi bi-pencil"></i> Modifica
+      </button>
+    </div>
+  </div>
+
+  <!-- Management of loading state -->
+  <div class="text-center my-5" *ngIf="isLoading">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Caricamento in corso...</span>
+    </div>
+  </div>
+
+  <!-- Error message -->
+  <div class="alert alert-danger" *ngIf="errorMessage && !isLoading" role="alert">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Detail of Data (Visible after loading is complete) -->
+  <div class="card shadow-sm" *ngIf="calendar && !isLoading">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label text-muted">Anno Accademico</label>
+          <p class="fw-bold">{{ calendar.academicYear }}</p>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label text-muted">Stato Calendario</label>
+          <p>
+            <span class="badge rounded-pill" 
+                  [ngClass]="{'bg-warning': calendar.status === 'DRAFT', 'bg-success': calendar.status === 'PUBLISHED'}">
+              {{ calendar.status }}
+            </span>
+          </p>
+        </div>
+        <!-- Other fields mapped directly from the BE ...-->
+      </div>
+    </div>
+  </div>
+</div>
