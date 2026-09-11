@@ -1,13 +1,17 @@
 # THIRD MILESTONE: SCHCAL-3 Preview & Publish
 
-For this last third milestone, was the adapt/align of the applicativo in order to create the perfect ecosistema to the page FE & BE of **SchoolCalendar Page Shell**. 
+This final third milestone focused on the complete alignment and refactoring of the application to create a robust, production-ready ecosystem for the **SchoolCalendar Page Shell** across both the Frontend (FE) and Backend (BE). 
 
+In a nutshell, this was the "adapt and align" milestone. The core objective was to finalize the integration and avoid potential bugs or architectural issues before the final release of the **SchoolCalendar Page Shell**. Key achievements during this phase included:
 
-This in a nutshell is the adapt/align Milestone, to avoid bug/issue int he final present of the **SchoolCalendar Page Shell**.
+* **UX/IX to BE Migration:** Fully refactoring the *Dettaglio Calendario Scolastico* page to consume real backend REST services instead of relying on static UX/IX frontend mocks.
+* **UI/UX Cleanup:** Streamlining the interface by removing obsolete controls (such as the deprecated "Elimina Bozza" button) and cleaning up unused styles to match the final production design.
+* **Git History Optimization:** Surgically cleaning up the branch history to eliminate intermediate and redundant commits, ensuring a clean, linear, and professional Merge Request.
+
 ---
 
-![Result ThirdMileStone](https://raw.githubusercontent.com/jayasuriyanicol/Application-Cloud-Developer/7556c4ccb90d6596f55a6b1102c8547eb351eee0/Stage%20-%20NTT%20Data/assets/images/Result%20Detail%20-%20Third%20Milestone.png)
+![Result ThirdMileStone](https://github.com/jayasuriyanicol/Application-Cloud-Developer/blob/main/Stage%20-%20NTT%20Data/assets/images/Result%20Detail%20-%20Third%20Milestone.png?raw=true)
 
 ---
 
-This rapresent the statistics of me and my colleague due this third Milestone. 
+This represents the contribution and performance statistics of my colleague and me during this third milestone.
