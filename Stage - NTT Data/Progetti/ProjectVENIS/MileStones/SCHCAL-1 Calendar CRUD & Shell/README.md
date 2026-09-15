@@ -1,6 +1,6 @@
 # FIRST MILESTONE: SCHCAL-1 Calendar CRUD & Shell 
 
-For this first milestone, was a preliminate step to create tje fist **SchoolCalendar Shell** in order to prepareate all as a nude FE shell.
+For this first milestone, was a preliminate step to create the fist **SchoolCalendar Shell** in order to prepareate all as a nude FE shell.
 
 
 This in a nutshell is the beginning Milestone, to link with *usage of ENDPOINTS* the BE structure to the FE, via API.
