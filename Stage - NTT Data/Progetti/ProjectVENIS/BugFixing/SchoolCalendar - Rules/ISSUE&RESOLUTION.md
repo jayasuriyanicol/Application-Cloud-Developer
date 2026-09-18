@@ -41,17 +41,22 @@ it('should block adding a rule with a duplicated singleDate', () => {
 
 #### 1. Tested the calculation with a valid non-overlapping rule:
 
-*(Placeholder per screenshot: inserimento regola corretta)*
+![Overlapping Date](https://github.com/jayasuriyanicol/Application-Cloud-Developer/blob/main/Stage%20-%20NTT%20Data/assets/images/SchoolCalendarManagement%20-%20ResultFESinglDate.png?raw=true)
+
 **Result:** Rule added to the local table successfully.
 
+---
 #### 2. Tested the calculation with a duplicated Rule Order:
 
-*(Placeholder per screenshot: Errore Ordinamento)*
+![Ord Date](https://github.com/jayasuriyanicol/Application-Cloud-Developer/blob/main/Stage%20-%20NTT%20Data/assets/images/SchoolCalendarManagement%20-%20ResultFEOrd.png?raw=true)
+
 **Result:** Immediate UI alert showing the conflicting order number and reason in bold, blocking insertion.
 
+---
 #### 3. Tested the calculation with a duplicated Date / Interval:
 
-*(Placeholder per screenshot: Errore Data/Intervallo Identico)*
+
+![Interval Date](https://github.com/jayasuriyanicol/Application-Cloud-Developer/blob/main/Stage%20-%20NTT%20Data/assets/images/SchoolCalendarManagement%20-%20ResultFEInterv.png?raw=true)
 **Result:** Immediate UI alert showing the formatted `dayjs` date in bold, blocking insertion.
 
 ---
