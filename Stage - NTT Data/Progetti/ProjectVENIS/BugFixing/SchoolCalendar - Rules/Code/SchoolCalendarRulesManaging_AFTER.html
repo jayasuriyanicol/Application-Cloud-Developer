@@ -1,0 +1,12 @@
+<!-- AFTER (HTML): Encapsulated native CSS and secure interpolation -->
+@if (localWarningData) {
+  <div class="alert alert-warning py-2 small" role="alert">
+    <i class="bi bi-exclamation-triangle-fill"></i>
+    {{ localWarningData.prefix }}
+    <span class="fw-bold">{{ localWarningData.highlight }}</span>
+    {{ localWarningData.middle || '' }}
+    @if(localWarningData.highlight2){ <span class="fw-bold">{{ localWarningData.highlight2 }}</span> }
+    {{ localWarningData.suffix }}
+  </div>
+}
+
